@@ -1,0 +1,257 @@
+[
+  {
+    "exhibitor_id": 915,
+    "company_name": "goSmart GmbH",
+    "country": "Germany",
+    "score": 65,
+    "src": "low",
+    "issues": [
+      "only_generic_product",
+      "score>=60_but_no_targets"
+    ]
+  },
+  {
+    "exhibitor_id": 2462,
+    "company_name": "IREPA LASER",
+    "country": "France",
+    "score": 40,
+    "src": "low",
+    "issues": [
+      "why_target_templated"
+    ]
+  },
+  {
+    "exhibitor_id": 1723,
+    "company_name": "REMORQUES LOUAULT",
+    "country": "France",
+    "score": 65,
+    "src": "medium",
+    "issues": [
+      "only_generic_product"
+    ]
+  },
+  {
+    "exhibitor_id": 2011,
+    "company_name": "STARPLAST",
+    "country": "France",
+    "score": 50,
+    "src": "low",
+    "issues": [
+      "only_generic_product"
+    ]
+  },
+  {
+    "exhibitor_id": 2403,
+    "company_name": "CYBERGUN GROUP (ARKANIA GROUP)",
+    "country": "France",
+    "score": 100,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 2516,
+    "company_name": "PARSEC",
+    "country": "France",
+    "score": 40,
+    "src": "low",
+    "issues": [
+      "why_target_templated"
+    ]
+  },
+  {
+    "exhibitor_id": 331,
+    "company_name": "BOOXit",
+    "country": "Austria",
+    "score": 80,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 1461,
+    "company_name": "NAMMA",
+    "country": "France",
+    "score": 85,
+    "src": "medium",
+    "issues": [
+      "score>=60_but_no_targets"
+    ]
+  },
+  {
+    "exhibitor_id": 2284,
+    "company_name": "WF Maschinenbau",
+    "country": "Germany",
+    "score": 60,
+    "src": "medium",
+    "issues": [
+      "why_target_templated",
+      "score>=60_but_no_targets"
+    ]
+  },
+  {
+    "exhibitor_id": 2366,
+    "company_name": "ATS INTERNATIONAL",
+    "country": "France",
+    "score": 65,
+    "src": "manual",
+    "issues": [
+      "score>=60_but_no_products"
+    ]
+  },
+  {
+    "exhibitor_id": 102,
+    "company_name": "Allianz Vie",
+    "country": "France",
+    "score": 65,
+    "src": "manual",
+    "issues": [
+      "score>=60_but_no_products"
+    ]
+  },
+  {
+    "exhibitor_id": 2400,
+    "company_name": "CRITICAL BUILDING",
+    "country": "France",
+    "score": 80,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 477,
+    "company_name": "CONDOR S/A INDUSTRIA QUIMICA",
+    "country": "Brazil",
+    "score": 85,
+    "src": "manual",
+    "issues": [
+      "activity_too_long(141c)"
+    ]
+  },
+  {
+    "exhibitor_id": 2459,
+    "company_name": "INGEROP CONSEIL & INGÉNIERIE",
+    "country": "France",
+    "score": 40,
+    "src": "low",
+    "issues": [
+      "why_target_templated"
+    ]
+  },
+  {
+    "exhibitor_id": 2012,
+    "company_name": "STARTER",
+    "country": "France",
+    "score": 65,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 1721,
+    "company_name": "REM RESSORTS",
+    "country": "France",
+    "score": 65,
+    "src": "low",
+    "issues": [
+      "score>=60_but_no_products",
+      "score>=60_but_no_targets"
+    ]
+  },
+  {
+    "exhibitor_id": 2102,
+    "company_name": "TEK CAN",
+    "country": "Turkey",
+    "score": 80,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 2122,
+    "company_name": "THALES",
+    "country": "France",
+    "score": 85,
+    "src": "manual",
+    "issues": [
+      "activity_too_long(141c)"
+    ]
+  },
+  {
+    "exhibitor_id": 2358,
+    "company_name": "APS COATING SOLUTIONS",
+    "country": "France",
+    "score": 80,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 529,
+    "company_name": "Daff",
+    "country": "Chile",
+    "score": 100,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 2549,
+    "company_name": "SPARE PARTS 3D",
+    "country": "France",
+    "score": 80,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  },
+  {
+    "exhibitor_id": 2567,
+    "company_name": "TIXEO",
+    "country": "France",
+    "score": 40,
+    "src": "low",
+    "issues": [
+      "why_target_templated"
+    ]
+  },
+  {
+    "exhibitor_id": 1923,
+    "company_name": "SILMOR",
+    "country": "Latvia",
+    "score": 65,
+    "src": "manual",
+    "issues": [
+      "activity_thin_data",
+      "score>=60_but_no_products",
+      "why_target_templated"
+    ]
+  },
+  {
+    "exhibitor_id": 1962,
+    "company_name": "SOFEMA",
+    "country": "France",
+    "score": 65,
+    "src": "low",
+    "issues": [
+      "only_generic_product"
+    ]
+  },
+  {
+    "exhibitor_id": 614,
+    "company_name": "DR. WERNER RÖHRS GMBH & CO.KG",
+    "country": "Germany",
+    "score": 100,
+    "src": "manual",
+    "issues": [
+      "categories_only_autre"
+    ]
+  }
+]

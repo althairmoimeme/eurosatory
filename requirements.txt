@@ -1,0 +1,20 @@
+# Cloud deploy requirements (Streamlit Community Cloud / minimal Render).
+# Heavier dev / scraping deps live in ``requirements-dev.txt``.
+
+streamlit>=1.55,<2
+pandas>=2.2,<3
+sqlalchemy>=2.0,<3
+pydantic>=2.7
+pydantic-settings>=2.4
+httpx[http2]>=0.27,<0.29
+loguru>=0.7
+openpyxl>=3.1
+python-dotenv>=1.0
+requests>=2.31
+altair>=5.4
+pyarrow>=15
+anthropic>=0.40
+beautifulsoup4>=4.12
+rapidfuzz>=3.9
+tldextract>=5.1
+python-slugify>=8.0

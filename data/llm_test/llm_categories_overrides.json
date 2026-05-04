@@ -1,0 +1,3593 @@
+{
+  "28": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "24": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "4": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "NRBC (masques, tenues, détecteurs)",
+      "Matériaux composites & blindage",
+      "Fixations & visserie aéronautique"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Optique de précision",
+      "Filtration NRBC"
+    ]
+  },
+  "1345": {
+    "products_categories": [
+      "Médias & publications défense"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": []
+  },
+  "447": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "646": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Énergie portative & piles à combustible"
+    ]
+  },
+  "1083": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement",
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "2231": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Logistique militaire & transit",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "1707": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Approvisionnement composants & sourcing",
+      "Logistique militaire & transit",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "123": {
+    "products_categories": [
+      "Explosifs & matériaux énergétiques"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux énergétiques",
+      "Autre — à qualifier"
+    ]
+  },
+  "2510": {
+    "products_categories": [
+      "R&D académique & laboratoires"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Métrologie & essais matériaux",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR",
+      "Matériaux composites",
+      "Imagerie infrarouge"
+    ]
+  },
+  "1997": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Boîtiers & châssis durcis",
+      "Connectique & câblage durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2385": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "480": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Camions militaires & logistique",
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1350": {
+    "products_categories": [
+      "Boîtiers & châssis durcis",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Optique de précision"
+    ]
+  },
+  "2444": {
+    "products_categories": [
+      "Distribution composants & représentation de marques",
+      "Armes légères & accessoires",
+      "Munitions petit/moyen calibre"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": []
+  },
+  "2234": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2445": {
+    "products_categories": [
+      "Mécanique de transmission",
+      "Servomoteurs & motion control précision",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Robotique & autonomie",
+      "Hydraulique haute performance"
+    ]
+  },
+  "124": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "1363": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Distribution & représentation",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2519": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "R&D sur contrat"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "490": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1991": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Logistique militaire & transit",
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "2388": {
+    "products_categories": [
+      "Simulateurs d'entraînement & VR/AR",
+      "Optiques d'armes (viseurs)",
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "Imagerie infrarouge"
+    ]
+  },
+  "1721": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Mécanique de transmission"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "648": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cloud & cloud souverain"
+    ]
+  },
+  "2449": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "133": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "R&D sur contrat",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "1103": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Marketing & développement commercial",
+      "Organisation de salons & événements"
+    ],
+    "technologies_categories": []
+  },
+  "1373": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Capteurs embarqués (généraux)",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "R&D sur contrat"
+    ],
+    "technologies_categories": [
+      "Photonique & fibres optiques",
+      "Optique de précision",
+      "Navigation inertielle"
+    ]
+  },
+  "2389": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": []
+  },
+  "496": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2520": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Big data & analytics"
+    ]
+  },
+  "1708": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "652": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Approvisionnement composants & sourcing",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": []
+  },
+  "2012": {
+    "products_categories": [
+      "Mécanique de transmission",
+      "Hydraulique & motion control",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "1133": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2277": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Stations de purification d'eau & infra",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance",
+      "Capteurs IoT industriels",
+      "Autre — à qualifier"
+    ]
+  },
+  "1386": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil",
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "690": {
+    "products_categories": [
+      "Armes non-létales",
+      "Pyrotechnie & artifices"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Guerre électronique (EW)"
+    ]
+  },
+  "1115": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "148": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Satellites & CubeSats",
+      "Capteurs embarqués (généraux)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Support opérationnel & OPEX",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Communications RF / micro-ondes",
+      "Imagerie infrarouge"
+    ]
+  },
+  "2273": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2452": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR"
+    ]
+  },
+  "2043": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1135": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2392": {
+    "products_categories": [
+      "Servomoteurs & motion control précision",
+      "Composants électroniques & cartes",
+      "Capteurs embarqués (généraux)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "MEMS & capteurs miniaturisés",
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "151": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "2384": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "694": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2453": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Antennes & infrastructures RF",
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Communications RF / micro-ondes",
+      "Guerre électronique (EW)"
+    ]
+  },
+  "2283": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Connectique & câblage durcis",
+      "Alimentations & convertisseurs durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2398": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Big data & analytics"
+    ]
+  },
+  "512": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Camions militaires & logistique"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Modernisation de flottes"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "1137": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2300": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1733": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": []
+  },
+  "2522": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2056": {
+    "products_categories": [
+      "Munitions petit/moyen calibre",
+      "Capteurs embarqués (généraux)",
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "MEMS & capteurs miniaturisés",
+      "Vision par ordinateur"
+    ]
+  },
+  "2456": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1396": {
+    "products_categories": [
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Achat public & marchés défense",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "2061": {
+    "products_categories": [
+      "Capteurs embarqués (généraux)",
+      "Systèmes C2 & C4ISR",
+      "Avionique & instruments embarqués"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Edge computing & GPU embarqué",
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "2523": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1734": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Mécanique de transmission"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2399": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": []
+  },
+  "1140": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Boîtiers & châssis durcis",
+      "Capteurs embarqués (généraux)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Microélectronique & semiconducteurs durcis",
+      "Edge computing & GPU embarqué"
+    ]
+  },
+  "1395": {
+    "products_categories": [
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "2457": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "170": {
+    "products_categories": [
+      "Avions & hélicoptères militaires",
+      "Pièces mécaniques & usinage",
+      "Missiles & armements guidés"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Optique de précision"
+    ]
+  },
+  "524": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "2071": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "2400": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1161": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1400": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "2526": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Services cloud & data",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "2459": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "756": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Achat public & marchés défense",
+      "R&D sur contrat",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "2306": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "1742": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2080": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": []
+  },
+  "741": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "1754": {
+    "products_categories": [
+      "Mécanique de transmission",
+      "Pièces mécaniques & usinage",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2529": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2403": {
+    "products_categories": [
+      "Armes légères & accessoires",
+      "Simulateurs d'entraînement & VR/AR"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR",
+      "Optique de précision"
+    ]
+  },
+  "1171": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1402": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement",
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "1796": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2339": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A",
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Conseil en gestion de programme"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "229": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "525": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "758": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Pièces mécaniques & usinage",
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2409": {
+    "products_categories": [
+      "Explosifs & matériaux énergétiques"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Matériaux énergétiques"
+    ]
+  },
+  "2531": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Équipement du fantassin (général)",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2463": {
+    "products_categories": [
+      "R&D académique & laboratoires"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Métrologie & essais matériaux"
+    ],
+    "technologies_categories": [
+      "Matériaux énergétiques",
+      "Matériaux balistiques (UHMWPE, céramiques)",
+      "Lidar / Laser"
+    ]
+  },
+  "535": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "1178": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2324": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2340": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "247": {
+    "products_categories": [
+      "Radios tactiques & SDR",
+      "Équipement du fantassin (général)",
+      "Avionique & instruments embarqués"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes"
+    ]
+  },
+  "779": {
+    "products_categories": [
+      "Streaming vidéo & data tactiques",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes",
+      "Edge computing & GPU embarqué"
+    ]
+  },
+  "2464": {
+    "products_categories": [
+      "Robots terrestres (UGV / EOD)",
+      "Capteurs embarqués (généraux)",
+      "NRBC (masques, tenues, détecteurs)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Robotique & autonomie",
+      "Capteurs IoT industriels"
+    ]
+  },
+  "2093": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": [
+      "Matériaux balistiques (UHMWPE, céramiques)",
+      "Matériaux composites"
+    ]
+  },
+  "1403": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "1438": {
+    "products_categories": [
+      "Servomoteurs & motion control précision",
+      "Pièces mécaniques & usinage",
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "MEMS & capteurs miniaturisés"
+    ]
+  },
+  "228": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Organisation de salons & conférences défense",
+      "Médias & publications défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements",
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "538": {
+    "products_categories": [
+      "Avions & hélicoptères militaires",
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "Modernisation de flottes",
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Optique de précision"
+    ]
+  },
+  "2533": {
+    "products_categories": [
+      "Stations de purification d'eau & infra",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Modernisation de flottes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Capteurs IoT industriels",
+      "Autre — à qualifier"
+    ]
+  },
+  "1809": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2465": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1182": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "783": {
+    "products_categories": [
+      "Distribution composants & représentation de marques",
+      "Composants électroniques & cartes",
+      "Boîtiers & châssis durcis"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Edge computing & GPU embarqué",
+      "Capteurs IoT industriels"
+    ]
+  },
+  "1474": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2343": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Boîtiers & châssis durcis",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Autre — à qualifier"
+    ]
+  },
+  "2102": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Véhicules tactiques (non blindés)",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2081": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Armes lourdes & systèmes de tir"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "545": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2534": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": []
+  },
+  "2413": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Documentation technique & ILS",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Big data & analytics"
+    ]
+  },
+  "2410": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Capteurs IoT industriels",
+      "Autre — à qualifier"
+    ]
+  },
+  "794": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "1477": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2466": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Servomoteurs & motion control précision",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Microélectronique & semiconducteurs durcis",
+      "Autre — à qualifier"
+    ]
+  },
+  "2110": {
+    "products_categories": [
+      "Mâts, signalisation & balisage",
+      "Systèmes C2 & C4ISR"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes",
+      "Capteurs IoT industriels"
+    ]
+  },
+  "296": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2417": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "546": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)",
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "1820": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2538": {
+    "products_categories": [
+      "Capteurs embarqués (généraux)",
+      "Capteurs sismiques & acoustiques",
+      "Avionique & instruments embarqués"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "MEMS & capteurs miniaturisés",
+      "Capteurs IoT industriels",
+      "IA / machine learning"
+    ]
+  },
+  "1199": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial",
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "2468": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2352": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": []
+  },
+  "799": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1481": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Services cloud & data"
+    ],
+    "technologies_categories": [
+      "Cloud & cloud souverain",
+      "Cybersécurité",
+      "Big data & analytics"
+    ]
+  },
+  "2419": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1192": {
+    "products_categories": [
+      "Batteries & packs énergétiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Énergie portative & piles à combustible"
+    ]
+  },
+  "2541": {
+    "products_categories": [
+      "Systèmes de guerre électronique (EW)",
+      "Radars & traitement signal",
+      "Antennes & infrastructures RF"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Guerre électronique (EW)",
+      "Communications RF / micro-ondes"
+    ]
+  },
+  "1818": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "308": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Mécanique de transmission"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "550": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2353": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "828": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1486": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Distribution & représentation",
+      "Organisation de salons & événements"
+    ],
+    "technologies_categories": []
+  },
+  "2420": {
+    "products_categories": [
+      "Stations de purification d'eau & infra",
+      "Groupes électrogènes & énergie tactique",
+      "Conteneurs, malles, shelters",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Support opérationnel & OPEX",
+      "Achat public & marchés défense"
+    ],
+    "technologies_categories": []
+  },
+  "2128": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Servomoteurs & motion control précision",
+      "Connectique & câblage durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes",
+      "Photonique & fibres optiques"
+    ]
+  },
+  "2543": {
+    "products_categories": [
+      "Capteurs embarqués (généraux)",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "MEMS & capteurs miniaturisés",
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "552": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1828": {
+    "products_categories": [
+      "Distribution composants & représentation de marques",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "2471": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Logiciels de simulation & cyber range"
+    ],
+    "services_categories": [
+      "Audit & cybersécurité OT",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "1218": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "859": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "331": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Capteurs IoT industriels",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1513": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements",
+      "Marketing & développement commercial",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1200": {
+    "products_categories": [
+      "Munitions petit/moyen calibre",
+      "Munitions gros calibre & obus",
+      "Explosifs & matériaux énergétiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux énergétiques"
+    ]
+  },
+  "120": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Approvisionnement composants & sourcing",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2544": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Big data & analytics",
+      "IA / machine learning",
+      "Vision par ordinateur"
+    ]
+  },
+  "554": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1224": {
+    "products_categories": [
+      "Armes lourdes & systèmes de tir",
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Métrologie & essais matériaux"
+    ],
+    "technologies_categories": [
+      "Lidar / Laser",
+      "Optique de précision"
+    ]
+  },
+  "2475": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2474": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale",
+      "Munitions petit/moyen calibre",
+      "Connectique & câblage durcis",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)",
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "2422": {
+    "products_categories": [
+      "Systèmes C2 & C4ISR",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR",
+      "Big data & analytics"
+    ]
+  },
+  "332": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": []
+  },
+  "865": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Organisation de salons & événements"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1841": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2134": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)",
+      "Pièces mécaniques & usinage",
+      "Hydraulique & motion control"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "2133": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Approvisionnement composants & sourcing",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Big data & analytics",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1231": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1845": {
+    "products_categories": [
+      "Optiques d'armes (viseurs)",
+      "Optronique & viseurs (EO/IR)",
+      "Vision nocturne & jumelles"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Optique de précision"
+    ]
+  },
+  "560": {
+    "products_categories": [
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [
+      "Achat public & marchés défense",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2482": {
+    "products_categories": [
+      "Camions militaires & logistique",
+      "Stations de purification d'eau & infra"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "880": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1548": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cryptographie",
+      "Cybersécurité"
+    ]
+  },
+  "2549": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Sous-traitance industrielle",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "1612": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Alimentations & convertisseurs durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "33": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Robotique & autonomie",
+      "Vision par ordinateur"
+    ]
+  },
+  "2426": {
+    "products_categories": [
+      "Streaming vidéo & data tactiques",
+      "Systèmes C2 & C4ISR"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS",
+      "Communications RF / micro-ondes"
+    ]
+  },
+  "39": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "571": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1881": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1236": {
+    "products_categories": [
+      "Optiques d'armes (viseurs)",
+      "Vision nocturne & jumelles"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Optique de précision",
+      "Imagerie infrarouge"
+    ]
+  },
+  "345": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "373": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "R&D sur contrat"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1620": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "2484": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "2425": {
+    "products_categories": [
+      "Mâts, signalisation & balisage",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2427": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Approvisionnement composants & sourcing",
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Big data & analytics"
+    ]
+  },
+  "2178": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Services cloud & data",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cloud & cloud souverain",
+      "Cybersécurité"
+    ]
+  },
+  "2362": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1893": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": []
+  },
+  "2181": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cryptographie",
+      "Cybersécurité"
+    ]
+  },
+  "2364": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Documentation technique & ILS",
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Big data & analytics"
+    ]
+  },
+  "2551": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "886": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "375": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes",
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "1238": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Conseil en gestion de programme"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS",
+      "Simulation & VR/AR"
+    ]
+  },
+  "1625": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "2428": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "890": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements",
+      "Logistique militaire & transit",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "62": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2560": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "63": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Audit & cybersécurité OT",
+      "Conseil en gestion de programme"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "2182": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Mécanique de transmission",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "2494": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "2558": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "Photonique & fibres optiques"
+    ]
+  },
+  "573": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "376": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2185": {
+    "products_categories": [
+      "Capteurs embarqués (généraux)",
+      "Avionique & instruments embarqués",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "MEMS & capteurs miniaturisés",
+      "Navigation inertielle"
+    ]
+  },
+  "2563": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1638": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "606": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "66": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement",
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "2366": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1300": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2433": {
+    "products_categories": [
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR"
+    ]
+  },
+  "503": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "900": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1645": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "1922": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "Lidar / Laser",
+      "Imagerie infrarouge"
+    ]
+  },
+  "623": {
+    "products_categories": [
+      "Stations de purification d'eau & infra",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "72": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "1306": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)",
+      "Véhicules blindés",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Autre — à qualifier"
+    ]
+  },
+  "2434": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Simulation & VR/AR"
+    ]
+  },
+  "2187": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)",
+      "Véhicules blindés",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux balistiques (UHMWPE, céramiques)",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "910": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "378": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Boîtiers & châssis durcis",
+      "Avionique & instruments embarqués"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Edge computing & GPU embarqué",
+      "Microélectronique & semiconducteurs durcis"
+    ]
+  },
+  "964": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2191": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Boîtiers & châssis durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cryptographie",
+      "Cybersécurité"
+    ]
+  },
+  "2368": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes",
+      "Capteurs IoT industriels"
+    ]
+  },
+  "2574": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Big data & analytics"
+    ]
+  },
+  "624": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2435": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Logiciels métier défense (autres)",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "1311": {
+    "products_categories": [
+      "Vitrages blindés",
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2502": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2370": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Métrologie & essais matériaux",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "405": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "1023": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)",
+      "Pièces mécaniques & usinage",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2202": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Logistique militaire & transit",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2437": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "83": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2575": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1648": {
+    "products_categories": [
+      "Simulateurs d'entraînement & VR/AR",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Capteurs IoT industriels",
+      "Robotique & autonomie",
+      "Simulation & VR/AR"
+    ]
+  },
+  "1647": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "94": {
+    "products_categories": [
+      "Médias & publications défense"
+    ],
+    "services_categories": [
+      "Marketing & développement commercial",
+      "Représentation institutionnelle (cluster/fédération)"
+    ],
+    "technologies_categories": []
+  },
+  "2372": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1924": {
+    "products_categories": [
+      "Systèmes C2 & C4ISR",
+      "Boîtiers & châssis durcis",
+      "Groupes électrogènes & énergie tactique",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Microélectronique & semiconducteurs durcis",
+      "Communications RF / micro-ondes"
+    ]
+  },
+  "429": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements",
+      "Promotion territoriale & investissement",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": []
+  },
+  "1982": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2438": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux balistiques (UHMWPE, céramiques)",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "1658": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "642": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2576": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil",
+      "Audit & cybersécurité OT"
+    ],
+    "technologies_categories": [
+      "Fabrication additive",
+      "Cybersécurité",
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "1312": {
+    "products_categories": [
+      "Vitrages blindés",
+      "Navires & sous-systèmes navals",
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Optique de précision",
+      "Matériaux composites"
+    ]
+  },
+  "1325": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests",
+      "Services cloud & data"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Cryptographie"
+    ]
+  },
+  "102": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1082": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2013": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "153": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Audit & cybersécurité OT",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Cybersécurité OT / ICS"
+    ]
+  },
+  "2500": {
+    "products_categories": [
+      "Camions militaires & logistique",
+      "Engins du génie militaire"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "1732": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2361": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": [
+      "Big data & analytics"
+    ]
+  },
+  "630": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2577": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Services cloud & data",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Big data & analytics"
+    ]
+  },
+  "2127": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "301": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "1797": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Boîtiers & châssis durcis"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "643": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2367": {
+    "products_categories": [
+      "Distribution composants & représentation de marques",
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "326": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "2206": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Camions militaires & logistique",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement",
+      "Support opérationnel & OPEX"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance"
+    ]
+  },
+  "2505": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": []
+  },
+  "1821": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2375": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Services cloud & data"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Big data & analytics"
+    ]
+  },
+  "705": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "443": {
+    "products_categories": [
+      "Organisation de salons & conférences défense"
+    ],
+    "services_categories": [
+      "Organisation de salons & événements"
+    ],
+    "technologies_categories": []
+  },
+  "2228": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Modernisation de flottes",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)",
+      "Matériaux balistiques (UHMWPE, céramiques)"
+    ]
+  },
+  "1908": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2508": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Services cloud & data"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité",
+      "Big data & analytics"
+    ]
+  },
+  "2440": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Matériaux balistiques (UHMWPE, céramiques)"
+    ]
+  },
+  "2567": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Services cloud & data"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "Cryptographie"
+    ]
+  },
+  "2344": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Big data & analytics",
+      "Cybersécurité"
+    ]
+  },
+  "1079": {
+    "products_categories": [
+      "Médias & publications défense"
+    ],
+    "services_categories": [
+      "Marketing & développement commercial"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2509": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Moteurs aéronautiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "R&D sur contrat"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)",
+      "Fabrication additive",
+      "Matériaux composites"
+    ]
+  },
+  "510": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Munitions gros calibre & obus",
+      "Camions militaires & logistique",
+      "Radars & traitement signal"
+    ],
+    "services_categories": [
+      "Modernisation de flottes",
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Radar (AESA, monopulse, …)",
+      "Matériaux énergétiques",
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2489": {
+    "products_categories": [
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1964": {
+    "products_categories": [
+      "Logiciels métier défense (autres)",
+      "Plateformes IA / vision défense",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité OT / ICS",
+      "Cloud & cloud souverain"
+    ]
+  },
+  "1262": {
+    "products_categories": [
+      "Mécanique de transmission",
+      "Pièces mécaniques & usinage",
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Métallurgie spéciale (alliages, blindages)"
+    ]
+  },
+  "2354": {
+    "products_categories": [
+      "Logistique militaire & transport",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Hydraulique haute performance",
+      "Matériaux balistiques (UHMWPE, céramiques)"
+    ]
+  },
+  "534": {
+    "products_categories": [
+      "Moteurs diesel / propulsion lourde",
+      "Moteurs aéronautiques"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "1987": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2521": {
+    "products_categories": [
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2499": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
+    "technologies_categories": [
+      "Autre — à qualifier"
+    ]
+  },
+  "2355": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Connectique & câblage durcis",
+      "Boîtiers & châssis durcis",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Microélectronique & semiconducteurs durcis",
+      "Capteurs IoT industriels"
+    ]
+  },
+  "1671": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Marketing & développement commercial",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "597": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Communications RF / micro-ondes"
+    ]
+  }
+}

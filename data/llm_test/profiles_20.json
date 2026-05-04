@@ -1,0 +1,597 @@
+{
+  "_meta": {
+    "test_run_date": "2026-04-30",
+    "model_used": "claude-opus-4-7 (analyse manuelle in-conversation)",
+    "schema": "EurosatoryTargetingProfile (app/processors/targeting_profile.py)",
+    "n_companies": 20,
+    "purpose": "Validation Étape 1 — qualité du prompt avant run 2580"
+  },
+  "profiles": {
+    "2122": {
+      "company_name": "THALES",
+      "country": "France",
+      "data_source_strength": "high (description Finderr fiable + connaissance publique)",
+      "profile": {
+        "activity_1liner": "Conçoit des systèmes électroniques de défense, communications sécurisées, radars et solutions cyber pour armées et infrastructures critiques.",
+        "products": [
+          "radars de surveillance Ground Master",
+          "radios tactiques PR4G / SYNAPS",
+          "systèmes C4ISR",
+          "viseurs Sophie",
+          "sonars actifs Captas",
+          "systèmes anti-drone EagleSHIELD",
+          "modules HSM / chiffreurs IP"
+        ],
+        "services": [
+          "MCO systèmes électroniques",
+          "intégration C4ISR",
+          "formation opérateurs",
+          "audits cybersécurité souverains"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "radar AESA",
+          "cybersécurité souveraine",
+          "IA / vision",
+          "guerre électronique",
+          "cryptographie"
+        ],
+        "why_target": "Compétiteur direct sur les radars tactiques et la cyber souveraine — acheteur potentiel de sous-systèmes RF, mécaniques et de composants électroniques pour ses lignes radars."
+      }
+    },
+    "82": {
+      "company_name": "AIRBUS",
+      "country": "France",
+      "data_source_strength": "high (description Finderr + crawl 5 pages defense/UAS)",
+      "profile": {
+        "activity_1liner": "Conçoit et fabrique avions militaires, hélicoptères, drones, satellites et systèmes spatiaux pour armées et agences gouvernementales.",
+        "products": [
+          "avion de combat Eurofighter Typhoon",
+          "avion de transport tactique A400M",
+          "avion C295 / CN235",
+          "ravitailleur A330 MRTT",
+          "drone MALE Eurodrone",
+          "hélicoptères H145M / Tigre / NH90",
+          "satellites observation Pléiades Neo / CSO"
+        ],
+        "services": [
+          "MCO flottes militaires",
+          "formation pilotes",
+          "intégration systèmes spatiaux",
+          "services cloud sécurisé",
+          "support opérationnel"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "IA / vision",
+          "cybersécurité",
+          "robotique / autonomie",
+          "composites carbone aéronautiques",
+          "simulation"
+        ],
+        "why_target": "Acheteur massif de sous-systèmes (mécanique, optronique, RF, capteurs) pour ses programmes Eurofighter/Eurodrone/A400M — compétiteur sur les hélicoptères militaires."
+      }
+    },
+    "1331": {
+      "company_name": "MBDA",
+      "country": "France",
+      "data_source_strength": "high (crawl 5 pages + mention 'world-leader complex weapon systems')",
+      "profile": {
+        "activity_1liner": "Conçoit et fabrique des systèmes de missiles complexes air-air, sol-air, anti-char et anti-navire pour les armées européennes.",
+        "products": [
+          "missile air-air Meteor",
+          "missile anti-char MMP",
+          "missile sol-air Mistral / Aster",
+          "missile de croisière SCALP / Storm Shadow",
+          "missile anti-navire Exocet",
+          "système anti-drone (intégrations missiles)",
+          "munitions guidées"
+        ],
+        "services": [
+          "intégration missiles sur plateformes",
+          "qualification / certification",
+          "formation forces"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Export / international"
+        ],
+        "technologies": [
+          "guidage IR / radar",
+          "propulsion solide",
+          "matériaux énergétiques",
+          "simulation hardware-in-the-loop",
+          "robotique / autonomie"
+        ],
+        "why_target": "Acheteur stratégique de composants embarqués (autodirecteurs, propulseurs, matériaux énergétiques) — compétiteur sur les armements guidés européens."
+      }
+    },
+    "1741": {
+      "company_name": "Rheinmetall AG",
+      "country": "Germany",
+      "data_source_strength": "high (description + crawl)",
+      "profile": {
+        "activity_1liner": "Conçoit et fabrique véhicules blindés, munitions de gros calibre, armes et systèmes de défense pour les armées de l'OTAN.",
+        "products": [
+          "char Panther KF51 / Leopard 2A8",
+          "véhicule blindé Boxer / Lynx KF41",
+          "obusier automoteur RCH 155",
+          "munitions 120 mm / 30 mm / 35 mm",
+          "système anti-aérien Skyranger",
+          "drones HERO / loitering munitions",
+          "robots terrestres Mission Master"
+        ],
+        "services": [
+          "MCO véhicules blindés",
+          "intégration tourelles",
+          "formation équipages",
+          "logistique munitions"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Export / international"
+        ],
+        "technologies": [
+          "blindage composite",
+          "munitions APFSDS",
+          "simulation / battle lab",
+          "réseaux véhicules 5G",
+          "Lidar / Laser"
+        ],
+        "why_target": "Acheteur prime pour mécanique lourde, optronique, électronique embarquée et capteurs — compétiteur direct sur véhicules blindés et munitions OTAN."
+      }
+    },
+    "1792": {
+      "company_name": "SAFRAN",
+      "country": "France",
+      "data_source_strength": "medium (site bloqué par Cloudflare — connaissance publique mobilisée)",
+      "profile": {
+        "activity_1liner": "Conçoit des optroniques, systèmes inertiels, drones tactiques et avioniques pour forces armées et primes aéronautiques.",
+        "products": [
+          "jumelles infrarouges JIM Compact",
+          "centrales inertielles SIGMA",
+          "drone tactique Patroller",
+          "viseurs PASEO",
+          "lunettes de vision nocturne O-NYX",
+          "calculateurs de vol",
+          "viseur thermique d'arme"
+        ],
+        "services": [
+          "MRO optronique et avionique",
+          "intégration capteurs sur véhicules / aéronefs",
+          "formation utilisateurs"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Export / international"
+        ],
+        "technologies": [
+          "imagerie infrarouge refroidie",
+          "navigation inertielle haute performance",
+          "IA / vision",
+          "GNSS multi-fréquence",
+          "optronique fibre"
+        ],
+        "why_target": "Compétiteur direct sur optronique fantassin et navigation inertielle — acheteur potentiel de composants opto-mécaniques, détecteurs IR et électronique embarquée."
+      }
+    },
+    "1601": {
+      "company_name": "PATRIA OYJ",
+      "country": "Finland",
+      "data_source_strength": "high (description Finderr précise)",
+      "profile": {
+        "activity_1liner": "Conçoit véhicules blindés, systèmes d'armes, mortiers et solutions de soutien pour les armées d'Europe du Nord et NATO.",
+        "products": [
+          "véhicule blindé 6x6 Patria AMV",
+          "véhicule 6x6 Patria CAVS",
+          "système de mortier NEMO 120 mm",
+          "système de mortier AMOS",
+          "véhicule chenillé Patria 6x6",
+          "stations de tir téléopérées"
+        ],
+        "services": [
+          "MCO véhicules blindés",
+          "soutien logistique intégré",
+          "formation équipages",
+          "modernisation flottes"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Primes défense",
+          "Export / international"
+        ],
+        "technologies": [
+          "blindage modulaire",
+          "tourelles téléopérées",
+          "simulation entraînement",
+          "robotique / autonomie"
+        ],
+        "why_target": "Acheteur de sous-systèmes véhicules (motorisation, blindage, électronique tourelle) — compétiteur direct sur les véhicules blindés 6x6 et systèmes de mortier."
+      }
+    },
+    "177": {
+      "company_name": "ARMMO",
+      "country": "Spain",
+      "data_source_strength": "medium (description courte + Finderr)",
+      "profile": {
+        "activity_1liner": "Conçoit des systèmes autonomes et véhicules sans pilote pour les forces armées et de sécurité.",
+        "products": [
+          "véhicules terrestres autonomes (UGV)",
+          "drones aériens (UAV)",
+          "systèmes embarqués de navigation",
+          "stations de contrôle au sol"
+        ],
+        "services": [
+          "intégration de systèmes autonomes",
+          "support technique"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "robotique / autonomie",
+          "GNSS / GPS",
+          "IA / vision"
+        ],
+        "why_target": "Acheteur potentiel de capteurs EO/IR, batteries militaires et liaison de données — compétiteur indirect sur drones et UGV de petite/moyenne classe."
+      }
+    },
+    "62": {
+      "company_name": "Africa Global Logistics",
+      "country": "France",
+      "data_source_strength": "high (description Finderr en français claire)",
+      "profile": {
+        "activity_1liner": "Opère un réseau logistique multimodal (portuaire, maritime, ferroviaire, transit) couvrant 47 pays africains.",
+        "products": [],
+        "services": [
+          "logistique portuaire & maritime",
+          "transit douanier export",
+          "logistique ferroviaire intra-africaine",
+          "stockage / distribution",
+          "gestion de chaîne d'approvisionnement"
+        ],
+        "target_buyers": [
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [],
+        "why_target": "Canal de distribution / transit pour exports d'équipements défense vers l'Afrique francophone — partenaire logistique pour contrats export structurés."
+      }
+    },
+    "126": {
+      "company_name": "AMA Spa",
+      "country": "Italy",
+      "data_source_strength": "medium (description LinkedIn + Finderr — orientation civile dominante)",
+      "profile": {
+        "activity_1liner": "Fabrique des composants et équipements pour véhicules tout-terrain (OHV), agricoles et d'aménagement paysager.",
+        "products": [
+          "rétroviseurs et caméras pour véhicules tout-terrain",
+          "sièges de cabine industriels",
+          "instrumentation tableau de bord",
+          "feux de signalisation industriels",
+          "composants hydrauliques"
+        ],
+        "services": [
+          "fourniture OEM en grande série",
+          "ingénierie d'application client"
+        ],
+        "target_buyers": [
+          "Industriels défense"
+        ],
+        "technologies": [
+          "robotique / autonomie",
+          "GNSS / GPS"
+        ],
+        "why_target": "Fournisseur potentiel de composants visualisation / cabine pour véhicules militaires dérivés du tout-terrain — cible secondaire (orientation civile dominante)."
+      }
+    },
+    "81": {
+      "company_name": "AIRBORNE TECHNOLOGIES GMBH",
+      "country": "Austria",
+      "data_source_strength": "high (description spécifique ISR + Finderr)",
+      "profile": {
+        "activity_1liner": "Intègre et qualifie des avions de surveillance ISR à mission spéciale pour forces armées et agences de sécurité.",
+        "products": [
+          "plateforme aérienne ISR équipée",
+          "pod SCAR-Pod",
+          "système Airborne LINX",
+          "Mission Management System",
+          "radomes carbone",
+          "lifts caméra"
+        ],
+        "services": [
+          "intégration de capteurs sur cellule",
+          "certification EASA / militaire",
+          "formation équipages",
+          "modernisation flottes"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "composites carbone",
+          "RF / micro-ondes",
+          "Lidar / Laser",
+          "intégration capteurs EO/IR"
+        ],
+        "why_target": "Intégrateur potentiel pour boules optroniques, radars de surveillance, liaisons de données — acheteur de capteurs EO/IR et systèmes de mission."
+      }
+    },
+    "128": {
+      "company_name": "AMAZON LEO (Project Kuiper)",
+      "country": "USA",
+      "data_source_strength": "low (site = amazon.com e-commerce ; identification du nom 'Amazon LEO' = Projet Kuiper)",
+      "profile": {
+        "activity_1liner": "Déploie une constellation de satellites en orbite basse (Kuiper) pour fournir une connectivité haut débit, y compris à des clients gouvernementaux.",
+        "products": [
+          "satellites LEO Kuiper",
+          "terminaux utilisateurs Kuiper"
+        ],
+        "services": [
+          "connectivité satellite haut débit",
+          "services cloud souverains AWS GovCloud"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "constellation LEO",
+          "communications optiques inter-satellites",
+          "antennes phased-array",
+          "cloud souverain"
+        ],
+        "why_target": "Cible export sur la connectivité tactique LEO — concurrent direct de Starlink pour les marchés gouvernementaux et de défense alliés."
+      }
+    },
+    "38": {
+      "company_name": "ADDITESS",
+      "country": "Cyprus",
+      "data_source_strength": "high (description LinkedIn complète)",
+      "profile": {
+        "activity_1liner": "Édite des solutions logicielles de sécurité pour la protection d'infrastructures critiques, des frontières et de la cargaison.",
+        "products": [
+          "plateforme de surveillance frontalière",
+          "systèmes de protection d'infrastructures critiques",
+          "outils d'analyse de transport / cargaison",
+          "drones de surveillance",
+          "modules cybersécurité"
+        ],
+        "services": [
+          "ingénierie / conseil sécurité",
+          "formation opérateurs",
+          "distribution / représentation",
+          "certification / tests"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "IA / vision",
+          "cybersécurité",
+          "cloud",
+          "robotique / autonomie",
+          "5G / sans fil"
+        ],
+        "why_target": "Intégrateur potentiel pour solutions surveillance frontière au Moyen-Orient — partenaire R&D européen sur projets H2020/Horizon Europe sécurité."
+      }
+    },
+    "77": {
+      "company_name": "AIM Infrarot-Module",
+      "country": "Germany",
+      "data_source_strength": "high (description précise en allemand)",
+      "profile": {
+        "activity_1liner": "Conçoit et fabrique des détecteurs infrarouges refroidis et machines Stirling pour applications militaires et spatiales.",
+        "products": [
+          "détecteurs IR MWIR / LWIR refroidis",
+          "machines de refroidissement Stirling",
+          "caméras thermiques modules",
+          "ROIC / circuits de lecture",
+          "imageurs spatiaux IR"
+        ],
+        "services": [
+          "qualification / tests",
+          "intégration sur plateformes clients"
+        ],
+        "target_buyers": [
+          "Primes défense",
+          "Industriels défense",
+          "Export / international"
+        ],
+        "technologies": [
+          "imagerie infrarouge refroidie",
+          "Stirling cryocooling",
+          "microélectronique HgCdTe",
+          "optique cryogénique"
+        ],
+        "why_target": "Fournisseur Tier-1 pour Hensoldt, Diehl, Rheinmetall — compétiteur de Lynred / Sofradir sur détecteurs IR refroidis (cible export pour primes non-allemands)."
+      }
+    },
+    "8": {
+      "company_name": "4iG Space and Defence Technologies Plc.",
+      "country": "Hungary",
+      "data_source_strength": "high (description Finderr précise)",
+      "profile": {
+        "activity_1liner": "Intègre des systèmes spatiaux, drones tactiques, contre-drones et solutions géospatiales pour la défense hongroise.",
+        "products": [
+          "satellites d'observation",
+          "drones tactiques",
+          "systèmes contre-drones (C-UAV)",
+          "plateformes géospatiales",
+          "stations de mission satellite"
+        ],
+        "services": [
+          "exploitation de mission satellite",
+          "intégration systèmes spatiaux",
+          "analyse géospatiale"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Export / international"
+        ],
+        "technologies": [
+          "imagerie satellite",
+          "IA / vision",
+          "RF jamming",
+          "GNSS multi-fréquences"
+        ],
+        "why_target": "Intégrateur national hongrois — porte d'entrée pour fournisseurs de capteurs satellite, sous-systèmes drones et briques C-UAV sur le marché Europe centrale."
+      }
+    },
+    "105": {
+      "company_name": "AlmaDK",
+      "country": "Kazakhstan",
+      "data_source_strength": "low (site très court en russe ; activité décrite mais pas de produits nominatifs)",
+      "profile": {
+        "activity_1liner": "Développe, produit, répare et distribue des munitions, armements et matériels militaires au Kazakhstan.",
+        "products": [
+          "munitions de petit et moyen calibre",
+          "armes légères",
+          "matériels militaires (catalogue détaillé non public)"
+        ],
+        "services": [
+          "réparation d'armement",
+          "distribution équipements militaires"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Export / international"
+        ],
+        "technologies": [],
+        "why_target": "Canal de distribution local pour armements et munitions au Kazakhstan / Asie centrale — cible export pour fournisseurs OTAN cherchant à percer la CEI."
+      }
+    },
+    "1030": {
+      "company_name": "Huless",
+      "country": "United-Kingdom (origine Ukraine)",
+      "data_source_strength": "medium (site en ukrainien — produit Highline-T identifié : drone capable d'élever des comms/SIGINT à 150 m, GPS-denied)",
+      "profile": {
+        "activity_1liner": "Conçoit des drones porteurs Highline-T élevant relais radio et radio-écoute en environnements GPS-denied.",
+        "products": [
+          "drone porteur tactique Highline-T",
+          "relais radio aéroporté",
+          "stations radio-reconnaissance aéroportées"
+        ],
+        "services": [
+          "intégration de charge utile",
+          "déploiement opérationnel"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Export / international"
+        ],
+        "technologies": [
+          "RF / micro-ondes",
+          "vol GPS-denied",
+          "endurance batterie 4h"
+        ],
+        "why_target": "Compétiteur de niche sur drones-relais comms pour théâtres GPS-brouillés — partenaire potentiel pour intégrateurs SIGINT cherchant un porteur léger éprouvé sur le terrain ukrainien."
+      }
+    },
+    "1146": {
+      "company_name": "JONATHAN GROUP DEFENSE",
+      "country": "USA",
+      "data_source_strength": "very low (site bloqué Cloudflare — uniquement le nom et keywords 'Subcontractor', 'Supplier')",
+      "profile": {
+        "activity_1liner": "(données publiques trop pauvres pour qualification fiable — sous-traitant ingénierie défense US présumé)",
+        "products": [],
+        "services": [
+          "sous-traitance ingénierie défense (à qualifier)"
+        ],
+        "target_buyers": [
+          "Industriels défense",
+          "Primes défense"
+        ],
+        "technologies": [],
+        "why_target": "À qualifier — données publiques insuffisantes ; sous-traitant US potentiel pour primes (Lockheed, RTX, Boeing) à découvrir en discovery call."
+      }
+    },
+    "525": {
+      "company_name": "CYRIC AGS LTD",
+      "country": "Cyprus",
+      "data_source_strength": "very low (URL invalide 'ww.cyricags.com' — aucune donnée crawlée)",
+      "profile": {
+        "activity_1liner": "(données publiques trop pauvres pour qualification fiable — entité chypriote inconnue)",
+        "products": [],
+        "services": [],
+        "target_buyers": [],
+        "technologies": [],
+        "why_target": "À qualifier — données publiques insuffisantes (URL erronée dans Finderr, pas de site accessible)."
+      }
+    },
+    "2093": {
+      "company_name": "TECHTERA",
+      "country": "France",
+      "data_source_strength": "medium (site bloqué Cloudflare — connaissance publique mobilisée : pôle de compétitivité textile français)",
+      "profile": {
+        "activity_1liner": "Anime le pôle de compétitivité français des textiles techniques (Auvergne-Rhône-Alpes), regroupant ~150 PME et industriels.",
+        "products": [],
+        "services": [
+          "mise en relation industriels / R&D textile",
+          "montage de projets collaboratifs (FUI, Horizon Europe)",
+          "représentation à l'export",
+          "veille technologique textile"
+        ],
+        "target_buyers": [
+          "Industriels défense"
+        ],
+        "technologies": [
+          "textiles techniques balistiques",
+          "tissus haute performance",
+          "matériaux composites textiles"
+        ],
+        "why_target": "Porte d'entrée vers ~150 PME françaises de textiles techniques (ballistique, ignifugé, équipement fantassin) — partenariat pour sourcer des sous-traitants textiles défense."
+      }
+    },
+    "2168": {
+      "company_name": "TRIJICON, INC.",
+      "country": "USA",
+      "data_source_strength": "medium (site très court ; connaissance publique mobilisée : optiques d'armement militaire/police)",
+      "profile": {
+        "activity_1liner": "Conçoit et fabrique des viseurs holographiques, optiques de précision et lunettes de tir pour armes individuelles militaires et police.",
+        "products": [
+          "viseurs ACOG 4x32",
+          "viseurs holographiques RMR",
+          "lunettes de précision AccuPower",
+          "viseurs MRO red dot",
+          "viseurs VCOG variables"
+        ],
+        "services": [
+          "calibration / SAV optique"
+        ],
+        "target_buyers": [
+          "MoD / Armées",
+          "Sécurité civile",
+          "Export / international"
+        ],
+        "technologies": [
+          "optronique fibre tritium",
+          "verre balistique",
+          "réticules illuminés",
+          "revêtements anti-reflets multi-couches"
+        ],
+        "why_target": "Acheteur potentiel d'embases Picatinny et composants mécaniques de précision — compétiteur direct sur viseurs holographiques et de précision pour fantassins / forces spéciales."
+      }
+    }
+  }
+}

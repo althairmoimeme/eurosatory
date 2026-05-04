@@ -1,0 +1,42 @@
+========================================================================
+QUALITY AUDIT  (100 fiches aléatoires, seed=2026)
+========================================================================
+Fiches sans aucun issue       : 75 (75%)
+Fiches avec ≥1 issue          : 25 (25%)
+
+Distribution par type d'issue (toutes lignes):
+    9  categories_only_autre
+    6  why_target_templated
+    4  only_generic_product
+    4  score>=60_but_no_targets
+    4  score>=60_but_no_products
+    2  activity_too_long
+    1  activity_thin_data
+
+Détail des fiches problématiques:
+------------------------------------------------------------------------
+#  915  goSmart GmbH                        (Germany   )  score= 65  src=low  → only_generic_product, score>=60_but_no_targets
+# 2462  IREPA LASER                         (France    )  score= 40  src=low  → why_target_templated
+# 1723  REMORQUES LOUAULT                   (France    )  score= 65  src=medium  → only_generic_product
+# 2011  STARPLAST                           (France    )  score= 50  src=low  → only_generic_product
+# 2403  CYBERGUN GROUP (ARKANIA GROUP)      (France    )  score=100  src=manual  → categories_only_autre
+# 2516  PARSEC                              (France    )  score= 40  src=low  → why_target_templated
+#  331  BOOXit                              (Austria   )  score= 80  src=manual  → categories_only_autre
+# 1461  NAMMA                               (France    )  score= 85  src=medium  → score>=60_but_no_targets
+# 2284  WF Maschinenbau                     (Germany   )  score= 60  src=medium  → why_target_templated, score>=60_but_no_targets
+# 2366  ATS INTERNATIONAL                   (France    )  score= 65  src=manual  → score>=60_but_no_products
+#  102  Allianz Vie                         (France    )  score= 65  src=manual  → score>=60_but_no_products
+# 2400  CRITICAL BUILDING                   (France    )  score= 80  src=manual  → categories_only_autre
+#  477  CONDOR S/A INDUSTRIA QUIMICA        (Brazil    )  score= 85  src=manual  → activity_too_long(141c)
+# 2459  INGEROP CONSEIL & INGÉNIERIE        (France    )  score= 40  src=low  → why_target_templated
+# 2012  STARTER                             (France    )  score= 65  src=manual  → categories_only_autre
+# 1721  REM RESSORTS                        (France    )  score= 65  src=low  → score>=60_but_no_products, score>=60_but_no_targets
+# 2102  TEK CAN                             (Turkey    )  score= 80  src=manual  → categories_only_autre
+# 2122  THALES                              (France    )  score= 85  src=manual  → activity_too_long(141c)
+# 2358  APS COATING SOLUTIONS               (France    )  score= 80  src=manual  → categories_only_autre
+#  529  Daff                                (Chile     )  score=100  src=manual  → categories_only_autre
+# 2549  SPARE PARTS 3D                      (France    )  score= 80  src=manual  → categories_only_autre
+# 2567  TIXEO                               (France    )  score= 40  src=low  → why_target_templated
+# 1923  SILMOR                              (Latvia    )  score= 65  src=manual  → activity_thin_data, score>=60_but_no_products, why_target_templated
+# 1962  SOFEMA                              (France    )  score= 65  src=low  → only_generic_product
+#  614  DR. WERNER RÖHRS GMBH & CO.KG       (Germany   )  score=100  src=manual  → categories_only_autre

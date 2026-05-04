@@ -1,0 +1,45 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.local
+.env.*.local
+.envrc
+.idea/
+.vscode/
+.DS_Store
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# --- Project data ---
+# Full dev DB (heavy: crawled_pages, raw enrichment) — kept local only.
+# We ship the slim ``eurosatory_deploy.db`` instead, which contains
+# only what the read-only UI needs.
+/data/eurosatory.db
+/data/eurosatory.db-*
+/data/eurosatory.db.backup
+/data/logs/
+/data/raw/
+/_tests/
+
+# Keep — needed by the deployed app:
+#   data/eurosatory_deploy.db
+#   data/exports/targeting_profiles_final.json
+#   data/exports/targeting_profiles_final.csv
+#   data/exports/Eurosatory_2026_targeting.xlsx
+#   data/llm_test/profiles_manual_overrides.json
+#   data/llm_test/llm_categories_overrides.json
+
+# Heavy intermediate XLSX/PDF that aren't loaded by the UI
+/data/exports/Eurosatory_2026_intelligence_*.xlsx
+/data/exports/use_cases_*.pdf
+/data/exports/data_dictionary*.pdf
+/data/exports/profiles_long_tail.json
+/data/exports/profiles_long_tail.csv
+
+# Cache / scratch
+*.cache
+.streamlit/secrets.toml

@@ -1,0 +1,21 @@
+{
+  "n": 2580,
+  "avg_score": 70.7,
+  "score_buckets": {
+    "0": 446,
+    "20": 12,
+    "40": 283,
+    "60": 226,
+    "80": 469,
+    "100": 1144
+  },
+  "strength_buckets": {
+    "high": 789,
+    "medium": 1036,
+    "very_low": 322,
+    "low": 433
+  },
+  "n_score_100": 1144,
+  "n_score_under_50": 679,
+  "n_score_under_30": 455
+}

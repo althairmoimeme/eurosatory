@@ -1,0 +1,919 @@
+[
+  {
+    "eid": 5,
+    "name": "4 Flutes Machining",
+    "url": "https://www.4flutesmachining.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 6,
+    "name": "4C Strategies",
+    "url": "http://www.4cstrategies.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 35,
+    "name": "ACTIA AEROSPACE",
+    "url": "https://aerospace.actia.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='aerospace.actia.com', port=443): Max retries exceeded "
+  },
+  {
+    "eid": 39,
+    "name": "ADDUP",
+    "url": "https://addupsolutions.com/fr/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 56,
+    "name": "AEROGLOW INTERNATIONAL",
+    "url": "https://www.aeroglowinternational.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.aeroglowinternational.com', port=443): Max retries"
+  },
+  {
+    "eid": 84,
+    "name": "AIRSENSE Analytics",
+    "url": "https://www.airsense.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 86,
+    "name": "Airvolute",
+    "url": "https://www.airvolute.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 120,
+    "name": "Alu-Stock",
+    "url": "https://www.alu-stock.es/fr/",
+    "ok": true,
+    "headline": "Alu-Stock – Expertos en Aluminio | Alu-Stock es una empresa distribuidora de todo tipo de productos de aluminio para la "
+  },
+  {
+    "eid": 131,
+    "name": "AMETEK",
+    "url": "https://www.ametek-airtechnology.com/",
+    "ok": true,
+    "headline": "AMETEK Airtechnology provides high-performance custom Thermal Management systems and Motion Control solutions for the ae"
+  },
+  {
+    "eid": 137,
+    "name": "AMPHENOL",
+    "url": "http://amphenol.com/products/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 167,
+    "name": "ArcelorMittal Commercial Sections S.A.",
+    "url": "https://www.arcelormittal.com/",
+    "ok": true,
+    "headline": "ArcelorMittal is the world's leading and most innovative steel and mining company, serving customers in 126 countries an"
+  },
+  {
+    "eid": 188,
+    "name": "Arsenal 2000 JSCo",
+    "url": "https://www.arsenal-bg.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 229,
+    "name": "Australian Pavilion",
+    "url": "https://www1.defence.gov.au/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.defence.gov.au', port=443): Read timed out. (read "
+  },
+  {
+    "eid": 249,
+    "name": "Axon' Cable",
+    "url": "http://www.axon-cable.com/",
+    "ok": false,
+    "err": "HTTPConnectionPool(host='www.axon-cable.com', port=80): Max retries exceeded wit"
+  },
+  {
+    "eid": 258,
+    "name": "BABCOCK INTERNATIONAL",
+    "url": "https://www.babcockinternational.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 275,
+    "name": "Bayraktar Grubu",
+    "url": "http://www.bayraktar.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 279,
+    "name": "BEAMSHOT/QUARTON USA",
+    "url": "https://www.beamshot.com/",
+    "ok": true,
+    "headline": "Beamshot manufactures all kinds of tactical Laser aiming systems, including combinations of green, red, IR laser sight, "
+  },
+  {
+    "eid": 282,
+    "name": "Be-Ge Seating A/S",
+    "url": "https://seating.be-ge.com/",
+    "ok": true,
+    "headline": "Driver Seats | Passenger Seats | Office Chairs / 24h Chairs | Be-Ge Seating Division – Develops, manufactures, markets a"
+  },
+  {
+    "eid": 283,
+    "name": "BEIJING LIZHENG TECHNOLOGY INC.",
+    "url": "http://en.lizhengtech.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 326,
+    "name": "BNP Paribas",
+    "url": "https://mabanque.bnpparibas/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 354,
+    "name": "BSE",
+    "url": "https://www.bse-ambulances.com./",
+    "ok": true,
+    "headline": "BSE propose une gamme variée de véhicules de transport sanitaire. Des ambulances neuves de Type A, Type B et C, jusqu’au"
+  },
+  {
+    "eid": 362,
+    "name": "C.E. NIEHOFF & CO",
+    "url": "http://www.ceniehoff.com/",
+    "ok": true,
+    "headline": "C.E. Niehoff & Co. is an American-owned company that specializes in the design and manufacturing of heavy-duty alternato"
+  },
+  {
+    "eid": 375,
+    "name": "CAP2I",
+    "url": "https://cap2i.eu/fr/index.php",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 402,
+    "name": "CELLULAR EXPERT",
+    "url": "https://www.cellular-expert.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.cellular-expert.com', port=443): Max retries excee"
+  },
+  {
+    "eid": 427,
+    "name": "CHESS DYNAMICS LTD",
+    "url": "http://www.chess-dynamics.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 430,
+    "name": "CHINA NORTH INDUSTRIES CORP",
+    "url": "http://www.norinco.com.cn/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 432,
+    "name": "CHS Spezialcontainer-Shelter and Engineering",
+    "url": "http://www.chs-containergroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 477,
+    "name": "CONDOR S/A INDUSTRIA QUIMICA",
+    "url": "http://www.condornaoletal.com.br/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.condornaoletal.com.br', port=443): Max retries exc"
+  },
+  {
+    "eid": 509,
+    "name": "CSG",
+    "url": "https://www.czechoslovakgroup.cz/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 510,
+    "name": "CSG Defence",
+    "url": "http://www.czechoslovakgroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 534,
+    "name": "DANIELSON ENGINEERING",
+    "url": "https://www.danielson-groupe.fr/",
+    "ok": false,
+    "err": "('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+  },
+  {
+    "eid": 569,
+    "name": "DELLNER GLASS SOLUTIONS LTD",
+    "url": "https://www.dellnerglass.com/",
+    "ok": true,
+    "headline": "With our combined experience and production capabilities, we create industry leading solutions to all of your glass and "
+  },
+  {
+    "eid": 583,
+    "name": "Destinus",
+    "url": "https://www.destinus.com/",
+    "ok": true,
+    "headline": "Innovating in autonomous flight systems, advanced propulsion, and AI-driven software for versatile dual-use applications"
+  },
+  {
+    "eid": 605,
+    "name": "DIXI MICROTECHNIQUES",
+    "url": "http://www.diximicrotechniques.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='diximicrotechniques.com', port=443): Max retries excee"
+  },
+  {
+    "eid": 610,
+    "name": "DOMO TACTICAL COMMUNICATIONS LTD (DTC)",
+    "url": "http://www.domotactical.com/",
+    "ok": true,
+    "headline": "Codan Communications is a leading designer and manufacturer of premium communications equipment for High Frequency (HF) "
+  },
+  {
+    "eid": 652,
+    "name": "ECONOMAT DES ARMEES",
+    "url": "https://economat-armees.com/",
+    "ok": false,
+    "err": "('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))"
+  },
+  {
+    "eid": 659,
+    "name": "EDGE GROUP",
+    "url": "https://edgegroupuae.com/",
+    "ok": true,
+    "headline": "An advanced technology group headquartered in Abu Dhabi & one of the top 25 military suppliers in the world brings disru"
+  },
+  {
+    "eid": 677,
+    "name": "Elbit Systems",
+    "url": "http://www.elbitsystems.com/",
+    "ok": true,
+    "headline": "Elbit Systems delivers cutting-edge defense technology and multi-domain solutions for global security across air, land, "
+  },
+  {
+    "eid": 718,
+    "name": "EO SECURITY s.r.o.",
+    "url": "https://www.eo-security.com/",
+    "ok": true,
+    "headline": "We provide security solutions addressing cyber threats, eavesdropping, and information leaks. Our expertise covers SIGIN"
+  },
+  {
+    "eid": 722,
+    "name": "EOST",
+    "url": "https://www.eosystem.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 733,
+    "name": "ERARD INDUSTRIE",
+    "url": "https://www.erard-industrie.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.erard-industrie.com', port=443): Max retries excee"
+  },
+  {
+    "eid": 798,
+    "name": "FFG FLENSBURGER FAHRZEUGBAU GESELLSCHAFT MBH",
+    "url": "http://www.ffg-flensburg.de/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 804,
+    "name": "FIGHTLITE INDUSTRIES",
+    "url": "https://www.fightlite.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 811,
+    "name": "Fire Point",
+    "url": "http://firepoint.technology/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 825,
+    "name": "FORCIT OY",
+    "url": "https://www.forcit.fi/defence",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 864,
+    "name": "GAMBER-JOHNSON",
+    "url": "https://www.lindelectronics.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 866,
+    "name": "GARG ASSOCIATES PVT. LTD.",
+    "url": "https://www.gargasso.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.gargasso.com', port=443): Max retries exceeded wit"
+  },
+  {
+    "eid": 883,
+    "name": "Gentex Corporation | Ops-Core",
+    "url": "http://www.gentexcorp.com/",
+    "ok": true,
+    "headline": "Explore advanced personal protection solutions from Gentex Corporation to enhance your situational awareness. Gentex, Op"
+  },
+  {
+    "eid": 927,
+    "name": "GROB-WERKE GmbH & Co. KG",
+    "url": "https://www.grobgroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 949,
+    "name": "G-SHOCK",
+    "url": "https://gshock.casio.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 963,
+    "name": "Haivision",
+    "url": "https://www.haivision.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 968,
+    "name": "Hanwha",
+    "url": "https://www.hanwhaaerospace.co.kr/kor/index.do",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 991,
+    "name": "Heven AeroTech",
+    "url": "http://www.hevenaerotech.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1013,
+    "name": "HORNET",
+    "url": "https://www.arquus-defense.com/fr",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.arquus-defense.com', port=443): Max retries exceed"
+  },
+  {
+    "eid": 1023,
+    "name": "HT DIVISION ZRT",
+    "url": "https://www.htdivision.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.htdivision.com', port=443): Max retries exceeded w"
+  },
+  {
+    "eid": 1035,
+    "name": "Hydrema Export",
+    "url": "https://hydrema-defence.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='hydrema-defence.com', port=443): Max retries exceeded "
+  },
+  {
+    "eid": 1045,
+    "name": "IANUS CONSULTING LTD",
+    "url": "https://ianus-consulting.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='ianus-consulting.com', port=443): Max retries exceeded"
+  },
+  {
+    "eid": 1046,
+    "name": "IANUS TECHNOLOGIES LTD",
+    "url": "https://ianus-consulting.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='ianus-consulting.com', port=443): Max retries exceeded"
+  },
+  {
+    "eid": 1069,
+    "name": "India Optel Limited",
+    "url": "https://www.indiaoptel.in/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.indiaoptel.in', port=443): Max retries exceeded wi"
+  },
+  {
+    "eid": 1115,
+    "name": "Íslandsstofa",
+    "url": "https://www.businessiceland.is/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.businessiceland.is', port=443): Max retries exceed"
+  },
+  {
+    "eid": 1118,
+    "name": "iTAC Software AG",
+    "url": "https://www.itacsoftware.com/",
+    "ok": true,
+    "headline": "iTAC Software AG is a solution provider of Manufacturing Execution Systems (MES) with innovative products and services f"
+  },
+  {
+    "eid": 1137,
+    "name": "JIHUA 3513 SHOES INDUSTRY CO.,LTD",
+    "url": "https://jihua3514.en.alibaba.com/index.html?spm=a2700.shop_co.88.12.73dc3a7aRpEI8Q",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1138,
+    "name": "JINAN HOPE WISH PHOTOELECTRONIC TECHNOLOGY CO.,LTD.",
+    "url": "http://www.chinahpws.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1146,
+    "name": "JONATHAN GROUP DEFENSE",
+    "url": "https://www.jonathanengr.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1206,
+    "name": "Kroko proizvodnja i razvoj d.o.o.",
+    "url": "https://www.krokotactical.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.krokotactical.com', port=443): Max retries exceede"
+  },
+  {
+    "eid": 1211,
+    "name": "KYIVSKYI ALLIANCE",
+    "url": "https://kyivalliance.tech/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1327,
+    "name": "MATRA ELECTRONIQUE",
+    "url": "https://www.matra-electronique.fr/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.matra-electronique.fr', port=443): Max retries exc"
+  },
+  {
+    "eid": 1331,
+    "name": "MBDA",
+    "url": "http://www.mbda-systems.com/",
+    "ok": true,
+    "headline": "MBDA in France, Excellence at your side | MBDA"
+  },
+  {
+    "eid": 1352,
+    "name": "MERCEDES-BENZ AG",
+    "url": "https://www.group.mercedes-benz.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1392,
+    "name": "MINISTÈRE DE L'INTÉRIEUR ET DES OUTRE-MER",
+    "url": "http://www.interieur.gouv.fr/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1396,
+    "name": "Ministry of Defence of the Slovak Republic",
+    "url": "https://www.mosr.sk/mo-sr-en/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.mosr.sk', port=443): Max retries exceeded with url"
+  },
+  {
+    "eid": 1450,
+    "name": "MUNITIONS INDIA LIMITED",
+    "url": "https://munitionsindia.in/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='munitionsindia.in', port=443): Max retries exceeded wi"
+  },
+  {
+    "eid": 1467,
+    "name": "NANTONG HANVO NEW MATERIAL TECHNOLOGY CO.,LTD",
+    "url": "http://www.hanvomaterial.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1483,
+    "name": "Netline",
+    "url": "http://www.netlinetech.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1505,
+    "name": "Nordic Inertial Oy",
+    "url": "http://nordicinertial.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1513,
+    "name": "NORTH INTERNATIONAL EXHIBITION CO.,LTD",
+    "url": "http://www.northexpo.com.cn/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1524,
+    "name": "NP AEROSPACE",
+    "url": "https://www.np-aerospace.co.uk/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.np-aerospace.co.uk', port=443): Max retries exceed"
+  },
+  {
+    "eid": 1531,
+    "name": "nVent SCHROFF",
+    "url": "https://schroff.nvent.com/en-us/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1563,
+    "name": "Optimized Electrotech Pvt Ltd",
+    "url": "https://www.optimizedelectrotech.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.optimizedelectrotech.com', port=443): Max retries "
+  },
+  {
+    "eid": 1579,
+    "name": "Oshkosh Defense",
+    "url": "https://www.oshkoshdefense.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1590,
+    "name": "PALLADIUM GROUP OF COMPANIES",
+    "url": "https://www.palladium.gen.tr/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.palladium.gen.tr', port=443): Max retries exceeded"
+  },
+  {
+    "eid": 1598,
+    "name": "PARKER HANNIFIN",
+    "url": "https://www.parker.com/fr",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1603,
+    "name": "PAXIS",
+    "url": "http://www.paxisceramics.com/",
+    "ok": true,
+    "headline": "Paxis employs patented and state of the art technology in ceramic materials to create bespoke ballistic armor and indust"
+  },
+  {
+    "eid": 1612,
+    "name": "PERSEUS ELECTRONICS CO., LTD",
+    "url": "https://www.perseusfans.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.perseusfans.com', port=443): Max retries exceeded "
+  },
+  {
+    "eid": 1613,
+    "name": "PERSISTENT SYSTEMS, LLC",
+    "url": "https://www.persistentsystems.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1656,
+    "name": "PRESTOLITE ELECTRIC LTD",
+    "url": "http://www.prestolite-eu.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1732,
+    "name": "Research Triangle Regional Partnership",
+    "url": "https://www.researchtriangle.org/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1733,
+    "name": "Resource Industries",
+    "url": "https://www.bing.com/ck/a?!&&p=6f4cf5460f23e9b715761cf5e8fbd33df2470f54ec6f8b04ae97dba5d6032c93JmltdHM9MTc3MzAxNDQwMA&ptn=3&ver=2&hsh=4&fclid=31375213-06bf-683e-320d-469c07ed6952&psq=resource+industries+location&u=a1aHR0cHM6Ly9yZXNvdXJjZS1pbmR1c3RyaWVzLmN",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1780,
+    "name": "RWS",
+    "url": "http://rws-ammunition.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1792,
+    "name": "SAFRAN",
+    "url": "https://www.safran-electronics-defense.com/",
+    "ok": true,
+    "headline": "Civil & military equipment manufacturer ​with deep technological roots​ Safran Electronics & Defense is an international"
+  },
+  {
+    "eid": 1793,
+    "name": "SAFRAN ELECTRONICS & DEFENSE",
+    "url": "https://www.safran-electronics-defense.com/",
+    "ok": true,
+    "headline": "Civil & military equipment manufacturer ​with deep technological roots​ Safran Electronics & Defense is an international"
+  },
+  {
+    "eid": 1794,
+    "name": "SAFRAN SA",
+    "url": "https://www.safran-group.com/",
+    "ok": true,
+    "headline": "Our mission Contribute to safer and more sustainable aviation"
+  },
+  {
+    "eid": 1797,
+    "name": "SAGAERT",
+    "url": "https://www.sagaertplastique.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.sagaertplastique.com', port=443): Max retries exce"
+  },
+  {
+    "eid": 1803,
+    "name": "SAINT-GOBAIN SULLY",
+    "url": "http://www.saint-gobain-sully.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1825,
+    "name": "Saudi Chemical Company Limited",
+    "url": "http://www.saudichemical.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1850,
+    "name": "Schuberth GMBH",
+    "url": "https://www.schuberth.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1892,
+    "name": "SFC Energy AG",
+    "url": "http://www.public-security.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1896,
+    "name": "SHANGHAI CAREFUL TECHNOLOGY CO.,LTD",
+    "url": "http://www.shanghaikaifu.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1921,
+    "name": "Silicon Sensing Systems",
+    "url": "https://www.siliconsensing.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 1954,
+    "name": "SOAIRTECH",
+    "url": "https://www.soairtech.fr/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='soairtech.fr', port=443): Max retries exceeded with ur"
+  },
+  {
+    "eid": 1972,
+    "name": "Solstice",
+    "url": "https://www.solstice.com/us/en",
+    "ok": true,
+    "headline": "Advancing science for smarter outcomes with high-performance solutions and products, Solstice is a pure-play specialty m"
+  },
+  {
+    "eid": 1986,
+    "name": "SPAFAX",
+    "url": "https://www.www.spafaxmirrors.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.www.spafaxmirrors.com', port=443): Max retries exc"
+  },
+  {
+    "eid": 2022,
+    "name": "STERELA",
+    "url": "https://www.sterela-defense.fr/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.sterela-defense.fr', port=443): Max retries exceed"
+  },
+  {
+    "eid": 2024,
+    "name": "Steyr Arms GmbH",
+    "url": "https://www.steyr-mannlicher.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.steyr-mannlicher.com', port=443): Max retries exce"
+  },
+  {
+    "eid": 2032,
+    "name": "STREAMWIDE",
+    "url": "http://www.streamwide.com/",
+    "ok": false,
+    "err": "HTTPConnectionPool(host='www.streamwide.com', port=80): Max retries exceeded wit"
+  },
+  {
+    "eid": 2041,
+    "name": "SUMITOMO DRIVE TECHNOLOGIES",
+    "url": "https://www.sumitomodrive.com/",
+    "ok": true,
+    "headline": "Sumitomo Drive Technologies is dedicated to providing the highest quality power transmission products, gearboxes, gearmo"
+  },
+  {
+    "eid": 2061,
+    "name": "SYSTEL Inc",
+    "url": "http://www.systelusa.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2093,
+    "name": "TECHTERA",
+    "url": "https://www.techtera.org/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2106,
+    "name": "TELEDYNE E2V SEMICONDUCTORS",
+    "url": "https://semiconductors.teledyne-e2v.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2122,
+    "name": "THALES",
+    "url": "http://www.thalesgroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2123,
+    "name": "THALES BELGIUM",
+    "url": "http://www.thalesgroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2125,
+    "name": "Thales SIX GTS France",
+    "url": "https://www.thalesgroup.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2128,
+    "name": "THE ROTATION LINK",
+    "url": "https://www.everaxis.com/",
+    "ok": true,
+    "headline": "Everaxis designs, manufactures, integrates and maintains custom Slip Rings and Rotary Joints and complex rotating system"
+  },
+  {
+    "eid": 2141,
+    "name": "TITAN DEFENSE",
+    "url": "https://www.titan-defense.com",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2148,
+    "name": "TOMER",
+    "url": "https://www.tomer-rs.co.il/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2168,
+    "name": "TRIJICON, INC.",
+    "url": "https://www.trijicon.com/",
+    "ok": true,
+    "headline": "Trijicon® rifle scopes, night sights, red dot sights and electro optics are known for legendary reliability, absolute ac"
+  },
+  {
+    "eid": 2173,
+    "name": "TRONICO",
+    "url": "https://www.tronico-alcen.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.tronico-alcen.com', port=443): Max retries exceede"
+  },
+  {
+    "eid": 2199,
+    "name": "Unis Ginex d.d. Gorazde",
+    "url": "http://www.unisginex.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2245,
+    "name": "VITZROCELL",
+    "url": "https://www.vitzrocell.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2306,
+    "name": "World Defense Show",
+    "url": "https://www.worlddefnseshow.com/",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.worlddefnseshow.com', port=443): Max retries excee"
+  },
+  {
+    "eid": 2315,
+    "name": "YEONHAB PRECISION CO LTD",
+    "url": "https://www.yeonhab.co.kr/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2325,
+    "name": "ZENITH AEROTECHNICS",
+    "url": "https://zenith-aerotechnics.com/",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2359,
+    "name": "ARDANTI DEFENSE",
+    "url": "https://www.ardanti-defense.com",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.ardanti-defense.com', port=443): Max retries excee"
+  },
+  {
+    "eid": 2361,
+    "name": "ARTEM INFORMATION & STRATEGIES",
+    "url": "https://www.gicat.com/membre/artem-defense",
+    "ok": false,
+    "err": "no clean meta"
+  },
+  {
+    "eid": 2372,
+    "name": "BBE DEVELOPPEMENT",
+    "url": "https://bbe-developpement.eu",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='bbe-developpement.eu', port=443): Max retries exceeded"
+  },
+  {
+    "eid": 2395,
+    "name": "COLLINS AEROSPACE",
+    "url": "https://collinsaerospace.com",
+    "ok": true,
+    "headline": "A printed circuit board factory in Puerto Rico demonstrates digital technologies for the rest of RTX"
+  },
+  {
+    "eid": 2415,
+    "name": "DRONE GEOFENCING",
+    "url": "https://www.drone-geofencing.fr",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.drone-geofencing.fr', port=443): Max retries excee"
+  },
+  {
+    "eid": 2427,
+    "name": "EPSA",
+    "url": "https://www.epsa-marketplace.com/nos-expertises/operations-techniques",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.epsa-marketplace.com', port=443): Max retries exce"
+  },
+  {
+    "eid": 2457,
+    "name": "INFO ONE",
+    "url": "https://www.info-one-integration.fr",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='www.info-one-integration.fr', port=443): Max retries e"
+  },
+  {
+    "eid": 2487,
+    "name": "MICHELIN",
+    "url": "https://defense.michelingroup",
+    "ok": false,
+    "err": "HTTPSConnectionPool(host='defense.michelingroup', port=443): Max retries exceede"
+  },
+  {
+    "eid": 2488,
+    "name": "MIDGARD",
+    "url": "https://www.midgard-ai.com/fr",
+    "ok": false,
+    "err": "no clean meta"
+  }
+]
