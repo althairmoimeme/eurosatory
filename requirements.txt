@@ -1,5 +1,6 @@
 # Cloud deploy requirements (Streamlit Community Cloud / minimal Render).
-# Heavier dev / scraping deps live in ``requirements-dev.txt``.
+# Heavier dev / scraping deps (playwright, pymupdf) live in
+# ``requirements-dev.txt``.
 
 streamlit>=1.55,<2
 pandas>=2.2,<3
@@ -14,7 +15,17 @@ requests>=2.31
 altair>=5.4
 pyarrow>=15
 anthropic>=0.40
+
+# Used inside ``app/`` modules at import time
+fpdf2>=2.7
 beautifulsoup4>=4.12
 rapidfuzz>=3.9
 tldextract>=5.1
 python-slugify>=8.0
+selectolax>=0.3.21
+tenacity>=9.0
+rich>=13.7
+typer>=0.12
+fastapi>=0.115
+email-validator>=2.2
+phonenumbers>=8.13
