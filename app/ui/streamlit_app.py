@@ -89,7 +89,15 @@ from app.exports.attendance_export import (
     export_attendance_crm_csv,
     export_attendance_full_csv,
 )
-from app.exports.pdf_fiche import render_company_pdf
+# PDF export is optional — if fpdf2 is missing (e.g. on a slim cloud
+# install) the rest of the app must still work. The button that uses
+# ``render_company_pdf`` checks ``_PDF_AVAILABLE`` and degrades silently.
+try:
+    from app.exports.pdf_fiche import render_company_pdf  # type: ignore
+    _PDF_AVAILABLE = True
+except ImportError:
+    render_company_pdf = None  # type: ignore[assignment]
+    _PDF_AVAILABLE = False
 from app.crm.schema import DEFAULT_TABLE_COLUMNS
 from app.database import (
     ActivityLog,
@@ -2141,18 +2149,21 @@ def render_detail(exhibitor_id: int) -> None:
                 s.commit()
                 st.cache_data.clear()
                 st.rerun()
-            try:
-                pdf_bytes = render_company_pdf(row)
-                st.download_button(
-                    "📄 Export PDF",
-                    data=pdf_bytes,
-                    file_name=f"{(row.get('account_name') or 'fiche').replace(' ', '_')[:60]}.pdf",
-                    mime="application/pdf",
-                    use_container_width=True,
-                    key=f"pdf_{exh.id}",
-                )
-            except Exception as e:  # noqa: BLE001
-                st.caption(f"PDF indisponible: {e}")
+            if not _PDF_AVAILABLE or render_company_pdf is None:
+                st.caption("📄 Export PDF indisponible (fpdf2 non installé).")
+            else:
+                try:
+                    pdf_bytes = render_company_pdf(row)
+                    st.download_button(
+                        "📄 Export PDF",
+                        data=pdf_bytes,
+                        file_name=f"{(row.get('account_name') or 'fiche').replace(' ', '_')[:60]}.pdf",
+                        mime="application/pdf",
+                        use_container_width=True,
+                        key=f"pdf_{exh.id}",
+                    )
+                except Exception as e:  # noqa: BLE001
+                    st.caption(f"PDF indisponible: {e}")
 
         # Section 1 — Identity
         st.markdown('<div class="section-title">1 · Identity</div>', unsafe_allow_html=True)
