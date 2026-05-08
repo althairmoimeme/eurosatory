@@ -160,20 +160,36 @@ PRODUCT_CAT_TO_COMPANY_TYPE: dict[str, str] = {
 }
 
 
-# business_model values that are MORE specific than ``supply_chain_tier``
-# and should override the tier-derived classification (e.g. an OEM-tier
-# software vendor is really an "Éditeur logiciel", not an OEM).
-SPECIFICITY_OVERRIDES: dict[str, str] = {
-    "System integrator": "Intégrateur",
-    "Software / SaaS vendor": "Éditeur logiciel",
-    "Software / SaaS": "Éditeur logiciel",
-    "Distributor / reseller": "Distributeur",
-    "Distributor": "Distributeur",
-    "Engineering services": "Bureau d'ingénierie",
-    "Engineering firm": "Bureau d'ingénierie",
-    "Consulting firm": "Bureau d'ingénierie",
-    "Research / lab": "Bureau d'ingénierie",
-}
+# Activity-verb signals are the most reliable LLM-grade hint. The verb
+# at the start of activity_1liner directly states the company's mode
+# d'opération.
+_VERB_EDITEUR = re.compile(r"^[ÉE]dite\b", re.I)
+_VERB_DISTRIBUTEUR = re.compile(r"^Distribue\b", re.I)
+_VERB_SOUS_TRAITANT = re.compile(r"^Sous[- ]traite\b", re.I)
+_VERB_INTEGRATEUR = re.compile(r"^Int[èe]gre\b", re.I)
+_VERB_INGENIERIE = re.compile(
+    r"^(Conseille|Audite|Conduit\s+des?\s+recherches?|"
+    r"Conduit\s+de\s+la\s+(?:R&D|recherche))\b",
+    re.I,
+)
+_VERB_SERVICES = re.compile(
+    r"^(Maintient|Op[èe]re|Loue|Forme|Anime|Pilote|Coordonne|"
+    r"Mutualise|Promeut|F[ée]d[èe]re|Investit|Finance|Soutient|"
+    r"Accompagne|Assure|Repr[ée]sente)\b",
+    re.I,
+)
+_VERB_FABRICATION = re.compile(
+    r"^(Con[çc]oit|Fabrique|Forge|Usine|Imprime|Assemble|Construit|"
+    r"Soude|Produit|Transforme|D[ée]veloppe|R[ée]alise|D[ée]ploie)\b",
+    re.I,
+)
+# "Fournit des services bancaires" / "Fournit de l'ingénierie" → service.
+_VERB_FOURNIT_SERVICES = re.compile(
+    r"^Fournit\s+(des?\s+)?(services?|de l[\'’]ingénierie|"
+    r"du conseil|de la formation|de la maintenance|"
+    r"de la R&D)",
+    re.I,
+)
 
 
 def derive_company_type(
@@ -183,70 +199,131 @@ def derive_company_type(
     activity_1liner: Optional[str] = None,
 ) -> str:
     """Smart-merge ``supply_chain_tier`` + ``business_model`` + product
-    categories into one of the 8 ``ALLOWED_COMPANY_TYPES``.
+    categories + activity verb into one of the 8 ``ALLOWED_COMPANY_TYPES``.
 
-    Order of resolution :
-      1. **Specificity overrides** — when ``business_model`` carries a
-         more precise signal than the tier (Software / SaaS, System
-         integrator, Distributor, Engineering / Research), it wins
-         outright.
-      2. **Activity verb signal** — strong single-word verbs ("Édite",
-         "Distribue", "Conseille") lock the type regardless of tier
-         (catches LLM-classified fiches where business_model is stale).
-      3. **Supply-chain tier** — the canonical pyramid (OEM / Tier 1-4 /
-         MRO) wins for industrial fiches.
-      4. **Product-category institutional signal** — only used for
-         ``N/A``-tier fiches (clusters, banks, R&D labs).
-      5. Default to ``"Société de services"``.
+    Order of resolution (most-specific signal wins):
+      1. **Activity verb** — "Édite" → Éditeur logiciel ; "Distribue" →
+         Distributeur ; "Sous-traite" → Sous-traitant industriel. Always
+         wins, because the activity is human-vetted (LLM-generated +
+         manual review) and overrides stale rule-based business_model.
+      2. **Activity verb softer signals** — "Conseille / Audite /
+         Conduit des recherches" → Bureau d'ingénierie when the
+         business_model agrees ; "Anime / Pilote / Représente / etc." →
+         Société de services for institutional fiches.
+      3. **business_model with strong specificity**, BUT only when the
+         activity verb doesn't contradict (Distributor business_model
+         doesn't override a "Conçoit et fabrique" activity).
+      4. **N/A-tier institutional signal** from products_categories.
+      5. **Supply_chain_tier** — the canonical pyramid (OEM / Tier 1-4 /
+         MRO) for industrial fiches.
+      6. **business_model fallback** for accepted values.
+      7. Default to ``"Société de services"``.
     """
     bm = (business_model or "").strip()
     tier = (supply_chain_tier or "").strip() or "N/A"
     act = (activity_1liner or "").strip()
 
-    # Step 1 — specificity overrides (business_model trumps tier)
-    if bm in SPECIFICITY_OVERRIDES:
-        return SPECIFICITY_OVERRIDES[bm]
+    # Detect the action verb at the start of the activity_1liner.
+    is_editeur = bool(act and _VERB_EDITEUR.match(act))
+    is_distributeur = bool(act and _VERB_DISTRIBUTEUR.match(act))
+    is_sous_traitant = bool(act and _VERB_SOUS_TRAITANT.match(act))
+    is_integrateur = bool(act and _VERB_INTEGRATEUR.match(act))
+    is_ingenierie = bool(act and _VERB_INGENIERIE.match(act))
+    is_services_verb = bool(act and _VERB_SERVICES.match(act))
+    is_fabrication = bool(act and _VERB_FABRICATION.match(act))
+    is_fournit_services = bool(act and _VERB_FOURNIT_SERVICES.match(act))
 
-    # Step 2 — activity-verb specificity (LLM-grade signal)
-    if act:
-        if re.match(r"^[ÉE]dite\b", act, re.I):
-            return "Éditeur logiciel"
-        if re.match(r"^Distribue\b", act, re.I):
-            return "Distributeur"
-        if re.match(r"^Conseille\b", act, re.I) and tier == "N/A":
-            return "Bureau d'ingénierie"
+    # ──────────────── Step 1 — Hard activity-verb signals ────────────────
+    # The activity verb is the most reliable LLM-grade signal — it
+    # always wins over stale business_model values from rule-based
+    # scraping.
+    if is_editeur:
+        return "Éditeur logiciel"
+    if is_distributeur:
+        return "Distributeur"
+    if is_sous_traitant:
+        return "Sous-traitant industriel"
+    if is_integrateur:
+        return "Intégrateur"
+    if is_ingenierie:
+        return "Bureau d'ingénierie"
 
-    # Step 3 — supply_chain_tier (canonical industrial axis)
-    if tier in TIER_TO_COMPANY_TYPE:
-        # OEM-tier business_model wins (strict OEM marker, not generic
-        # "Manufacturer" which we removed from the mapping)
-        if tier == "OEM" and bm == "OEM":
-            return "OEM"
-        if tier == "Equipment manufacturer":
-            return "Équipementier / Tier 1"
-        return TIER_TO_COMPANY_TYPE[tier]
+    # ──────────────── Step 2 — Soft activity-verb signals ───────────────
+    # "Fournit des services" / "Fournit de l'ingénierie" → service.
+    if is_fournit_services:
+        return "Société de services"
+    # Institutional / service verbs lock Société de services.
+    if is_services_verb and not is_fabrication:
+        return "Société de services"
 
-    # Step 4 — N/A : look for institutional / sector signal in cats
-    if products_categories:
+    # ──────────────── Step 3 — business_model overrides ────────────────
+    # Software / SaaS is unambiguous — always wins.
+    if bm in {"Software / SaaS vendor", "Software / SaaS"}:
+        return "Éditeur logiciel"
+
+    # System integrator wins UNLESS activity verb explicitly contradicts.
+    if bm == "System integrator" and not is_fabrication:
+        return "Intégrateur"
+
+    # Distributor wins UNLESS activity says "Conçoit / Fabrique / Déploie"
+    # (some OEM-tier fiches have stale bm=Distributor / reseller).
+    if bm in {"Distributor / reseller", "Distributor"} and not is_fabrication:
+        return "Distributeur"
+
+    # Engineering services / consulting / research wins ONLY when the
+    # activity is genuinely engineering and NOT a manufacturer.
+    if bm in {
+        "Engineering services", "Engineering firm",
+        "Consulting firm", "Research / lab",
+    } and not is_fabrication:
+        return "Bureau d'ingénierie"
+
+    # ──────────────── Step 4 — N/A : institutional category ─────────────
+    # Strong institutional signals (cluster, finance, R&D academic, etc.)
+    # win even over fabrication activity. Soft signals (Logistique
+    # militaire, Distribution composants…) only apply when the activity
+    # is NOT a manufacturer verb.
+    _INSTITUTIONAL_HARD = {
+        "Représentation institutionnelle (cluster, fédération, chambre)",
+        "Achat public défense & politique industrielle",
+        "Médias & publications défense",
+        "Organisation de salons & conférences défense",
+        "Financement, banque & assurance défense",
+        "R&D académique & laboratoires",
+        "Conseil stratégique & due-diligence M&A",
+    }
+    if tier == "N/A" and products_categories:
         for cat in products_categories:
             c = (cat or "").strip()
-            if c in PRODUCT_CAT_TO_COMPANY_TYPE:
+            if c in _INSTITUTIONAL_HARD:
+                return PRODUCT_CAT_TO_COMPANY_TYPE[c]
+            if c in PRODUCT_CAT_TO_COMPANY_TYPE and not is_fabrication:
                 return PRODUCT_CAT_TO_COMPANY_TYPE[c]
 
-    # Step 4b — N/A : business_model fallback for accepted values
+    # If tier=N/A but the fiche is clearly a manufacturer (verb "Fabrique"
+    # / "Conçoit"…), classify as Sous-traitant industriel — better than
+    # the default Société de services for industrial fiches without a
+    # canonical product cat.
+    if tier == "N/A" and is_fabrication:
+        return "Sous-traitant industriel"
+
+    # ──────────────── Step 5 — supply_chain_tier ─────────────────────
+    if tier in TIER_TO_COMPANY_TYPE:
+        return TIER_TO_COMPANY_TYPE[tier]
+
+    # ──────────────── Step 6 — business_model fallback ─────────────────
+    # Skip Distributor / Engineering fallback when the activity verb
+    # clearly contradicts (already filtered above, but defensive).
     if bm in BUSINESS_MODEL_TO_COMPANY_TYPE:
-        return BUSINESS_MODEL_TO_COMPANY_TYPE[bm]
+        candidate = BUSINESS_MODEL_TO_COMPANY_TYPE[bm]
+        # If the activity is fabrication, only accept industrial buckets.
+        if is_fabrication and candidate in {
+            "Distributeur", "Bureau d'ingénierie", "Société de services",
+        }:
+            return "Sous-traitant industriel"
+        return candidate
 
-    # Step 4c — N/A : activity verb hints
-    if act:
-        if re.match(
-            r"^(Maintient|Op[èe]re|Loue|Forme|Anime|Pilote|Coordonne|"
-            r"Mutualise|Promeut|F[ée]d[èe]re|Investit|Finance|Soutient|"
-            r"Accompagne|Assure|Repr[ée]sente)\b",
-            act, re.I,
-        ):
-            return "Société de services"
-
+    # ──────────────── Step 7 — default ─────────────────────────────────
     return "Société de services"
 
 
