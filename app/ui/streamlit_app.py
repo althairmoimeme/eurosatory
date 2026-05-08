@@ -1058,9 +1058,9 @@ def render_active_filter_chips(filters: dict, filtered_df: pd.DataFrame) -> None
 
 
 SORT_OPTIONS: dict[str, tuple[str, bool]] = {
-    "Score décroissant (Data strength)": ("lead_score", False),
-    "Score croissant": ("lead_score", True),
-    "Priorité (A+ → D)": ("priority_level", True),
+    # Removed obsolete options : "Score décroissant (Data strength)",
+    # "Score croissant", "Priorité (A+ → D)" — these belonged to the
+    # legacy CRM scoring axis that's no longer surfaced to users.
     "Société (A → Z)": ("account_name", True),
     "Pays (A → Z)": ("country", True),
     "Plus récents (last_checked_at)": ("last_checked_at", False),
@@ -1171,11 +1171,9 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
     else:
         show.insert(0, "is_favorite", False)
     show.insert(0, "_id", sort_input["account_id"].str.replace("ESY26-", "").astype(int))
-    # Single helper column for row selection — checking 1 row opens its
-    # detail card below ; checking 2+ rows triggers bulk actions /
-    # comparison. Replaces the previous ``_view`` + ``_bulk`` pair (the
-    # 👁 column was confusing because it duplicated the bulk checkbox).
-    show.insert(1, "_pick", False)
+    # The "_pick" checkbox column was retired — rows are now opened via
+    # the "Ouvrir une fiche" selectbox below, and bulk actions / comparison
+    # come from the Custom Lists tab where selection is more deliberate.
 
     # Enriched caption — three counts + sort label
     n_total = total_rows if total_rows is not None else len(df)
@@ -1184,8 +1182,7 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
     st.caption(
         f"**{n_shown} affichées** / {n_filtered} filtrées / {n_total} total · "
         f"trié par **{sort_label}** · "
-        f"💡 Coche **⭐** pour favori. Coche **✓** sur 1 ligne pour la "
-        f"fiche détaillée, sur 2+ lignes pour bulk actions / comparaison."
+        f"💡 Coche **⭐** pour ajouter aux favoris."
     )
 
     # Snapshot to detect ⭐ toggles between renders (data_editor returns
@@ -1203,11 +1200,6 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
         key=f"{key_prefix}_data_editor",
         column_config={
             "_id": None,
-            "_pick": st.column_config.CheckboxColumn(
-                "✓", width="small", default=False,
-                help="Coche 1 ligne → fiche détaillée. Coche 2+ lignes "
-                "→ bulk actions / comparaison côte-à-côte.",
-            ),
             "is_favorite": st.column_config.CheckboxColumn(
                 "⭐", width="small", default=False,
                 help="Coche pour ajouter aux favoris (transverse à toutes "
@@ -1366,20 +1358,22 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
         st.toast(" / ".join(msg_bits), icon="⭐")
         st.rerun()
 
-    # Read picks from edited frame — single column drives both detail
-    # (1 row) and bulk (2+ rows) selection.
-    picks = edited[edited["_pick"] == True]  # noqa: E712
-    pick_ids = [int(x) for x in picks["_id"].tolist()]
-
-    if len(pick_ids) == 1:
-        return pick_ids[0], []
-    if len(pick_ids) >= 2:
-        return None, pick_ids
-    st.caption(
-        "💡 Coche la case **✓** d'une ligne → fiche détaillée s'ouvre en "
-        "bas. Coche les cases **☑** de plusieurs lignes → actions en masse."
+    # Detail-opening UI : a selectbox replaces the retired "_pick" column.
+    # The user picks a company by name (or types to search) and the fiche
+    # opens below.
+    name_to_id = {
+        f"{row['account_name']} — {row.get('country') or '-'}": int(row["_id"])
+        for _, row in show.iterrows()
+    }
+    detail_choice = st.selectbox(
+        "Ouvrir une fiche",
+        ["(aucune)"] + sorted(name_to_id.keys()),
+        index=0,
+        key=f"{key_prefix}_open_detail",
+        help="Sélectionne une société pour afficher sa fiche détaillée.",
     )
-    return None, []
+    detail_id = name_to_id.get(detail_choice)
+    return (detail_id, []) if detail_id else (None, [])
 
 
 # ---------------------------------------------------------------------------
