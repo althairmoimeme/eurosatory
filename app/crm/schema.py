@@ -127,8 +127,8 @@ DEFAULT_TABLE_COLUMNS = [
     "booth_number",             # Hall + N° de stand ("Hall 4 / G325")
     "supply_chain_tier",        # OEM / Tier 1-4 / N/A — pyramide industrielle
     "activity_1liner",          # Eurosatory targeting profile (FR)
-    "products_categories",      # canonical filterable category list
+    # Removed : "products_categories" (trop imprécis, source d'erreurs côté client)
+    # Removed : "targeting_score"
     "target_buyers",            # 5-label closed taxonomy
     "why_target",               # actionable angle for the rep
-    "targeting_score",          # completeness score (0-100)
 ]
