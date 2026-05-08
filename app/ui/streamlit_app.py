@@ -486,9 +486,10 @@ def render_sidebar(df: pd.DataFrame) -> dict:
     st.sidebar.markdown("### 🔎 Filtres")
     with st.sidebar:
         search_text = st.text_input("Recherche libre", key="filter_search")
-        only_priority = st.checkbox("A+ / A uniquement", key="filter_only_priority")
         only_website = st.checkbox("Avec site web uniquement", key="filter_only_website")
-        only_high_conf = st.checkbox("High confidence uniquement", key="filter_only_high_conf")
+        # Removed filters : "A+ / A uniquement" and "High confidence uniquement"
+        only_priority = False
+        only_high_conf = False
 
         # ============================================================
         # 🎯 Eurosatory 2026 — Ciblage commercial (the database we sell)
@@ -539,32 +540,16 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             help="MCO, intégration, formation, distribution, sous-traitance, "
             "certif, …",
         )
-        targeting_technology_categories = st.multiselect(
-            "Catégories technologies", sorted(tech_cat_options),
-            key="filter_targeting_tech_cats",
-            help="IA, RF, composites, fabrication additive, optronique IR, …",
-        )
+        # Removed filters : "Catégories technologies", "Score de ciblage min",
+        # "Origine fiche".
+        targeting_technology_categories: list[str] = []
+        min_targeting_score = 0
+        targeting_sources: list[str] = []
         target_buyers_filter = st.multiselect(
             "Cibles clients (à qui ils vendent)", target_buyer_options,
             key="filter_target_buyers",
             help="Taxonomie fermée 5 valeurs : MoD/Armées · Primes défense · "
             "Sécurité civile · Industriels défense · Export / international.",
-        )
-        # The score field is in the DataFrame ; if NaN (no profile loaded)
-        # the slider stays at 0 and the filter is a no-op.
-        min_targeting_score = st.slider(
-            "Score de ciblage min", 0, 100, 0, step=5,
-            key="filter_min_targeting_score",
-            help="Score 0-100 de complétude de la fiche de ciblage. "
-            "Mets 60 pour ne voir que les fiches utilisables ; 80 pour "
-            "les meilleures.",
-        )
-        targeting_sources = st.multiselect(
-            "Origine fiche",
-            ["manual", "high", "medium", "low", "very_low"],
-            key="filter_targeting_sources",
-            help="manual = enrichie à la main · high/medium/low/very_low = "
-            "qualité des données rule-based.",
         )
 
         st.markdown("---")
@@ -602,7 +587,8 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         all_built = _collect_split(df, "products_built")
         all_sold = _collect_split(df, "products_sold")
         all_services = _collect_split(df, "services_sold")
-        all_buying_full = _collect_split(df, "probable_buying_needs") | _collect_split(df, "buying_needs_secondary")
+        # Removed filter : "Filtrer par BESOIN D'ACHAT (complet)"
+        buying_needs_full_filter: list[str] = []
 
         products_built_filter = st.multiselect(
             "Filtrer par PRODUITS FABRIQUÉS",
@@ -618,12 +604,6 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             "Filtrer par SERVICES VENDUS",
             sorted(all_services), key="filter_services_sold",
             help="Maintenance, intégration, formation, conseil, etc.",
-        )
-        buying_needs_full_filter = st.multiselect(
-            "Filtrer par BESOIN D'ACHAT (complet)",
-            sorted(all_buying_full), key="filter_buying_needs_full",
-            help="Trouver des ACHETEURS probables — sociétés qui sourcent ces "
-            "catégories. Inclut le besoin principal + les besoins secondaires.",
         )
 
         st.markdown("**🏅 Certifications**")
@@ -641,13 +621,8 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         only_favorites = st.checkbox(
             "⭐ Mes favoris uniquement", key="filter_only_favorites",
         )
-        next_action_filter = st.selectbox(
-            "📅 Prochaine action",
-            ["(any)", "Overdue", "Due this week", "Due in 30 days",
-             "Sans date prévue"],
-            key="filter_next_action",
-            help="Filtre sur next_action_date.",
-        )
+        # Removed filter : "📅 Prochaine action"
+        next_action_filter = "(any)"
 
         st.markdown("**📅 Plages numériques**")
         # Founding year range — only show if at least 1 row has a year
@@ -715,19 +690,11 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             help="Filtrer les sociétés qui sont ou ne sont pas filiales d'un groupe identifié.",
         )
 
-        st.markdown("**Qualité**")
-        confidences = st.multiselect(
-            "Data confidence", DATA_CONFIDENCES, key="filter_confidence"
-        )
-        manual_review_choice = st.selectbox(
-            "Revue manuelle", ["(any)", "TRUE", "FALSE"], key="filter_review"
-        )
-        manual_review = (
-            None if manual_review_choice == "(any)"
-            else manual_review_choice == "TRUE"
-        )
-
-        min_score = st.slider("Lead score min", 0, 100, 0, step=5, key="filter_min_score")
+        # Removed section : "Qualité" (Data confidence + Revue manuelle) and
+        # "Lead score min".
+        confidences: list[str] = []
+        manual_review = None
+        min_score = 0
 
         all_lists = list_custom_lists()
         list_names = [l.name for l in all_lists]

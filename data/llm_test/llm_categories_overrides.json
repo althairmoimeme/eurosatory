@@ -71,9 +71,7 @@
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Représentation institutionnelle (cluster/fédération)",
-      "Promotion territoriale & investissement",
-      "Financement export & banque défense"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -82,9 +80,7 @@
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Distribution & représentation",
-      "Logistique militaire & transit",
-      "Marketing & développement commercial"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -130,17 +126,13 @@
   },
   "1997": {
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Boîtiers & châssis durcis",
-      "Connectique & câblage durcis"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
       "Ingénierie & conseil"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ]
+    "technologies_categories": []
   },
   "2385": {
     "products_categories": [
@@ -235,7 +227,7 @@
   },
   "1363": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Certification & tests",
@@ -248,7 +240,7 @@
   },
   "2519": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "R&D sur contrat"
@@ -259,7 +251,7 @@
   },
   "490": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Satellites & CubeSats"
     ],
     "services_categories": [
       "Autre — à qualifier"
@@ -380,16 +372,13 @@
   },
   "496": {
     "products_categories": [
-      "Conteneurs, malles, shelters",
-      "Distribution composants & représentation de marques"
+      "Conteneurs, malles, shelters"
     ],
     "services_categories": [
       "Distribution & représentation",
-      "Logistique militaire & transit"
+      "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Matériaux composites"
-    ]
+    "technologies_categories": []
   },
   "2520": {
     "products_categories": [
@@ -418,13 +407,10 @@
   },
   "652": {
     "products_categories": [
-      "Logistique militaire & transport",
-      "Représentation institutionnelle (cluster, fédération, chambre)"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
-      "Logistique militaire & transit",
-      "Approvisionnement composants & sourcing",
-      "Support opérationnel & OPEX"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -497,8 +483,7 @@
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Représentation institutionnelle (cluster/fédération)",
-      "Promotion territoriale & investissement"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -532,7 +517,7 @@
   },
   "2452": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -866,7 +851,8 @@
   },
   "2400": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Cybersécurité (logiciels & appliances)",
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -1066,8 +1052,7 @@
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Représentation institutionnelle (cluster/fédération)",
-      "Promotion territoriale & investissement"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -1101,12 +1086,9 @@
     ],
     "services_categories": [
       "Ingénierie & conseil",
-      "Sous-traitance industrielle",
-      "Certification & tests"
+      "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Matériaux énergétiques"
-    ]
+    "technologies_categories": []
   },
   "2531": {
     "products_categories": [
@@ -1169,7 +1151,7 @@
   },
   "2340": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -1318,7 +1300,7 @@
   },
   "2465": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -1442,7 +1424,7 @@
   },
   "2410": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -1510,7 +1492,6 @@
     ],
     "services_categories": [
       "Distribution & représentation",
-      "MCO / MRO",
       "Ingénierie & conseil"
     ],
     "technologies_categories": []
@@ -1695,7 +1676,7 @@
   },
   "2353": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -1728,16 +1709,9 @@
   },
   "2420": {
     "products_categories": [
-      "Stations de purification d'eau & infra",
-      "Groupes électrogènes & énergie tactique",
-      "Conteneurs, malles, shelters",
-      "Logistique militaire & transport"
+      "Autre — à qualifier"
     ],
-    "services_categories": [
-      "Logistique militaire & transit",
-      "Support opérationnel & OPEX",
-      "Achat public & marchés défense"
-    ],
+    "services_categories": [],
     "technologies_categories": []
   },
   "2128": {
@@ -1967,15 +1941,12 @@
   },
   "865": {
     "products_categories": [
-      "Représentation institutionnelle (cluster, fédération, chambre)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
-      "Représentation institutionnelle (cluster/fédération)",
-      "Organisation de salons & événements"
+      "Formation & entraînement"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ]
+    "technologies_categories": []
   },
   "1841": {
     "products_categories": [
@@ -2004,18 +1975,13 @@
   },
   "2133": {
     "products_categories": [
-      "Logistique militaire & transport",
-      "Distribution composants & représentation de marques"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
-      "Logistique militaire & transit",
-      "Approvisionnement composants & sourcing",
-      "Distribution & représentation"
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
     ],
-    "technologies_categories": [
-      "Big data & analytics",
-      "Cloud & cloud souverain"
-    ]
+    "technologies_categories": []
   },
   "1231": {
     "products_categories": [
@@ -2094,16 +2060,12 @@
   },
   "2549": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Sous-traitance industrielle",
-      "Approvisionnement composants & sourcing"
+      "Distribution & représentation"
     ],
-    "technologies_categories": [
-      "Fabrication additive"
-    ]
+    "technologies_categories": []
   },
   "1612": {
     "products_categories": [
@@ -2226,7 +2188,7 @@
   },
   "2484": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Formation & entraînement"
@@ -2327,12 +2289,11 @@
       "Autre — à qualifier"
     ],
     "services_categories": [
-      "Sous-traitance industrielle",
-      "Ingénierie & conseil"
+      "MCO / MRO",
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ]
+    "technologies_categories": []
   },
   "886": {
     "products_categories": [
@@ -2361,7 +2322,7 @@
   },
   "1238": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -2386,7 +2347,8 @@
   },
   "2428": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Cybersécurité (logiciels & appliances)",
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -2435,7 +2397,7 @@
   },
   "63": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -2559,9 +2521,7 @@
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Promotion territoriale & investissement",
-      "Représentation institutionnelle (cluster/fédération)",
-      "Marketing & développement commercial"
+      "Distribution & représentation"
     ],
     "technologies_categories": []
   },
@@ -2681,7 +2641,7 @@
   },
   "2434": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Formation & entraînement",
@@ -2797,17 +2757,12 @@
   },
   "2435": {
     "products_categories": [
-      "Conteneurs, malles, shelters",
-      "Logiciels métier défense (autres)",
-      "Logistique militaire & transport"
+      "Autre — à qualifier"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Support opérationnel & OPEX"
+      "Intégration de systèmes"
     ],
-    "technologies_categories": [
-      "Fabrication additive"
-    ]
+    "technologies_categories": []
   },
   "1311": {
     "products_categories": [
@@ -2834,7 +2789,7 @@
   },
   "2370": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Certification & tests",
@@ -2873,13 +2828,11 @@
       "Autre — à qualifier"
     ],
     "services_categories": [
+      "Distribution & représentation",
       "MCO / MRO",
-      "Logistique militaire & transit",
-      "Approvisionnement composants & sourcing"
+      "Ingénierie & conseil"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ]
+    "technologies_categories": []
   },
   "2437": {
     "products_categories": [
@@ -3123,7 +3076,7 @@
   },
   "153": {
     "products_categories": [
-      "Autre — à qualifier"
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
       "Certification & tests",
@@ -3491,16 +3444,14 @@
   },
   "2354": {
     "products_categories": [
-      "Logistique militaire & transport",
-      "Autre — à qualifier"
+      "Hydraulique & motion control",
+      "Mâts, signalisation & balisage"
     ],
     "services_categories": [
-      "Sous-traitance industrielle",
-      "MCO / MRO"
+      "Sous-traitance industrielle"
     ],
     "technologies_categories": [
-      "Hydraulique haute performance",
-      "Matériaux balistiques (UHMWPE, céramiques)"
+      "Hydraulique haute performance"
     ]
   },
   "534": {
@@ -3589,5 +3540,5528 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ]
+  },
+  "19": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "15": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Servomoteurs & motion control précision"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Systèmes anti-drone (C-UAS)",
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "7": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "16": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "810": {
+    "products_categories": [
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2119": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1209": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1676": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Gilets & plaques pare-balles",
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "404": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "31": {
+    "products_categories": [
+      "Réseaux militaires (5G/P-LTE/MANET)"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "36": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "814": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2120": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1678": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1210": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "41": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "818": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "46": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "409": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "822": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1682": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1219": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Pyrotechnie & artifices",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "826": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1687": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "420": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2140": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Mâts, signalisation & balisage",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "53": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "204": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Représentation institutionnelle (cluster/fédération)",
+      "Organisation de salons & événements",
+      "R&D sur contrat"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "600": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1018": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1873": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2401": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "208": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "607": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1430": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1020": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1878": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "211": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "631": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1437": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "214": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "634": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1886": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1029": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1443": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1031": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Gilets & plaques pare-balles",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1887": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "215": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "636": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1899": {
+    "products_categories": [
+      "Munitions gros calibre & obus"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "217": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "644": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1449": {
+    "products_categories": [
+      "Explosifs & matériaux énergétiques",
+      "Munitions petit/moyen calibre",
+      "Munitions gros calibre & obus",
+      "Pyrotechnie & artifices"
+    ],
+    "services_categories": [
+      "Logistique militaire & transit",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1033": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "218": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "649": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Radar (AESA, monopulse, …)"
+    ]
+  },
+  "1036": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1914": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "220": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "1039": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Robots terrestres (UGV / EOD)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1452": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1916": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1912": {
+    "products_categories": [
+      "Systèmes de guerre électronique (EW)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1451": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1042": {
+    "products_categories": [
+      "NRBC (masques, tenues, détecteurs)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "653": {
+    "products_categories": [
+      "Groupes électrogènes & énergie tactique"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1929": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1453": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1047": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "654": {
+    "products_categories": [
+      "NRBC (masques, tenues, détecteurs)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1931": {
+    "products_categories": [
+      "Munitions gros calibre & obus",
+      "Plateformes IA / vision défense",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "244": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "655": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1050": {
+    "products_categories": [
+      "Servomoteurs & motion control précision"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1461": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Mâts, signalisation & balisage",
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "MCO / MRO",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1953": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1051": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1955": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1465": {
+    "products_categories": [
+      "Explosifs & matériaux énergétiques",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "248": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "2552": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "658": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1490": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1957": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2559": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "662": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "663": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1056": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "251": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1962": {
+    "products_categories": [
+      "Avions & hélicoptères militaires"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1493": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Systèmes de guerre électronique (EW)",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "254": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "664": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "2565": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1496": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "1059": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1054": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "255": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "671": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1497": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1060": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2571": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1966": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "260": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1068": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "672": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1971": {
+    "products_categories": [
+      "Céramiques techniques & balistiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1512": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1967": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1075": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "262": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "676": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1081": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1973": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1516": {
+    "products_categories": [
+      "Piles à combustible & H2",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1974": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "266": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "691": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1518": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1087": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "274": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "693": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1523": {
+    "products_categories": [
+      "Hydraulique & motion control"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1980": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1088": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "277": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "695": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1527": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "280": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "699": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1529": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "2001": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1093": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels métier défense (autres)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "281": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "703": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1532": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "2002": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1094": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "291": {
+    "products_categories": [
+      "Drones FPV & munitions rôdeuses"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "704": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1536": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2005": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1097": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "294": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "707": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1539": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2006": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Distribution & représentation",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1101": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "299": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "713": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1547": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2008": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "314": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "724": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1104": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1559": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "316": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "726": {
+    "products_categories": [
+      "Radars & traitement signal"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Radar (AESA, monopulse, …)"
+    ]
+  },
+  "1113": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1567": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "2014": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "322": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "727": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1568": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "2018": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "323": {
+    "products_categories": [
+      "NRBC (masques, tenues, détecteurs)",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "729": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Systèmes de guerre électronique (EW)",
+      "NRBC (masques, tenues, détecteurs)"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1116": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1572": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2031": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "335": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "730": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1117": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1576": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2037": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "736": {
+    "products_categories": [
+      "Mâts, signalisation & balisage",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1119": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1588": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2039": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "739": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1120": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1589": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2040": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "742": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1125": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1592": {
+    "products_categories": [
+      "Munitions gros calibre & obus",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2048": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels métier défense (autres)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "348": {
+    "products_categories": [
+      "Munitions petit/moyen calibre"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "745": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1128": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1594": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "2050": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "352": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "747": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1142": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1595": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "2057": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "358": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "749": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1144": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1599": {
+    "products_categories": [
+      "Casques de combat",
+      "Gilets & plaques pare-balles",
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2058": {
+    "products_categories": [
+      "Systèmes anti-drone (C-UAS)",
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "363": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "750": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1145": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1602": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2060": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "364": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "755": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1147": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1605": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "2063": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "370": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Systèmes de guerre électronique (EW)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2578": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1606": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "686": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "372": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "760": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Missiles & armements guidés",
+      "Radars & traitement signal"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1160": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1617": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2079": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "383": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1165": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1619": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "2082": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Plateformes IA / vision défense",
+      "Avionique & instruments embarqués"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "384": {
+    "products_categories": [
+      "Robots terrestres (UGV / EOD)",
+      "Drones aériens (UAV)",
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "766": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1172": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1621": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2083": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "773": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1173": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1623": {
+    "products_categories": [
+      "Hydraulique & motion control"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "2084": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Munitions gros calibre & obus"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "390": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "787": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1179": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1636": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "391": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "789": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1187": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Plateformes IA / vision défense",
+      "Simulateurs d'entraînement & VR/AR"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1154": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2087": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "392": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "790": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1188": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2089": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "792": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1189": {
+    "products_categories": [
+      "Radios tactiques & SDR"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1651": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2091": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Véhicules tactiques (non blindés)",
+      "Ambulances & véhicules sanitaires"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "793": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1190": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1652": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "398": {
+    "products_categories": [
+      "Engins du génie militaire"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "795": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1198": {
+    "products_categories": [
+      "Réseaux militaires (5G/P-LTE/MANET)",
+      "Cybersécurité (logiciels & appliances)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "1662": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2097": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "399": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "797": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Piles à combustible & H2"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1202": {
+    "products_categories": [
+      "Hydraulique & motion control"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1667": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "2109": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "400": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "805": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1207": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1672": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2115": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "408": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1215": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité",
+      "Imagerie infrarouge"
+    ]
+  },
+  "1680": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1681": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "47": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "413": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2137": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "49": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "414": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1221": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "839": {
+    "products_categories": [
+      "Systèmes anti-drone (C-UAS)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1222": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1688": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "2146": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "54": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "426": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "849": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1701": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2147": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "851": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1230": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1702": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2150": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Imagerie infrarouge"
+    ]
+  },
+  "57": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Navigation inertielle"
+    ]
+  },
+  "435": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "862": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1241": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1705": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2152": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "58": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "437": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1242": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1709": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2153": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "60": {
+    "products_categories": [
+      "Drones FPV & munitions rôdeuses",
+      "Systèmes anti-drone (C-UAS)",
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "438": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "867": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1247": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2158": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "65": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "439": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "869": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1248": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Missiles & armements guidés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2160": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "873": {
+    "products_categories": [
+      "Systèmes anti-drone (C-UAS)",
+      "Simulateurs d'entraînement & VR/AR",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1717": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2163": {
+    "products_categories": [
+      "Munitions petit/moyen calibre"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "67": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "444": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1260": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Systèmes anti-drone (C-UAS)",
+      "Missiles & armements guidés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1720": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2164": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "70": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "883": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1261": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1723": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2170": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "71": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "449": {
+    "products_categories": [
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "884": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1265": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1726": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "823": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "2175": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "79": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "452": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Pièces mécaniques & usinage",
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "885": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1268": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1729": {
+    "products_categories": [
+      "Composants électroniques & cartes",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2177": {
+    "products_categories": [
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "453": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "80": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1269": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge",
+      "IA / machine learning"
+    ]
+  },
+  "2180": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "85": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux composites",
+      "Fabrication additive"
+    ]
+  },
+  "454": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Engins du génie militaire"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "903": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1275": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "90": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "456": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "907": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1286": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Munitions gros calibre & obus",
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1745": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2193": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "91": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "457": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "875": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1735": {
+    "products_categories": [
+      "Radars & traitement signal"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1747": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2198": {
+    "products_categories": [
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "92": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "459": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "914": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1291": {
+    "products_categories": [
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1749": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "909": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "95": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "917": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "461": {
+    "products_categories": [
+      "Munitions petit/moyen calibre",
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1287": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2217": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "96": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "918": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1297": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1751": {
+    "products_categories": [
+      "Radars & traitement signal",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "2220": {
+    "products_categories": [
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "922": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1298": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Distribution & représentation",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1760": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2221": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "470": {
+    "products_categories": [
+      "Gilets & plaques pare-balles"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "924": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1299": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1761": {
+    "products_categories": [
+      "Véhicules blindés"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "110": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "478": {
+    "products_categories": [
+      "Missiles & armements guidés",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "930": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "1314": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1762": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2230": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "115": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "481": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1294": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1750": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1765": {
+    "products_categories": [
+      "Missiles & armements guidés"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1316": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Pièces mécaniques & usinage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1320": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels de simulation & cyber range",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1766": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2239": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "125": {
+    "products_categories": [
+      "Véhicules tactiques (non blindés)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "487": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "937": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "486": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "934": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1767": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "493": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "938": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1326": {
+    "products_categories": [
+      "NRBC (masques, tenues, détecteurs)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "MCO / MRO",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1768": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2244": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cybersécurité",
+      "IA / machine learning"
+    ]
+  },
+  "129": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "939": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1328": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Gilets & plaques pare-balles"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1769": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "2247": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "940": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1329": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2250": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1770": {
+    "products_categories": [
+      "Missiles & armements guidés",
+      "Radars & traitement signal",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "136": {
+    "products_categories": [
+      "Munitions petit/moyen calibre"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1334": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1772": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2252": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "147": {
+    "products_categories": [
+      "Hydraulique & motion control"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "505": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "944": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1776": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1337": {
+    "products_categories": [
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2259": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "152": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "946": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "507": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1781": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1338": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "2261": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Imagerie infrarouge",
+      "Radar (AESA, monopulse, …)"
+    ]
+  },
+  "155": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "954": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "521": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1323": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2263": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "157": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "522": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "956": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1341": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1790": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2266": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "160": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "530": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Navires & sous-systèmes navals",
+      "Systèmes de guerre électronique (EW)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "962": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1354": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Imagerie infrarouge"
+    ]
+  },
+  "1800": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2270": {
+    "products_categories": [
+      "Textiles techniques tactiques",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "162": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "531": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "971": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1360": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1806": {
+    "products_categories": [
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "2271": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "533": {
+    "products_categories": [
+      "Hydraulique & motion control",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "972": {
+    "products_categories": [
+      "Moteurs diesel / propulsion lourde",
+      "Groupes électrogènes & énergie tactique"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1374": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1808": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "2280": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "165": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": [
+      "Photonique & fibres optiques"
+    ]
+  },
+  "1339": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Certification & tests",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "973": {
+    "products_categories": [
+      "Drones aériens (UAV)",
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1815": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1381": {
+    "products_categories": [
+      "Robots terrestres (UGV / EOD)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "166": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "2286": {
+    "products_categories": [
+      "Textiles techniques tactiques"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "549": {
+    "products_categories": [
+      "Réseaux militaires (5G/P-LTE/MANET)"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "977": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1389": {
+    "products_categories": [
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1817": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Vision par ordinateur"
+    ]
+  },
+  "2289": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": [
+      "Optique de précision"
+    ]
+  },
+  "175": {
+    "products_categories": [
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "983": {
+    "products_categories": [
+      "Conteneurs, malles, shelters",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1819": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "2290": {
+    "products_categories": [
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "565": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "176": {
+    "products_categories": [
+      "Navires & sous-systèmes navals"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "1407": {
+    "products_categories": [
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "986": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Radars & traitement signal",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1832": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "2296": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "181": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Logiciels métier défense (autres)",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "987": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge",
+      "IA / machine learning"
+    ]
+  },
+  "1409": {
+    "products_categories": [
+      "Engins du génie militaire",
+      "Drones FPV & munitions rôdeuses",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1839": {
+    "products_categories": [
+      "Lubrifiants & fluides"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "183": {
+    "products_categories": [
+      "Matériaux composites & blindage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "570": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "988": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1847": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2313": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "190": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "580": {
+    "products_categories": [
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "995": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1415": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1851": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "2329": {
+    "products_categories": [
+      "Missiles & armements guidés",
+      "Explosifs & matériaux énergétiques",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "195": {
+    "products_categories": [
+      "Satellites & CubeSats"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "585": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "998": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1420": {
+    "products_categories": [
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1853": {
+    "products_categories": [
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Intégration de systèmes",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "2335": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "199": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "595": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)",
+      "Cybersécurité (logiciels & appliances)",
+      "Drones aériens (UAV)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge",
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "1004": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1422": {
+    "products_categories": [
+      "Conteneurs, malles, shelters"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1856": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning",
+      "Cybersécurité"
+    ]
+  },
+  "25": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "202": {
+    "products_categories": [
+      "Groupes électrogènes & énergie tactique",
+      "Mâts, signalisation & balisage",
+      "Stations de purification d'eau & infra"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1012": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1424": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "1860": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "29": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "599": {
+    "products_categories": [
+      "Armes légères & accessoires"
+    ],
+    "services_categories": [
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": []
+  },
+  "1016": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1427": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Imagerie infrarouge"
+    ]
+  },
+  "1869": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil",
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "539": {
+    "products_categories": [
+      "Plateformes IA / vision défense",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Intégration de systèmes",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "1414": {
+    "products_categories": [
+      "Navires & sous-systèmes navals",
+      "Plateformes IA / vision défense"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Intégration de systèmes"
+    ],
+    "technologies_categories": [
+      "IA / machine learning"
+    ]
+  },
+  "339": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "448": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1313": {
+    "products_categories": [
+      "Matériaux composites & blindage",
+      "Mâts, signalisation & balisage"
+    ],
+    "services_categories": [
+      "Formation & entraînement",
+      "Certification & tests"
+    ],
+    "technologies_categories": [
+      "Fabrication additive"
+    ]
+  },
+  "20": {
+    "products_categories": [
+      "R&D académique & laboratoires"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "265": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "450": {
+    "products_categories": [
+      "R&D académique & laboratoires"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1107": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1472": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1216": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "1227": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
   }
 }
