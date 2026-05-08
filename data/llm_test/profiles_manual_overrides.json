@@ -8520,31 +8520,22 @@
     "why_target": "À qualifier — site en \"coming soon\", aucune information publique exploitable sur les produits ou cibles défense."
   },
   "1646": {
-    "activity_1liner": "Conglomérat défense étatique polonais regroupant 50+ entreprises (HSW, MESKO, Stalowa Wola, FB Łucznik, …) — armement complet.",
+    "activity_1liner": "Pilote le conglomérat défense étatique polonais (PGZ) regroupant 50+ sociétés d'armement et systèmes.",
     "products": [
-      "véhicule blindé Rosomak",
-      "obusier Krab 155 mm",
-      "char PT-91 Twardy modernisé",
-      "fusils Beryl/MSBS Grot",
-      "missiles Piorun MANPADS",
-      "munitions complètes"
+      "armement complet",
+      "véhicules blindés",
+      "munitions"
     ],
     "services": [
-      "MCO armement",
-      "modernisation flottes",
-      "transfert de technologie"
+      "MCO",
+      "intégration"
     ],
     "target_buyers": [
       "MoD / Armées",
-      "Primes défense",
       "Export / international"
     ],
-    "technologies": [
-      "armement complet",
-      "véhicules blindés",
-      "matériaux énergétiques"
-    ],
-    "why_target": "Prime étatique polonais — porte d'entrée majeure pour le marché de la modernisation polonaise (programme Wisła, Narew, Borsuk)."
+    "technologies": [],
+    "why_target": "Holding défense polonais (PGZ) — point d'entrée pour la BITD polonaise (HSW, MESKO, FB Łucznik) en plein investissement."
   },
   "1670": {
     "activity_1liner": "Conçoit et fabrique des solutions d'éclairage tactique haute valeur ajoutée pour les forces armées et de sécurité.",
@@ -28960,6 +28951,656 @@
       "expérience immersive"
     ],
     "target_buyers": [],
+    "technologies": []
+  },
+  "30": {
+    "activity_1liner": "Fabrique des réservoirs aluminium sur-mesure pour applications industrielles et défense.",
+    "why_target": "Fabricant français de réservoirs aluminium sur-mesure — fournisseur Tier 3 pour véhicules militaires et engins industriels.",
+    "products": [
+      "réservoirs aluminium sur-mesure",
+      "cuves industrielles"
+    ],
+    "services": [
+      "conception sur-mesure",
+      "sous-traitance industrielle"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "55": {
+    "activity_1liner": "Anime un pôle régional aéronautique en Centre-Val de Loire pour fédérer la filière et soutenir les PME.",
+    "why_target": "Pôle régional aéronautique français — point d'entrée pour identifier des PME aéronautiques et défense de la région Centre.",
+    "products": [
+      "adhésion pôle",
+      "événements professionnels"
+    ],
+    "services": [
+      "animation de réseau",
+      "soutien export PME"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "89": {
+    "activity_1liner": "Conçoit et fabrique des échangeurs thermiques et modules de refroidissement pour véhicules et industries.",
+    "why_target": "Fabricant allemand d'échangeurs thermiques — fournisseur Tier 2 pour véhicules militaires et systèmes industriels durcis.",
+    "products": [
+      "échangeurs thermiques",
+      "modules de refroidissement",
+      "radiateurs haute performance"
+    ],
+    "services": [
+      "conception sur-mesure",
+      "sous-traitance industrielle"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "100": {
+    "activity_1liner": "(données publiques trop pauvres pour qualification fiable — site indisponible).",
+    "why_target": "Société à requalifier — pas d'information publique exploitable. Discovery call requis.",
+    "products": [],
+    "services": [],
+    "target_buyers": [],
+    "technologies": []
+  },
+  "101": {
+    "activity_1liner": "Conçoit et fournit des solutions de défense, sécurité et protection pour forces armées et sécurité civile.",
+    "why_target": "ETI française défense & sécurité — fournisseur ou intégrateur potentiel pour programmes équipement / protection.",
+    "products": [
+      "équipements de défense",
+      "systèmes de protection",
+      "solutions de sécurité"
+    ],
+    "services": [
+      "ingénierie & conseil",
+      "intégration",
+      "formation"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Sécurité civile",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "104": {
+    "activity_1liner": "Distribue des solutions de vision embarquée et caméras pour véhicules militaires et engins spécialisés.",
+    "why_target": "Distributeur français Orlaco — fournisseur de caméras et systèmes vidéo pour véhicules militaires et engins industriels.",
+    "products": [
+      "caméras embarquées",
+      "moniteurs durcis",
+      "systèmes vidéo véhicule"
+    ],
+    "services": [
+      "distribution & représentation",
+      "support technique"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "117": {
+    "activity_1liner": "Distribue des composants et solutions d'électronique industrielle pour défense, aéronautique et industrie.",
+    "why_target": "Distributeur français de composants électroniques — fournisseur potentiel pour primes défense en sourcing composants.",
+    "products": [
+      "composants électroniques",
+      "connectique industrielle"
+    ],
+    "services": [
+      "distribution & représentation",
+      "sourcing"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "128": {
+    "activity_1liner": "Déploie une constellation de satellites en orbite basse (Kuiper) pour fournir une connectivité haut débit globale.",
+    "why_target": "Constellation LEO d'Amazon — concurrent Starlink/Eutelsat OneWeb ; partenaire potentiel pour communications défense résilientes.",
+    "products": [
+      "satellites LEO",
+      "terminaux de connectivité",
+      "station sol"
+    ],
+    "services": [
+      "service connectivité satellite"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "163": {
+    "activity_1liner": "Fabrique des cartes électroniques et systèmes embarqués en sous-traitance pour défense, aéronautique et médical.",
+    "why_target": "EMS français basé en Aquitaine — sous-traitant Tier 2 électronique pour primes défense et aéronautique.",
+    "products": [
+      "cartes électroniques",
+      "systèmes embarqués",
+      "sous-ensembles électroniques"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "tests",
+      "ingénierie"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "203": {
+    "activity_1liner": "Fabrique et teste des cartes électroniques complexes en sous-traitance EMS pour défense et industrie.",
+    "why_target": "EMS belge spécialisé cartes complexes — sous-traitant pour primes défense et aéronautique européennes.",
+    "products": [
+      "cartes électroniques complexes",
+      "produits finis assemblés"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "tests",
+      "assemblage"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "246": {
+    "activity_1liner": "Conseille et installe des solutions d'efficacité énergétique pour sites industriels et infrastructures critiques.",
+    "why_target": "Spécialiste français efficacité énergétique — partenaire potentiel pour la décarbonation des sites OIV et bases militaires.",
+    "products": [
+      "systèmes de pilotage énergétique",
+      "audits énergétiques"
+    ],
+    "services": [
+      "ingénierie & conseil",
+      "installation"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Sécurité civile"
+    ],
+    "technologies": []
+  },
+  "338": {
+    "activity_1liner": "Finance les politiques publiques et la transition économique des entreprises et territoires français.",
+    "why_target": "Groupe bancaire coopératif français — bailleur indirect pour entreprises défense via Banques Populaires et Caisses d'Épargne.",
+    "products": [
+      "comptes bancaires",
+      "crédits aux entreprises",
+      "crédit export"
+    ],
+    "services": [
+      "conseil financier",
+      "crédit export"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "344": {
+    "activity_1liner": "Assure la sécurité civile et la protection NRBC de Paris et petite couronne (BSPP, unité militaire).",
+    "why_target": "Acheteur public majeur en sécurité civile et NRBC — référence pour équipements feu, sauvetage et chimique-bio.",
+    "products": [
+      "retours d'expérience opérationnels"
+    ],
+    "services": [
+      "intervention sapeurs-pompiers",
+      "NRBC opérationnel"
+    ],
+    "target_buyers": [
+      "Sécurité civile",
+      "MoD / Armées"
+    ],
+    "technologies": []
+  },
+  "386": {
+    "activity_1liner": "Conçoit et fabrique des engins de chantier (pelles, chargeurs) pour applications civiles et défense (génie).",
+    "why_target": "Constructeur d'engins de chantier — fournisseur de pelles et chargeurs pour le génie militaire et civil de crise.",
+    "products": [
+      "pelles sur pneus",
+      "mini-pelles",
+      "chargeurs",
+      "engins de génie"
+    ],
+    "services": [
+      "MCO engins",
+      "formation conducteurs"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Sécurité civile"
+    ],
+    "technologies": []
+  },
+  "468": {
+    "activity_1liner": "Fédère le tissu industriel défense de la région Centre-Val de Loire (CID Bourges Plus).",
+    "why_target": "Cluster défense de Bourges — point d'entrée pour identifier les PME défense de la région Centre (Nexter, MBDA, KNDS).",
+    "products": [
+      "adhésion cluster",
+      "mise en relation B2B"
+    ],
+    "services": [
+      "animation de réseau",
+      "lobbying & représentation"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "498": {
+    "activity_1liner": "Fournit des services bancaires et d'assurance aux entreprises et particuliers — exposition défense indirecte.",
+    "why_target": "Banque coopérative française — bailleur indirect pour PME défense via crédits export et garanties.",
+    "products": [
+      "comptes bancaires",
+      "crédits",
+      "assurance",
+      "crédit export"
+    ],
+    "services": [
+      "conseil financier",
+      "crédit export"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "499": {
+    "activity_1liner": "Fournit des services bancaires et d'assurance aux particuliers et entreprises — exposition défense indirecte.",
+    "why_target": "Banque mutualiste française — bailleur indirect pour PME défense via crédits et assurances.",
+    "products": [
+      "comptes bancaires",
+      "assurance habitation",
+      "crédits"
+    ],
+    "services": [
+      "conseil financier"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "562": {
+    "activity_1liner": "Investit et développe des sociétés de défense suédoises (groupe industriel défense).",
+    "why_target": "Holding défense suédois — point d'accès au tissu industriel défense scandinave (sourcing M&A et partenariats).",
+    "products": [
+      "portefeuille de sociétés défense"
+    ],
+    "services": [
+      "investissement",
+      "support développement"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "568": {
+    "activity_1liner": "Promeut l'investissement et le commerce extérieur du Québec dans les secteurs défense, sécurité et hautes technologies.",
+    "why_target": "Délégation Québec en France — point d'entrée pour identifier des PME québécoises défense et obtenir crédits export.",
+    "products": [
+      "accompagnement export",
+      "mise en relation B2B"
+    ],
+    "services": [
+      "promotion territoriale",
+      "soutien export"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "763": {
+    "activity_1liner": "Accompagne les industriels défense et aéronautique sur la performance MCO et la supply chain.",
+    "why_target": "Cabinet français MCO/supply chain défense & aéro — partenaire pour amélioration OTD et qualité fournisseurs.",
+    "products": [],
+    "services": [
+      "conseil supply chain",
+      "amélioration MCO",
+      "sourcing"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "932": {
+    "activity_1liner": "Maintient et fournit l'équipement balistique et le soutien de l'homme aux forces armées françaises.",
+    "why_target": "Prestataire MCO du ministère des Armées sur protection balistique et habillement — fournisseur stratégique pour soutien forces.",
+    "products": [
+      "gilets pare-balles",
+      "casques de combat",
+      "rangers",
+      "BMJA"
+    ],
+    "services": [
+      "MCO / MRO équipement",
+      "soutien de l'homme"
+    ],
+    "target_buyers": [
+      "MoD / Armées"
+    ],
+    "technologies": []
+  },
+  "943": {
+    "activity_1liner": "Conçoit et fabrique des solutions industrielles sur-mesure pour défense, aéronautique et énergie.",
+    "why_target": "Groupe industriel français multi-métiers (14 sociétés) — sous-traitant pour primes défense, aéro et énergie.",
+    "products": [
+      "solutions industrielles sur-mesure",
+      "sous-ensembles mécaniques"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "ingénierie"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "1026": {
+    "activity_1liner": "Investit en LBO dans les PME et ETI défense et sécurité françaises (fonds Eiréné).",
+    "why_target": "Premier fonds LBO français dédié défense — bailleur capital potentiel pour PME défense en croissance.",
+    "products": [
+      "investissements LBO"
+    ],
+    "services": [
+      "investissement",
+      "capital développement"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "1090": {
+    "activity_1liner": "Conduit de la R&D sur contrat en matériaux, surfaces et interfaces pour les industriels (Institut Carnot MICA).",
+    "why_target": "Institut Carnot français matériaux — partenaire R&D pour innovations matériaux composites, traitement de surface, défense.",
+    "products": [],
+    "services": [
+      "R&D sur contrat",
+      "ingénierie matériaux"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": [
+      "matériaux composites",
+      "traitement de surface"
+    ]
+  },
+  "1255": {
+    "activity_1liner": "(données publiques trop pauvres pour qualification fiable — site sous mur de cookies).",
+    "why_target": "Société à requalifier — page d'accueil bloquée par bandeau cookies. Discovery call requis.",
+    "products": [],
+    "services": [],
+    "target_buyers": [],
+    "technologies": []
+  },
+  "1429": {
+    "activity_1liner": "Fabrique et distribue des costumes de mordant et équipements pour cynotechnie militaire et police.",
+    "why_target": "Spécialiste français équipement cynophile — fournisseur potentiel pour unités K9 forces armées, gendarmerie et police.",
+    "products": [
+      "costumes de mordant",
+      "harnais & équipement K9",
+      "matériel dressage"
+    ],
+    "services": [
+      "formation cynophile"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Sécurité civile",
+      "Police / gendarmerie"
+    ],
+    "technologies": []
+  },
+  "1444": {
+    "activity_1liner": "Pilote la politique mobilité innovation et identifie les expérimentations technologiques (MTE/DGITM).",
+    "why_target": "Direction du ministère français de la Transition Écologique — point d'entrée pour expérimentations défense-mobilité.",
+    "products": [],
+    "services": [
+      "expérimentations",
+      "soutien innovation"
+    ],
+    "target_buyers": [
+      "Acheteurs publics"
+    ],
+    "technologies": []
+  },
+  "1460": {
+    "activity_1liner": "Fédère le réseau régional aéronautique, espace, défense et sécurité de Normandie (NAE).",
+    "why_target": "Cluster régional défense / aéro de Normandie — point d'accès aux PME normandes pour sourcing et partenariats.",
+    "products": [],
+    "services": [
+      "animation de réseau",
+      "lobbying & représentation"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "1640": {
+    "activity_1liner": "Anime un pôle régional microtechnique pour fédérer les PME mécaniques de précision et microsystèmes.",
+    "why_target": "Pôle de compétitivité Besançon microtechnique — partenaire pour sourcing PME précision et microsystèmes défense.",
+    "products": [],
+    "services": [
+      "animation de réseau",
+      "soutien R&D"
+    ],
+    "target_buyers": [
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "1714": {
+    "activity_1liner": "Promeut l'attractivité économique de la région Centre-Val de Loire et soutient les PME défense locales.",
+    "why_target": "Agence de développement économique régionale — partenaire pour sourcing PME défense de la région Centre.",
+    "products": [],
+    "services": [
+      "promotion territoriale",
+      "soutien export"
+    ],
+    "target_buyers": [
+      "PME défense"
+    ],
+    "technologies": []
+  },
+  "1783": {
+    "activity_1liner": "Conçoit des solutions de contrôle d'accès et identification RFID haute sécurité pour sites sensibles et défense.",
+    "why_target": "Spécialiste français RFID & contrôle d'accès — fournisseur potentiel pour la sécurisation périmétrique de bases militaires et sites OIV.",
+    "products": [
+      "lecteurs RFID",
+      "badges d'accès",
+      "logiciels gestion accès"
+    ],
+    "services": [
+      "ingénierie & conseil",
+      "formation"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Sécurité civile",
+      "Industriels défense"
+    ],
+    "technologies": [
+      "RFID",
+      "cybersécurité"
+    ]
+  },
+  "1784": {
+    "activity_1liner": "Modernise et fournit des équipements militaires neufs ou rénovés (MCO, modernisation, transport logistique).",
+    "why_target": "Société française MCO/modernisation équipement — fournisseur potentiel pour upgrade flottes et soutien programmes.",
+    "products": [
+      "équipements rénovés",
+      "équipements militaires neufs"
+    ],
+    "services": [
+      "MCO / MRO",
+      "modernisation",
+      "transport logistique",
+      "assistance technique"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "1977": {
+    "activity_1liner": "Applique des produits de pré-revêtement, freinage et étanchéité sur fixations pour applications exigeantes.",
+    "why_target": "Spécialiste français pré-revêtement de fixations — sous-traitant Tier 3 pour fixations aéronautique et défense.",
+    "products": [
+      "pré-revêtements pour fixations",
+      "produits de freinage",
+      "produits d'étanchéité"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "pré-revêtement"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "2086": {
+    "activity_1liner": "Fabrique des prototypes et petites séries électroniques en sous-traitance EMS (Toulouse).",
+    "why_target": "EMS toulousain spécialisé prototypage et petites séries — sous-traitant pour primes défense, aéro et spatial du Sud-Ouest.",
+    "products": [
+      "prototypes électroniques",
+      "petites séries cartes"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "prototypage"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
+    "technologies": []
+  },
+  "2184": {
+    "activity_1liner": "Conçoit et fabrique des robots de livraison autonomes pour logistique urbaine et applications militaires.",
+    "why_target": "Constructeur français de robots autonomes de livraison — fournisseur potentiel pour logistique du dernier km militaire.",
+    "products": [
+      "robots de livraison autonomes",
+      "plateformes mobiles autonomes"
+    ],
+    "services": [
+      "intégration",
+      "expérimentations"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Sécurité civile"
+    ],
+    "technologies": [
+      "robotique mobile",
+      "navigation autonome"
+    ]
+  },
+  "2242": {
+    "activity_1liner": "Conçoit et fabrique des systèmes optiques de précision et microscopes pour inspection industrielle et défense.",
+    "why_target": "Fabricant britannique optiques de précision — fournisseur potentiel pour inspection contrôle qualité aéronautique et défense.",
+    "products": [
+      "microscopes industriels",
+      "systèmes optiques de précision"
+    ],
+    "services": [
+      "certification & tests"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": [
+      "optique de précision"
+    ]
+  },
+  "2548": {
+    "activity_1liner": "Conseille et accompagne les industriels dans le transfert de technologies et l'innovation R&D.",
+    "why_target": "Cabinet ingénierie français — partenaire pour transfert techno et R&D industrielle dans la défense et aéro.",
+    "products": [],
+    "services": [
+      "ingénierie & conseil",
+      "R&D sur contrat"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "2568": {
+    "activity_1liner": "Anime le pôle d'excellence du combat collaboratif aéroterrestre (programme SCORPION).",
+    "why_target": "Pôle d'excellence SCORPION pour le combat collaboratif — point d'accès au programme principal de l'Armée de Terre.",
+    "products": [
+      "référentiels SCORPION",
+      "documentation programme"
+    ],
+    "services": [
+      "ingénierie & conseil",
+      "soutien programme"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Primes défense"
+    ],
+    "technologies": []
+  },
+  "1435": {
+    "activity_1liner": "Forge et usine des solutions complexes en superalliages et métaux spéciaux pour aéro, défense et énergie.",
+    "why_target": "Forgeron français superalliages — sous-traitant Tier 3 pour pièces moteurs aéronautiques et défense.",
+    "products": [
+      "pièces forgées superalliages",
+      "composants métaux spéciaux"
+    ],
+    "services": [
+      "sous-traitance industrielle",
+      "forge",
+      "usinage"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
     "technologies": []
   }
 }

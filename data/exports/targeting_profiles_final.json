@@ -1166,25 +1166,28 @@
     "country": "France",
     "website": "https://www.acgb.com/",
     "pavilion": null,
-    "activity_1liner": "Manufacturer of tailor-made, innovative & intelligent alumnium tanks.",
-    "products": [],
+    "activity_1liner": "Fabrique des réservoirs aluminium sur-mesure pour applications industrielles et défense.",
+    "products": [
+      "réservoirs aluminium sur-mesure",
+      "cuves industrielles"
+    ],
     "services": [
-      "certification / tests",
-      "intégration de systèmes"
+      "conception sur-mesure",
+      "sous-traitance industrielle"
     ],
     "target_buyers": [
+      "Industriels défense",
       "Primes défense"
     ],
     "technologies": [],
-    "why_target": "Prestataire potentiel de certification / tests pour primes défense — partenaire pour les marchés publics et industriels associés.",
+    "why_target": "Fabricant français de réservoirs aluminium sur-mesure — fournisseur Tier 3 pour véhicules militaires et engins industriels.",
     "completeness_score": 65,
-    "data_source_strength": "medium",
+    "data_source_strength": "manual",
     "products_categories": [
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
-      "Certification & tests",
-      "Intégration de systèmes"
+      "Sous-traitance industrielle"
     ],
     "technologies_categories": [],
     "supply_chain_tier": "Tier 3"
@@ -2145,52 +2148,31 @@
     "country": "France",
     "website": "https://aero-centre.fr/",
     "pavilion": null,
-    "activity_1liner": "Aérocentre, pôle d’excellence régional créé afin de développer et pérenniser la filière aéronautique en région Centre-Val de Loire.",
+    "activity_1liner": "Anime un pôle régional aéronautique en Centre-Val de Loire pour fédérer la filière et soutenir les PME.",
     "products": [
-      "équipement logistique",
-      "moteurs / propulsion",
-      "logiciels métier défense",
-      "drones aériens",
-      "pièces mécaniques"
+      "adhésion pôle",
+      "événements professionnels"
     ],
     "services": [
-      "ingénierie / conseil",
-      "formation",
-      "certification / tests",
-      "sous-traitance"
+      "animation de réseau",
+      "soutien export PME"
     ],
     "target_buyers": [
-      "Primes défense"
+      "PME défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "moteurs aéronautiques",
-      "cloud",
-      "IA / vision",
-      "vol autonome"
-    ],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Pôle régional aéronautique français — point d'entrée pour identifier des PME aéronautiques et défense de la région Centre.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logistique militaire & transport",
-      "Moteurs aéronautiques",
-      "Logiciels métier défense (autres)",
-      "Drones aériens (UAV)",
-      "Pièces mécaniques & usinage"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Formation & entraînement",
-      "Certification & tests",
-      "Sous-traitance industrielle"
+      "Lobbying & représentation"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain",
-      "IA / machine learning",
-      "Robotique & autonomie",
-      "Vol autonome & GPS-denied"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 56,
@@ -3560,38 +3542,32 @@
     "country": "France",
     "website": "http://www.akg-group.com/",
     "pavilion": null,
-    "activity_1liner": "Manufacturer of coolers and heat exchangers worldwide.",
-    "products": [],
+    "activity_1liner": "Conçoit et fabrique des échangeurs thermiques et modules de refroidissement pour véhicules et industries.",
+    "products": [
+      "échangeurs thermiques",
+      "modules de refroidissement",
+      "radiateurs haute performance"
+    ],
     "services": [
-      "certification / tests",
-      "MCO / MRO",
-      "intégration de systèmes"
+      "conception sur-mesure",
+      "sous-traitance industrielle"
     ],
     "target_buyers": [
-      "Primes défense",
-      "Export / international"
+      "Industriels défense",
+      "Primes défense"
     ],
-    "technologies": [
-      "simulation"
-    ],
-    "why_target": "Prestataire potentiel de certification / tests pour primes défense — partenaire pour les marchés publics et industriels associés.",
-    "completeness_score": 80,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Fabricant allemand d'échangeurs thermiques — fournisseur Tier 2 pour véhicules militaires et systèmes industriels durcis.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Optronique & viseurs (EO/IR)",
-      "Engins du génie militaire",
-      "Logiciels métier défense (autres)"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
-      "Certification & tests",
-      "MCO / MRO",
-      "Intégration de systèmes"
+      "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Navigation inertielle",
-      "Simulation & VR/AR"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 90,
@@ -3991,31 +3967,20 @@
     "country": "France",
     "website": "https://www.allevio-groupe.com/",
     "pavilion": null,
-    "activity_1liner": "Une offre globale qui s’adresse aux secteurs les plus exigeants, sensibles à la réactivité et la compétitivité.",
-    "products": [
-      "pièces mécaniques de précision",
-      "ensembles mécano-soudés",
-      "composants usinés CNC",
-      "pièces mécaniques"
-    ],
-    "services": [
-      "sous-traitance"
-    ],
-    "target_buyers": [
-      "Sécurité civile"
-    ],
+    "activity_1liner": "(données publiques trop pauvres pour qualification fiable — site indisponible).",
+    "products": [],
+    "services": [],
+    "target_buyers": [],
     "technologies": [],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 85,
-    "data_source_strength": "medium",
+    "why_target": "Société à requalifier — pas d'information publique exploitable. Discovery call requis.",
+    "completeness_score": 50,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Pièces mécaniques & usinage"
+      "Autre — à qualifier"
     ],
-    "services_categories": [
-      "Sous-traitance industrielle"
-    ],
+    "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 3"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 101,
@@ -4023,39 +3988,35 @@
     "country": "France",
     "website": "http://www.alliance-groupe.com/",
     "pavilion": null,
-    "activity_1liner": "Depuis plus de 25 ans, Alliance, entreprise française dirigée par Nicolas Delaporte, innove dans les domaines de la défense, de la sécuri…",
+    "activity_1liner": "Conçoit et fournit des solutions de défense, sécurité et protection pour forces armées et sécurité civile.",
     "products": [
-      "armes légères",
-      "accessoires d'armement",
-      "ensembles mécaniques pour armes",
-      "armes",
-      "munitions de petit calibre",
-      "munitions de moyen calibre",
-      "amorçages et fusées"
+      "équipements de défense",
+      "systèmes de protection",
+      "solutions de sécurité"
     ],
     "services": [
+      "ingénierie & conseil",
+      "intégration",
       "formation"
     ],
     "target_buyers": [
-      "Sécurité civile"
+      "MoD / Armées",
+      "Sécurité civile",
+      "Industriels défense"
     ],
-    "technologies": [
-      "mécanique d'armement",
-      "matériaux énergétiques"
-    ],
-    "why_target": "Acheteur potentiel de mécanique de précision, optronique, matériaux énergétiques pour ses lignes armes — également compétiteur sur le segment armes.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "ETI française défense & sécurité — fournisseur ou intégrateur potentiel pour programmes équipement / protection.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Armes légères & accessoires",
-      "Explosifs & matériaux énergétiques"
+      "Équipement du fantassin (général)",
+      "Autre — à qualifier"
     ],
     "services_categories": [
+      "Ingénierie & conseil",
       "Formation & entraînement"
     ],
-    "technologies_categories": [
-      "Matériaux énergétiques"
-    ],
+    "technologies_categories": [],
     "supply_chain_tier": "OEM"
   },
   {
@@ -4146,44 +4107,33 @@
     "country": "France",
     "website": "https://www.allwan.eu/",
     "pavilion": null,
-    "activity_1liner": "Distributeur officiel Orlaco en France. Solutions de vision embarquée professionnelles : caméras, moniteurs et systèmes vidéo pour véhicu…",
+    "activity_1liner": "Distribue des solutions de vision embarquée et caméras pour véhicules militaires et engins spécialisés.",
     "products": [
-      "drones aériens",
-      "capteurs embarqués",
-      "radars",
-      "batteries / sources d'énergie",
-      "pièces mécaniques"
+      "caméras embarquées",
+      "moniteurs durcis",
+      "systèmes vidéo véhicule"
     ],
     "services": [
-      "certification / tests"
+      "distribution & représentation",
+      "support technique"
     ],
     "target_buyers": [
-      "Sécurité civile"
+      "Industriels défense",
+      "Primes défense"
     ],
-    "technologies": [
-      "5G / sans-fil",
-      "RF / micro-ondes",
-      "GNSS / GPS"
-    ],
-    "why_target": "Acheteur potentiel de nacelles EO/IR, batteries Li-ion, liaison de données chiffrée pour ses lignes drones — également compétiteur sur le segment drones.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Distributeur français Orlaco — fournisseur de caméras et systèmes vidéo pour véhicules militaires et engins industriels.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
-      "Capteurs embarqués (généraux)",
-      "Radars & traitement signal",
-      "Batteries & packs énergétiques",
-      "Pièces mécaniques & usinage"
+      "Caméras tactiques & POV",
+      "Distribution composants & représentation de marques"
     ],
     "services_categories": [
-      "Certification & tests"
+      "Distribution & représentation"
     ],
-    "technologies_categories": [
-      "5G / réseaux radio mobiles",
-      "Communications RF / micro-ondes",
-      "GNSS / navigation satellite"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 105,
@@ -4669,37 +4619,33 @@
     "country": "France",
     "website": "https://altronics.fr/",
     "pavilion": null,
-    "activity_1liner": "Altronics, votre partenaire et spécialiste en électronique industrielle.",
+    "activity_1liner": "Distribue des composants et solutions d'électronique industrielle pour défense, aéronautique et industrie.",
     "products": [
-      "plateforme cybersécurité OT",
-      "outils d'audit ICS / SCADA"
+      "composants électroniques",
+      "connectique industrielle"
     ],
     "services": [
-      "certification / tests",
-      "intégration de systèmes"
+      "distribution & représentation",
+      "sourcing"
     ],
     "target_buyers": [
-      "Sécurité civile",
-      "MoD / Armées",
-      "Industriels défense"
+      "Industriels défense",
+      "Primes défense"
     ],
-    "technologies": [
-      "cybersécurité OT / ICS"
-    ],
-    "why_target": "Niche cybersécurité industrielle — partenaire pour la protection d'infrastructures critiques et bases militaires.",
-    "completeness_score": 80,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Distributeur français de composants électroniques — fournisseur potentiel pour primes défense en sourcing composants.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)"
+      "Distribution composants & représentation de marques",
+      "Composants électroniques & cartes"
     ],
     "services_categories": [
-      "Certification & tests",
-      "Intégration de systèmes"
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
     ],
-    "technologies_categories": [
-      "Cybersécurité OT / ICS"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 118,
@@ -5134,38 +5080,31 @@
     "country": "USA",
     "website": "https://www.amazon.com/",
     "pavilion": null,
-    "activity_1liner": "Déploie une constellation de satellites en orbite basse (Kuiper) pour fournir une connectivité haut débit, y compris à des clients gouvernementaux.",
+    "activity_1liner": "Déploie une constellation de satellites en orbite basse (Kuiper) pour fournir une connectivité haut débit globale.",
     "products": [
-      "satellites LEO Kuiper",
-      "terminaux utilisateurs Kuiper"
+      "satellites LEO",
+      "terminaux de connectivité",
+      "station sol"
     ],
     "services": [
-      "connectivité satellite haut débit",
-      "services cloud souverains AWS GovCloud"
+      "service connectivité satellite"
     ],
     "target_buyers": [
       "MoD / Armées",
-      "Sécurité civile",
-      "Export / international"
+      "Industriels défense"
     ],
-    "technologies": [
-      "constellation LEO",
-      "communications optiques inter-satellites",
-      "antennes phased-array",
-      "cloud souverain"
-    ],
-    "why_target": "Cible export sur la connectivité tactique LEO — concurrent direct de Starlink pour les marchés gouvernementaux et de défense alliés.",
-    "completeness_score": 65,
+    "technologies": [],
+    "why_target": "Constellation LEO d'Amazon — concurrent Starlink/Eutelsat OneWeb ; partenaire potentiel pour communications défense résilientes.",
+    "completeness_score": 70,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Satellites & CubeSats",
+      "Terminaux & antennes spatiales"
     ],
     "services_categories": [
-      "Services cloud & data"
+      "Autre — à qualifier"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain"
-    ],
+    "technologies_categories": [],
     "supply_chain_tier": "OEM"
   },
   {
@@ -6553,42 +6492,34 @@
     "country": "France",
     "website": "https://www.aece-group.com/",
     "pavilion": null,
-    "activity_1liner": "Merci pour l’intérêt que vous portez à AECE Group. Quelle que soit votre demande, nous y répondrons le plus efficacement et rapidement po…",
+    "activity_1liner": "Fabrique des cartes électroniques et systèmes embarqués en sous-traitance pour défense, aéronautique et médical.",
     "products": [
-      "capteurs embarqués",
-      "moteurs / propulsion",
-      "systèmes navals"
+      "cartes électroniques",
+      "systèmes embarqués",
+      "sous-ensembles électroniques"
     ],
     "services": [
-      "MCO / MRO",
-      "ingénierie / conseil",
-      "sous-traitance",
-      "certification / tests"
+      "sous-traitance industrielle",
+      "tests",
+      "ingénierie"
     ],
     "target_buyers": [
-      "Primes défense"
+      "Primes défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "RF / micro-ondes"
-    ],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "EMS français basé en Aquitaine — sous-traitant Tier 2 électronique pour primes défense et aéronautique.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Capteurs embarqués (généraux)",
-      "Moteurs aéronautiques",
-      "Navires & sous-systèmes navals"
+      "Composants électroniques & cartes"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Ingénierie & conseil",
       "Sous-traitance industrielle",
       "Certification & tests"
     ],
-    "technologies_categories": [
-      "Communications RF / micro-ondes"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 164,
@@ -8155,23 +8086,29 @@
     "country": "Belgium",
     "website": "https://www.assemblics.com/",
     "pavilion": null,
-    "activity_1liner": "Spécialisée dans testing and assembling complex printed circuit boards and finished products.",
-    "products": [],
+    "activity_1liner": "Fabrique et teste des cartes électroniques complexes en sous-traitance EMS pour défense et industrie.",
+    "products": [
+      "cartes électroniques complexes",
+      "produits finis assemblés"
+    ],
     "services": [
-      "certification / tests"
+      "sous-traitance industrielle",
+      "tests",
+      "assemblage"
     ],
     "target_buyers": [
-      "Primes défense"
+      "Primes défense",
+      "Industriels défense"
     ],
     "technologies": [],
-    "why_target": "Prestataire potentiel de certification / tests pour primes défense — partenaire pour les marchés publics et industriels associés.",
+    "why_target": "EMS belge spécialisé cartes complexes — sous-traitant pour primes défense et aéronautique européennes.",
     "completeness_score": 65,
-    "data_source_strength": "medium",
+    "data_source_strength": "manual",
     "products_categories": [
-      "Composants électroniques & cartes",
-      "Pièces mécaniques & usinage"
+      "Composants électroniques & cartes"
     ],
     "services_categories": [
+      "Sous-traitance industrielle",
       "Certification & tests"
     ],
     "technologies_categories": [],
@@ -9942,48 +9879,31 @@
     "country": "France",
     "website": "https://www.ax-group.com/fr/",
     "pavilion": null,
-    "activity_1liner": "Chez AX Group, nous luttons contre le gaspillage énergétique et contribuons à notre niveau à la réduction de l’empreinte carbone du secte…",
+    "activity_1liner": "Conseille et installe des solutions d'efficacité énergétique pour sites industriels et infrastructures critiques.",
     "products": [
-      "robots terrestres (UGV)",
-      "équipement logistique",
-      "réseaux de communication",
-      "systèmes optroniques",
-      "moteurs / propulsion"
+      "systèmes de pilotage énergétique",
+      "audits énergétiques"
     ],
     "services": [
-      "formation",
-      "certification / tests"
+      "ingénierie & conseil",
+      "installation"
     ],
     "target_buyers": [
-      "MoD / Armées",
-      "Primes défense"
+      "Industriels défense",
+      "Sécurité civile"
     ],
-    "technologies": [
-      "cloud",
-      "robotique / autonomie",
-      "simulation"
-    ],
-    "why_target": "Acheteur potentiel de capteurs, batteries, propulsion, châssis composite pour ses lignes robotique terrestre — également compétiteur sur le segment robotique terrestre.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Spécialiste français efficacité énergétique — partenaire potentiel pour la décarbonation des sites OIV et bases militaires.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Robots terrestres (UGV / EOD)",
-      "Logistique militaire & transport",
-      "Réseaux militaires (5G/P-LTE/MANET)",
-      "Optronique & viseurs (EO/IR)",
-      "Moteurs aéronautiques"
+      "Autre — à qualifier"
     ],
     "services_categories": [
-      "Formation & entraînement",
-      "Certification & tests"
+      "Ingénierie & conseil"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain",
-      "Robotique & autonomie",
-      "Navigation inertielle",
-      "Simulation & VR/AR"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 247,
@@ -13680,43 +13600,32 @@
     "country": "France",
     "website": "https://www.groupebpce.com/",
     "pavilion": null,
-    "activity_1liner": "Une façon unique d’expliquer son modèle de banque coopérative et démontrer son utilité dans les territoires.",
+    "activity_1liner": "Finance les politiques publiques et la transition économique des entreprises et territoires français.",
     "products": [
-      "drones aériens",
-      "stations de contrôle au sol",
-      "modules charge utile drones",
-      "équipement logistique",
-      "modules de transport tactique",
-      "ensembles palettisés militaires"
+      "comptes bancaires",
+      "crédits aux entreprises",
+      "crédit export"
     ],
     "services": [
-      "ingénierie / conseil",
-      "formation"
+      "conseil financier",
+      "crédit export"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "Industriels défense",
+      "PME défense"
     ],
-    "technologies": [
-      "vol autonome",
-      "RF / micro-ondes"
-    ],
-    "why_target": "Acheteur potentiel de nacelles EO/IR, batteries Li-ion, liaison de données chiffrée pour ses lignes drones — également compétiteur sur le segment drones.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Groupe bancaire coopératif français — bailleur indirect pour entreprises défense via Banques Populaires et Caisses d'Épargne.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
-      "Logistique militaire & transport"
+      "Financement, banque & assurance défense"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Formation & entraînement"
+      "Financement export & banque défense"
     ],
-    "technologies_categories": [
-      "Robotique & autonomie",
-      "Vol autonome & GPS-denied",
-      "Communications RF / micro-ondes"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 339,
@@ -13924,22 +13833,30 @@
     "country": "France",
     "website": "https://www.pompiersparis.fr/",
     "pavilion": null,
-    "activity_1liner": "Feu Appartement 23 avril 2026 Inondation importante à Paris (9) Ce mercredi 22 avril 2026, vers 08h00, les sapeurs-pompiers de Paris sont…",
-    "products": [],
-    "services": [],
+    "activity_1liner": "Assure la sécurité civile et la protection NRBC de Paris et petite couronne (BSPP, unité militaire).",
+    "products": [
+      "retours d'expérience opérationnels"
+    ],
+    "services": [
+      "intervention sapeurs-pompiers",
+      "NRBC opérationnel"
+    ],
     "target_buyers": [
-      "Sécurité civile"
+      "Sécurité civile",
+      "MoD / Armées"
     ],
     "technologies": [],
-    "why_target": "Cible commerciale sur le segment sécurité civile — à qualifier sur portefeuille produit / services.",
+    "why_target": "Acheteur public majeur en sécurité civile et NRBC — référence pour équipements feu, sauvetage et chimique-bio.",
     "completeness_score": 65,
-    "data_source_strength": "medium",
+    "data_source_strength": "manual",
     "products_categories": [
-      "Textiles techniques tactiques"
+      "Achat public défense & politique industrielle"
     ],
-    "services_categories": [],
+    "services_categories": [
+      "Autre — à qualifier"
+    ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 3"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 345,
@@ -15613,41 +15530,34 @@
     "country": "France",
     "website": "https://www.casece.com/fr-fr/europe",
     "pavilion": null,
-    "activity_1liner": "DÉCOUVRIR PLUS Pelles sur Pneus Série E La montée de la roue.",
+    "activity_1liner": "Conçoit et fabrique des engins de chantier (pelles, chargeurs) pour applications civiles et défense (génie).",
     "products": [
-      "équipement logistique",
-      "batteries / sources d'énergie",
-      "moteurs / propulsion",
-      "radars",
-      "capteurs embarqués"
+      "pelles sur pneus",
+      "mini-pelles",
+      "chargeurs",
+      "engins de génie"
     ],
-    "services": [],
+    "services": [
+      "MCO engins",
+      "formation conducteurs"
+    ],
     "target_buyers": [
       "MoD / Armées",
       "Sécurité civile"
     ],
-    "technologies": [
-      "cloud",
-      "Lidar / Laser",
-      "GNSS / GPS"
-    ],
-    "why_target": "Acheteur potentiel de gestion de flotte, télémétrie, énergie pour ses lignes logistique — également compétiteur sur le segment logistique.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Constructeur d'engins de chantier — fournisseur de pelles et chargeurs pour le génie militaire et civil de crise.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logistique militaire & transport",
-      "Batteries & packs énergétiques",
-      "Moteurs aéronautiques",
-      "Radars & traitement signal",
-      "Capteurs embarqués (généraux)"
+      "Engins du génie militaire"
     ],
-    "services_categories": [],
-    "technologies_categories": [
-      "Cloud & cloud souverain",
-      "Lidar / Laser",
-      "GNSS / navigation satellite"
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement"
     ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "OEM"
   },
   {
     "exhibitor_id": 387,
@@ -18836,43 +18746,31 @@
     "country": "France",
     "website": "http://www.cid.bourgesplus.fr/",
     "pavilion": null,
-    "activity_1liner": "The CID – Defence Industry Resource Centre, led by Bourges Plus conurbation authority, supports and connects defence stakeholders in the…",
-    "products": [],
+    "activity_1liner": "Fédère le tissu industriel défense de la région Centre-Val de Loire (CID Bourges Plus).",
+    "products": [
+      "adhésion cluster",
+      "mise en relation B2B"
+    ],
     "services": [
-      "MCO / MRO",
-      "sous-traitance",
-      "ingénierie / conseil"
+      "animation de réseau",
+      "lobbying & représentation"
     ],
     "target_buyers": [
-      "MoD / Armées",
-      "Sécurité civile",
-      "Primes défense"
+      "PME défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "cloud",
-      "robotique / autonomie",
-      "cryptographie",
-      "Lidar / Laser"
-    ],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 80,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Cluster défense de Bourges — point d'entrée pour identifier les PME défense de la région Centre (Nexter, MBDA, KNDS).",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)",
-      "Batteries & packs énergétiques"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Sous-traitance industrielle",
-      "Ingénierie & conseil"
+      "Lobbying & représentation"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain",
-      "Robotique & autonomie",
-      "Cryptographie",
-      "Lidar / Laser"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 469,
@@ -20086,37 +19984,33 @@
     "country": "France",
     "website": "https://www.credit-agricole.fr/",
     "pavilion": null,
-    "activity_1liner": "Banque & Assurances - Association - Crédit Agricole | Choisissez une banque coopérative pensée pour les besoins de toutes les associations.",
+    "activity_1liner": "Fournit des services bancaires et d'assurance aux entreprises et particuliers — exposition défense indirecte.",
     "products": [
-      "robots terrestres (UGV)",
-      "plateformes robotiques tactiques",
-      "modules de téléopération"
+      "comptes bancaires",
+      "crédits",
+      "assurance",
+      "crédit export"
     ],
     "services": [
-      "certification / tests"
+      "conseil financier",
+      "crédit export"
     ],
     "target_buyers": [
-      "Sécurité civile"
+      "Industriels défense",
+      "PME défense"
     ],
-    "technologies": [
-      "robotique / autonomie",
-      "simulation"
-    ],
-    "why_target": "Acheteur potentiel de capteurs, batteries, propulsion, châssis composite pour ses lignes robotique terrestre — également compétiteur sur le segment robotique terrestre.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Banque coopérative française — bailleur indirect pour PME défense via crédits export et garanties.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Robots terrestres (UGV / EOD)"
+      "Financement, banque & assurance défense"
     ],
     "services_categories": [
-      "Certification & tests"
+      "Financement export & banque défense"
     ],
-    "technologies_categories": [
-      "Robotique & autonomie",
-      "Navigation inertielle",
-      "Simulation & VR/AR"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 499,
@@ -20124,29 +20018,31 @@
     "country": "France",
     "website": "https://www.creditmutuel.fr/fr/particuliers.html",
     "pavilion": null,
-    "activity_1liner": "En ce moment Nos offres à ne pas manquer Bien chez soi Assurance Multirisque Habitation ( MRH ) : à chaque style de vie sa protection Loc…",
+    "activity_1liner": "Fournit des services bancaires et d'assurance aux particuliers et entreprises — exposition défense indirecte.",
     "products": [
-      "équipement logistique",
-      "modules de transport tactique",
-      "ensembles palettisés militaires"
+      "comptes bancaires",
+      "assurance habitation",
+      "crédits"
     ],
     "services": [
-      "formation"
+      "conseil financier"
     ],
-    "target_buyers": [],
+    "target_buyers": [
+      "Industriels défense",
+      "PME défense"
+    ],
     "technologies": [],
-    "why_target": "Prestataire potentiel de formation pour des programmes défense/sécurité — à qualifier en discovery call.",
-    "completeness_score": 70,
-    "data_source_strength": "low",
+    "why_target": "Banque mutualiste française — bailleur indirect pour PME défense via crédits et assurances.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logistique militaire & transport",
-      "Cybersécurité (logiciels & appliances)"
+      "Financement, banque & assurance défense"
     ],
     "services_categories": [
-      "Formation & entraînement"
+      "Financement export & banque défense"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 1"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 500,
@@ -22668,30 +22564,30 @@
     "country": "Sweden",
     "website": "http://www.defensorgroup.se/",
     "pavilion": null,
-    "activity_1liner": "Defensor is a Swedish defence industry group with an entrepreneurial drive and a high rate of development, focused on investing in and de…",
-    "products": [],
+    "activity_1liner": "Investit et développe des sociétés de défense suédoises (groupe industriel défense).",
+    "products": [
+      "portefeuille de sociétés défense"
+    ],
     "services": [
-      "ingénierie / conseil",
-      "sous-traitance"
+      "investissement",
+      "support développement"
     ],
     "target_buyers": [
-      "MoD / Armées",
-      "Sécurité civile"
+      "Industriels défense",
+      "PME défense"
     ],
     "technologies": [],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
+    "why_target": "Holding défense suédois — point d'accès au tissu industriel défense scandinave (sourcing M&A et partenariats).",
     "completeness_score": 65,
-    "data_source_strength": "high",
+    "data_source_strength": "manual",
     "products_categories": [
-      "Systèmes de guerre électronique (EW)",
-      "Pièces mécaniques & usinage"
+      "Conseil stratégique & due-diligence M&A"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Sous-traitance industrielle"
+      "Conseil en gestion de programme"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 1"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 563,
@@ -22919,47 +22815,31 @@
     "country": "Canada",
     "website": "https://www.investquebec.com/quebec/fr/",
     "pavilion": null,
-    "activity_1liner": "Financement et accompagnement pour votre entreprise | Investissement Québec | Chez Investissement Québec, nous aidons votre entreprise à…",
+    "activity_1liner": "Promeut l'investissement et le commerce extérieur du Québec dans les secteurs défense, sécurité et hautes technologies.",
     "products": [
-      "batteries militaires",
-      "packs énergie pour drones",
-      "modules de gestion d'énergie",
-      "batteries / sources d'énergie",
-      "robots terrestres (UGV)",
-      "plateformes robotiques tactiques",
-      "modules de téléopération"
+      "accompagnement export",
+      "mise en relation B2B"
     ],
     "services": [
-      "ingénierie / conseil",
-      "certification / tests",
-      "formation"
+      "promotion territoriale",
+      "soutien export"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "PME défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "robotique / autonomie",
-      "Lidar / Laser"
-    ],
-    "why_target": "Compétiteur sur batteries militaires — cible potentielle pour la vente de sous-systèmes complémentaires ou de prestations associées.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Délégation Québec en France — point d'entrée pour identifier des PME québécoises défense et obtenir crédits export.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Batteries & packs énergétiques",
-      "Drones aériens (UAV)",
-      "Groupes électrogènes & énergie tactique",
-      "Robots terrestres (UGV / EOD)"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Certification & tests",
-      "Formation & entraînement"
+      "Promotion territoriale & investissement"
     ],
-    "technologies_categories": [
-      "Robotique & autonomie",
-      "Lidar / Laser"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 569,
@@ -30752,43 +30632,31 @@
     "country": "France",
     "website": "https://www.eurotech-intl.com/",
     "pavilion": null,
-    "activity_1liner": "NOTRE EXPÉRIENCE EST « COMBAT PROVEN » AUPRÈS DE DONNEURS D'ORDRES MAJEURS DU SECTEUR VOUS SOUHAITEZ RÉDUIRE LES COÛTS DE VOTRE SUPPLY CH…",
-    "products": [
-      "logiciels métier défense",
-      "robots terrestres (UGV)",
-      "équipement logistique"
-    ],
+    "activity_1liner": "Accompagne les industriels défense et aéronautique sur la performance MCO et la supply chain.",
+    "products": [],
     "services": [
-      "MCO / MRO",
-      "ingénierie / conseil",
-      "formation"
+      "conseil supply chain",
+      "amélioration MCO",
+      "sourcing"
     ],
     "target_buyers": [
-      "Sécurité civile",
-      "MoD / Armées"
+      "Primes défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "cloud",
-      "robotique / autonomie"
-    ],
-    "why_target": "Acheteur potentiel de infrastructure cloud souveraine, IA, cyber pour ses lignes logiciels — également compétiteur sur le segment logiciels.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Cabinet français MCO/supply chain défense & aéro — partenaire pour amélioration OTD et qualité fournisseurs.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logiciels métier défense (autres)",
-      "Robots terrestres (UGV / EOD)",
-      "Logistique militaire & transport"
+      "Autre — à qualifier"
     ],
     "services_categories": [
-      "MCO / MRO",
       "Ingénierie & conseil",
-      "Formation & entraînement"
+      "MCO / MRO",
+      "Approvisionnement composants & sourcing"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain",
-      "Robotique & autonomie"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 764,
@@ -37621,38 +37489,34 @@
     "country": "France",
     "website": "https://www.groupe-abilis.fr/",
     "pavilion": null,
-    "activity_1liner": "Prestataire du ministère des Armées en matière d’habillement et du soutien de l'Homme, et, soutien des équipements Groupe ABILIS entretie…",
+    "activity_1liner": "Maintient et fournit l'équipement balistique et le soutien de l'homme aux forces armées françaises.",
     "products": [
-      "équipement du fantassin",
-      "kits de soldat connecté",
-      "accessoires individuels tactiques"
+      "gilets pare-balles",
+      "casques de combat",
+      "rangers",
+      "BMJA"
     ],
     "services": [
-      "formation",
-      "certification / tests"
+      "MCO / MRO équipement",
+      "soutien de l'homme"
     ],
     "target_buyers": [
-      "Sécurité civile",
       "MoD / Armées"
     ],
-    "technologies": [
-      "textiles techniques tactiques"
-    ],
-    "why_target": "Acheteur potentiel de optronique fantassin, énergie portative, textiles techniques pour ses lignes équipement fantassin — également compétiteur sur le segment équipement fantassin.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Prestataire MCO du ministère des Armées sur protection balistique et habillement — fournisseur stratégique pour soutien forces.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Équipement du fantassin (général)",
-      "Véhicules blindés"
+      "Gilets & plaques pare-balles",
+      "Casques de combat",
+      "Équipement du fantassin (général)"
     ],
     "services_categories": [
-      "Formation & entraînement",
-      "Certification & tests"
+      "MCO / MRO"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 933,
@@ -38053,46 +37917,32 @@
     "country": "France",
     "website": "https://www.groupe-savoy.fr/",
     "pavilion": null,
-    "activity_1liner": "Accueil - Groupe Savoy | Le Groupe Savoy, inventeur de solutions industrielles a été créé en 1982 et est composé 14 sociétés réparties da…",
+    "activity_1liner": "Conçoit et fabrique des solutions industrielles sur-mesure pour défense, aéronautique et énergie.",
     "products": [
-      "pièces mécaniques",
-      "capteurs embarqués",
-      "robots terrestres (UGV)",
-      "véhicules militaires",
-      "logiciels métier défense"
+      "solutions industrielles sur-mesure",
+      "sous-ensembles mécaniques"
     ],
     "services": [
-      "certification / tests",
-      "intégration de systèmes"
+      "sous-traitance industrielle",
+      "ingénierie"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "Primes défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "Lidar / Laser",
-      "fabrication additive",
-      "robotique / autonomie"
-    ],
-    "why_target": "Compétiteur sur pièces mécaniques — cible potentielle pour la vente de sous-systèmes complémentaires ou de prestations associées.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Groupe industriel français multi-métiers (14 sociétés) — sous-traitant pour primes défense, aéro et énergie.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Capteurs embarqués (généraux)",
-      "Robots terrestres (UGV / EOD)",
-      "Véhicules tactiques (non blindés)",
-      "Logiciels métier défense (autres)"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
-      "Certification & tests",
-      "Intégration de systèmes"
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
     ],
-    "technologies_categories": [
-      "Lidar / Laser",
-      "Fabrication additive",
-      "Robotique & autonomie"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 944,
@@ -41406,18 +41256,28 @@
     "country": "France",
     "website": "http://www.weinbergcapital.com/",
     "pavilion": null,
-    "activity_1liner": "Eiréné is the first LBO fund dedicated to supporting French SMEs and mid-size companies in the defense and security sector.",
-    "products": [],
-    "services": [],
-    "target_buyers": [],
+    "activity_1liner": "Investit en LBO dans les PME et ETI défense et sécurité françaises (fonds Eiréné).",
+    "products": [
+      "investissements LBO"
+    ],
+    "services": [
+      "investissement",
+      "capital développement"
+    ],
+    "target_buyers": [
+      "PME défense",
+      "Industriels défense"
+    ],
     "technologies": [],
-    "why_target": "À qualifier — données publiques insuffisantes pour trancher.",
-    "completeness_score": 40,
-    "data_source_strength": "medium",
+    "why_target": "Premier fonds LBO français dédié défense — bailleur capital potentiel pour PME défense en croissance.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
       "Financement, banque & assurance défense"
     ],
-    "services_categories": [],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
     "technologies_categories": [],
     "supply_chain_tier": "N/A"
   },
@@ -44049,30 +43909,35 @@
     "country": "France",
     "website": "http://www.carnot-mica.fr/",
     "pavilion": null,
-    "activity_1liner": "The mission of Carnot MICA is to support companies throughout their innovation and development projects in the field of materials, surfac…",
+    "activity_1liner": "Conduit de la R&D sur contrat en matériaux, surfaces et interfaces pour les industriels (Institut Carnot MICA).",
     "products": [],
-    "services": [],
-    "target_buyers": [],
+    "services": [
+      "R&D sur contrat",
+      "ingénierie matériaux"
+    ],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
     "technologies": [
-      "Lidar / Laser",
       "matériaux composites",
-      "simulation"
+      "traitement de surface"
     ],
-    "why_target": "À qualifier — données publiques insuffisantes pour trancher.",
-    "completeness_score": 55,
-    "data_source_strength": "medium",
+    "why_target": "Institut Carnot français matériaux — partenaire R&D pour innovations matériaux composites, traitement de surface, défense.",
+    "completeness_score": 80,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Matériaux composites & blindage",
-      "Pièces mécaniques & usinage"
+      "R&D académique & laboratoires"
     ],
-    "services_categories": [],
+    "services_categories": [
+      "R&D sur contrat",
+      "Ingénierie & conseil",
+      "Métrologie & essais matériaux"
+    ],
     "technologies_categories": [
-      "Lidar / Laser",
-      "Matériaux composites",
-      "Navigation inertielle",
-      "Simulation & VR/AR"
+      "Matériaux composites"
     ],
-    "supply_chain_tier": "Tier 3"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1091,
@@ -50628,29 +50493,20 @@
     "country": "France",
     "website": "https://www.lninnov.com/",
     "pavilion": null,
-    "activity_1liner": "Le fait de consentir à ces technologies nous permettra de traiter des données telles que le comportement de navigation ou les ID uniques…",
-    "products": [
-      "équipement logistique",
-      "modules de transport tactique",
-      "ensembles palettisés militaires"
-    ],
+    "activity_1liner": "(données publiques trop pauvres pour qualification fiable — site sous mur de cookies).",
+    "products": [],
     "services": [],
     "target_buyers": [],
-    "technologies": [
-      "cloud"
-    ],
-    "why_target": "À qualifier — données publiques insuffisantes pour trancher.",
-    "completeness_score": 75,
-    "data_source_strength": "low",
+    "technologies": [],
+    "why_target": "Société à requalifier — page d'accueil bloquée par bandeau cookies. Discovery call requis.",
+    "completeness_score": 50,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logistique militaire & transport",
-      "Mécanique de transmission"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
-    "technologies_categories": [
-      "Cloud & cloud souverain"
-    ],
-    "supply_chain_tier": "Tier 3"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1256,
@@ -57480,42 +57336,31 @@
     "country": "France",
     "website": "https://www.morinfrance.com/",
     "pavilion": null,
-    "activity_1liner": "Animalerie en ligne : Morin France | Magasin d'articles pour animaux | Découvrez les produits Morin France, spécialiste des articles pour…",
+    "activity_1liner": "Fabrique et distribue des costumes de mordant et équipements pour cynotechnie militaire et police.",
     "products": [
-      "équipement du fantassin",
-      "munitions",
-      "batteries / sources d'énergie"
+      "costumes de mordant",
+      "harnais & équipement K9",
+      "matériel dressage"
     ],
     "services": [
-      "ingénierie / conseil",
-      "formation",
-      "certification / tests"
+      "formation cynophile"
     ],
     "target_buyers": [
       "MoD / Armées",
-      "Sécurité civile"
+      "Sécurité civile",
+      "Police / gendarmerie"
     ],
-    "technologies": [
-      "GNSS / GPS",
-      "matériaux composites"
-    ],
-    "why_target": "Acheteur potentiel de optronique fantassin, énergie portative, textiles techniques pour ses lignes équipement fantassin — également compétiteur sur le segment équipement fantassin.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Spécialiste français équipement cynophile — fournisseur potentiel pour unités K9 forces armées, gendarmerie et police.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Équipement du fantassin (général)",
-      "Munitions petit/moyen calibre",
-      "Batteries & packs énergétiques"
+      "Équipement du fantassin (général)"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Formation & entraînement",
-      "Certification & tests"
+      "Formation & entraînement"
     ],
-    "technologies_categories": [
-      "GNSS / navigation satellite",
-      "Matériaux composites"
-    ],
+    "technologies_categories": [],
     "supply_chain_tier": "OEM"
   },
   {
@@ -57708,42 +57553,33 @@
     "country": "France",
     "website": "http://www.m-plusgroup.com/",
     "pavilion": null,
-    "activity_1liner": "Designer and manufacturer of complex fabricated solutions in superalloys and special metals for aeronautics, defense, and energy.",
+    "activity_1liner": "Forge et usine des solutions complexes en superalliages et métaux spéciaux pour aéro, défense et énergie.",
     "products": [
-      "plateforme cybersécurité OT",
-      "outils d'audit ICS / SCADA"
+      "pièces forgées superalliages",
+      "composants métaux spéciaux"
     ],
     "services": [
-      "MCO / MRO",
-      "certification / tests",
-      "sous-traitance"
+      "sous-traitance industrielle",
+      "forge",
+      "usinage"
     ],
     "target_buyers": [
-      "Sécurité civile",
-      "MoD / Armées",
+      "Primes défense",
       "Industriels défense"
     ],
-    "technologies": [
-      "cybersécurité OT / ICS"
-    ],
-    "why_target": "Niche cybersécurité industrielle — partenaire pour la protection d'infrastructures critiques et bases militaires.",
-    "completeness_score": 80,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Forgeron français superalliages — sous-traitant Tier 3 pour pièces moteurs aéronautiques et défense.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)",
-      "Avions & hélicoptères militaires",
-      "Moteurs aéronautiques",
-      "Pièces mécaniques & usinage"
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Certification & tests",
       "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Cybersécurité OT / ICS"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1436,
@@ -58109,43 +57945,27 @@
     "country": "France",
     "website": "http://www.ecologie.gouv.fr/politiques-publiques/agence-linnovation-transports",
     "pavilion": null,
-    "activity_1liner": "Avec ses partenaires, elle identifie les compétences nécessaires recherchées, trouve des lieux d’accueil pour les expérimentations ou ses…",
-    "products": [
-      "capteurs embarqués",
-      "batteries / sources d'énergie",
-      "radars"
-    ],
+    "activity_1liner": "Pilote la politique mobilité innovation et identifie les expérimentations technologiques (MTE/DGITM).",
+    "products": [],
     "services": [
-      "ingénierie / conseil",
-      "formation",
-      "certification / tests"
+      "expérimentations",
+      "soutien innovation"
     ],
     "target_buyers": [
-      "Sécurité civile",
-      "Primes défense"
+      "Acheteurs publics"
     ],
-    "technologies": [
-      "IA / vision",
-      "Lidar / Laser"
-    ],
-    "why_target": "Compétiteur sur capteurs embarqués — cible potentielle pour la vente de sous-systèmes complémentaires ou de prestations associées.",
-    "completeness_score": 100,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Direction du ministère français de la Transition Écologique — point d'entrée pour expérimentations défense-mobilité.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Capteurs embarqués (généraux)",
-      "Batteries & packs énergétiques",
-      "Radars & traitement signal"
+      "Achat public défense & politique industrielle"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Formation & entraînement",
-      "Certification & tests"
+      "Autre — à qualifier"
     ],
-    "technologies_categories": [
-      "IA / machine learning",
-      "Lidar / Laser"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1445,
@@ -58776,46 +58596,28 @@
     "country": "France",
     "website": "http://www.nae.fr/",
     "pavilion": null,
-    "activity_1liner": "The dynamic network of professionals in the aerospace, space, defense, and security industries in Normandy.",
+    "activity_1liner": "Fédère le réseau régional aéronautique, espace, défense et sécurité de Normandie (NAE).",
     "products": [],
     "services": [
-      "formation",
-      "ingénierie / conseil",
-      "sous-traitance",
-      "certification / tests"
+      "animation de réseau",
+      "lobbying & représentation"
     ],
     "target_buyers": [
-      "Sécurité civile",
-      "Primes défense"
+      "PME défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "matériaux composites",
-      "IA / vision",
-      "vision par ordinateur",
-      "5G / sans-fil",
-      "RF / micro-ondes"
-    ],
-    "why_target": "Canal de distribution sur le marché sécurité civile — partenaire pour la représentation de marques étrangères et l'accès au tissu local.",
-    "completeness_score": 80,
-    "data_source_strength": "high",
+    "technologies": [],
+    "why_target": "Cluster régional défense / aéro de Normandie — point d'accès aux PME normandes pour sourcing et partenariats.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Batteries & packs énergétiques",
-      "Optronique & viseurs (EO/IR)"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Formation & entraînement",
-      "Ingénierie & conseil",
-      "Sous-traitance industrielle",
-      "Certification & tests"
+      "Lobbying & représentation"
     ],
-    "technologies_categories": [
-      "Matériaux composites",
-      "IA / machine learning",
-      "Vision par ordinateur",
-      "5G / réseaux radio mobiles",
-      "Communications RF / micro-ondes"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1461,
@@ -66177,39 +65979,27 @@
     "country": "France",
     "website": "https://www.pmt-innovation.com/",
     "pavilion": null,
-    "activity_1liner": "Besancon Préparez-vous à plonger dans le monde fascinant de l’intelligence artificielle !",
-    "products": [
-      "pièces mécaniques de précision",
-      "ensembles mécano-soudés",
-      "composants usinés CNC",
-      "pièces mécaniques"
-    ],
+    "activity_1liner": "Anime un pôle régional microtechnique pour fédérer les PME mécaniques de précision et microsystèmes.",
+    "products": [],
     "services": [
-      "sous-traitance",
-      "formation"
+      "animation de réseau",
+      "soutien R&D"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "PME défense"
     ],
-    "technologies": [
-      "Lidar / Laser"
-    ],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Pôle de compétitivité Besançon microtechnique — partenaire pour sourcing PME précision et microsystèmes défense.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Plateformes IA / vision défense",
-      "Matériaux composites & blindage"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Sous-traitance industrielle",
-      "Formation & entraînement"
+      "Lobbying & représentation"
     ],
-    "technologies_categories": [
-      "Lidar / Laser"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1641,
@@ -66433,46 +66223,32 @@
     "country": "Poland",
     "website": "https://grupapgz.pl/",
     "pavilion": null,
-    "activity_1liner": "Conglomérat défense étatique polonais regroupant 50+ entreprises (HSW, MESKO, Stalowa Wola, FB Łucznik, …) — armement complet.",
+    "activity_1liner": "Pilote le conglomérat défense étatique polonais (PGZ) regroupant 50+ sociétés d'armement et systèmes.",
     "products": [
-      "véhicule blindé Rosomak",
-      "obusier Krab 155 mm",
-      "char PT-91 Twardy modernisé",
-      "fusils Beryl/MSBS Grot",
-      "missiles Piorun MANPADS",
-      "munitions complètes"
+      "armement complet",
+      "véhicules blindés",
+      "munitions"
     ],
     "services": [
-      "MCO armement",
-      "modernisation flottes",
-      "transfert de technologie"
+      "MCO",
+      "intégration"
     ],
     "target_buyers": [
       "MoD / Armées",
-      "Primes défense",
       "Export / international"
     ],
-    "technologies": [
-      "armement complet",
-      "véhicules blindés",
-      "matériaux énergétiques"
-    ],
-    "why_target": "Prime étatique polonais — porte d'entrée majeure pour le marché de la modernisation polonaise (programme Wisła, Narew, Borsuk).",
-    "completeness_score": 100,
+    "technologies": [],
+    "why_target": "Holding défense polonais (PGZ) — point d'entrée pour la BITD polonaise (HSW, MESKO, FB Łucznik) en plein investissement.",
+    "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
       "Véhicules blindés",
-      "Armes lourdes & systèmes de tir",
-      "Armes légères & accessoires",
-      "Missiles & armements guidés"
+      "Munitions petit/moyen calibre"
     ],
     "services_categories": [
-      "MCO / MRO",
-      "Modernisation de flottes"
+      "MCO / MRO"
     ],
-    "technologies_categories": [
-      "Matériaux énergétiques"
-    ],
+    "technologies_categories": [],
     "supply_chain_tier": "OEM"
   },
   {
@@ -69256,37 +69032,27 @@
     "country": "France",
     "website": "http://www.devup-centrevaldeloire.fr/",
     "pavilion": null,
-    "activity_1liner": "Accueil - Dev'up Centre-Val de Loire | Nos solutions pour accompagner vos projets Actualités Agenda L’agence en chiffres 2024 Vidéoà la u…",
-    "products": [
-      "réseaux de communication militaires",
-      "infrastructure RF durcie",
-      "stations de commandement",
-      "réseaux de communication"
-    ],
+    "activity_1liner": "Promeut l'attractivité économique de la région Centre-Val de Loire et soutient les PME défense locales.",
+    "products": [],
     "services": [
-      "ingénierie / conseil",
-      "formation"
+      "promotion territoriale",
+      "soutien export"
     ],
-    "target_buyers": [],
-    "technologies": [
-      "cloud"
+    "target_buyers": [
+      "PME défense"
     ],
-    "why_target": "Prestataire potentiel de ingénierie / conseil pour des programmes défense/sécurité — à qualifier en discovery call.",
-    "completeness_score": 85,
-    "data_source_strength": "low",
+    "technologies": [],
+    "why_target": "Agence de développement économique régionale — partenaire pour sourcing PME défense de la région Centre.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Antennes & infrastructures RF",
-      "Systèmes C2 & C4ISR",
-      "Réseaux militaires (5G/P-LTE/MANET)"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
-      "Ingénierie & conseil",
-      "Formation & entraînement"
+      "Promotion territoriale & investissement"
     ],
-    "technologies_categories": [
-      "Cloud & cloud souverain"
-    ],
-    "supply_chain_tier": "Tier 1"
+    "technologies_categories": [],
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1715,
@@ -72064,45 +71830,40 @@
     "country": "France",
     "website": "https://stid-security.com/fr",
     "pavilion": null,
-    "activity_1liner": "Design intuitif Valorisation des équipes Accompagnement dédié En savoir plus Conçu par et pour les personnes Nos partenaires voir plus Yo…",
+    "activity_1liner": "Conçoit des solutions de contrôle d'accès et identification RFID haute sécurité pour sites sensibles et défense.",
     "products": [
-      "véhicules militaires",
-      "logiciels métier défense",
-      "batteries / sources d'énergie",
-      "capteurs embarqués"
+      "lecteurs RFID",
+      "badges d'accès",
+      "logiciels gestion accès"
     ],
     "services": [
-      "formation",
-      "ingénierie / conseil",
-      "distribution / représentation",
-      "intégration de systèmes"
+      "ingénierie & conseil",
+      "formation"
     ],
     "target_buyers": [
       "MoD / Armées",
-      "Export / international"
+      "Sécurité civile",
+      "Industriels défense"
     ],
     "technologies": [
-      "cryptographie"
+      "RFID",
+      "cybersécurité"
     ],
-    "why_target": "Acheteur potentiel de motorisation, blindage, optronique et électronique embarquée pour ses lignes véhicules — également compétiteur sur le segment véhicules.",
+    "why_target": "Spécialiste français RFID & contrôle d'accès — fournisseur potentiel pour la sécurisation périmétrique de bases militaires et sites OIV.",
     "completeness_score": 100,
-    "data_source_strength": "medium",
+    "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
-      "Logiciels métier défense (autres)",
-      "Batteries & packs énergétiques",
-      "Capteurs embarqués (généraux)"
+      "Cybersécurité (logiciels & appliances)",
+      "Autre — à qualifier"
     ],
     "services_categories": [
-      "Formation & entraînement",
       "Ingénierie & conseil",
-      "Distribution & représentation",
-      "Intégration de systèmes"
+      "Formation & entraînement"
     ],
     "technologies_categories": [
-      "Cryptographie"
+      "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1784,
@@ -72110,44 +71871,34 @@
     "country": "France",
     "website": "https://www.s2m-equipment.fr/",
     "pavilion": null,
-    "activity_1liner": "Nos savoir-faire MCO Modernisation Assistance technique Transport logistique Équipements neufs Nos équipements Nos actualités Nous Contac…",
+    "activity_1liner": "Modernise et fournit des équipements militaires neufs ou rénovés (MCO, modernisation, transport logistique).",
     "products": [
-      "véhicules militaires",
-      "véhicules tactiques",
-      "ensembles spéciaux pour véhicules militaires",
-      "armes légères",
-      "accessoires d'armement",
-      "ensembles mécaniques pour armes",
-      "armes"
+      "équipements rénovés",
+      "équipements militaires neufs"
     ],
     "services": [
       "MCO / MRO",
-      "formation",
-      "support opérationnel"
+      "modernisation",
+      "transport logistique",
+      "assistance technique"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "MoD / Armées",
+      "Industriels défense"
     ],
-    "technologies": [
-      "véhicules tout-terrain",
-      "mécanique d'armement"
-    ],
-    "why_target": "Acheteur potentiel de motorisation, blindage, optronique et électronique embarquée pour ses lignes véhicules — également compétiteur sur le segment véhicules.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "Société française MCO/modernisation équipement — fournisseur potentiel pour upgrade flottes et soutien programmes.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
-      "Véhicules blindés",
-      "Armes légères & accessoires"
+      "Logistique militaire & transport"
     ],
     "services_categories": [
       "MCO / MRO",
-      "Formation & entraînement",
-      "Support opérationnel & OPEX"
+      "Modernisation de flottes",
+      "Logistique militaire & transit"
     ],
-    "technologies_categories": [
-      "Autre — à qualifier"
-    ],
+    "technologies_categories": [],
     "supply_chain_tier": "MRO"
   },
   {
@@ -80083,28 +79834,32 @@
     "country": "France",
     "website": "http://www.soprima.com/",
     "pavilion": null,
-    "activity_1liner": "Soprima Industrie – Experts in pre-coating\n\nSoprima Industrie applies locking and sealing products to fasteners designed for demanding ap…",
-    "products": [],
-    "services": [
-      "certification / tests"
+    "activity_1liner": "Applique des produits de pré-revêtement, freinage et étanchéité sur fixations pour applications exigeantes.",
+    "products": [
+      "pré-revêtements pour fixations",
+      "produits de freinage",
+      "produits d'étanchéité"
     ],
-    "target_buyers": [],
+    "services": [
+      "sous-traitance industrielle",
+      "pré-revêtement"
+    ],
+    "target_buyers": [
+      "Primes défense",
+      "Industriels défense"
+    ],
     "technologies": [],
-    "why_target": "Prestataire potentiel de certification / tests pour des programmes défense/sécurité — à qualifier en discovery call.",
-    "completeness_score": 50,
-    "data_source_strength": "medium",
+    "why_target": "Spécialiste français pré-revêtement de fixations — sous-traitant Tier 3 pour fixations aéronautique et défense.",
+    "completeness_score": 85,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Optronique & viseurs (EO/IR)",
-      "Connectique & câblage durcis",
-      "Fixations & visserie aéronautique",
-      "Pièces mécaniques & usinage",
-      "Mécanique de transmission"
+      "Fixations & visserie aéronautique"
     ],
     "services_categories": [
-      "Certification & tests"
+      "Sous-traitance industrielle"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 1"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1978,
@@ -84393,48 +84148,31 @@
     "country": "France",
     "website": "https://www.team31-agon.com/",
     "pavilion": null,
-    "activity_1liner": "Accueil - Team 31 | Team 31 propose du prototypage électronique et des petites séries à Toulouse.",
+    "activity_1liner": "Fabrique des prototypes et petites séries électroniques en sous-traitance EMS (Toulouse).",
     "products": [
-      "composants électroniques",
-      "équipement logistique",
-      "capteurs embarqués",
-      "systèmes satellitaires"
+      "prototypes électroniques",
+      "petites séries cartes"
     ],
     "services": [
-      "certification / tests",
-      "formation",
-      "ingénierie / conseil",
-      "sous-traitance"
+      "sous-traitance industrielle",
+      "prototypage"
     ],
     "target_buyers": [
-      "Sécurité civile"
+      "Primes défense",
+      "Industriels défense"
     ],
-    "technologies": [
-      "microélectronique durcie",
-      "capteurs IoT industriels",
-      "communications satellite",
-      "GNSS / GPS"
-    ],
-    "why_target": "Sous-traitant éligible pour les primes défense (mécanique, composants, ingénierie) — fournisseur potentiel pour pièces série courte certifiées EN9100/AQAP.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "technologies": [],
+    "why_target": "EMS toulousain spécialisé prototypage et petites séries — sous-traitant pour primes défense, aéro et spatial du Sud-Ouest.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Composants électroniques & cartes",
-      "Logistique militaire & transport",
-      "Capteurs embarqués (généraux)",
-      "Satellites & CubeSats"
+      "Composants électroniques & cartes"
     ],
     "services_categories": [
-      "Certification & tests",
-      "Formation & entraînement",
-      "Ingénierie & conseil",
       "Sous-traitance industrielle"
     ],
-    "technologies_categories": [
-      "Capteurs IoT industriels",
-      "GNSS / navigation satellite"
-    ],
-    "supply_chain_tier": "OEM"
+    "technologies_categories": [],
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 2087,
@@ -88549,44 +88287,34 @@
     "country": "France",
     "website": "https://www.twinswheel.fr/",
     "pavilion": null,
-    "activity_1liner": "L’entreprise Expérimentations RGPD – protection des données 5G openroad D-Louve SAM Autocampus Actualités Contact Menu Accueil Les Droide…",
+    "activity_1liner": "Conçoit et fabrique des robots de livraison autonomes pour logistique urbaine et applications militaires.",
     "products": [
-      "logiciels métier défense",
-      "robots terrestres (UGV)",
-      "équipement logistique",
-      "réseaux de communication",
-      "capteurs embarqués"
+      "robots de livraison autonomes",
+      "plateformes mobiles autonomes"
     ],
     "services": [
-      "formation"
+      "intégration",
+      "expérimentations"
     ],
     "target_buyers": [
-      "MoD / Armées"
+      "MoD / Armées",
+      "Sécurité civile"
     ],
     "technologies": [
-      "5G / sans-fil",
-      "robotique / autonomie",
-      "GNSS / GPS",
-      "Lidar / Laser"
+      "robotique mobile",
+      "navigation autonome"
     ],
-    "why_target": "Acheteur potentiel de infrastructure cloud souveraine, IA, cyber pour ses lignes logiciels — également compétiteur sur le segment logiciels.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "why_target": "Constructeur français de robots autonomes de livraison — fournisseur potentiel pour logistique du dernier km militaire.",
+    "completeness_score": 80,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Logiciels métier défense (autres)",
-      "Robots terrestres (UGV / EOD)",
-      "Logistique militaire & transport",
-      "Réseaux militaires (5G/P-LTE/MANET)",
-      "Capteurs embarqués (généraux)"
+      "Robots terrestres (UGV / EOD)"
     ],
     "services_categories": [
-      "Formation & entraînement"
+      "Ingénierie & conseil"
     ],
     "technologies_categories": [
-      "5G / réseaux radio mobiles",
-      "Robotique & autonomie",
-      "GNSS / navigation satellite",
-      "Lidar / Laser"
+      "Drones & robotique mobile"
     ],
     "supply_chain_tier": "OEM"
   },
@@ -91041,51 +90769,34 @@
     "country": "France",
     "website": "https://visioneng.fr/",
     "pavilion": null,
-    "activity_1liner": "Secteurs d’activité Vous aider à relever les défis spécifiques aux applications hautement spécialisées dans un large éventail d’industries.",
+    "activity_1liner": "Conçoit et fabrique des systèmes optiques de précision et microscopes pour inspection industrielle et défense.",
     "products": [
-      "composants électroniques",
-      "simulateurs d'entraînement",
-      "équipement logistique",
-      "réseaux de communication"
+      "microscopes industriels",
+      "systèmes optiques de précision"
     ],
     "services": [
-      "formation",
-      "ingénierie / conseil",
-      "distribution / représentation",
-      "sous-traitance"
+      "certification & tests"
     ],
     "target_buyers": [
-      "MoD / Armées",
-      "Export / international"
+      "Industriels défense",
+      "Primes défense"
     ],
     "technologies": [
-      "microélectronique durcie",
-      "simulation",
-      "RF / micro-ondes",
-      "5G / sans-fil"
+      "optique de précision"
     ],
-    "why_target": "Compétiteur sur composants électroniques — cible potentielle pour la vente de sous-systèmes complémentaires ou de prestations associées.",
-    "completeness_score": 100,
-    "data_source_strength": "medium",
+    "why_target": "Fabricant britannique optiques de précision — fournisseur potentiel pour inspection contrôle qualité aéronautique et défense.",
+    "completeness_score": 80,
+    "data_source_strength": "manual",
     "products_categories": [
-      "Composants électroniques & cartes",
-      "Simulateurs d'entraînement & VR/AR",
-      "Logistique militaire & transport",
-      "Réseaux militaires (5G/P-LTE/MANET)"
+      "Optronique & viseurs (EO/IR)"
     ],
     "services_categories": [
-      "Formation & entraînement",
-      "Ingénierie & conseil",
-      "Distribution & représentation",
-      "Sous-traitance industrielle"
+      "Certification & tests"
     ],
     "technologies_categories": [
-      "Navigation inertielle",
-      "Simulation & VR/AR",
-      "Communications RF / micro-ondes",
-      "5G / réseaux radio mobiles"
+      "Optique de précision"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2243,
@@ -102667,20 +102378,29 @@
     "country": "France",
     "website": "www.sophiaengineering.com",
     "pavilion": null,
-    "activity_1liner": "SOPHIA ENGINEERING, spécialiste du service en ingénierie est reconnue pour accélérer l’innovation et pour sa capacité au transfert techno…",
+    "activity_1liner": "Conseille et accompagne les industriels dans le transfert de technologies et l'innovation R&D.",
     "products": [],
-    "services": [],
-    "target_buyers": [],
-    "technologies": [],
-    "why_target": "À qualifier — données publiques insuffisantes pour trancher.",
-    "completeness_score": 40,
-    "data_source_strength": "low",
-    "products_categories": [
-      "Pièces mécaniques & usinage"
+    "services": [
+      "ingénierie & conseil",
+      "R&D sur contrat"
     ],
-    "services_categories": [],
+    "target_buyers": [
+      "Industriels défense",
+      "Primes défense"
+    ],
+    "technologies": [],
+    "why_target": "Cabinet ingénierie français — partenaire pour transfert techno et R&D industrielle dans la défense et aéro.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "R&D sur contrat"
+    ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 3"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2549,
@@ -103362,20 +103082,32 @@
     "country": "France",
     "website": "www.tns-mars.com",
     "pavilion": null,
-    "activity_1liner": "TNS Mars est le Pôle d'excellence du combat collaboratif aéroter­restre. Une approche système de systèmes à travers le programme Scorpion",
-    "products": [],
-    "services": [],
-    "target_buyers": [],
-    "technologies": [],
-    "why_target": "À qualifier — données publiques insuffisantes pour trancher.",
-    "completeness_score": 40,
-    "data_source_strength": "low",
-    "products_categories": [
-      "Systèmes C2 & C4ISR"
+    "activity_1liner": "Anime le pôle d'excellence du combat collaboratif aéroterrestre (programme SCORPION).",
+    "products": [
+      "référentiels SCORPION",
+      "documentation programme"
     ],
-    "services_categories": [],
+    "services": [
+      "ingénierie & conseil",
+      "soutien programme"
+    ],
+    "target_buyers": [
+      "MoD / Armées",
+      "Primes défense"
+    ],
+    "technologies": [],
+    "why_target": "Pôle d'excellence SCORPION pour le combat collaboratif — point d'accès au programme principal de l'Armée de Terre.",
+    "completeness_score": 65,
+    "data_source_strength": "manual",
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Conseil en gestion de programme"
+    ],
     "technologies_categories": [],
-    "supply_chain_tier": "Tier 1"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2569,

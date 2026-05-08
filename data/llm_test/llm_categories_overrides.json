@@ -9063,5 +9063,385 @@
     ],
     "services_categories": [],
     "technologies_categories": []
+  },
+  "30": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "55": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "89": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "100": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "101": {
+    "products_categories": [
+      "Équipement du fantassin (général)",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "104": {
+    "products_categories": [
+      "Caméras tactiques & POV",
+      "Distribution composants & représentation de marques"
+    ],
+    "services_categories": [
+      "Distribution & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "117": {
+    "products_categories": [
+      "Distribution composants & représentation de marques",
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Distribution & représentation",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": []
+  },
+  "128": {
+    "products_categories": [
+      "Satellites & CubeSats",
+      "Terminaux & antennes spatiales"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "163": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "203": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "246": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "338": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "344": {
+    "products_categories": [
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "386": {
+    "products_categories": [
+      "Engins du génie militaire"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "468": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "498": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "499": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "562": {
+    "products_categories": [
+      "Conseil stratégique & due-diligence M&A"
+    ],
+    "services_categories": [
+      "Conseil en gestion de programme"
+    ],
+    "technologies_categories": []
+  },
+  "568": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "763": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "MCO / MRO",
+      "Approvisionnement composants & sourcing"
+    ],
+    "technologies_categories": []
+  },
+  "932": {
+    "products_categories": [
+      "Gilets & plaques pare-balles",
+      "Casques de combat",
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "943": {
+    "products_categories": [
+      "Pièces mécaniques & usinage"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle",
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": []
+  },
+  "1026": {
+    "products_categories": [
+      "Financement, banque & assurance défense"
+    ],
+    "services_categories": [
+      "Financement export & banque défense"
+    ],
+    "technologies_categories": []
+  },
+  "1090": {
+    "products_categories": [
+      "R&D académique & laboratoires"
+    ],
+    "services_categories": [
+      "R&D sur contrat",
+      "Ingénierie & conseil",
+      "Métrologie & essais matériaux"
+    ],
+    "technologies_categories": [
+      "Matériaux composites"
+    ]
+  },
+  "1255": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1429": {
+    "products_categories": [
+      "Équipement du fantassin (général)"
+    ],
+    "services_categories": [
+      "Formation & entraînement"
+    ],
+    "technologies_categories": []
+  },
+  "1444": {
+    "products_categories": [
+      "Achat public défense & politique industrielle"
+    ],
+    "services_categories": [],
+    "technologies_categories": []
+  },
+  "1460": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1640": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Lobbying & représentation"
+    ],
+    "technologies_categories": []
+  },
+  "1646": {
+    "products_categories": [
+      "Véhicules blindés",
+      "Munitions petit/moyen calibre"
+    ],
+    "services_categories": [
+      "MCO / MRO"
+    ],
+    "technologies_categories": []
+  },
+  "1714": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Promotion territoriale & investissement"
+    ],
+    "technologies_categories": []
+  },
+  "1783": {
+    "products_categories": [
+      "Cybersécurité (logiciels & appliances)",
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Formation & entraînement"
+    ],
+    "technologies_categories": [
+      "Cybersécurité"
+    ]
+  },
+  "1784": {
+    "products_categories": [
+      "Logistique militaire & transport"
+    ],
+    "services_categories": [
+      "MCO / MRO",
+      "Modernisation de flottes",
+      "Logistique militaire & transit"
+    ],
+    "technologies_categories": []
+  },
+  "1977": {
+    "products_categories": [
+      "Fixations & visserie aéronautique"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2086": {
+    "products_categories": [
+      "Composants électroniques & cartes"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
+  },
+  "2184": {
+    "products_categories": [
+      "Robots terrestres (UGV / EOD)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil"
+    ],
+    "technologies_categories": [
+      "Drones & robotique mobile"
+    ]
+  },
+  "2242": {
+    "products_categories": [
+      "Optronique & viseurs (EO/IR)"
+    ],
+    "services_categories": [
+      "Certification & tests"
+    ],
+    "technologies_categories": []
+  },
+  "2548": {
+    "products_categories": [
+      "Autre — à qualifier"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "R&D sur contrat"
+    ],
+    "technologies_categories": []
+  },
+  "2568": {
+    "products_categories": [
+      "Représentation institutionnelle (cluster, fédération, chambre)"
+    ],
+    "services_categories": [
+      "Ingénierie & conseil",
+      "Conseil en gestion de programme"
+    ],
+    "technologies_categories": []
+  },
+  "1435": {
+    "products_categories": [
+      "Pièces mécaniques & usinage",
+      "Aciers & métallurgie spéciale"
+    ],
+    "services_categories": [
+      "Sous-traitance industrielle"
+    ],
+    "technologies_categories": []
   }
 }
