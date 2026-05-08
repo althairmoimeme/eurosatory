@@ -56,8 +56,41 @@ GOOD_VERB_RX = re.compile(
     r"^(Con[çc]oit|Fabrique|[ÉE]dite|Distribue|Int[èe]gre|Forme|Maintient|"
     r"Conseille|Loue|Exploite|Op[èe]re|Repr[ée]sente|Fournit|D[ée]veloppe|"
     r"R[ée]alise|Audite|Pilote|Conduit|Exporte|Vend|Assure|Pr[ée]pare|"
-    r"Manufactures?|Designs?|Produces?|Provides?|Distributes?|Operates?|"
-    r"Sous[- ]traite|Forge|Usine|Brute)",
+    r"Sous[- ]traite|Forge|Usine|Anime|Approvisionne|Organise|Mutualise|"
+    r"Coordonne|Produit|G[èe]re|Imprime|Assemble|Installe|Certifie|Test[e]?|"
+    r"Calibre|Construit|Soude|Met|Transforme|D[ée]ploie|Promeut|F[ée]d[èe]re|"
+    r"Effectue|Propose|Soutient|Accompagne|Programme|Surveille|Investit|"
+    r"Finance|Modernise|D[ée]mant[èe]le|Refurbit|Identifie|Restructure|"
+    r"Applique|Recycle|Brute)",
+    re.I | re.U,
+)
+
+
+# Strong signature of rule-based-template hallucinations : the scraper
+# stitches 2-3 generic products from a fixed list, often unrelated to
+# what the company actually does. The smoking gun = at least TWO of
+# these slot phrases comma-separated.
+_TEMPLATE_SLOT = (
+    r"(véhicules militaires|véhicules tactiques|équipement logistique|"
+    r"équipement du fantassin|batteries / sources d['’]énergie|"
+    r"batteries / sources d energie|réseaux de communication"
+    r"(?:\s+militaires)?|capteurs embarqués|moteurs / propulsion|"
+    r"infrastructure RF durcie|stations de commandement|"
+    r"systèmes optroniques|protection balistique|drones aériens|"
+    r"systèmes anti-drone|robots terrestres \(UGV\)|"
+    r"logiciels métier défense|systèmes navals|simulateurs d['’]entraînement|"
+    r"munitions|armes|radars)"
+)
+_RULE_TEMPLATE_2SLOTS_RX = re.compile(
+    rf"{_TEMPLATE_SLOT}\s*,\s*{_TEMPLATE_SLOT}",
+    re.I | re.U,
+)
+_GENERIC_TAIL_RX = re.compile(
+    r"pour (les |la |des |l['’])?"
+    r"(armées(\s+et\s+forces\s+de\s+sécurité)?|"
+    r"forces de sécurité|primes défense|"
+    r"défense et (la )?sécurité|défense et (l['’])?industrie|"
+    r"industriels défense)\s*\.?\s*$",
     re.I | re.U,
 )
 
@@ -71,7 +104,13 @@ def is_bad(activity: str) -> bool:
         return False  # accepted as-is
     if not GOOD_VERB_RX.match(s):
         return True
-    if len(s) < 50 or len(s) > 200:
+    if len(s) < 50 or len(s) > 220:
+        return True
+    # Rule-based template hallucinations — 2+ slot phrases comma-joined,
+    # OR slot phrase + generic buyer suffix.
+    if _RULE_TEMPLATE_2SLOTS_RX.search(s):
+        return True
+    if _GENERIC_TAIL_RX.search(s) and re.search(_TEMPLATE_SLOT, s, re.I | re.U):
         return True
     return False
 
@@ -82,27 +121,50 @@ def is_bad(activity: str) -> bool:
 
 
 SYSTEM_PROMPT = """\
-Tu es un analyste B2B défense / sécurité européenne. Ton rôle : à \
-partir des sources publiques fournies, produire une fiche de ciblage \
-commercial compacte.
+Tu es un analyste B2B défense / sécurité européenne senior. Tu produis \
+des fiches de ciblage commercial pour une équipe de business developers \
+qui prospectent au salon Eurosatory. Précision FACTUELLE absolue \
+exigée — pas de remplissage marketing.
 
-⚠️ EXIGENCE — ``activity_1liner`` :
-  • UNE phrase, ≤ 140 caractères, en français.
+⚠️ EXIGENCE ABSOLUE — ``activity_1liner`` :
+  • UNE phrase précise, 80-160 caractères, en français.
   • COMMENCE par un verbe d'action 3ᵉ personne : Conçoit · Fabrique · \
 Édite · Distribue · Intègre · Maintient · Forme · Conseille · \
 Représente · Fournit · Développe · Audite · Sous-traite · Forge · \
-Usine · Pilote · Conduit · Réalise · Opère · Anime.
-  • Décrit le CŒUR d'activité (ce qu'ils font), PAS le marketing \
-("leader", "innovant", "We are", "Our company"…).
-  • Données réellement pauvres → "(données publiques trop pauvres \
+Usine · Pilote · Conduit · Réalise · Opère · Anime · Modernise · \
+Promeut · Investit · Finance · Démantèle.
+
+  • CITE LES PRODUITS / SERVICES SPÉCIFIQUES VRAIMENT VENDUS — pas une \
+liste générique. Si la source mentionne un produit phare par nom, \
+utilise-le. Précise la NICHE (ex: "viseurs jour/nuit pour fusil \
+d'assaut", pas "systèmes optroniques").
+  • Mentionne le SECTEUR client précis (gendarmerie, aéronautique \
+militaire, sous-marins, NRBC…) plutôt que "défense et sécurité".
+  • PROSCRIT formel :
+    ❌ Marketing : "leader", "innovant", "expert", "world-class", \
+"with X employees", "Founded in 1985".
+    ❌ Listes templates génériques : "véhicules militaires, équipement \
+logistique, batteries / sources d'énergie".
+    ❌ Suffixes vagues : "pour la défense et la sécurité", "pour primes \
+défense", "pour forces de sécurité".
+  • Si vraiment pas assez de matière : "(données publiques trop pauvres \
 pour qualification fiable)".
 
-EXEMPLES
-  ✅ "Conçoit et fabrique des viseurs optroniques pour fantassins."
-  ✅ "Sous-traite l'usinage CNC de précision pour l'aéronautique défense."
-  ✅ "Édite des plateformes IA d'analyse d'imagerie satellite ISR."
-  ❌ "We are your strong partner for drive and control technology…"
-  ❌ "L'entreprise offre des services de haute qualité…"
+EXEMPLES BONS
+  ✅ "Conçoit et fabrique des viseurs jour/nuit (LUVOR, MiniSight) \
+pour fusils d'assaut des forces spéciales et police."
+  ✅ "Sous-traite l'usinage CNC 5-axes de pièces critiques en \
+superalliages pour moteurs d'hélicoptères Safran et Rolls-Royce."
+  ✅ "Édite IRIS, plateforme IA de fusion ISR temps réel pour images \
+satellite, drones et radio HF."
+  ✅ "Fabrique des aciers blindés (Armox, Ramor) et tôles balistiques \
+pour véhicules KMW, GDELS et chantiers navals."
+
+EXEMPLES MAUVAIS (à éviter)
+  ❌ "Conçoit et fabrique des véhicules militaires, équipement \
+logistique, batteries / sources d'énergie pour forces de sécurité."
+  ❌ "Provides comprehensive solutions for the defense industry."
+  ❌ "Leader européen avec 40 ans d'expertise dans la défense."
 
 CATÉGORIES (utilise les noms canoniques français les plus représentatifs):
 - products_categories : 1-4 catégories de produits/plateformes (ex: \
@@ -187,8 +249,19 @@ EXTRAITS DE CRAWL
 
 CONSIGNE
 ========
-Renvoie un JSON ``Fix`` strict. Le champ activity_1liner DOIT commencer \
-par un verbe d'action (Conçoit / Fabrique / etc.).
+Renvoie un JSON ``Fix`` strict. ABSOLU :
+  • activity_1liner : 80-160 chars, FR, démarre par verbe d'action 3ᵉ \
+personne. NOMME les produits / niches / clients SPÉCIFIQUES (pas \
+de listes génériques type "véhicules militaires, équipement \
+logistique"). Si la source mentionne un nom de produit phare \
+(ex: "FightLite MCR", "ASTER", "Skydio X10"), inclus-le. \
+PAS de "leader", "innovant", "with X employees".
+  • Si vraiment pas assez de matière (< 30 mots utilisables dans les \
+sources) : "(données publiques trop pauvres pour qualification \
+fiable — pays X, à requalifier)".
+  • why_target : 1 phrase concrète explicitant l'angle commercial \
+(acheteur potentiel / concurrent / partenaire / sous-traitant / \
+canal d'accès marché).
 """
 
 
@@ -359,9 +432,14 @@ async def main_async(args) -> int:
             fix = await call_llm(client, model, msg)
             if fix is None:
                 return eid, None
-            # Sanity check : action verb
-            if not GOOD_VERB_RX.match(fix.activity_1liner.strip()):
-                # Mark as bad — retry skipped
+            # Sanity check : action verb OR explicit "données pauvres"
+            # marker (the prompt allows this as the fallback for fiches
+            # with insufficient public data).
+            act = fix.activity_1liner.strip()
+            if not (
+                GOOD_VERB_RX.match(act)
+                or "données publiques trop pauvres" in act.lower()
+            ):
                 return eid, None
             # Filter categories
             fix.products_categories = filter_cats(

@@ -910,54 +910,56 @@ def _filter_session_key(field: str) -> str | None:
     return mapping.get(field)
 
 
-def render_supply_chain_chips(filtered_df: pd.DataFrame) -> None:
-    """Pyramid of supply-chain tiers — 6 chips above the table.
+def render_company_type_chips(filtered_df: pd.DataFrame) -> None:
+    """Quick filters above the Companies table — one chip per
+    closed-list ``company_type`` bucket (8 buckets).
 
     Reads the *currently filtered* dataframe so the counts always reflect
-    what the user sees. Click-to-filter is handled via session_state on
-    ``filter_supply_chain_tier`` — clicking a chip toggles that tier in
-    the multiselect.
+    what the user sees. Click-to-filter toggles the bucket in
+    ``filter_company_types`` (the same multiselect available in the
+    sidebar).
     """
-    if "supply_chain_tier" not in filtered_df.columns or filtered_df.empty:
+    if "company_type" not in filtered_df.columns or filtered_df.empty:
         return
-    counts = filtered_df["supply_chain_tier"].fillna("N/A").value_counts()
+    counts = filtered_df["company_type"].fillna("Société de services").value_counts()
+    # Same order as ALLOWED_COMPANY_TYPES — most general → most specific.
     chips = [
-        ("OEM",    "🟥", "#DC2626"),
-        ("MRO",    "🟪", "#7C3AED"),
-        ("Tier 1", "🟧", "#EA580C"),
-        ("Tier 2", "🟨", "#CA8A04"),
-        ("Tier 3", "🟩", "#16A34A"),
-        ("Tier 4", "🟦", "#2563EB"),
-        ("N/A",    "⬜", "#94A3B8"),
+        "OEM",
+        "Intégrateur",
+        "Équipementier / Tier 1",
+        "Sous-traitant industriel",
+        "Distributeur",
+        "Éditeur logiciel",
+        "Société de services",
+        "Bureau d'ingénierie",
     ]
     cols = st.columns(len(chips))
-    cur = set(st.session_state.get("filter_supply_chain_tier", []) or [])
-    for i, (tier, _emoji, color) in enumerate(chips):
-        n = int(counts.get(tier, 0))
-        active = tier in cur
-        # Em-dash + thin spaces unambiguous separator. Tier number is
-        # bolded so there's no confusion between "Tier 1" + "493" being
-        # read as "1493".
-        if tier.startswith("Tier "):
-            num = tier.split()[1]
-            display_tier = f"Tier **{num}**"
-        else:
-            display_tier = tier
-        label = f"{display_tier} — {n:,}".replace(",", " ")
+    cur = set(st.session_state.get("filter_company_types", []) or [])
+    for i, ct in enumerate(chips):
+        n = int(counts.get(ct, 0))
+        active = ct in cur
+        # Use a non-breaking space inside number formatting (FR convention)
+        # so "Sous-traitant industriel — 599" reads cleanly.
+        label = f"{ct} — {n:,}".replace(",", " ")
         with cols[i]:
             if st.button(
                 label,
-                key=f"chip_tier_{tier}",
+                key=f"chip_ct_{ct}",
                 use_container_width=True,
                 type="primary" if active else "secondary",
-                help=f"Filtrer la table sur **{tier}**.",
+                help=f"Filtrer la table sur **{ct}**.",
             ):
                 if active:
-                    cur.discard(tier)
+                    cur.discard(ct)
                 else:
-                    cur.add(tier)
-                st.session_state["filter_supply_chain_tier"] = sorted(cur)
+                    cur.add(ct)
+                st.session_state["filter_company_types"] = sorted(cur)
                 st.rerun()
+
+
+# Backwards-compat alias — some older code paths may still reference the
+# old name. Resolves to the new chips renderer.
+render_supply_chain_chips = render_company_type_chips
 
 
 def render_active_filter_chips(filters: dict, filtered_df: pd.DataFrame) -> None:
@@ -4388,18 +4390,88 @@ def _render_lists_index(df: pd.DataFrame) -> None:
 
 
 def render_custom_lists_tab(df: pd.DataFrame) -> None:
+    """Simplified Favoris-only tab.
+
+    Custom lists / list comparison / list merge / CSV import are retired
+    — too much complexity for the value they provided. This tab is now
+    just the user's favorited exhibitors, with a simple table and CSV /
+    XLSX download.
+
+    Add to favorites : click the ⭐ checkbox in any Companies-tab row
+    (or from a fiche detail).
+    """
     st.markdown(
-        '<div class="section-title">📋 Listes commerciales</div>',
+        '<div class="section-title">⭐ Mes favoris</div>',
         unsafe_allow_html=True,
     )
+    if "is_favorite" not in df.columns:
+        st.warning("La colonne `is_favorite` est absente du dataset.")
+        return
 
-    opened_id = st.session_state.get("opened_list_id")
-    if opened_id == "favorites":
-        _render_favorites_view(df)
-    elif opened_id is not None:
-        _render_opened_list(int(opened_id), df)
-    else:
-        _render_lists_index(df)
+    fav_df = df[df["is_favorite"] == True].copy()  # noqa: E712
+    n = len(fav_df)
+    st.caption(
+        f"**{n} société(s) en favori** · "
+        "Pour ajouter une société, coche **⭐** sur sa ligne dans l'onglet "
+        "Companies."
+    )
+
+    if n == 0:
+        st.info(
+            "Aucun favori pour le moment. Va dans l'onglet **🏢 Companies**, "
+            "coche la case **⭐** sur les lignes qui t'intéressent — elles "
+            "apparaîtront ici."
+        )
+        return
+
+    # ----- Bulk un-favorite ----------------------------------------------
+    if st.button(f"★ Retirer les {n} favoris", key="favs_clear_all"):
+        from app.database import session_scope as _ss
+        with _ss() as s:
+            for eid in fav_df["account_id"].str.replace(
+                "ESY26-", "", regex=False
+            ).astype(int):
+                exh = s.get(Exhibitor, int(eid))
+                if exh and exh.is_favorite:
+                    exh.is_favorite = False
+            s.commit()
+        st.cache_data.clear()
+        st.toast(f"{n} société(s) retirée(s) des favoris.", icon="★")
+        st.rerun()
+
+    # ----- Table (read-only, sorted by name) -----------------------------
+    detail_id, _bulk = render_table(
+        fav_df.sort_values("account_name"),
+        total_rows=n,
+        key_prefix="favorites",
+    )
+    if detail_id is not None:
+        render_detail(detail_id)
+
+    # ----- Direct download -----------------------------------------------
+    st.divider()
+    st.markdown("**⬇ Téléchargement**")
+    c1, c2, _ = st.columns([1, 1, 4])
+    with c1:
+        st.download_button(
+            f"⬇ CSV ({n})",
+            data=fav_df.to_csv(index=False).encode("utf-8"),
+            file_name=f"favoris_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
+            mime="text/csv",
+            use_container_width=True,
+        )
+    with c2:
+        buf = BytesIO()
+        with pd.ExcelWriter(buf, engine="openpyxl") as w:
+            fav_df.to_excel(w, index=False, sheet_name="Favoris")
+        buf.seek(0)
+        st.download_button(
+            f"⬇ XLSX ({n})",
+            data=buf,
+            file_name=f"favoris_{datetime.utcnow():%Y%m%d_%H%M%S}.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            use_container_width=True,
+        )
 
 
 # ---------------------------------------------------------------------------
@@ -4989,14 +5061,15 @@ def main() -> None:
     filtered = apply_filters(df, **filters)
 
     tab_companies, tab_lists, tab_signals, tab_target_lists, tab_exports = st.tabs(
-        ["🏢 Companies", "📋 Custom lists",
+        ["🏢 Companies", "⭐ Favoris",
          "📡 Attendance Signals", "Listes ciblées", "⬇ Exports"]
     )
 
     with tab_companies:
         render_recently_viewed()
-        # render_supply_chain_chips() retired — supply_chain_tier was merged
-        # into the new closed-list "Type d'entreprise" filter.
+        # 8-bucket "Type d'entreprise" quick-filter chips (replaces the
+        # legacy supply-chain-tier chips).
+        render_company_type_chips(filtered)
         render_active_filter_chips(filters, filtered)
         detail_id, bulk_ids = render_table(filtered, total_rows=len(df))
         # Recently-viewed click overrides the table selection
@@ -5057,7 +5130,7 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     are covered by the Companies tab). Operators can flip the toggle to
     see them too.
     """
-    c1, c2, c3, c4 = st.columns([1, 1.4, 2.6, 1.4])
+    c1, c2, c3, c4 = st.columns([1, 1.7, 2.4, 1.4])
     with c1:
         years = st.multiselect(
             "Année",
@@ -5065,13 +5138,13 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             key="att_years",
         )
     with c2:
-        platforms = st.multiselect(
-            "Source",
-            sorted(df["source_platform"].dropna().unique().tolist())
-            if "source_platform" in df.columns else [],
-            key="att_platforms",
-            help="Filtrer par plateforme : LinkedIn, presse, site corporate, "
-            "ADS Group UK, etc.",
+        company_types = st.multiselect(
+            "Type d'entreprise",
+            ALLOWED_COMPANY_TYPES,
+            key="att_company_types",
+            help="Taxonomie fermée 8 valeurs — calculée à partir des "
+            "capabilities de la société. Filtre les signaux dont la "
+            "société matche un de ces buckets.",
         )
     with c3:
         search_text = st.text_input(
@@ -5091,7 +5164,11 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
 
     return {
         "years": years,
-        "platforms": platforms,
+        "company_types": company_types,
+        # Source / platform filter retired — sources are confidential
+        # (proprietary intel scraping). Only LinkedIn signals show their
+        # source publicly in the table.
+        "platforms": [],
         "search_text": search_text,
         "exclude_known_exhibitors": not include_exhibitors,
     }
@@ -5100,11 +5177,12 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
 _ATT_LIST_COLUMNS: list[str] = [
     "person_name", "person_role",
     "company_name", "matched_exhibitor", "country",
-    "ads_supply_chain_tier", "ads_product_categories",
-    "ads_capabilities_count",
+    "ads_product_categories",
     "derived_email", "derived_phone", "derived_linkedin",
-    "edition_year", "source_platform",
-    "presence_score", "source_url",
+    "edition_year", "source_platform", "source_url",
+    # Removed columns : ads_supply_chain_tier (Niveau), presence_score
+    # (Score), ads_capabilities_count (# Tags) — internal-only metrics
+    # not commercially useful in the client-facing list.
 ]
 
 
@@ -5130,7 +5208,6 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
         sort_label = st.selectbox(
             "Trier par",
             [
-                "Score décroissant", "Score croissant",
                 "Date capture (récent → ancien)",
                 "Date capture (ancien → récent)",
                 "Nom personne", "Nom société",
@@ -5150,12 +5227,7 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
         )
 
     sort_input = df.copy()
-    if sort_label.startswith("Score"):
-        ascending = "croissant" in sort_label
-        sort_input = sort_input.sort_values(
-            "presence_score", ascending=ascending, na_position="last",
-        )
-    elif "Date capture" in sort_label:
+    if "Date capture" in sort_label:
         ascending = "ancien → récent" in sort_label
         sort_input = sort_input.sort_values(
             "first_seen_at", ascending=ascending, na_position="last",
@@ -5173,11 +5245,25 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
     show = sort_input[cols_present].copy()
     show.insert(0, "_id", sort_input["id"].astype(int))
 
+    # ---- Confidentiality : mask source_platform / source_url for every
+    # signal that doesn't come from LinkedIn. The proprietary-intel
+    # sources (ADS Group UK, GICAT-FR, BDSV-DE, BDLI-DE, AIAD-IT, press
+    # scraping, corporate-site scraping…) must not be exposed to clients.
+    # LinkedIn is OK because it's a public, expected source.
+    if "source_platform" in show.columns:
+        is_linkedin = (
+            show["source_platform"].fillna("")
+            .str.lower().str.contains("linkedin", regex=False)
+        )
+        show.loc[~is_linkedin, "source_platform"] = ""
+        if "source_url" in show.columns:
+            show.loc[~is_linkedin, "source_url"] = ""
+
     st.caption(
         f"**{len(show)} affichés** / {len(df)} filtrés · trié par "
-        f"**{sort_label}** · 💡 cliquer sur la colonne **Source** pour "
-        f"ouvrir le post / l'article ; cliquer sur une ligne pour la "
-        f"fiche détaillée."
+        f"**{sort_label}** · 💡 cliquer sur une ligne ouvre la fiche "
+        f"détaillée. La colonne **Source** n'est affichée que pour les "
+        f"signaux LinkedIn (les autres sources sont confidentielles)."
     )
 
     event = st.dataframe(
@@ -6154,19 +6240,30 @@ def _render_attendance_detail(signal_id: int) -> None:
             st.session_state.pop("att_detail_id", None)
             st.rerun()
 
-    # Section 1 — Source
+    # Section 1 — Source (only exposed when it's LinkedIn ; the other
+    # proprietary intel sources are masked to the client).
+    is_linkedin_signal = bool(
+        sig.source_platform
+        and "linkedin" in sig.source_platform.lower()
+    )
     st.markdown('<div class="section-title">1 · Source</div>',
                 unsafe_allow_html=True)
     sc1, sc2 = st.columns([3, 2])
     with sc1:
-        if sig.source_title:
-            st.markdown(f"**Titre** : {sig.source_title}")
-        if sig.source_url:
-            st.markdown(f"**URL** : [{sig.source_url}]({sig.source_url})")
-        if sig.source_platform:
-            st.markdown(f"**Plateforme** : `{sig.source_platform}`")
-        if sig.search_query_used:
-            st.caption(f"🔎 Recherche utilisée : `{sig.search_query_used}`")
+        if is_linkedin_signal:
+            if sig.source_title:
+                st.markdown(f"**Titre** : {sig.source_title}")
+            if sig.source_url:
+                st.markdown(f"**URL** : [{sig.source_url}]({sig.source_url})")
+            if sig.source_platform:
+                st.markdown(f"**Plateforme** : `{sig.source_platform}`")
+            if sig.search_query_used:
+                st.caption(f"🔎 Recherche utilisée : `{sig.search_query_used}`")
+        else:
+            st.caption(
+                "🔒 Source confidentielle — détail non exposé "
+                "(intelligence propriétaire)."
+            )
     with sc2:
         st.markdown(f"**1ʳᵉ apparition** : {sig.first_seen_at:%Y-%m-%d %H:%M}"
                      if sig.first_seen_at else "—")

@@ -232,6 +232,29 @@ def signals_dataframe(*, include_duplicates: bool = False) -> pd.DataFrame:
         "ads_capabilities",
     ]
     df = pd.concat([df, assoc_results], axis=1)
+
+    # Derive ``company_type`` (8-bucket closed-list, same taxonomy as the
+    # Companies tab). Used by the Attendance filters so a rep can slice
+    # signals by who the company is (OEM, software vendor, distributor…).
+    from app.crm.normalizers import derive_company_type
+
+    def _split_pipe_or_dot(v) -> list[str]:
+        if not isinstance(v, str) or not v:
+            return []
+        sep = "·" if "·" in v else ","
+        return [c.strip() for c in v.split(sep) if c.strip()]
+
+    df["company_type"] = df.apply(
+        lambda r: derive_company_type(
+            business_model=None,
+            supply_chain_tier=r.get("ads_supply_chain_tier"),
+            products_categories=_split_pipe_or_dot(
+                r.get("ads_product_categories")
+            ),
+            activity_1liner=None,
+        ),
+        axis=1,
+    )
     return df
 
 
@@ -259,6 +282,7 @@ def apply_filters(
     search_text: Optional[str] = None,
     exclude_known_exhibitors: bool = False,
     platforms: Optional[list[str]] = None,
+    company_types: Optional[list[str]] = None,
 ) -> pd.DataFrame:
     out = df.copy()
     if exclude_known_exhibitors and "is_known_exhibitor" in out.columns:
@@ -289,6 +313,8 @@ def apply_filters(
         out = out[out["is_exhibitor_employee"] == is_exhibitor_employee]
     if platforms and "source_platform" in out.columns:
         out = out[out["source_platform"].isin(platforms)]
+    if company_types and "company_type" in out.columns:
+        out = out[out["company_type"].isin(company_types)]
     if min_presence_score:
         out = out[out["presence_score"].fillna(0) >= min_presence_score]
     if search_text:
