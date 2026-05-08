@@ -30,20 +30,25 @@ TARGET_LISTS: list[dict[str, Any]] = [
             "drones, missiles, navires, systèmes complets livrés au client final."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["OEM"],
+            "filter_company_types": ["OEM"],
         },
-        "tags": ["TIER OEM", "SYSTÈMES FINAUX"],
+        "tags": ["OEM", "SYSTÈMES FINAUX"],
     },
     {
         "id": "mro",
         "title": "MRO — maintenance & overhaul",
         "subtitle": (
-            "Sociétés dont le métier principal est la maintenance, "
-            "réparation et remise à niveau de systèmes (aéronefs, navires, "
-            "véhicules, équipements). Ex : Sabena Technics, Babcock, Millog."
+            "Prestataires de maintenance, réparation et remise à niveau de "
+            "systèmes (aéronefs, navires, véhicules, équipements). "
+            "Ex : Sabena Technics, Babcock, Millog."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["MRO"],
+            "filter_company_types": ["Société de services"],
+            "filter_targeting_svc_cats": [
+                "MCO / MRO",
+                "Modernisation de flottes",
+                "Support opérationnel & OPEX",
+            ],
         },
         "tags": ["MRO", "MCO", "AFTERMARKET"],
     },
@@ -51,11 +56,11 @@ TARGET_LISTS: list[dict[str, Any]] = [
         "id": "uav_makers",
         "title": "Fabricants drones aériens",
         "subtitle": (
-            "OEM et Tier 1 spécialisés UAV tactiques, ISR, "
+            "OEM et équipementiers spécialisés UAV tactiques, ISR, "
             "munitions rôdeuses et systèmes anti-drone."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["OEM", "Tier 1"],
+            "filter_company_types": ["OEM", "Équipementier / Tier 1"],
             "filter_targeting_prod_cats": [
                 "Drones aériens (UAV)",
                 "Drones FPV & munitions rôdeuses",
@@ -152,13 +157,13 @@ TARGET_LISTS: list[dict[str, Any]] = [
     },
     {
         "id": "tier2_components",
-        "title": "Sous-traitance Tier 2 — composants",
+        "title": "Sous-traitance — composants électroniques",
         "subtitle": (
             "Cartes électroniques, capteurs, connectique, alimentations "
-            "et antennes pour intégrateurs Tier 1."
+            "et antennes pour intégrateurs et OEM."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["Tier 2"],
+            "filter_company_types": ["Sous-traitant industriel"],
             "filter_targeting_prod_cats": [
                 "Composants électroniques & cartes",
                 "Capteurs embarqués (généraux)",
@@ -167,17 +172,17 @@ TARGET_LISTS: list[dict[str, Any]] = [
                 "Antennes & infrastructures RF",
             ],
         },
-        "tags": ["TIER 2", "ÉLECTRONIQUE"],
+        "tags": ["SOUS-TRAITANCE", "ÉLECTRONIQUE"],
     },
     {
         "id": "tier3_machining",
-        "title": "Sous-traitance Tier 3 — mécanique",
+        "title": "Sous-traitance — mécanique & usinage",
         "subtitle": (
             "Pièces mécaniques, usinage, hydraulique, transmission, "
             "fixations aéronautiques."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["Tier 3"],
+            "filter_company_types": ["Sous-traitant industriel"],
             "filter_targeting_prod_cats": [
                 "Pièces mécaniques & usinage",
                 "Hydraulique & motion control",
@@ -185,19 +190,26 @@ TARGET_LISTS: list[dict[str, Any]] = [
                 "Fixations & visserie aéronautique",
             ],
         },
-        "tags": ["TIER 3", "USINAGE"],
+        "tags": ["SOUS-TRAITANCE", "USINAGE"],
     },
     {
         "id": "tier4_materials",
-        "title": "Matières premières — Tier 4",
+        "title": "Matières premières & matériaux",
         "subtitle": (
             "Aciers spéciaux, composites, céramiques balistiques, "
             "batteries et piles à combustible."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["Tier 4"],
+            "filter_company_types": ["Sous-traitant industriel"],
+            "filter_targeting_prod_cats": [
+                "Aciers & métallurgie spéciale",
+                "Matériaux composites & blindage",
+                "Céramiques techniques & balistiques",
+                "Batteries & packs énergétiques",
+                "Piles à combustible & H2",
+            ],
         },
-        "tags": ["TIER 4", "MATÉRIAUX"],
+        "tags": ["MATÉRIAUX", "AMONT"],
     },
     {
         "id": "armor_protection",
@@ -220,34 +232,32 @@ TARGET_LISTS: list[dict[str, Any]] = [
     },
     {
         "id": "fr_smes",
-        "title": "PME défense françaises",
+        "title": "PME défense françaises (sous-traitance)",
         "subtitle": (
-            "Sociétés défense françaises Tier 2 et Tier 3 — cible "
-            "sous-traitance pour primes nationaux."
+            "Sous-traitants industriels français — cible sourcing pour "
+            "les primes nationaux (Thales, MBDA, Naval Group, KNDS)."
         ),
         "filters": {
             "filter_countries": ["France"],
-            "filter_supply_chain_tier": ["Tier 2", "Tier 3"],
+            "filter_company_types": ["Sous-traitant industriel"],
         },
         "tags": ["FR", "PME"],
     },
     {
         "id": "services_only",
-        "title": "Services autour de la défense",
+        "title": "Sociétés de services défense",
         "subtitle": (
-            "Prestataires sans produit propre — MCO/MRO, intégration de "
-            "systèmes, formation, conseil, audit cyber, sous-traitance, "
-            "certification, R&D sur contrat."
+            "Prestataires : MCO/MRO, formation, audit cyber, conseil "
+            "stratégique, support opérationnel, certification, "
+            "R&D sur contrat."
         ),
         "filters": {
-            "filter_supply_chain_tier": ["N/A"],
+            "filter_company_types": ["Société de services"],
             "filter_targeting_svc_cats": [
                 "MCO / MRO",
-                "Intégration de systèmes",
                 "Ingénierie & conseil",
                 "Formation & entraînement",
                 "Audit & cybersécurité OT",
-                "Sous-traitance industrielle",
                 "Certification & tests",
                 "Services cloud & data",
                 "Support opérationnel & OPEX",
@@ -282,6 +292,56 @@ TARGET_LISTS: list[dict[str, Any]] = [
             ],
         },
         "tags": ["INSTITUTIONNEL", "R&D", "GOUVERNEMENT"],
+    },
+    {
+        "id": "software_publishers",
+        "title": "Éditeurs logiciels défense",
+        "subtitle": (
+            "Plateformes IA / vision, cybersécurité, simulation tactique, "
+            "logiciels métier — concurrents et partenaires SaaS pour la "
+            "défense."
+        ),
+        "filters": {
+            "filter_company_types": ["Éditeur logiciel"],
+        },
+        "tags": ["SOFTWARE", "SAAS", "CYBER"],
+    },
+    {
+        "id": "engineering_firms",
+        "title": "Bureaux d'ingénierie & R&D",
+        "subtitle": (
+            "Cabinets d'ingénierie, conseil technique, instituts de R&D "
+            "sur contrat — partenaires pour études, qualification, "
+            "transfert techno."
+        ),
+        "filters": {
+            "filter_company_types": ["Bureau d'ingénierie"],
+        },
+        "tags": ["INGÉNIERIE", "R&D", "CONSEIL"],
+    },
+    {
+        "id": "distributors",
+        "title": "Distributeurs & représentants",
+        "subtitle": (
+            "Distributeurs de marques tierces, représentants commerciaux, "
+            "agents export — canaux d'accès aux marchés régionaux."
+        ),
+        "filters": {
+            "filter_company_types": ["Distributeur"],
+        },
+        "tags": ["DISTRIBUTION", "CANAL", "EXPORT"],
+    },
+    {
+        "id": "system_integrators",
+        "title": "Intégrateurs de systèmes",
+        "subtitle": (
+            "Sociétés qui assemblent et intègrent des sous-systèmes de "
+            "tiers en solutions complètes — partenaires premium."
+        ),
+        "filters": {
+            "filter_company_types": ["Intégrateur"],
+        },
+        "tags": ["INTÉGRATEUR", "SI"],
     },
 ]
 
@@ -480,6 +540,12 @@ def _filter_dataframe(df: pd.DataFrame, filters: dict) -> pd.DataFrame:
     """Mirror of the sidebar filter logic — used to compute live counts."""
     sub = df
 
+    if (vals := filters.get("filter_company_types")):
+        if "company_type" in sub.columns:
+            sub = sub[sub["company_type"].isin(vals)]
+
+    # Backwards-compat : older saved filter sets may still reference
+    # the retired ``filter_supply_chain_tier`` key.
     if (vals := filters.get("filter_supply_chain_tier")):
         if "supply_chain_tier" in sub.columns:
             sub = sub[sub["supply_chain_tier"].isin(vals)]
@@ -553,24 +619,29 @@ def _country_summary(sub_df: pd.DataFrame) -> str:
 
 
 _FILTER_KEYS = (
-    "filter_supply_chain_tier",
+    # Active sidebar filters
+    "filter_company_types",
     "filter_countries",
     "filter_targeting_prod_cats",
     "filter_targeting_svc_cats",
-    "filter_targeting_tech_cats",
     "filter_target_buyers",
-    "filter_min_targeting_score",
     "filter_search",
+    "filter_segments",
+    "filter_only_favorites",
+    "filter_only_website",
+    # Retired filters — kept here so applying a target list resets any
+    # stale value that may still linger in session_state from earlier
+    # versions of the UI.
+    "filter_supply_chain_tier",
+    "filter_targeting_tech_cats",
+    "filter_min_targeting_score",
     "filter_min_score",
     "filter_priorities",
     "filter_target_types",
-    "filter_segments",
     "filter_lead_statuses",
     "filter_crm_stages",
     "filter_only_priority",
-    "filter_only_favorites",
     "filter_only_high_conf",
-    "filter_only_website",
 )
 
 
