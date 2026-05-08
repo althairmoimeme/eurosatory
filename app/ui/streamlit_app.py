@@ -315,6 +315,26 @@ def load_crm() -> pd.DataFrame:
     )
     merged = df.merge(profiles, on="_eid", how="left")
     merged.drop(columns=["_eid"], inplace=True)
+
+    # Smart-merge ``business_model`` + ``supply_chain_tier`` + product
+    # categories into the new closed-list ``company_type`` taxonomy
+    # (8 categories — see app.crm.normalizers.ALLOWED_COMPANY_TYPES).
+    from app.crm.normalizers import derive_company_type
+
+    def _split_cat_str(v) -> list[str]:
+        if not isinstance(v, str) or not v:
+            return []
+        return [c.strip() for c in v.split("·") if c.strip()]
+
+    merged["company_type"] = merged.apply(
+        lambda r: derive_company_type(
+            business_model=r.get("business_model"),
+            supply_chain_tier=r.get("supply_chain_tier"),
+            products_categories=_split_cat_str(r.get("products_categories")),
+            activity_1liner=r.get("activity_1liner"),
+        ),
+        axis=1,
+    )
     return merged
 
 
@@ -517,15 +537,25 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             "MoD / Armées", "Primes défense", "Sécurité civile",
             "Industriels défense", "Export / international",
         ]
-        from app.processors.supply_chain_tier import TIER_ORDER
-        supply_chain_tier_filter = st.multiselect(
-            "Niveau supply chain",
-            list(TIER_ORDER) + ["N/A"],
-            key="filter_supply_chain_tier",
-            help="OEM (système final) · MRO (maintenance, réparation, "
-            "overhaul) · Tier 1 (sous-système) · Tier 2 (composant) · "
-            "Tier 3 (pièce/opération) · Tier 4 (matière). "
-            "N/A = institutionnel / services autres.",
+        # The supply-chain tier filter has been merged into the new
+        # closed-list "Type d'entreprise" filter — rendered first because
+        # it's the most-used dimension. Internal ``supply_chain_tier`` is
+        # still computed for back-end uses (target_lists, exports).
+        supply_chain_tier_filter: list[str] = []
+        company_types = st.multiselect(
+            "Type d'entreprise",
+            ALLOWED_COMPANY_TYPES,
+            key="filter_company_types",
+            help="Taxonomie fermée 8 valeurs :\n"
+            "• OEM = vend le système final\n"
+            "• Intégrateur = assemble / intègre\n"
+            "• Équipementier / Tier 1 = sous-système critique\n"
+            "• Sous-traitant industriel = pièces, fabrication\n"
+            "• Distributeur = revend marques tierces\n"
+            "• Éditeur logiciel = software / SaaS\n"
+            "• Société de services = MCO, formation, conseil, "
+            "institutionnel, finance\n"
+            "• Bureau d'ingénierie = R&D, conseil technique",
         )
         targeting_product_categories = st.multiselect(
             "Catégories produits", sorted(prod_cat_options),
@@ -562,11 +592,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             "Segment défense", DEFENSE_SEGMENTS, key="filter_segments",
             help="Segment haut-niveau extrait de la classification défense.",
         )
-        company_types = st.multiselect(
-            "Type d'entreprise", ALLOWED_COMPANY_TYPES,
-            key="filter_company_types",
-            help="OEM, sous-traitant, distributeur, intégrateur, …",
-        )
+        # ``company_types`` is rendered up in the "🎯 Ciblage" section.
         # Legacy fields retired with the Pipeline / CRM tab — keep empty
         # defaults so apply_filters() stays a no-op on them. Removed from
         # the UI : Priorité (Defense fit), Type de cible, Lead status,
@@ -1206,17 +1232,20 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
                 help="Localisation sur le salon (ex : 'Hall 4 / G325'). "
                 "Source : catalogue officiel Eurosatory.",
             ),
-            "supply_chain_tier": st.column_config.TextColumn(
-                "Niveau", width="small",
-                help="Place dans la pyramide industrielle défense :\n"
-                "• OEM = vend le système final (blindé, drone, missile)\n"
-                "• MRO = maintient / répare / remet à niveau "
-                "(Sabena Technics, Babcock, Lufthansa Technik)\n"
-                "• Tier 1 = vend un grand sous-système à l'OEM\n"
-                "• Tier 2 = vend un composant au Tier 1\n"
-                "• Tier 3 = vend une pièce ou opération industrielle\n"
-                "• Tier 4 = vend la matière première (acier, composite)\n"
-                "• N/A = institutionnel / services",
+            "company_type": st.column_config.TextColumn(
+                "Type", width="small",
+                help="Type d'entreprise (taxonomie fermée 8 valeurs) :\n"
+                "• OEM = vend le système final au client final militaire\n"
+                "• Intégrateur = assemble / intègre des sous-systèmes\n"
+                "• Équipementier / Tier 1 = sous-systèmes critiques (radars, "
+                "optronique, EW, comms)\n"
+                "• Sous-traitant industriel = pièces, matériaux, fabrication\n"
+                "• Distributeur = revend des marques / composants tiers\n"
+                "• Éditeur logiciel = software / SaaS / cyber\n"
+                "• Société de services = MCO, formation, conseil, "
+                "institutionnel, finance\n"
+                "• Bureau d'ingénierie = R&D sur contrat, conseil "
+                "technique, laboratoire",
             ),
             "headline": st.column_config.TextColumn(
                 "Headline (site officiel)", width="large",
@@ -4972,7 +5001,8 @@ def main() -> None:
 
     with tab_companies:
         render_recently_viewed()
-        render_supply_chain_chips(filtered)
+        # render_supply_chain_chips() retired — supply_chain_tier was merged
+        # into the new closed-list "Type d'entreprise" filter.
         render_active_filter_chips(filters, filtered)
         detail_id, bulk_ids = render_table(filtered, total_rows=len(df))
         # Recently-viewed click overrides the table selection

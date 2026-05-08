@@ -125,7 +125,11 @@ DEFAULT_TABLE_COLUMNS = [
     "website_url",
     "country",
     "booth_number",             # Hall + N° de stand ("Hall 4 / G325")
-    "supply_chain_tier",        # OEM / Tier 1-4 / N/A — pyramide industrielle
+    # Smart-merged dimension : OEM / Intégrateur / Équipementier-Tier 1 /
+    # Sous-traitant industriel / Distributeur / Éditeur logiciel / Société
+    # de services / Bureau d'ingénierie. Replaces the old
+    # ``supply_chain_tier`` column on the buyer-facing table.
+    "company_type",
     "activity_1liner",          # Eurosatory targeting profile (FR)
     # Removed : "products_categories" (trop imprécis, source d'erreurs côté client)
     # Removed : "targeting_score"

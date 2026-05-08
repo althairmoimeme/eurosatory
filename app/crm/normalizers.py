@@ -6,6 +6,7 @@ documented "À vérifier" / "Other" / etc. value when an input doesn't match.
 """
 from __future__ import annotations
 
+import re
 from typing import Optional
 
 # ---------------------------------------------------------------------------
@@ -92,39 +93,167 @@ def country_fr(iso2: Optional[str], fallback_name: Optional[str] = None) -> Opti
 # Business model → French CRM company_type
 # ---------------------------------------------------------------------------
 
+# Strict business_model → company_type mapping. Generic raw values like
+# "Manufacturer" or "Service company" are intentionally NOT in this dict
+# because they don't disambiguate (a "Manufacturer" of bolts is Tier 3,
+# not OEM). They fall through to the supply_chain_tier rule which is the
+# accurate signal.
 BUSINESS_MODEL_TO_COMPANY_TYPE: dict[str, str] = {
     "OEM": "OEM",
     "System integrator": "Intégrateur",
-    "Equipment manufacturer": "Équipementier",
+    "Equipment manufacturer": "Équipementier / Tier 1",
     "Sub-contractor": "Sous-traitant industriel",
     "Distributor / reseller": "Distributeur",
+    "Distributor": "Distributeur",
     "Software / SaaS vendor": "Éditeur logiciel",
+    "Software / SaaS": "Éditeur logiciel",
     "Engineering services": "Bureau d'ingénierie",
-    "Consulting firm": "Société de services",
+    "Engineering firm": "Bureau d'ingénierie",
+    "Consulting firm": "Bureau d'ingénierie",
+    "Research / lab": "Bureau d'ingénierie",
     "Materials / parts supplier": "Sous-traitant industriel",
 }
 
+# Closed taxonomy of 8 commercial company-type categories. This list MERGES
+# the former ``supply_chain_tier`` (OEM / Tier 1-4 / MRO / N/A) with the
+# old ``company_type`` axis : a single dimension that matters to a defense
+# rep ("what kind of business is this ?").
 ALLOWED_COMPANY_TYPES = [
     "OEM",
     "Intégrateur",
-    "Équipementier",
+    "Équipementier / Tier 1",
     "Sous-traitant industriel",
     "Distributeur",
     "Éditeur logiciel",
     "Société de services",
     "Bureau d'ingénierie",
-    "Institutionnel",
-    "Autre",
-    "À vérifier",
 ]
+
+# Supply-chain tier → fallback company_type when ``business_model`` is
+# missing or doesn't disambiguate.
+TIER_TO_COMPANY_TYPE: dict[str, str] = {
+    "OEM": "OEM",
+    "Tier 1": "Équipementier / Tier 1",
+    "Tier 2": "Sous-traitant industriel",
+    "Tier 3": "Sous-traitant industriel",
+    "Tier 4": "Sous-traitant industriel",
+    "MRO": "Société de services",
+}
+
+# Product-category → company_type signal (used for N/A-tier fiches whose
+# products_categories points to an institutional / service-only role).
+PRODUCT_CAT_TO_COMPANY_TYPE: dict[str, str] = {
+    "R&D académique & laboratoires": "Bureau d'ingénierie",
+    "Conseil stratégique & due-diligence M&A": "Bureau d'ingénierie",
+    "Représentation institutionnelle (cluster, fédération, chambre)": "Société de services",
+    "Achat public défense & politique industrielle": "Société de services",
+    "Médias & publications défense": "Société de services",
+    "Organisation de salons & conférences défense": "Société de services",
+    "Financement, banque & assurance défense": "Société de services",
+    "Logistique militaire & transport": "Société de services",
+    "Logistique export défense & transit": "Société de services",
+    "Distribution composants & représentation de marques": "Distributeur",
+    "Cybersécurité (logiciels & appliances)": "Éditeur logiciel",
+    "Logiciels métier défense (autres)": "Éditeur logiciel",
+    "Logiciels de simulation & cyber range": "Éditeur logiciel",
+    "Plateformes IA / vision défense": "Éditeur logiciel",
+}
+
+
+# business_model values that are MORE specific than ``supply_chain_tier``
+# and should override the tier-derived classification (e.g. an OEM-tier
+# software vendor is really an "Éditeur logiciel", not an OEM).
+SPECIFICITY_OVERRIDES: dict[str, str] = {
+    "System integrator": "Intégrateur",
+    "Software / SaaS vendor": "Éditeur logiciel",
+    "Software / SaaS": "Éditeur logiciel",
+    "Distributor / reseller": "Distributeur",
+    "Distributor": "Distributeur",
+    "Engineering services": "Bureau d'ingénierie",
+    "Engineering firm": "Bureau d'ingénierie",
+    "Consulting firm": "Bureau d'ingénierie",
+    "Research / lab": "Bureau d'ingénierie",
+}
+
+
+def derive_company_type(
+    business_model: Optional[str] = None,
+    supply_chain_tier: Optional[str] = None,
+    products_categories: Optional[list[str]] = None,
+    activity_1liner: Optional[str] = None,
+) -> str:
+    """Smart-merge ``supply_chain_tier`` + ``business_model`` + product
+    categories into one of the 8 ``ALLOWED_COMPANY_TYPES``.
+
+    Order of resolution :
+      1. **Specificity overrides** — when ``business_model`` carries a
+         more precise signal than the tier (Software / SaaS, System
+         integrator, Distributor, Engineering / Research), it wins
+         outright.
+      2. **Activity verb signal** — strong single-word verbs ("Édite",
+         "Distribue", "Conseille") lock the type regardless of tier
+         (catches LLM-classified fiches where business_model is stale).
+      3. **Supply-chain tier** — the canonical pyramid (OEM / Tier 1-4 /
+         MRO) wins for industrial fiches.
+      4. **Product-category institutional signal** — only used for
+         ``N/A``-tier fiches (clusters, banks, R&D labs).
+      5. Default to ``"Société de services"``.
+    """
+    bm = (business_model or "").strip()
+    tier = (supply_chain_tier or "").strip() or "N/A"
+    act = (activity_1liner or "").strip()
+
+    # Step 1 — specificity overrides (business_model trumps tier)
+    if bm in SPECIFICITY_OVERRIDES:
+        return SPECIFICITY_OVERRIDES[bm]
+
+    # Step 2 — activity-verb specificity (LLM-grade signal)
+    if act:
+        if re.match(r"^[ÉE]dite\b", act, re.I):
+            return "Éditeur logiciel"
+        if re.match(r"^Distribue\b", act, re.I):
+            return "Distributeur"
+        if re.match(r"^Conseille\b", act, re.I) and tier == "N/A":
+            return "Bureau d'ingénierie"
+
+    # Step 3 — supply_chain_tier (canonical industrial axis)
+    if tier in TIER_TO_COMPANY_TYPE:
+        # OEM-tier business_model wins (strict OEM marker, not generic
+        # "Manufacturer" which we removed from the mapping)
+        if tier == "OEM" and bm == "OEM":
+            return "OEM"
+        if tier == "Equipment manufacturer":
+            return "Équipementier / Tier 1"
+        return TIER_TO_COMPANY_TYPE[tier]
+
+    # Step 4 — N/A : look for institutional / sector signal in cats
+    if products_categories:
+        for cat in products_categories:
+            c = (cat or "").strip()
+            if c in PRODUCT_CAT_TO_COMPANY_TYPE:
+                return PRODUCT_CAT_TO_COMPANY_TYPE[c]
+
+    # Step 4b — N/A : business_model fallback for accepted values
+    if bm in BUSINESS_MODEL_TO_COMPANY_TYPE:
+        return BUSINESS_MODEL_TO_COMPANY_TYPE[bm]
+
+    # Step 4c — N/A : activity verb hints
+    if act:
+        if re.match(
+            r"^(Maintient|Op[èe]re|Loue|Forme|Anime|Pilote|Coordonne|"
+            r"Mutualise|Promeut|F[ée]d[èe]re|Investit|Finance|Soutient|"
+            r"Accompagne|Assure|Repr[ée]sente)\b",
+            act, re.I,
+        ):
+            return "Société de services"
+
+    return "Société de services"
 
 
 def company_type_fr(business_model: Optional[str]) -> str:
-    if not business_model:
-        return "À vérifier"
-    if business_model in BUSINESS_MODEL_TO_COMPANY_TYPE:
-        return BUSINESS_MODEL_TO_COMPANY_TYPE[business_model]
-    return "Autre"
+    """Legacy wrapper kept for backwards compatibility — prefer
+    :func:`derive_company_type` which considers tier + categories."""
+    return derive_company_type(business_model=business_model)
 
 
 # ---------------------------------------------------------------------------
