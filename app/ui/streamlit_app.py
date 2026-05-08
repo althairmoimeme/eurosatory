@@ -922,39 +922,65 @@ def render_company_type_chips(filtered_df: pd.DataFrame) -> None:
     if "company_type" not in filtered_df.columns or filtered_df.empty:
         return
     counts = filtered_df["company_type"].fillna("Société de services").value_counts()
-    # Same order as ALLOWED_COMPANY_TYPES — most general → most specific.
-    chips = [
-        "OEM",
-        "Intégrateur",
-        "Équipementier / Tier 1",
-        "Sous-traitant industriel",
-        "Distributeur",
-        "Éditeur logiciel",
-        "Société de services",
-        "Bureau d'ingénierie",
+    # 2 rows of 4 chips → each chip gets ~25 % of the row width which
+    # is enough to display the full short label + count on a single
+    # line without wrapping on a 1280 px viewport.
+    chips: list[tuple[str, str]] = [
+        ("OEM", "OEM"),
+        ("Intégrateur", "Intégrateur"),
+        ("Équipementier / Tier 1", "Équipementier"),
+        ("Sous-traitant industriel", "Sous-traitant"),
+        ("Distributeur", "Distributeur"),
+        ("Éditeur logiciel", "Éditeur logiciel"),
+        ("Société de services", "Services"),
+        ("Bureau d'ingénierie", "Ingénierie"),
     ]
-    cols = st.columns(len(chips))
+    # Global button-row tweak : tight padding + nowrap so even narrow
+    # column widths don't trigger word-wrap on long labels.
+    st.markdown(
+        """
+        <style>
+        .stButton > button {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            font-size: 0.85rem;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     cur = set(st.session_state.get("filter_company_types", []) or [])
-    for i, ct in enumerate(chips):
-        n = int(counts.get(ct, 0))
-        active = ct in cur
-        # Use a non-breaking space inside number formatting (FR convention)
-        # so "Sous-traitant industriel — 599" reads cleanly.
-        label = f"{ct} — {n:,}".replace(",", " ")
-        with cols[i]:
+
+    def _render_chip(col, canon: str, short: str) -> None:
+        n = int(counts.get(canon, 0))
+        active = canon in cur
+        n_disp = f"{n:,}".replace(",", " ")
+        with col:
             if st.button(
-                label,
-                key=f"chip_ct_{ct}",
+                f"{short} · {n_disp}",
+                key=f"chip_ct_{canon}",
                 use_container_width=True,
                 type="primary" if active else "secondary",
-                help=f"Filtrer la table sur **{ct}**.",
+                help=f"Filtrer la table sur **{canon}** ({n_disp} société·s).",
             ):
                 if active:
-                    cur.discard(ct)
+                    cur.discard(canon)
                 else:
-                    cur.add(ct)
+                    cur.add(canon)
                 st.session_state["filter_company_types"] = sorted(cur)
                 st.rerun()
+
+    # Row 1 : OEM / Intégrateur / Équipementier / Sous-traitant
+    row1 = st.columns(4, gap="small")
+    for col, (canon, short) in zip(row1, chips[:4]):
+        _render_chip(col, canon, short)
+    # Row 2 : Distributeur / Éditeur logiciel / Services / Ingénierie
+    row2 = st.columns(4, gap="small")
+    for col, (canon, short) in zip(row2, chips[4:]):
+        _render_chip(col, canon, short)
 
 
 # Backwards-compat alias — some older code paths may still reference the
@@ -4436,7 +4462,7 @@ def render_custom_lists_tab(df: pd.DataFrame) -> None:
                     exh.is_favorite = False
             s.commit()
         st.cache_data.clear()
-        st.toast(f"{n} société(s) retirée(s) des favoris.", icon="★")
+        st.toast(f"{n} société(s) retirée(s) des favoris.", icon="⭐")
         st.rerun()
 
     # ----- Table (read-only, sorted by name) -----------------------------

@@ -219,9 +219,14 @@ def derive_company_type(
       6. **business_model fallback** for accepted values.
       7. Default to ``"Société de services"``.
     """
-    bm = (business_model or "").strip()
-    tier = (supply_chain_tier or "").strip() or "N/A"
-    act = (activity_1liner or "").strip()
+    # Defensive str cast — pandas may pass NaN floats for missing
+    # cells, and ``nan or ""`` returns nan in Python.
+    def _s(v) -> str:
+        return v.strip() if isinstance(v, str) else ""
+
+    bm = _s(business_model)
+    tier = _s(supply_chain_tier) or "N/A"
+    act = _s(activity_1liner)
 
     # Detect the action verb at the start of the activity_1liner.
     is_editeur = bool(act and _VERB_EDITEUR.match(act))
