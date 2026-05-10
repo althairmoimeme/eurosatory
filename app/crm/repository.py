@@ -215,13 +215,45 @@ def apply_filters(
         out = out[out["manual_review_required"] == manual_review]
     if min_lead_score:
         out = out[out["lead_score"].fillna(0) >= min_lead_score]
-    # Bidirectional any-of filters on ;-joined columns
+    # Smart filters using the canonical taxonomy + implicit company_type
+    # restriction. The "PRODUITS FABRIQUÉS / VENDUS / SERVICES VENDUS"
+    # multi-selects in the sidebar now feed CANONICAL product / service
+    # categories (75 prod / 23 svc closed taxonomy) instead of the raw
+    # rule-based labels. The company_type restriction filters out the
+    # tangentially-related noise (a transmission maker tagged "Vehicles"
+    # by the rule-based scraper isn't a vehicle manufacturer).
+    _MAKER_TYPES = {
+        "OEM",
+        "Intégrateur",
+        "Équipementier / Tier 1",
+        "Sous-traitant industriel",
+    }
+    _SELLER_TYPES = _MAKER_TYPES | {"Distributeur"}
+    _SERVICE_TYPES = {
+        "Société de services",
+        "Bureau d'ingénierie",
+        "Éditeur logiciel",
+        "Intégrateur",
+    }
+
     if products_built_any:
-        out = out[_any_of_in_joined_column(out, "products_built", products_built_any)]
+        out = out[_any_of_in_joined_column(
+            out, "products_categories", products_built_any
+        )]
+        if "company_type" in out.columns:
+            out = out[out["company_type"].isin(_MAKER_TYPES)]
     if products_sold_any:
-        out = out[_any_of_in_joined_column(out, "products_sold", products_sold_any)]
+        out = out[_any_of_in_joined_column(
+            out, "products_categories", products_sold_any
+        )]
+        if "company_type" in out.columns:
+            out = out[out["company_type"].isin(_SELLER_TYPES)]
     if services_sold_any:
-        out = out[_any_of_in_joined_column(out, "services_sold", services_sold_any)]
+        out = out[_any_of_in_joined_column(
+            out, "services_categories", services_sold_any
+        )]
+        if "company_type" in out.columns:
+            out = out[out["company_type"].isin(_SERVICE_TYPES)]
     if buying_needs_any:
         # Match against both buying_need_main AND buying_needs_secondary
         mask_main = _any_of_in_joined_column(out, "buying_need_main", buying_needs_any)

@@ -604,32 +604,38 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         buying_needs: list[str] = []
         interest_levels: list[str] = []
 
-        st.markdown("**🎯 Trouver des cibles — bidirectionnel**")
+        st.markdown("**🎯 Trouver des cibles**")
         st.caption(
-            "Filtres orientés use-case commercial. Aucune information à "
-            "déclarer ; on filtre la base sur ce que les exposants font."
+            "Filtres canoniques restreints automatiquement par type "
+            "d'entreprise pour éviter le bruit. Ex : « Véhicules blindés » "
+            "en *Produits fabriqués* ne renvoie QUE les fabricants."
         )
-        # Build "vocab" = the union of products mentioned across the catalogue
-        all_built = _collect_split(df, "products_built")
-        all_sold = _collect_split(df, "products_sold")
-        all_services = _collect_split(df, "services_sold")
-        # Removed filter : "Filtrer par BESOIN D'ACHAT (complet)"
         buying_needs_full_filter: list[str] = []
 
+        # Reuse the canonical taxonomies imported above (75 prod / 23 svc).
         products_built_filter = st.multiselect(
-            "Filtrer par PRODUITS FABRIQUÉS",
-            sorted(all_built), key="filter_products_built",
-            help="Trouver des fournisseurs / partenaires qui FABRIQUENT ces produits.",
+            "PRODUITS FABRIQUÉS",
+            sorted(prod_cat_options),
+            key="filter_products_built",
+            help="Catégorie produit que la société FABRIQUE. Restriction "
+            "automatique aux fabricants : OEM · Intégrateur · "
+            "Équipementier/Tier 1 · Sous-traitant industriel.",
         )
         products_sold_filter = st.multiselect(
-            "Filtrer par PRODUITS VENDUS",
-            sorted(all_sold), key="filter_products_sold",
-            help="Trouver des sociétés qui COMMERCIALISENT ces offres.",
+            "PRODUITS VENDUS",
+            sorted(prod_cat_options),
+            key="filter_products_sold",
+            help="Catégorie produit COMMERCIALISÉE (incluant ce qui n'est "
+            "pas fabriqué en interne). Restriction : fabricants + "
+            "distributeurs.",
         )
         services_filter = st.multiselect(
-            "Filtrer par SERVICES VENDUS",
-            sorted(all_services), key="filter_services_sold",
-            help="Maintenance, intégration, formation, conseil, etc.",
+            "SERVICES VENDUS",
+            sorted(svc_cat_options),
+            key="filter_services_sold",
+            help="Service vendu (MCO, intégration, formation, conseil, "
+            "ingénierie). Restriction aux types de services : Société de "
+            "services · Bureau d'ingénierie · Éditeur logiciel · Intégrateur.",
         )
 
         st.markdown("**🏅 Certifications**")

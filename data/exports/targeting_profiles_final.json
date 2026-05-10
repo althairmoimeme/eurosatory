@@ -27,7 +27,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Systèmes anti-drone (C-UAS)",
       "Systèmes de guerre électronique (EW)"
     ],
@@ -471,7 +470,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -481,7 +479,7 @@
     "technologies_categories": [
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 13,
@@ -510,7 +508,6 @@
     "completeness_score": 80,
     "data_source_strength": "medium",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Plateformes IA / vision défense",
       "Mécanique de transmission",
       "Pièces mécaniques & usinage"
@@ -526,7 +523,7 @@
       "Cryptographie",
       "Robotique & autonomie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 14,
@@ -644,7 +641,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation",
@@ -652,7 +649,7 @@
       "MCO / MRO"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 17,
@@ -681,7 +678,6 @@
     "products_categories": [
       "Matériaux composites & blindage",
       "Pièces mécaniques & usinage",
-      "Véhicules blindés",
       "Logiciels de simulation & cyber range"
     ],
     "services_categories": [
@@ -694,7 +690,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 18,
@@ -1489,7 +1485,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Logiciels métier défense (autres)",
-      "Drones aériens (UAV)",
       "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
@@ -1505,7 +1500,7 @@
       "Robotique & autonomie",
       "5G / réseaux radio mobiles"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 39,
@@ -1601,13 +1596,13 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 42,
@@ -1671,11 +1666,11 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 44,
@@ -1898,8 +1893,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)",
-      "Drones aériens (UAV)"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -1909,7 +1903,7 @@
     "technologies_categories": [
       "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 50,
@@ -1937,7 +1931,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -1945,7 +1939,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 51,
@@ -2032,7 +2026,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Autre — à qualifier"
@@ -2040,7 +2034,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 54,
@@ -2141,7 +2135,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -2150,7 +2143,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 57,
@@ -2861,8 +2854,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)",
-      "Satellites & CubeSats"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Distribution & représentation",
@@ -2871,7 +2863,7 @@
     "technologies_categories": [
       "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 77,
@@ -2906,8 +2898,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Détecteurs IR refroidis & non-refroidis",
-      "Satellites & CubeSats"
+      "Détecteurs IR refroidis & non-refroidis"
     ],
     "services_categories": [
       "Certification & tests",
@@ -2916,7 +2907,7 @@
     "technologies_categories": [
       "Imagerie infrarouge"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 78,
@@ -3432,7 +3423,6 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Composants électroniques & cartes"
     ],
     "services_categories": [
@@ -3440,7 +3430,7 @@
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 92,
@@ -3876,7 +3866,6 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Véhicules blindés",
       "Tourelles téléopérées (RWS)"
     ],
     "services_categories": [
@@ -3889,7 +3878,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 104,
@@ -4132,7 +4121,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
@@ -4141,7 +4129,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 111,
@@ -4713,7 +4701,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Sièges & ergonomie cabine",
       "Armes légères & accessoires",
       "Hydraulique & motion control"
@@ -5200,8 +5187,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Batteries & packs énergétiques",
-      "Drones aériens (UAV)"
+      "Batteries & packs énergétiques"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -5210,7 +5196,7 @@
     "technologies_categories": [
       "Énergie portative & piles à combustible"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 4"
   },
   {
     "exhibitor_id": 140,
@@ -5310,7 +5296,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Drones aériens (UAV)",
-      "Satellites & CubeSats",
       "Munitions gros calibre & obus"
     ],
     "services_categories": [
@@ -5351,7 +5336,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -5359,7 +5344,7 @@
     "technologies_categories": [
       "Navigation inertielle"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 144,
@@ -5463,15 +5448,14 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Représentation institutionnelle (cluster, fédération, chambre)",
-      "Textiles techniques tactiques",
-      "Engins du génie militaire"
+      "Textiles techniques tactiques"
     ],
     "services_categories": [
       "Distribution & représentation",
       "Formation & entraînement"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 147,
@@ -5723,7 +5707,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -5733,7 +5716,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 153,
@@ -6436,13 +6419,13 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 173,
@@ -6605,7 +6588,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -6616,7 +6599,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 177,
@@ -7190,7 +7173,6 @@
     "completeness_score": 80,
     "data_source_strength": "medium",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Plateformes IA / vision défense"
     ],
     "services_categories": [
@@ -7201,7 +7183,7 @@
       "Robotique & autonomie",
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 195,
@@ -7231,7 +7213,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -7239,7 +7221,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 196,
@@ -8852,7 +8834,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -8861,7 +8843,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 240,
@@ -9332,8 +9314,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
-      "Navires & sous-systèmes navals",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -9343,7 +9323,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 253,
@@ -9544,9 +9524,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -9940,9 +9918,7 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Drones aériens (UAV)",
-      "Engins du génie militaire"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
       "Certification & tests",
@@ -9952,7 +9928,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 269,
@@ -9982,7 +9958,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Vitrages blindés",
       "Matériaux composites & blindage"
     ],
@@ -10959,7 +10934,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -10968,7 +10943,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 296,
@@ -13250,9 +13225,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Robots terrestres (UGV / EOD)",
-      "Drones FPV & munitions rôdeuses",
-      "Drones aériens (UAV)"
+      "Robots terrestres (UGV / EOD)"
     ],
     "services_categories": [
       "Sous-traitance industrielle"
@@ -13641,11 +13614,11 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 369,
@@ -14064,14 +14037,13 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Conseil stratégique & due-diligence M&A",
-      "Drones aériens (UAV)",
       "Systèmes C2 & C4ISR"
     ],
     "services_categories": [
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 380,
@@ -14130,12 +14102,11 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 382,
@@ -14166,7 +14137,6 @@
     "data_source_strength": "high",
     "products_categories": [
       "Batteries & packs énergétiques",
-      "Drones aériens (UAV)",
       "Groupes électrogènes & énergie tactique",
       "Explosifs & matériaux énergétiques"
     ],
@@ -14174,7 +14144,7 @@
     "technologies_categories": [
       "Matériaux énergétiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 383,
@@ -14249,9 +14219,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Robots terrestres (UGV / EOD)",
-      "Drones aériens (UAV)",
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -14260,7 +14228,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 385,
@@ -14326,14 +14294,14 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
       "Formation & entraînement"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 387,
@@ -14654,7 +14622,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -14662,7 +14630,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 397,
@@ -14818,7 +14786,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -14828,7 +14795,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 401,
@@ -16655,14 +16622,14 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation",
       "Intégration de systèmes"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 450,
@@ -17807,9 +17774,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Camions militaires & logistique",
-      "Véhicules tactiques (non blindés)"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -17818,7 +17783,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 481,
@@ -17914,7 +17879,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -17924,7 +17888,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 484,
@@ -17958,7 +17922,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Optronique & viseurs (EO/IR)",
-      "Drones aériens (UAV)",
       "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
@@ -17968,7 +17931,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 485,
@@ -18360,8 +18323,7 @@
     "completeness_score": 100,
     "data_source_strength": "medium",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -18369,7 +18331,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 495,
@@ -18816,7 +18778,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -18826,7 +18787,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 507,
@@ -18975,9 +18936,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Munitions gros calibre & obus",
-      "Camions militaires & logistique",
       "Radars & traitement signal"
     ],
     "services_categories": [
@@ -19059,7 +19018,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
       "Camions militaires & logistique"
     ],
     "services_categories": [
@@ -19650,7 +19608,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation",
@@ -19658,7 +19616,7 @@
       "MCO / MRO"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 529,
@@ -19730,7 +19688,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Navires & sous-systèmes navals",
       "Systèmes de guerre électronique (EW)"
     ],
@@ -20046,7 +20003,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Avions & hélicoptères militaires",
       "Équipement du fantassin (général)"
     ],
     "services_categories": [
@@ -20917,7 +20873,6 @@
       "Cybersécurité (logiciels & appliances)",
       "Représentation institutionnelle (cluster, fédération, chambre)",
       "Systèmes anti-drone (C-UAS)",
-      "Drones aériens (UAV)",
       "Systèmes C2 & C4ISR"
     ],
     "services_categories": [],
@@ -21155,8 +21110,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Vitrages blindés",
-      "Véhicules blindés"
+      "Vitrages blindés"
     ],
     "services_categories": [
       "Certification & tests"
@@ -21671,7 +21625,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Piles à combustible & H2",
       "Moteurs diesel / propulsion lourde"
     ],
@@ -21681,7 +21634,7 @@
     "technologies_categories": [
       "Énergie portative & piles à combustible"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 585,
@@ -21927,7 +21880,6 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Matériaux composites & blindage",
-      "Navires & sous-systèmes navals",
       "Sonars & systèmes ASM"
     ],
     "services_categories": [
@@ -21940,7 +21892,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 592,
@@ -22038,8 +21990,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Navires & sous-systèmes navals",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -22049,7 +21999,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 595,
@@ -22643,8 +22593,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Radios tactiques & SDR",
-      "Drones aériens (UAV)"
+      "Radios tactiques & SDR"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -22653,7 +22602,7 @@
       "Communications RF / micro-ondes",
       "Cryptographie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 612,
@@ -22824,8 +22773,7 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Formation & entraînement"
@@ -22833,7 +22781,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 617,
@@ -22890,11 +22838,11 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 619,
@@ -23871,7 +23819,6 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Batteries & packs énergétiques",
-      "Drones aériens (UAV)",
       "Groupes électrogènes & énergie tactique"
     ],
     "services_categories": [],
@@ -23879,7 +23826,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 646,
@@ -24625,13 +24572,13 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 666,
@@ -25357,13 +25304,13 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 684,
@@ -25522,7 +25469,6 @@
     "products_categories": [
       "Cybersécurité (logiciels & appliances)",
       "Représentation institutionnelle (cluster, fédération, chambre)",
-      "Drones aériens (UAV)",
       "Mécanique de transmission",
       "Alimentations & convertisseurs durcis"
     ],
@@ -25534,7 +25480,7 @@
       "Imagerie infrarouge",
       "Robotique & autonomie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 689,
@@ -25995,7 +25941,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -26003,7 +25949,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 701,
@@ -26303,13 +26249,13 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 710,
@@ -27035,9 +26981,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Drones FPV & munitions rôdeuses",
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -27045,7 +26989,7 @@
     "technologies_categories": [
       "Imagerie infrarouge"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 729,
@@ -27079,7 +27023,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Systèmes de guerre électronique (EW)",
       "NRBC (masques, tenues, détecteurs)"
     ],
@@ -27506,8 +27449,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -27518,7 +27459,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 741,
@@ -27640,8 +27581,7 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Drones aériens (UAV)"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -27651,7 +27591,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 745,
@@ -27982,8 +27922,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
-      "Navires & sous-systèmes navals"
+      "Engins du génie militaire"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -28137,7 +28076,6 @@
     "data_source_strength": "high",
     "products_categories": [
       "Achat public défense & politique industrielle",
-      "Drones aériens (UAV)",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -28148,7 +28086,7 @@
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 758,
@@ -28183,7 +28121,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Pièces mécaniques & usinage",
       "Matériaux composites & blindage"
     ],
@@ -28193,7 +28130,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 759,
@@ -28419,7 +28356,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -28429,7 +28366,7 @@
     "technologies_categories": [
       "Radar (AESA, monopulse, …)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 765,
@@ -28652,7 +28589,6 @@
     "products_categories": [
       "Achat public défense & politique industrielle",
       "Systèmes anti-drone (C-UAS)",
-      "Drones aériens (UAV)",
       "Armes non-létales",
       "Optronique & viseurs (EO/IR)"
     ],
@@ -28788,7 +28724,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -28798,7 +28734,7 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 774,
@@ -29240,8 +29176,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Plateformes IA / vision défense",
-      "Drones aériens (UAV)"
+      "Plateformes IA / vision défense"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -29251,7 +29186,7 @@
       "IA / machine learning",
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 786,
@@ -30363,7 +30298,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -30371,7 +30306,7 @@
     "technologies_categories": [
       "Photonique & fibres optiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 815,
@@ -30508,7 +30443,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Formation & entraînement",
@@ -30518,7 +30453,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 819,
@@ -30869,7 +30804,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Boîtiers & châssis durcis",
-      "Drones aériens (UAV)",
       "Plateformes IA / vision défense"
     ],
     "services_categories": [
@@ -30879,7 +30813,7 @@
     "technologies_categories": [
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 828,
@@ -31171,13 +31105,13 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Ambulances & véhicules sanitaires"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 838,
@@ -31563,7 +31497,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -31573,7 +31506,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 849,
@@ -32282,7 +32215,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -32290,7 +32223,7 @@
     "technologies_categories": [
       "GNSS / navigation satellite"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 868,
@@ -33074,8 +33007,7 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Cybersécurité (logiciels & appliances)",
-      "Représentation institutionnelle (cluster, fédération, chambre)",
-      "Drones aériens (UAV)"
+      "Représentation institutionnelle (cluster, fédération, chambre)"
     ],
     "services_categories": [
       "Formation & entraînement",
@@ -33088,7 +33020,7 @@
       "GNSS / navigation satellite",
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 890,
@@ -33630,14 +33562,13 @@
     "completeness_score": 100,
     "data_source_strength": "medium",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 905,
@@ -33671,7 +33602,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Missiles & armements guidés",
       "Roquettes & lance-roquettes"
     ],
@@ -33789,7 +33719,6 @@
     "products_categories": [
       "Systèmes C2 & C4ISR",
       "Logiciels métier défense (autres)",
-      "Satellites & CubeSats",
       "Logiciels de simulation & cyber range",
       "Simulateurs d'entraînement & VR/AR",
       "Armes légères & accessoires",
@@ -33880,7 +33809,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -33890,7 +33818,7 @@
     "technologies_categories": [
       "Métallurgie spéciale (alliages, blindages)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 911,
@@ -33961,7 +33889,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Réseaux militaires (5G/P-LTE/MANET)"
     ],
     "services_categories": [
@@ -33971,7 +33898,7 @@
     "technologies_categories": [
       "5G / réseaux radio mobiles"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 913,
@@ -34248,7 +34175,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Groupes électrogènes & énergie tactique"
     ],
     "services_categories": [
@@ -34257,7 +34183,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 922,
@@ -35128,7 +35054,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Formation & entraînement",
@@ -35137,7 +35063,7 @@
     "technologies_categories": [
       "Matériaux énergétiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 945,
@@ -35390,8 +35316,7 @@
     "completeness_score": 80,
     "data_source_strength": "medium",
     "products_categories": [
-      "Systèmes C2 & C4ISR",
-      "Drones aériens (UAV)"
+      "Systèmes C2 & C4ISR"
     ],
     "services_categories": [
       "Certification & tests",
@@ -35402,7 +35327,7 @@
       "Edge computing & GPU embarqué",
       "Robotique & autonomie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 952,
@@ -35685,15 +35610,14 @@
     "completeness_score": 85,
     "data_source_strength": "medium",
     "products_categories": [
-      "Conseil stratégique & due-diligence M&A",
-      "Drones aériens (UAV)"
+      "Conseil stratégique & due-diligence M&A"
     ],
     "services_categories": [
       "Ingénierie & conseil",
       "Formation & entraînement"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 960,
@@ -35843,8 +35767,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Streaming vidéo & data tactiques",
-      "Drones aériens (UAV)"
+      "Streaming vidéo & data tactiques"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -35852,7 +35775,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 964,
@@ -36578,7 +36501,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -36586,7 +36509,7 @@
     "technologies_categories": [
       "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 983,
@@ -36663,9 +36586,7 @@
     "products_categories": [
       "Plateformes IA / vision défense",
       "Systèmes de guerre électronique (EW)",
-      "Cybersécurité (logiciels & appliances)",
-      "Drones aériens (UAV)",
-      "Drones FPV & munitions rôdeuses"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -36675,7 +36596,7 @@
       "IA / machine learning",
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 985,
@@ -36747,7 +36668,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Radars & traitement signal",
       "Mâts, signalisation & balisage"
     ],
@@ -36759,7 +36679,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 987,
@@ -37121,7 +37041,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -37131,7 +37050,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 996,
@@ -37363,7 +37282,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Hydraulique & motion control"
     ],
     "services_categories": [
@@ -37372,7 +37290,7 @@
     "technologies_categories": [
       "Hydraulique haute performance"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1002,
@@ -38170,7 +38088,6 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Pièces mécaniques & usinage",
       "Composants électroniques & cartes"
     ],
@@ -38180,7 +38097,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 1024,
@@ -38480,7 +38397,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Gilets & plaques pare-balles",
       "Mâts, signalisation & balisage"
     ],
@@ -38843,7 +38759,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -38852,7 +38768,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1041,
@@ -39218,7 +39134,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -39229,7 +39144,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1050,
@@ -39516,7 +39431,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Moteurs aéronautiques"
     ],
     "services_categories": [
@@ -39526,7 +39440,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1058,
@@ -39845,7 +39759,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -39853,7 +39767,7 @@
     "technologies_categories": [
       "Imagerie infrarouge"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1067,
@@ -40156,7 +40070,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -40166,7 +40079,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1075,
@@ -40234,7 +40147,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Avionique & instruments embarqués"
     ],
     "services_categories": [
@@ -40245,7 +40157,7 @@
       "MEMS & capteurs miniaturisés",
       "GNSS / navigation satellite"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1077,
@@ -40567,7 +40479,6 @@
     "products_categories": [
       "Cybersécurité (logiciels & appliances)",
       "Représentation institutionnelle (cluster, fédération, chambre)",
-      "Drones aériens (UAV)",
       "Systèmes anti-drone (C-UAS)",
       "Plateformes IA / vision défense"
     ],
@@ -41425,7 +41336,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Navires & sous-systèmes navals",
       "Munitions gros calibre & obus"
     ],
@@ -41673,7 +41583,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -41682,7 +41592,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1115,
@@ -43288,7 +43198,6 @@
     "products_categories": [
       "Hydraulique & motion control",
       "Mécanique de transmission",
-      "Véhicules tactiques (non blindés)",
       "Sièges & ergonomie cabine"
     ],
     "services_categories": [
@@ -43298,7 +43207,7 @@
     "technologies_categories": [
       "Hydraulique haute performance"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1159,
@@ -43983,7 +43892,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -43994,7 +43902,7 @@
       "Imagerie infrarouge",
       "Matériaux énergétiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1177,
@@ -44087,7 +43995,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -44096,7 +44003,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1180,
@@ -45087,7 +44994,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -45098,7 +45004,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1206,
@@ -45311,7 +45217,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Autre — à qualifier"
@@ -45319,7 +45225,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1212,
@@ -46081,7 +45987,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -46091,7 +45997,7 @@
       "Photonique & fibres optiques",
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1233,
@@ -46549,14 +46455,14 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
       "MCO / MRO"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1245,
@@ -47144,7 +47050,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -47154,7 +47060,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1262,
@@ -47186,8 +47092,7 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Mécanique de transmission",
-      "Pièces mécaniques & usinage",
-      "Véhicules blindés"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [
       "Sous-traitance industrielle"
@@ -47195,7 +47100,7 @@
     "technologies_categories": [
       "Métallurgie spéciale (alliages, blindages)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1263,
@@ -47267,7 +47172,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Gilets & plaques pare-balles",
       "NRBC (masques, tenues, détecteurs)"
     ],
@@ -47416,7 +47320,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -47426,7 +47330,7 @@
       "Lidar / Laser",
       "Photonique & fibres optiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1269,
@@ -47458,8 +47362,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Optronique & viseurs (EO/IR)",
-      "Drones aériens (UAV)"
+      "Optronique & viseurs (EO/IR)"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -47469,7 +47372,7 @@
       "Imagerie infrarouge",
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1270,
@@ -47929,7 +47832,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Camions militaires & logistique"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation",
@@ -47938,7 +47841,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1284,
@@ -48141,7 +48044,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -48150,7 +48052,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1289,
@@ -48811,8 +48713,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
-      "Véhicules blindés",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -48823,7 +48723,7 @@
       "Matériaux composites",
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1307,
@@ -49213,7 +49113,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Pièces mécaniques & usinage",
       "Mâts, signalisation & balisage"
     ],
@@ -49224,7 +49123,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1317,
@@ -49645,7 +49544,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Gilets & plaques pare-balles"
     ],
     "services_categories": [
@@ -49806,7 +49704,6 @@
       "R&D académique & laboratoires",
       "Pièces mécaniques & usinage",
       "Systèmes anti-drone (C-UAS)",
-      "Drones aériens (UAV)",
       "Explosifs & matériaux énergétiques"
     ],
     "services_categories": [
@@ -50853,8 +50750,7 @@
       "Logistique militaire & transport",
       "Pièces mécaniques & usinage",
       "Munitions petit/moyen calibre",
-      "Moteurs aéronautiques",
-      "Véhicules tactiques (non blindés)"
+      "Moteurs aéronautiques"
     ],
     "services_categories": [],
     "technologies_categories": [
@@ -50936,7 +50832,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Drones aériens (UAV)",
       "NRBC (masques, tenues, détecteurs)"
     ],
@@ -52719,14 +52614,13 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Cybersécurité (logiciels & appliances)",
-      "Avions & hélicoptères militaires"
+      "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "Organisation de salons & événements"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1411,
@@ -52750,12 +52644,11 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Servomoteurs & motion control précision"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 1412,
@@ -52838,8 +52731,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Navires & sous-systèmes navals",
       "Missiles & armements guidés"
     ],
     "services_categories": [
@@ -52880,7 +52771,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Plateformes IA / vision défense"
     ],
     "services_categories": [
@@ -52890,7 +52780,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1415,
@@ -53396,7 +53286,6 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Logiciels de simulation & cyber range",
-      "Drones aériens (UAV)",
       "Plateformes IA / vision défense"
     ],
     "services_categories": [
@@ -53412,7 +53301,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1429,
@@ -53543,7 +53432,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -53551,7 +53440,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1433,
@@ -55307,7 +55196,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Streaming vidéo & data tactiques"
     ],
     "services_categories": [
@@ -55316,7 +55204,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1481,
@@ -56108,7 +55996,7 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -56116,7 +56004,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1501,
@@ -56288,7 +56176,6 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Capteurs embarqués (généraux)"
     ],
     "services_categories": [
@@ -56298,7 +56185,7 @@
       "MEMS & capteurs miniaturisés",
       "Navigation inertielle"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 1506,
@@ -57483,7 +57370,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Conteneurs, malles, shelters"
     ],
     "services_categories": [
@@ -57491,7 +57377,7 @@
       "Sous-traitance industrielle"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1537,
@@ -57599,7 +57485,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -57609,7 +57495,7 @@
       "Communications RF / micro-ondes",
       "Photonique & fibres optiques"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1540,
@@ -57812,7 +57698,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -57821,7 +57707,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1546,
@@ -58058,7 +57944,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -58067,7 +57953,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1552,
@@ -58517,14 +58403,14 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
       "Distribution & représentation"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1565,
@@ -58594,7 +58480,6 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -58604,7 +58489,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1567,
@@ -58841,7 +58726,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -58849,7 +58734,7 @@
     "technologies_categories": [
       "GNSS / navigation satellite"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1573,
@@ -60186,14 +60071,14 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1607,
@@ -60352,7 +60237,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Robots terrestres (UGV / EOD)",
       "Batteries & packs énergétiques"
     ],
     "services_categories": [
@@ -60361,7 +60245,7 @@
     "technologies_categories": [
       "Énergie portative & piles à combustible"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 4"
   },
   {
     "exhibitor_id": 1612,
@@ -60431,8 +60315,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Réseaux militaires (5G/P-LTE/MANET)",
-      "Drones aériens (UAV)"
+      "Réseaux militaires (5G/P-LTE/MANET)"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -60441,7 +60324,7 @@
       "5G / réseaux radio mobiles",
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1614,
@@ -60940,7 +60823,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -60949,7 +60832,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1627,
@@ -61050,7 +60933,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Avions & hélicoptères militaires",
       "Casques de combat"
     ],
@@ -61191,7 +61073,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Plateformes IA / vision défense",
-      "Drones aériens (UAV)",
       "Réseaux militaires (5G/P-LTE/MANET)"
     ],
     "services_categories": [
@@ -61201,7 +61082,7 @@
       "IA / machine learning",
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1634,
@@ -61568,14 +61449,13 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Batteries & packs énergétiques",
-      "Drones aériens (UAV)",
       "Groupes électrogènes & énergie tactique"
     ],
     "services_categories": [],
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1644,
@@ -61691,7 +61571,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Munitions petit/moyen calibre"
     ],
     "services_categories": [
@@ -61819,7 +61698,6 @@
       "Munitions petit/moyen calibre",
       "Composants électroniques & cartes",
       "Armes légères & accessoires",
-      "Véhicules tactiques (non blindés)",
       "Capteurs embarqués (généraux)"
     ],
     "services_categories": [
@@ -62380,11 +62258,11 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1666,
@@ -63064,7 +62942,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -63073,7 +62951,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1683,
@@ -63221,7 +63099,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Mâts, signalisation & balisage",
       "Financement, banque & assurance défense"
     ],
@@ -63232,7 +63109,7 @@
     "technologies_categories": [
       "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1687,
@@ -63262,7 +63139,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -63270,7 +63147,7 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1688,
@@ -63538,8 +63415,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil",
@@ -63548,7 +63424,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1695,
@@ -63580,7 +63456,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Antennes & infrastructures RF",
       "Systèmes de guerre électronique (EW)",
       "Plateformes IA / vision défense"
@@ -63591,7 +63466,7 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1696,
@@ -63784,8 +63659,7 @@
     "completeness_score": 100,
     "data_source_strength": "medium",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Certification & tests",
@@ -63794,7 +63668,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1701,
@@ -63890,7 +63764,6 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -63899,7 +63772,7 @@
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1704,
@@ -64823,8 +64696,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -64833,7 +64705,7 @@
     "technologies_categories": [
       "Cybersécurité"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1729,
@@ -65404,14 +65276,13 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Pièces mécaniques & usinage",
-      "Véhicules blindés"
+      "Pièces mécaniques & usinage"
     ],
     "services_categories": [],
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1744,
@@ -65441,8 +65312,7 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -65450,7 +65320,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1745,
@@ -65483,8 +65353,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Optronique & viseurs (EO/IR)",
-      "Drones aériens (UAV)"
+      "Optronique & viseurs (EO/IR)"
     ],
     "services_categories": [
       "Distribution & représentation"
@@ -65492,7 +65361,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1746,
@@ -65975,8 +65844,7 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -65987,7 +65855,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 1759,
@@ -66051,7 +65919,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle",
@@ -66060,7 +65928,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1761,
@@ -66690,7 +66558,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Aciers & métallurgie spéciale"
     ],
     "services_categories": [
@@ -66700,7 +66567,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 4"
   },
   {
     "exhibitor_id": 1778,
@@ -67048,7 +66915,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Certification & tests",
@@ -67058,7 +66925,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1788,
@@ -68041,7 +67908,6 @@
     "products_categories": [
       "Pièces mécaniques & usinage",
       "Composants électroniques & cartes",
-      "Véhicules tactiques (non blindés)",
       "Antennes & infrastructures RF"
     ],
     "services_categories": [
@@ -68052,7 +67918,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 1814,
@@ -68339,12 +68205,11 @@
     "completeness_score": 85,
     "data_source_strength": "medium",
     "products_categories": [
-      "Achat public défense & politique industrielle",
-      "Drones aériens (UAV)"
+      "Achat public défense & politique industrielle"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1823,
@@ -68379,7 +68244,6 @@
     "data_source_strength": "medium",
     "products_categories": [
       "Pièces mécaniques & usinage",
-      "Satellites & CubeSats",
       "Avionique & instruments embarqués"
     ],
     "services_categories": [
@@ -68391,7 +68255,7 @@
       "Fabrication additive",
       "Robotique & autonomie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1824,
@@ -68896,12 +68760,11 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Conteneurs, malles, shelters"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1839,
@@ -69042,7 +68905,6 @@
     "completeness_score": 100,
     "data_source_strength": "high",
     "products_categories": [
-      "Véhicules blindés",
       "Tourelles téléopérées (RWS)"
     ],
     "services_categories": [
@@ -69054,7 +68916,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1843,
@@ -69426,7 +69288,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Avions & hélicoptères militaires",
       "Munitions gros calibre & obus",
       "Avionique & instruments embarqués"
     ],
@@ -69674,9 +69535,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Sièges & ergonomie cabine",
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Sièges & ergonomie cabine"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -69684,7 +69543,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1859,
@@ -70079,7 +69938,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Composants électroniques & cartes"
     ],
     "services_categories": [
@@ -70090,7 +69948,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 1870,
@@ -71724,7 +71582,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Plateformes IA / vision défense",
       "Mâts, signalisation & balisage"
     ],
@@ -71735,7 +71592,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1916,
@@ -72267,7 +72124,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -72277,7 +72134,7 @@
       "GNSS / navigation satellite",
       "Guerre électronique (EW)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1930,
@@ -72845,13 +72702,13 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 1945,
@@ -74298,7 +74155,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Plateformes IA / vision défense"
     ],
     "services_categories": [
@@ -74308,7 +74164,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1985,
@@ -74345,7 +74201,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Satellites & CubeSats",
       "Radars & traitement signal"
     ],
@@ -74511,7 +74366,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -74521,7 +74375,7 @@
     "technologies_categories": [
       "Énergie portative & piles à combustible"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 1991,
@@ -74673,7 +74527,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Radars & traitement signal"
     ],
     "services_categories": [
@@ -74682,7 +74535,7 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 1995,
@@ -75966,10 +75819,7 @@
     "data_source_strength": "high",
     "products_categories": [
       "Logiciels métier défense (autres)",
-      "Matériaux composites & blindage",
-      "Véhicules tactiques (non blindés)",
-      "Drones aériens (UAV)",
-      "Robots terrestres (UGV / EOD)"
+      "Matériaux composites & blindage"
     ],
     "services_categories": [
       "Certification & tests"
@@ -75982,7 +75832,7 @@
       "Navigation inertielle",
       "Simulation & VR/AR"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2031,
@@ -76092,7 +75942,6 @@
     "completeness_score": 100,
     "data_source_strength": "medium",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Pièces mécaniques & usinage",
       "Batteries & packs énergétiques",
       "Moteurs aéronautiques",
@@ -76106,7 +75955,7 @@
     "technologies_categories": [
       "Cloud & cloud souverain"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2034,
@@ -76774,7 +76623,7 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Certification & tests"
@@ -76782,7 +76631,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2053,
@@ -76891,7 +76740,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Antennes & infrastructures RF",
       "Mâts, signalisation & balisage"
     ],
@@ -76902,7 +76750,7 @@
       "Fabrication additive",
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 2056,
@@ -77951,7 +77799,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals",
       "Munitions gros calibre & obus"
     ],
     "services_categories": [
@@ -78464,7 +78311,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -78475,7 +78321,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2098,
@@ -78601,7 +78447,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -78609,7 +78454,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2102,
@@ -78641,8 +78486,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -78653,7 +78496,7 @@
       "Matériaux composites",
       "Métallurgie spéciale (alliages, blindages)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2103,
@@ -78884,7 +78727,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -78892,7 +78735,7 @@
     "technologies_categories": [
       "Imagerie infrarouge"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2109,
@@ -79136,7 +78979,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Sous-traitance industrielle"
@@ -79144,7 +78987,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2115,
@@ -79930,7 +79773,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
       "Pièces mécaniques & usinage",
       "Hydraulique & motion control"
     ],
@@ -79941,7 +79783,7 @@
     "technologies_categories": [
       "Hydraulique haute performance"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2135,
@@ -79973,7 +79815,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Missiles & armements guidés",
       "Matériaux composites & blindage"
     ],
@@ -80240,7 +80081,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Matériaux composites & blindage",
       "Aciers & métallurgie spéciale"
     ],
@@ -80252,7 +80092,7 @@
       "Fabrication additive",
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 4"
   },
   {
     "exhibitor_id": 2143,
@@ -80748,7 +80588,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Logistique militaire & transport",
       "Mâts, signalisation & balisage"
     ],
@@ -80761,7 +80600,7 @@
       "Imagerie infrarouge",
       "Robotique & autonomie"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2157,
@@ -80877,7 +80716,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Certification & tests"
@@ -80885,7 +80724,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2160,
@@ -81079,12 +80918,11 @@
     "completeness_score": 50,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2166,
@@ -81160,7 +80998,6 @@
       "Conseil stratégique & due-diligence M&A",
       "NRBC (masques, tenues, détecteurs)",
       "Systèmes anti-drone (C-UAS)",
-      "Drones aériens (UAV)",
       "Explosifs & matériaux énergétiques"
     ],
     "services_categories": [
@@ -81516,7 +81353,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -81525,7 +81362,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 2177,
@@ -81642,13 +81479,13 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [],
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2180,
@@ -81951,8 +81788,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules tactiques (non blindés)",
-      "Véhicules blindés",
       "Pièces mécaniques & usinage"
     ],
     "services_categories": [
@@ -81963,7 +81798,7 @@
       "Matériaux balistiques (UHMWPE, céramiques)",
       "Métallurgie spéciale (alliages, blindages)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2188,
@@ -81992,7 +81827,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Servomoteurs & motion control précision"
     ],
     "services_categories": [
@@ -82001,7 +81835,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 2189,
@@ -82796,14 +82630,13 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
       "Cybersécurité (logiciels & appliances)"
     ],
     "services_categories": [
       "MCO / MRO"
     ],
     "technologies_categories": [],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2211,
@@ -82957,7 +82790,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Optronique & viseurs (EO/IR)"
     ],
     "services_categories": [
@@ -82966,7 +82798,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2215,
@@ -83038,7 +82870,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
       "Explosifs & matériaux énergétiques"
     ],
     "services_categories": [
@@ -83048,7 +82879,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2217,
@@ -83406,7 +83237,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -83415,7 +83246,7 @@
     "technologies_categories": [
       "IA / machine learning"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2226,
@@ -83508,8 +83339,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Véhicules blindés",
-      "Véhicules tactiques (non blindés)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -83520,7 +83350,7 @@
       "Métallurgie spéciale (alliages, blindages)",
       "Matériaux balistiques (UHMWPE, céramiques)"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 2229,
@@ -83665,7 +83495,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -83674,7 +83504,7 @@
     "technologies_categories": [
       "Hydraulique haute performance"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 2233,
@@ -84672,7 +84502,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats",
       "Mâts, signalisation & balisage"
     ],
     "services_categories": [
@@ -84681,7 +84510,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2260,
@@ -87073,7 +86902,6 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Engins du génie militaire",
       "Matériaux composites & blindage",
       "Mâts, signalisation & balisage"
     ],
@@ -87083,7 +86911,7 @@
     "technologies_categories": [
       "Matériaux composites"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 3"
   },
   {
     "exhibitor_id": 2324,
@@ -87426,7 +87254,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Formation & entraînement",
@@ -87437,7 +87265,7 @@
       "Simulation & VR/AR",
       "5G / réseaux radio mobiles"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2334,
@@ -87546,7 +87374,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Ingénierie & conseil"
@@ -87554,7 +87382,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2337,
@@ -88300,8 +88128,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Plateformes IA / vision défense",
-      "Drones aériens (UAV)"
+      "Plateformes IA / vision défense"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -88310,7 +88137,7 @@
       "IA / machine learning",
       "Edge computing & GPU embarqué"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2357,
@@ -89774,8 +89601,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Antennes & infrastructures RF",
-      "Navires & sous-systèmes navals"
+      "Antennes & infrastructures RF"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -89783,7 +89609,7 @@
     "technologies_categories": [
       "Communications RF / micro-ondes"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 2"
   },
   {
     "exhibitor_id": 2397,
@@ -90471,7 +90297,6 @@
     "completeness_score": 65,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)",
       "Systèmes anti-drone (C-UAS)"
     ],
     "services_categories": [
@@ -90752,7 +90577,6 @@
     "data_source_strength": "manual",
     "products_categories": [
       "Optronique & viseurs (EO/IR)",
-      "Véhicules tactiques (non blindés)",
       "Mécanique de transmission"
     ],
     "services_categories": [
@@ -90761,7 +90585,7 @@
     "technologies_categories": [
       "Imagerie infrarouge"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 1"
   },
   {
     "exhibitor_id": 2424,
@@ -91106,7 +90930,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Autre — à qualifier"
@@ -91114,7 +90938,7 @@
     "technologies_categories": [
       "GNSS / navigation satellite"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2433,
@@ -91704,7 +91528,7 @@
     "completeness_score": 100,
     "data_source_strength": "manual",
     "products_categories": [
-      "Navires & sous-systèmes navals"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -91714,7 +91538,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 2449,
@@ -92808,8 +92632,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Batteries & packs énergétiques",
-      "Drones aériens (UAV)"
+      "Batteries & packs énergétiques"
     ],
     "services_categories": [
       "Intégration de systèmes",
@@ -92818,7 +92641,7 @@
     "technologies_categories": [
       "Énergie portative & piles à combustible"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "Tier 4"
   },
   {
     "exhibitor_id": 2478,
@@ -93185,7 +93008,7 @@
     "completeness_score": 85,
     "data_source_strength": "manual",
     "products_categories": [
-      "Camions militaires & logistique"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "MCO / MRO",
@@ -93194,7 +93017,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "MRO"
   },
   {
     "exhibitor_id": 2488,
@@ -94087,8 +93910,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Armes légères & accessoires",
-      "Drones aériens (UAV)"
+      "Armes légères & accessoires"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -95407,7 +95229,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Satellites & CubeSats"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Autre — à qualifier"
@@ -95415,7 +95237,7 @@
     "technologies_categories": [
       "Autre — à qualifier"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2548,
@@ -95667,7 +95489,7 @@
     "completeness_score": 80,
     "data_source_strength": "manual",
     "products_categories": [
-      "Drones aériens (UAV)"
+      "Autre — à qualifier"
     ],
     "services_categories": [
       "Intégration de systèmes"
@@ -95675,7 +95497,7 @@
     "technologies_categories": [
       "Lidar / Laser"
     ],
-    "supply_chain_tier": "OEM"
+    "supply_chain_tier": "N/A"
   },
   {
     "exhibitor_id": 2556,
