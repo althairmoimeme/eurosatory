@@ -606,47 +606,118 @@ def render_sidebar(df: pd.DataFrame) -> dict:
 
         st.markdown("**🎯 Trouver des cibles**")
         st.caption(
-            "Filtres canoniques restreints automatiquement par type "
-            "d'entreprise pour éviter le bruit. Ex : « Véhicules blindés » "
-            "en *Produits fabriqués* ne renvoie QUE les fabricants."
+            "Chaque option affiche le **nombre de sociétés réellement "
+            "matchées** après restriction par type d'entreprise. Les "
+            "catégories vides sont masquées."
         )
         buying_needs_full_filter: list[str] = []
 
-        # Reuse the canonical taxonomies imported above (75 prod / 23 svc).
-        products_built_filter = st.multiselect(
+        # ----- Compute population-aware counts ----------------------------
+        from collections import Counter as _Counter
+
+        _MAKER_TYPES = {
+            "OEM", "Intégrateur",
+            "Équipementier / Tier 1", "Sous-traitant industriel",
+        }
+        _SELLER_TYPES = _MAKER_TYPES | {"Distributeur"}
+        _SERVICE_TYPES = {
+            "Société de services", "Bureau d'ingénierie",
+            "Éditeur logiciel", "Intégrateur",
+        }
+
+        def _cat_counts(scope_df: pd.DataFrame, col: str) -> _Counter:
+            """Count canonical categories within a population subset."""
+            counts: _Counter = _Counter()
+            if col not in scope_df.columns:
+                return counts
+            for v in scope_df[col].dropna():
+                if not isinstance(v, str):
+                    continue
+                for c in v.split("·"):
+                    c = c.strip()
+                    if not c or c.startswith("Autre"):
+                        continue
+                    counts[c] += 1
+            return counts
+
+        if "company_type" in df.columns:
+            built_counts = _cat_counts(
+                df[df["company_type"].isin(_MAKER_TYPES)], "products_categories"
+            )
+            sold_counts = _cat_counts(
+                df[df["company_type"].isin(_SELLER_TYPES)], "products_categories"
+            )
+            svc_counts = _cat_counts(
+                df[df["company_type"].isin(_SERVICE_TYPES)], "services_categories"
+            )
+        else:
+            built_counts = sold_counts = _cat_counts(df, "products_categories")
+            svc_counts = _cat_counts(df, "services_categories")
+
+        # ----- Helper : multiselect with count-formatted options ---------
+        def _picker(label: str, counts: _Counter, key: str, helptext: str):
+            # Sort options by count descending, hide zero-count
+            options = [c for c, _ in counts.most_common() if counts[c] > 0]
+            return st.multiselect(
+                label, options, key=key,
+                format_func=lambda c: f"{c}  ({counts[c]})",
+                help=helptext,
+            )
+
+        products_built_filter = _picker(
             "PRODUITS FABRIQUÉS",
-            sorted(prod_cat_options),
-            key="filter_products_built",
-            help="Catégorie produit que la société FABRIQUE. Restriction "
-            "automatique aux fabricants : OEM · Intégrateur · "
-            "Équipementier/Tier 1 · Sous-traitant industriel.",
+            built_counts,
+            "filter_products_built",
+            "Catégorie produit que la société FABRIQUE. Restreint aux "
+            "fabricants : OEM · Intégrateur · Équipementier/Tier 1 · "
+            "Sous-traitant industriel.",
         )
-        products_sold_filter = st.multiselect(
+        products_sold_filter = _picker(
             "PRODUITS VENDUS",
-            sorted(prod_cat_options),
-            key="filter_products_sold",
-            help="Catégorie produit COMMERCIALISÉE (incluant ce qui n'est "
-            "pas fabriqué en interne). Restriction : fabricants + "
-            "distributeurs.",
+            sold_counts,
+            "filter_products_sold",
+            "Catégorie produit COMMERCIALISÉE. Restreint aux fabricants "
+            "+ distributeurs.",
         )
-        services_filter = st.multiselect(
+        services_filter = _picker(
             "SERVICES VENDUS",
-            sorted(svc_cat_options),
-            key="filter_services_sold",
-            help="Service vendu (MCO, intégration, formation, conseil, "
-            "ingénierie). Restriction aux types de services : Société de "
+            svc_counts,
+            "filter_services_sold",
+            "Service commercialisé (MCO, intégration, formation, conseil, "
+            "ingénierie). Restreint aux types service : Société de "
             "services · Bureau d'ingénierie · Éditeur logiciel · Intégrateur.",
         )
 
         st.markdown("**🏅 Certifications**")
-        all_certs = _collect_split(df, "certifications")
+        # Compute canonical cert counts (deduped + filtered to the closed
+        # whitelist so stray scraping artefacts don't leak into the picker).
+        _CERT_WHITELIST = {
+            "ISO 9001", "ISO 14001", "ISO 45001", "ISO 27001",
+            "ISO 13485", "EN 9100", "EN 9110", "EN 9120",
+            "AS9100", "AS9120", "AS9110",
+            "NATO AQAP", "NATO AQAP 2110", "NATO AQAP 2210",
+            "IATF 16949", "ITAR", "EAR", "CMMC", "Cyber Essentials",
+            "Common Criteria", "FIPS 140", "VS-NfD", "NCAGE code", "OFAC",
+            "BSI",
+        }
+        cert_counts: _Counter = _Counter()
+        if "certifications" in df.columns:
+            for v in df["certifications"].dropna():
+                if not isinstance(v, str):
+                    continue
+                for c in v.split(";"):
+                    c = c.strip()
+                    if c and c in _CERT_WHITELIST:
+                        cert_counts[c] += 1
+        cert_options = [c for c, n in cert_counts.most_common() if n > 0]
         certs_filter = st.multiselect(
             "Filtrer par certifications",
-            sorted(all_certs), key="filter_certifications",
-            help="ISO 9001, EN 9100, AS9100, NATO AQAP, ITAR, CMMC, "
-            "ISO 27001, etc. — détectées sur les pages publiques de la "
-            "société. Critère essentiel pour les acheteurs de la supply "
-            "chain défense.",
+            cert_options, key="filter_certifications",
+            format_func=lambda c: f"{c}  ({cert_counts[c]})",
+            help="ISO 9001, EN 9100, AS9100, NATO AQAP, ITAR, CMMC… "
+            "Détectées sur les pages publiques de la société. Le compteur "
+            "indique le nombre de fiches qui mentionnent la certification "
+            "(à confirmer en discovery call avant un contrat).",
         )
 
         st.markdown("**⭐ Mes vues rapides**")
