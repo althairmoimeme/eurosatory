@@ -1210,10 +1210,18 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
     if df.empty:
         st.warning("Aucune société ne correspond à vos filtres.")
         # Suggestion: list the active filters and propose to relax the most
-        # likely to be over-restrictive.
+        # likely to be over-restrictive. Sliders at full range are hidden
+        # because they don't actually filter anything but visually look
+        # active (year_range, emp_range).
+        _SLIDER_KEYS = {"filter_year_range", "filter_emp_range"}
         active = []
         for k, v in (st.session_state or {}).items():
             if not k.startswith("filter_"):
+                continue
+            if k in _SLIDER_KEYS:
+                # Skip range sliders — they only filter when narrowed
+                # below the data extents, and the actual filter logic
+                # in apply_filters() already handles that case as a no-op.
                 continue
             if isinstance(v, (list, tuple)) and v:
                 active.append((k, v))
@@ -1241,9 +1249,22 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
                     )
                     st.cache_data.clear()
                     st.rerun()
-            if st.button("🗑 Reset all filters", key=f"{key_prefix}_empty_reset_all"):
+            if st.button(
+                "🗑 Reset all filters (sauf Véhicules / Catégorie courante)",
+                key=f"{key_prefix}_empty_reset_all",
+                help="Garde le filtre principal de catégorie produit / "
+                "service que tu viens de cliquer ; supprime tout le reste.",
+            ):
+                # Preserve the user's most recent product/service/cat
+                # filter — those are the *intent* of the search. Wipe
+                # everything else (range sliders, country, type…).
+                _PRESERVE = {
+                    "filter_products_built", "filter_products_sold",
+                    "filter_services_sold", "filter_targeting_prod_cats",
+                    "filter_targeting_svc_cats",
+                }
                 for k in list(st.session_state.keys()):
-                    if k.startswith("filter_"):
+                    if k.startswith("filter_") and k not in _PRESERVE:
                         del st.session_state[k]
                 st.cache_data.clear()
                 st.rerun()

@@ -72,13 +72,51 @@ settings = Settings()
 # Fallback for deploy environments (Streamlit Cloud / VPS) where the
 # heavy dev DB isn't shipped — point at the slim ``eurosatory_deploy.db``
 # automatically. Skipped when ``DATABASE_URL`` was explicitly overridden.
+#
+# IMPORTANT — Streamlit Cloud mounts the repo READ-ONLY. The user expects
+# to be able to favorite companies, edit notes, etc. — i.e. write to the
+# DB. We solve this by making a one-time COPY of the read-only deploy DB
+# into a writable location (``/tmp/eurosatory_deploy.db``) on first
+# import, then pointing the SQLAlchemy URL at the writable copy.
+# Persistence is per-container : the container resets on every rebuild
+# or after ~7 days of inactivity. For multi-user persistent state, swap
+# this for a hosted Postgres (Supabase / Neon).
 import os as _os
+import shutil as _shutil
+import tempfile as _tempfile
 from pathlib import Path as _Path
+
 _DEFAULT_DB = "sqlite:///data/eurosatory.db"
+_DEPLOY_DB = _Path("data/eurosatory_deploy.db")
+_DEV_DB = _Path("data/eurosatory.db")
+
+_explicit_url = bool(_os.getenv("DATABASE_URL"))
+
 if (
     settings.database_url == _DEFAULT_DB
-    and not _os.getenv("DATABASE_URL")
-    and not _Path("data/eurosatory.db").exists()
-    and _Path("data/eurosatory_deploy.db").exists()
+    and not _explicit_url
+    and not _DEV_DB.exists()
+    and _DEPLOY_DB.exists()
 ):
-    settings.database_url = "sqlite:///data/eurosatory_deploy.db"
+    # On Streamlit Cloud the repo dir is read-only — try to write a tiny
+    # marker to detect the read-only mount and fall back to a writable
+    # copy in ``/tmp`` if needed.
+    is_readonly = False
+    try:
+        probe = _DEPLOY_DB.parent / ".__rw_probe__"
+        probe.write_text("ok")
+        probe.unlink()
+    except (OSError, PermissionError):
+        is_readonly = True
+
+    if is_readonly:
+        # Copy the read-only deploy DB to a writable temp location on
+        # first import. Subsequent imports reuse the existing copy.
+        writable_dir = _Path(_tempfile.gettempdir()) / "eurosatory_rw"
+        writable_dir.mkdir(parents=True, exist_ok=True)
+        writable_db = writable_dir / "eurosatory_deploy.db"
+        if not writable_db.exists():
+            _shutil.copy2(_DEPLOY_DB, writable_db)
+        settings.database_url = f"sqlite:///{writable_db}"
+    else:
+        settings.database_url = "sqlite:///data/eurosatory_deploy.db"
