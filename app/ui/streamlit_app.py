@@ -5326,8 +5326,8 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
         )
         return None, []
 
-    # Sort + page-size controls (mirror render_table on Companies)
-    sort_col, limit_col, _spacer = st.columns([2, 1, 3])
+    # Sort + page-size + page-navigation controls
+    sort_col, limit_col, page_col = st.columns([2, 1, 1.5])
     with sort_col:
         sort_label = st.selectbox(
             "Trier par",
@@ -5341,12 +5341,20 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
             key="att_list_sort",
             label_visibility="collapsed",
         )
+    # The selectbox offers fixed bucket sizes + a "Tout" option that
+    # disables pagination and renders the whole filtered set. We add a
+    # ``Tout (N)`` label so the user always knows the full count.
+    _total_n = len(df)
+    _SIZE_OPTIONS: list[int | str] = [50, 100, 200, 500, 1000, 5000, "Tout"]
     with limit_col:
-        page_size = st.selectbox(
+        size_choice = st.selectbox(
             "Lignes",
-            [50, 100, 200, 500, 1000, len(df) if len(df) <= 5000 else 5000],
+            _SIZE_OPTIONS,
             index=2,
             key="att_list_page_size",
+            format_func=lambda v: (
+                f"Tout ({_total_n})" if v == "Tout" else str(v)
+            ),
             label_visibility="collapsed",
         )
 
@@ -5363,7 +5371,45 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
     elif "Année" in sort_label:
         sort_input = sort_input.sort_values("edition_year", ascending=False)
 
-    sort_input = sort_input.head(int(page_size))
+    # Pagination : when the user picks a finite page size and there are
+    # more rows than fit on one page, render ◀ Prev / Next ▶ buttons.
+    if size_choice == "Tout":
+        page_size = _total_n
+        page = 0
+        total_pages = 1
+    else:
+        page_size = int(size_choice)
+        total_pages = max(1, (_total_n + page_size - 1) // page_size)
+        page_key = "att_list_page"
+        page = int(st.session_state.get(page_key, 0))
+        page = max(0, min(page, total_pages - 1))
+        with page_col:
+            pc1, pc2, pc3 = st.columns([1, 1.6, 1])
+            with pc1:
+                if st.button(
+                    "◀", key="att_page_prev",
+                    disabled=page <= 0,
+                    use_container_width=True,
+                ):
+                    st.session_state[page_key] = max(0, page - 1)
+                    st.rerun()
+            with pc2:
+                st.markdown(
+                    f"<div style='text-align:center;line-height:2.3rem;"
+                    f"font-size:0.85rem;'>Page <b>{page + 1}</b> / "
+                    f"{total_pages}</div>",
+                    unsafe_allow_html=True,
+                )
+            with pc3:
+                if st.button(
+                    "▶", key="att_page_next",
+                    disabled=page >= total_pages - 1,
+                    use_container_width=True,
+                ):
+                    st.session_state[page_key] = min(total_pages - 1, page + 1)
+                    st.rerun()
+
+    sort_input = sort_input.iloc[page * page_size : (page + 1) * page_size]
 
     cols_present = [c for c in _ATT_LIST_COLUMNS if c in sort_input.columns]
     show = sort_input[cols_present].copy()
@@ -5393,11 +5439,14 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
             )
             show.loc[~url_is_linkedin, "source_url"] = ""
 
+    _pagination_caption = (
+        f"Page {page + 1}/{total_pages} · " if total_pages > 1 else ""
+    )
     st.caption(
-        f"**{len(show)} affichés** / {len(df)} filtrés · trié par "
-        f"**{sort_label}** · 💡 cliquer sur une ligne ouvre la fiche "
-        f"détaillée. La colonne **Source** n'est affichée que pour les "
-        f"signaux LinkedIn (les autres sources sont confidentielles)."
+        f"{_pagination_caption}**{len(show)} affichés** / {len(df)} filtrés "
+        f"· trié par **{sort_label}** · 💡 cliquer sur une ligne ouvre la "
+        f"fiche détaillée. La colonne **Source** n'est affichée que pour "
+        f"les signaux LinkedIn (les autres sources sont confidentielles)."
     )
 
     event = st.dataframe(
