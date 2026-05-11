@@ -82,6 +82,109 @@ ISO2_TO_COUNTRY_FR: dict[str, str] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Country → Geographic zone (5 buckets fermés)
+# ---------------------------------------------------------------------------
+# We expose this as a coarse filter in both the Companies sidebar and the
+# Attendance Signals filter row. Buckets are user-facing French labels.
+
+ZONE_EUROPE = "Europe"
+ZONE_ASIA = "Asie"
+ZONE_NORTH_AMERICA = "Amérique du Nord"
+ZONE_SOUTH_AMERICA = "Amérique du Sud"
+ZONE_OTHER = "Autre"
+
+GEOGRAPHIC_ZONES: tuple[str, ...] = (
+    ZONE_EUROPE,
+    ZONE_NORTH_AMERICA,
+    ZONE_ASIA,
+    ZONE_SOUTH_AMERICA,
+    ZONE_OTHER,
+)
+
+# ISO2 → zone label. We treat the Caucasus / Levant / Gulf / Iran / Iraq /
+# Central Asia as "Asia" (consistent with our defense-industry context
+# where Turkey is also frequently lumped with Europe — see note below).
+_ISO2_TO_ZONE: dict[str, str] = {
+    # ── Europe ────────────────────────────────────────────────────────
+    **{k: ZONE_EUROPE for k in (
+        "FR", "DE", "GB", "UK", "IT", "ES", "PT", "BE", "NL", "LU",
+        "CH", "AT", "IE", "DK", "NO", "SE", "FI", "IS", "PL", "CZ",
+        "SK", "HU", "RO", "BG", "GR", "TR", "HR", "RS", "SI", "EE",
+        "LV", "LT", "UA", "BY", "MD", "AL", "MK", "BA", "ME", "XK",
+        "MT", "CY", "RU", "VA",
+    )},
+    # ── Amérique du Nord ──────────────────────────────────────────────
+    **{k: ZONE_NORTH_AMERICA for k in ("US", "USA", "CA", "MX")},
+    # ── Amérique du Sud ───────────────────────────────────────────────
+    **{k: ZONE_SOUTH_AMERICA for k in (
+        "BR", "AR", "CL", "CO", "PE", "VE", "EC", "UY", "PY", "BO",
+        "GY", "SR", "GF",
+    )},
+    # ── Asie (incl. Moyen-Orient & Asie centrale) ─────────────────────
+    **{k: ZONE_ASIA for k in (
+        "CN", "JP", "KR", "KP", "TW", "HK", "MO",
+        "IN", "PK", "BD", "LK", "NP", "BT",
+        "ID", "TH", "VN", "PH", "MY", "SG", "BN", "MM", "LA", "KH", "TL",
+        "AE", "SA", "QA", "BH", "KW", "OM", "YE", "JO", "LB", "SY", "IQ",
+        "IR", "IL", "PS",
+        "KZ", "UZ", "TM", "KG", "TJ", "AF", "MN",
+    )},
+}
+
+
+def country_to_zone(
+    iso2: Optional[str] = None,
+    country_name: Optional[str] = None,
+) -> str:
+    """Return the geographic zone for an ISO2 code (preferred) or a French
+    country name fallback. Anything not classified maps to ``"Autre"``
+    (Africa, Oceania, smaller Pacific nations, unknown).
+    """
+    if iso2:
+        code = (iso2 or "").upper().strip()[:2]
+        z = _ISO2_TO_ZONE.get(code)
+        if z:
+            return z
+    if country_name:
+        # Best-effort reverse lookup via the French country dictionary.
+        for k, v in ISO2_TO_COUNTRY_FR.items():
+            if v == country_name:
+                z = _ISO2_TO_ZONE.get(k)
+                if z:
+                    return z
+        # English fallbacks for raw scraped values.
+        low = country_name.lower()
+        for keyword, zone in (
+            ("united states", ZONE_NORTH_AMERICA), ("usa", ZONE_NORTH_AMERICA),
+            ("canada", ZONE_NORTH_AMERICA), ("mexico", ZONE_NORTH_AMERICA),
+            ("united kingdom", ZONE_EUROPE), ("germany", ZONE_EUROPE),
+            ("france", ZONE_EUROPE), ("italy", ZONE_EUROPE),
+            ("spain", ZONE_EUROPE), ("portugal", ZONE_EUROPE),
+            ("netherlands", ZONE_EUROPE), ("belgium", ZONE_EUROPE),
+            ("sweden", ZONE_EUROPE), ("norway", ZONE_EUROPE),
+            ("denmark", ZONE_EUROPE), ("finland", ZONE_EUROPE),
+            ("switzerland", ZONE_EUROPE), ("austria", ZONE_EUROPE),
+            ("poland", ZONE_EUROPE), ("czech", ZONE_EUROPE),
+            ("turkey", ZONE_EUROPE), ("greece", ZONE_EUROPE),
+            ("ireland", ZONE_EUROPE), ("ukraine", ZONE_EUROPE),
+            ("china", ZONE_ASIA), ("japan", ZONE_ASIA), ("korea", ZONE_ASIA),
+            ("india", ZONE_ASIA), ("singapore", ZONE_ASIA),
+            ("indonesia", ZONE_ASIA), ("thailand", ZONE_ASIA),
+            ("vietnam", ZONE_ASIA), ("malaysia", ZONE_ASIA),
+            ("philippines", ZONE_ASIA), ("taiwan", ZONE_ASIA),
+            ("pakistan", ZONE_ASIA), ("bangladesh", ZONE_ASIA),
+            ("saudi", ZONE_ASIA), ("emirates", ZONE_ASIA),
+            ("israel", ZONE_ASIA), ("iran", ZONE_ASIA),
+            ("brazil", ZONE_SOUTH_AMERICA), ("argentina", ZONE_SOUTH_AMERICA),
+            ("chile", ZONE_SOUTH_AMERICA), ("colombia", ZONE_SOUTH_AMERICA),
+            ("peru", ZONE_SOUTH_AMERICA),
+        ):
+            if keyword in low:
+                return zone
+    return ZONE_OTHER
+
+
 def country_fr(iso2: Optional[str], fallback_name: Optional[str] = None) -> Optional[str]:
     if not iso2:
         return fallback_name or None

@@ -255,6 +255,16 @@ def signals_dataframe(*, include_duplicates: bool = False) -> pd.DataFrame:
         ),
         axis=1,
     )
+
+    # Geographic zone — same 5-bucket coarse region used by Companies.
+    from app.crm.normalizers import country_to_zone
+    df["zone"] = df.apply(
+        lambda r: country_to_zone(
+            iso2=r.get("country_iso2"),
+            country_name=r.get("country"),
+        ),
+        axis=1,
+    )
     return df
 
 
@@ -283,12 +293,15 @@ def apply_filters(
     exclude_known_exhibitors: bool = False,
     platforms: Optional[list[str]] = None,
     company_types: Optional[list[str]] = None,
+    zones: Optional[list[str]] = None,
 ) -> pd.DataFrame:
     out = df.copy()
     if exclude_known_exhibitors and "is_known_exhibitor" in out.columns:
         out = out[~out["is_known_exhibitor"].fillna(False)]
     if years:
         out = out[out["edition_year"].isin(years)]
+    if zones and "zone" in out.columns:
+        out = out[out["zone"].isin(zones)]
     if countries:
         out = out[out["country"].isin(countries)]
     if role_categories:

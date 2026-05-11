@@ -335,6 +335,18 @@ def load_crm() -> pd.DataFrame:
         ),
         axis=1,
     )
+
+    # Geographic zone — coarse 5-bucket region label derived from the
+    # ISO2 country code (preferred) or the French country name (fallback).
+    # Used by the "Zone géographique" sidebar filter.
+    from app.crm.normalizers import country_to_zone
+    merged["zone"] = merged.apply(
+        lambda r: country_to_zone(
+            iso2=r.get("country_iso2"),
+            country_name=r.get("country"),
+        ),
+        axis=1,
+    )
     return merged
 
 
@@ -584,8 +596,28 @@ def render_sidebar(df: pd.DataFrame) -> dict:
 
         st.markdown("---")
         st.markdown("**📋 Identification**")
+        # Geographic zone : coarse 5-bucket region filter. Combines well
+        # with the Pays multiselect (zone narrows the country list).
+        from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
+        zones = st.multiselect(
+            "Zone géographique",
+            list(_ZONES),
+            key="filter_zones",
+            help="Europe · Amérique du Nord · Asie · Amérique du Sud · "
+            "Autre (Afrique, Océanie, autres).",
+        )
+        # If a zone is selected, restrict the country picker to that
+        # zone's countries so the user doesn't pick incompatible
+        # combinations.
+        if zones and "zone" in df.columns:
+            country_pool = sorted([
+                c for c in df.loc[df["zone"].isin(zones), "country"]
+                .dropna().unique()
+            ])
+        else:
+            country_pool = sorted([c for c in df["country"].dropna().unique()])
         countries = st.multiselect(
-            "Pays", sorted([c for c in df["country"].dropna().unique()]),
+            "Pays", country_pool,
             key="filter_countries",
         )
         defense_segments = st.multiselect(
@@ -819,6 +851,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
 
     return {
         "countries": countries,
+        "zones": zones,
         "defense_segments": defense_segments,
         "target_types": target_types,
         "priority_levels": priorities,
@@ -5254,7 +5287,8 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     are covered by the Companies tab). Operators can flip the toggle to
     see them too.
     """
-    c1, c2, c3, c4 = st.columns([1, 1.7, 2.4, 1.4])
+    from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
+    c1, c2, c3, c4, c5 = st.columns([0.9, 1.3, 1.3, 2.1, 1.2])
     with c1:
         years = st.multiselect(
             "Année",
@@ -5262,21 +5296,29 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             key="att_years",
         )
     with c2:
+        zones = st.multiselect(
+            "Zone",
+            list(_ZONES),
+            key="att_zones",
+            help="Europe · Amérique du Nord · Asie · Amérique du Sud · "
+            "Autre (Afrique, Océanie, autres).",
+        )
+    with c3:
         company_types = st.multiselect(
             "Type d'entreprise",
             ALLOWED_COMPANY_TYPES,
             key="att_company_types",
-            help="Taxonomie fermée 8 valeurs — calculée à partir des "
+            help="Taxonomie fermée 8 valeurs — calculée depuis les "
             "capabilities de la société. Filtre les signaux dont la "
             "société matche un de ces buckets.",
         )
-    with c3:
+    with c4:
         search_text = st.text_input(
             "🔎 Recherche libre (nom personne / société / texte)",
             key="att_search",
             placeholder="Ex: Thales, John Doe, cyber, France…",
         )
-    with c4:
+    with c5:
         include_exhibitors = st.checkbox(
             "Inclure exposants",
             value=False,
@@ -5288,6 +5330,7 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
 
     return {
         "years": years,
+        "zones": zones,
         "company_types": company_types,
         # Source / platform filter retired — sources are confidential
         # (proprietary intel scraping). Only LinkedIn signals show their

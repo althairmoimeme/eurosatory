@@ -172,9 +172,12 @@ def apply_filters(
     min_targeting_score: int = 0,
     targeting_sources: Optional[list[str]] = None,
     supply_chain_tier: Optional[list[str]] = None,
+    zones: Optional[list[str]] = None,
 ) -> pd.DataFrame:
     out = df.copy()
 
+    if zones and "zone" in out.columns:
+        out = out[out["zone"].isin(zones)]
     if countries:
         out = out[out["country"].isin(countries)]
     if defense_segments:
