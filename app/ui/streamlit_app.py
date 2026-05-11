@@ -5369,19 +5369,29 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
     show = sort_input[cols_present].copy()
     show.insert(0, "_id", sort_input["id"].astype(int))
 
-    # ---- Confidentiality : mask source_platform / source_url for every
-    # signal that doesn't come from LinkedIn. The proprietary-intel
-    # sources (ADS Group UK, GICAT-FR, BDSV-DE, BDLI-DE, AIAD-IT, press
-    # scraping, corporate-site scraping…) must not be exposed to clients.
-    # LinkedIn is OK because it's a public, expected source.
+    # ---- Confidentiality : mask the proprietary source attribution
+    # (ADS Group UK, GICAT, Lemlist, etc.) — the client must NOT see
+    # which intel platform the data came from.
+    # The ``source_url`` column is treated more permissively : a
+    # ``linkedin.com`` URL is a *public* link and stays visible even
+    # when it was harvested via a proprietary platform (the client
+    # benefits from one-click access to the person's LinkedIn profile,
+    # without learning where we sourced the lead).
     if "source_platform" in show.columns:
-        is_linkedin = (
+        # Mask the platform attribution unless it IS LinkedIn (rare
+        # native LinkedIn signals scraped directly from the platform).
+        is_linkedin_platform = (
             show["source_platform"].fillna("")
             .str.lower().str.contains("linkedin", regex=False)
         )
-        show.loc[~is_linkedin, "source_platform"] = ""
+        show.loc[~is_linkedin_platform, "source_platform"] = ""
         if "source_url" in show.columns:
-            show.loc[~is_linkedin, "source_url"] = ""
+            # Mask source_url ONLY when it doesn't point to LinkedIn.
+            url_is_linkedin = (
+                show["source_url"].fillna("")
+                .str.lower().str.contains("linkedin.com", regex=False)
+            )
+            show.loc[~url_is_linkedin, "source_url"] = ""
 
     st.caption(
         f"**{len(show)} affichés** / {len(df)} filtrés · trié par "
@@ -6364,25 +6374,34 @@ def _render_attendance_detail(signal_id: int) -> None:
             st.session_state.pop("att_detail_id", None)
             st.rerun()
 
-    # Section 1 — Source (only exposed when it's LinkedIn ; the other
-    # proprietary intel sources are masked to the client).
-    is_linkedin_signal = bool(
+    # Section 1 — Source. We expose :
+    #  - the ``source_url`` whenever it points to LinkedIn (public link
+    #    safe to share, even when the intel platform itself is
+    #    proprietary).
+    #  - the ``source_platform`` only when it IS LinkedIn-native.
+    # The proprietary intel platforms (ADS / GICAT / Lemlist / etc.)
+    # stay confidential to the client.
+    is_linkedin_platform = bool(
         sig.source_platform
         and "linkedin" in sig.source_platform.lower()
     )
+    src_url = sig.source_url or ""
+    url_is_linkedin = "linkedin.com" in src_url.lower()
     st.markdown('<div class="section-title">1 · Source</div>',
                 unsafe_allow_html=True)
     sc1, sc2 = st.columns([3, 2])
     with sc1:
-        if is_linkedin_signal:
-            if sig.source_title:
-                st.markdown(f"**Titre** : {sig.source_title}")
-            if sig.source_url:
-                st.markdown(f"**URL** : [{sig.source_url}]({sig.source_url})")
-            if sig.source_platform:
-                st.markdown(f"**Plateforme** : `{sig.source_platform}`")
-            if sig.search_query_used:
-                st.caption(f"🔎 Recherche utilisée : `{sig.search_query_used}`")
+        if url_is_linkedin:
+            st.markdown(f"**URL LinkedIn** : [{src_url}]({src_url})")
+            if is_linkedin_platform:
+                if sig.source_title:
+                    st.markdown(f"**Titre** : {sig.source_title}")
+                if sig.source_platform:
+                    st.markdown(f"**Plateforme** : `{sig.source_platform}`")
+                if sig.search_query_used:
+                    st.caption(
+                        f"🔎 Recherche utilisée : `{sig.search_query_used}`"
+                    )
         else:
             st.caption(
                 "🔒 Source confidentielle — détail non exposé "
