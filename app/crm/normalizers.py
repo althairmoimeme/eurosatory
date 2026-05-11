@@ -141,20 +141,24 @@ def country_to_zone(
     country name fallback. Anything not classified maps to ``"Autre"``
     (Africa, Oceania, smaller Pacific nations, unknown).
     """
-    if iso2:
-        code = (iso2 or "").upper().strip()[:2]
+    # NaN-safe coercion — pandas hands us nan floats for missing cells.
+    iso2_s = iso2 if isinstance(iso2, str) else ""
+    name_s = country_name if isinstance(country_name, str) else ""
+
+    if iso2_s:
+        code = iso2_s.upper().strip()[:2]
         z = _ISO2_TO_ZONE.get(code)
         if z:
             return z
-    if country_name:
+    if name_s:
         # Best-effort reverse lookup via the French country dictionary.
         for k, v in ISO2_TO_COUNTRY_FR.items():
-            if v == country_name:
+            if v == name_s:
                 z = _ISO2_TO_ZONE.get(k)
                 if z:
                     return z
         # English fallbacks for raw scraped values.
-        low = country_name.lower()
+        low = name_s.lower()
         for keyword, zone in (
             ("united states", ZONE_NORTH_AMERICA), ("usa", ZONE_NORTH_AMERICA),
             ("canada", ZONE_NORTH_AMERICA), ("mexico", ZONE_NORTH_AMERICA),
