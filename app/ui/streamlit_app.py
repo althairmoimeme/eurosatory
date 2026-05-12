@@ -4133,7 +4133,7 @@ def _render_csv_import(df: pd.DataFrame) -> None:
                      expanded=False):
         st.caption(
             "Charge un fichier de sociétés existant, on match contre les "
-            "exposants Eurosatory par **nom** (case-insensitive), et "
+            "exposants catalogue par **nom** (case-insensitive), et "
             "optionnellement filtré par **pays** pour lever les ambiguïtés. "
             "Les sociétés non-trouvées dans le catalogue sont listées pour "
             "vérification manuelle — pas d'ajout silencieux."
@@ -5040,7 +5040,7 @@ def render_data_quality_tab(df: pd.DataFrame) -> None:
         unsafe_allow_html=True,
     )
     st.caption(
-        "Vue synthétique de ce que contient la base Eurosatory 2026. "
+        "Vue synthétique de ce que contient la base LeadForges. "
         "Ces chiffres répondent à : *« Si j'achète, qu'est-ce que je récupère ? »*"
     )
 
@@ -5606,8 +5606,8 @@ def _render_attendance_bulk_paste() -> None:
         st.caption(
             "Colle ici des URLs trouvées dans Google / LinkedIn / etc. — "
             "**une par ligne**. Le système les fetch en parallèle, "
-            "extrait titre + snippet, détecte les mentions « Eurosatory "
-            "<année> » et crée les signaux automatiquement (dédupliqués). "
+            "extrait titre + snippet, détecte les mentions du salon "
+            "ciblé et crée les signaux automatiquement (dédupliqués). "
             "C'est la voie d'enrichissement la plus rapide : ~10s pour "
             "20 URLs."
         )
@@ -5686,9 +5686,9 @@ def _render_attendance_auto_collect() -> None:
     with st.expander("🤖 Scraper auto — sites web exposants → signaux",
                      expanded=False):
         st.caption(
-            "Scanne les sites officiels des **2337 exposants** pour des "
-            "mentions « Eurosatory <année> » sur leur homepage + pages "
-            "/news, /press, /events, /eurosatory. Génère des signaux "
+            "Scanne les sites officiels des exposants pour des "
+            "mentions du salon ciblé sur leur homepage + pages "
+            "/news, /press, /events. Génère des signaux "
             "`signal_type=company_announcement` automatiquement scorés et "
             "dédupliqués. **Ne touche pas LinkedIn / X** (collecte manuelle "
             "via les requêtes Google ci-dessous, posture légale "
@@ -6887,9 +6887,9 @@ def _render_attendance_bulk(signal_ids: list[int]) -> None:
     )
     st.caption(
         "Map les sociétés des personnes sélectionnées vers leurs fiches "
-        "exposants Eurosatory (quand match) et les ajoute à une liste "
+        "exposants catalogue (quand match) et les ajoute à une liste "
         "commerciale custom — réutilise les listes définies dans "
-        "« 📋 Custom lists »."
+        "« ⭐ Favoris »."
     )
     # Resolve unique exhibitor IDs behind these signals
     from app.database import AttendanceSignal, Exhibitor, session_scope as _ss
@@ -6925,7 +6925,7 @@ def _render_attendance_bulk(signal_ids: list[int]) -> None:
     with cc1:
         st.markdown(
             f"**🛡 Sociétés matchées** : {len(matched_ids)} fiches "
-            f"Eurosatory."
+            f"catalogue."
         )
         if unmatched_companies:
             with st.expander(
@@ -7373,7 +7373,7 @@ def _render_attendance_prospection_export(filtered: pd.DataFrame) -> None:
         "derived_email": "Email",
         "derived_phone": "Téléphone",
         "derived_linkedin": "LinkedIn",
-        "matched_exhibitor": "Exposant Eurosatory",
+        "matched_exhibitor": "Exposant catalogue",
         "source_url": "Source",
         "edition_year": "Édition",
     })

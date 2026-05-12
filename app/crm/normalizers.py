@@ -112,10 +112,12 @@ _ISO2_TO_ZONE: dict[str, str] = {
         "CH", "AT", "IE", "DK", "NO", "SE", "FI", "IS", "PL", "CZ",
         "SK", "HU", "RO", "BG", "GR", "TR", "HR", "RS", "SI", "EE",
         "LV", "LT", "UA", "BY", "MD", "AL", "MK", "BA", "ME", "XK",
-        "MT", "CY", "RU", "VA",
+        "MT", "CY", "RU", "VA", "LI", "GI", "AD", "MC", "SM", "FO",
     )},
     # ── Amérique du Nord ──────────────────────────────────────────────
-    **{k: ZONE_NORTH_AMERICA for k in ("US", "USA", "CA", "MX")},
+    **{k: ZONE_NORTH_AMERICA for k in (
+        "US", "USA", "CA", "MX", "PR",  # PR = Puerto Rico (US territory)
+    )},
     # ── Amérique du Sud ───────────────────────────────────────────────
     **{k: ZONE_SOUTH_AMERICA for k in (
         "BR", "AR", "CL", "CO", "PE", "VE", "EC", "UY", "PY", "BO",
@@ -129,6 +131,7 @@ _ISO2_TO_ZONE: dict[str, str] = {
         "AE", "SA", "QA", "BH", "KW", "OM", "YE", "JO", "LB", "SY", "IQ",
         "IR", "IL", "PS",
         "KZ", "UZ", "TM", "KG", "TJ", "AF", "MN",
+        "AM", "AZ", "GE",  # Caucasus
     )},
 }
 
