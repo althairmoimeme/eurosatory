@@ -355,6 +355,32 @@ def load_crm() -> pd.DataFrame:
 # ---------------------------------------------------------------------------
 
 
+def _inject_session_favorites(df: pd.DataFrame) -> pd.DataFrame:
+    """Overwrite ``df["is_favorite"]`` with the session-scoped favorites.
+
+    Called by every view that reads ``is_favorite``. Keeps the cached
+    ``load_crm()`` output free of per-session state — the cache key
+    stays stable across users while each session sees its own ⭐.
+    """
+    if df is None or df.empty:
+        return df
+    try:
+        from app.ui.auth import get_favorite_ids
+        fav = get_favorite_ids()
+    except Exception:  # noqa: BLE001
+        fav = set()
+    out = df.copy()
+    if "account_id" in out.columns:
+        out["_eid_tmp"] = (
+            out["account_id"].fillna("")
+            .str.replace("ESY26-", "", regex=False)
+            .replace("", "0").astype(int)
+        )
+        out["is_favorite"] = out["_eid_tmp"].isin(fav)
+        out.drop(columns=["_eid_tmp"], inplace=True)
+    return out
+
+
 def _badge(label: str, palette: dict) -> str:
     bg, fg = palette.get(label, ("#94A3B8", "#FFFFFF"))
     return f'<span class="badge" style="background:{bg};color:{fg};">{label}</span>'
@@ -1483,7 +1509,12 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
         hide_index=True,
     )
 
-    # Diff against snapshot to detect ⭐ toggles → persist to DB.
+    # Diff against snapshot to detect ⭐ toggles. Favorites are
+    # session-scoped (stored in st.session_state via app.ui.auth) — we
+    # don't touch the DB because the Cloud filesystem is read-only.
+    # Buyers export their selection to XLSX/CSV at any time for a
+    # durable record outside the app.
+    from app.ui.auth import set_favorite
     snap = st.session_state[snap_key]
     snap_indexed = snap.set_index("_id")
     edited_indexed = edited.set_index("_id")
@@ -1496,15 +1527,8 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
         if new_fav != old_fav:
             fav_changes.append((int(eid), new_fav))
     if fav_changes:
-        from app.database import session_scope as _ss
-        with _ss() as s:
-            for eid, fav in fav_changes:
-                e = s.get(Exhibitor, eid)
-                if e is not None and bool(e.is_favorite) != fav:
-                    e.is_favorite = fav
-                    _log(s, eid,
-                         "favorite_added" if fav else "favorite_removed",
-                         f"Inline ⭐ → {fav}")
+        for eid, fav in fav_changes:
+            set_favorite(eid, fav)
         st.session_state[snap_key] = edited.copy()
         st.cache_data.clear()
         added_count = sum(1 for _, f in fav_changes if f)
@@ -5140,70 +5164,29 @@ def render_data_quality_tab(df: pd.DataFrame) -> None:
 
 
 def _check_password() -> bool:
-    """Simple password gate — only enforced when ``APP_PASSWORD`` is set
-    (env var or Streamlit secret).  Locally with no password set, the
-    app is always open.
+    """Multi-buyer authentication gate.
 
-    Sets ``st.session_state['_authenticated'] = True`` once the right
-    password has been entered, so the user only sees the prompt once.
+    Delegates to :mod:`app.ui.auth`. Returns ``True`` when access is
+    granted (either a logged-in buyer with non-expired access, or no
+    gate configured for local dev). Otherwise renders the login screen
+    and returns ``False``.
     """
-    import os as _os
-    expected = _os.getenv("APP_PASSWORD", "")
-    if not expected:
-        # Try Streamlit secrets
-        try:
-            expected = st.secrets.get("APP_PASSWORD", "")  # type: ignore[attr-defined]
-        except Exception:  # noqa: BLE001
-            expected = ""
-    if not expected:
-        # No password configured → open app
+    from app.ui.auth import is_authenticated, render_login_screen
+    if is_authenticated():
         return True
-    if st.session_state.get("_authenticated"):
-        return True
-
-    st.markdown(
-        """
-        <div style='max-width: 380px; margin: 4rem auto; padding: 2rem 1.75rem;
-                    border: 1px solid #E2E8F0; background: #fff;
-                    font-family: -apple-system, BlinkMacSystemFont, sans-serif;'>
-            <div style='font-size: 0.7rem; letter-spacing: 0.12em;
-                        color: #64748B; text-transform: uppercase; font-weight: 600;'>
-                LeadForges · Defense Commercial Intelligence
-            </div>
-            <div style='font-size: 1.4rem; font-weight: 600; color: #0F172A;
-                        letter-spacing: -0.02em; margin: 0.6rem 0 1.2rem 0;'>
-                Accès restreint
-            </div>
-            <div style='font-size: 0.85rem; color: #475569; line-height: 1.5;
-                        margin-bottom: 1.5rem;'>
-                Cette application contient des données commerciales défense
-                propriétaires. Veuillez saisir le mot de passe communiqué.
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    cols = st.columns([1, 2, 1])
-    with cols[1]:
-        pw = st.text_input(
-            "Mot de passe", type="password",
-            label_visibility="collapsed",
-            placeholder="Mot de passe",
-            key="_app_password_input",
-        )
-        if pw:
-            if pw == expected:
-                st.session_state["_authenticated"] = True
-                st.rerun()
-            else:
-                st.error("Mot de passe incorrect.")
+    render_login_screen()
     return False
 
 
 def main() -> None:
     if not _check_password():
         st.stop()
+    from app.ui.auth import render_access_banner
+    render_access_banner()
     df = load_crm()
+    # Overlay session-scoped favorites on top of the cached dataframe so
+    # each buyer sees their own ⭐ selection without polluting the cache.
+    df = _inject_session_favorites(df)
     render_header(df)
 
     if df.empty:
