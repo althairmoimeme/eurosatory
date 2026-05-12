@@ -646,6 +646,10 @@ _FILTER_KEYS = (
 
 
 def _apply_target_list(lst: dict) -> None:
+    """Callback (NOT in-button). Runs BEFORE the next script rerun so
+    the sidebar widgets re-instantiate cleanly with the new values
+    (avoids ``cannot be modified after widget instantiation``).
+    """
     # Reset all known filter keys so we get a clean slate
     for k in _FILTER_KEYS:
         if k in st.session_state:
@@ -657,7 +661,8 @@ def _apply_target_list(lst: dict) -> None:
     for k, v in lst["filters"].items():
         st.session_state[k] = v
     st.session_state["_tlc_just_applied"] = lst["title"]
-    st.rerun()
+    # Note : no st.rerun() — when used as on_click callback, Streamlit
+    # reruns automatically after the callback returns.
 
 
 # ---------------------------------------------------------------------------
@@ -761,12 +766,13 @@ def render_target_lists_tab(df: pd.DataFrame) -> None:
                 # Action button below the card
                 st.markdown('<div class="tlc-action-row">',
                             unsafe_allow_html=True)
-                if st.button(
+                st.button(
                     "Charger ces filtres",
                     key=f"tlc_apply_{lst['id']}",
                     use_container_width=True,
-                ):
-                    _apply_target_list(lst)
+                    on_click=_apply_target_list,
+                    args=(lst,),
+                )
                 st.markdown('</div>', unsafe_allow_html=True)
 
     # Footer note

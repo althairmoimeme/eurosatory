@@ -1090,24 +1090,31 @@ def render_company_type_chips(filtered_df: pd.DataFrame) -> None:
     )
     cur = set(st.session_state.get("filter_company_types", []) or [])
 
+    def _toggle_chip(canon: str) -> None:
+        """Callback : runs BEFORE the next script execution, so the
+        sidebar multiselect re-instantiates with the new value cleanly
+        (avoids the 'cannot be modified after instantiation' error)."""
+        sel = set(st.session_state.get("filter_company_types") or [])
+        if canon in sel:
+            sel.discard(canon)
+        else:
+            sel.add(canon)
+        st.session_state["filter_company_types"] = sorted(sel)
+
     def _render_chip(col, canon: str, short: str) -> None:
         n = int(counts.get(canon, 0))
         active = canon in cur
         n_disp = f"{n:,}".replace(",", " ")
         with col:
-            if st.button(
+            st.button(
                 f"{short} · {n_disp}",
                 key=f"chip_ct_{canon}",
                 use_container_width=True,
                 type="primary" if active else "secondary",
                 help=f"Filtrer la table sur **{canon}** ({n_disp} société·s).",
-            ):
-                if active:
-                    cur.discard(canon)
-                else:
-                    cur.add(canon)
-                st.session_state["filter_company_types"] = sorted(cur)
-                st.rerun()
+                on_click=_toggle_chip,
+                args=(canon,),
+            )
 
     # Row 1 : OEM / Intégrateur / Équipementier / Sous-traitant
     row1 = st.columns(4, gap="small")
@@ -1174,24 +1181,33 @@ def render_active_filter_chips(filters: dict, filtered_df: pd.DataFrame) -> None
                 f"{label}</span>"
             )
         st.markdown(" ".join(chip_html), unsafe_allow_html=True)
+
+        def _rm_from_filter(key: str, value: str) -> None:
+            cur = list(st.session_state.get(key) or [])
+            if value in cur:
+                cur.remove(value)
+                st.session_state[key] = cur
+                st.cache_data.clear()
+
+        def _reset_all_filters() -> None:
+            for k in list(st.session_state.keys()):
+                if k.startswith("filter_"):
+                    del st.session_state[k]
+            st.cache_data.clear()
+
         with st.expander(f"❌ Retirer un filtre ({len(chips)} multi + {len(bool_extra)} flags)"):
             for field, value, label in chips:
                 key = _filter_session_key(field)
                 if not key:
                     continue
-                if st.button(f"× {label}", key=f"chip_rm_{field}_{value}"):
-                    cur = list(st.session_state.get(key, []))
-                    if value in cur:
-                        cur.remove(value)
-                        st.session_state[key] = cur
-                        st.cache_data.clear()
-                        st.rerun()
-            if st.button("🗑 Reset all filters", key="chip_reset_all"):
-                for k in list(st.session_state.keys()):
-                    if k.startswith("filter_"):
-                        del st.session_state[k]
-                st.cache_data.clear()
-                st.rerun()
+                st.button(
+                    f"× {label}", key=f"chip_rm_{field}_{value}",
+                    on_click=_rm_from_filter, args=(key, value),
+                )
+            st.button(
+                "🗑 Reset all filters", key="chip_reset_all",
+                on_click=_reset_all_filters,
+            )
     with chip_cols[1]:
         st.markdown(f"**{len(filtered_df)} sociétés**")
         with st.popover("💾 Save as list", use_container_width=True):
@@ -1294,29 +1310,15 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
                 "Tu as **{}** filtres actifs. Probablement trop restrictif. "
                 "Essaie de retirer :".format(len(active))
             )
-            for key, value in active[:6]:
-                pretty = key.replace("filter_", "")
-                preview = (
-                    ", ".join(map(str, value)) if isinstance(value, (list, tuple))
-                    else str(value)
+
+            def _reset_one_filter(key: str, kind: str) -> None:
+                st.session_state[key] = (
+                    [] if kind == "list" else
+                    "" if kind == "str" else False
                 )
-                if st.button(f"❌ Retirer {pretty} ({preview[:40]})",
-                             key=f"{key_prefix}_empty_remove_{key}"):
-                    st.session_state[key] = (
-                        [] if isinstance(value, (list, tuple)) else
-                        "" if isinstance(value, str) else False
-                    )
-                    st.cache_data.clear()
-                    st.rerun()
-            if st.button(
-                "🗑 Reset all filters (sauf Véhicules / Catégorie courante)",
-                key=f"{key_prefix}_empty_reset_all",
-                help="Garde le filtre principal de catégorie produit / "
-                "service que tu viens de cliquer ; supprime tout le reste.",
-            ):
-                # Preserve the user's most recent product/service/cat
-                # filter — those are the *intent* of the search. Wipe
-                # everything else (range sliders, country, type…).
+                st.cache_data.clear()
+
+            def _reset_filters_keep_cats() -> None:
                 _PRESERVE = {
                     "filter_products_built", "filter_products_sold",
                     "filter_services_sold", "filter_targeting_prod_cats",
@@ -1326,7 +1328,29 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
                     if k.startswith("filter_") and k not in _PRESERVE:
                         del st.session_state[k]
                 st.cache_data.clear()
-                st.rerun()
+
+            for key, value in active[:6]:
+                pretty = key.replace("filter_", "")
+                preview = (
+                    ", ".join(map(str, value)) if isinstance(value, (list, tuple))
+                    else str(value)
+                )
+                kind = (
+                    "list" if isinstance(value, (list, tuple)) else
+                    "str" if isinstance(value, str) else "bool"
+                )
+                st.button(
+                    f"❌ Retirer {pretty} ({preview[:40]})",
+                    key=f"{key_prefix}_empty_remove_{key}",
+                    on_click=_reset_one_filter, args=(key, kind),
+                )
+            st.button(
+                "🗑 Reset all filters (sauf Véhicules / Catégorie courante)",
+                key=f"{key_prefix}_empty_reset_all",
+                help="Garde le filtre principal de catégorie produit / "
+                "service que tu viens de cliquer ; supprime tout le reste.",
+                on_click=_reset_filters_keep_cats,
+            )
         return None, []
 
     sort_field, ascending = SORT_OPTIONS[sort_label]
