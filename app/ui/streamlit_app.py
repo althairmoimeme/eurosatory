@@ -7284,11 +7284,80 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
         by_company.groups.keys(),
         key=lambda k: -len(by_company.groups[k]),
     )
+    total_companies = len(company_order)
+
+    # ── Pagination ──────────────────────────────────────────────────────
+    # Render N companies per page with ◀ / ▶ navigation. The default
+    # page size of 50 keeps the DOM snappy even on a 5500-company
+    # filtered set, while still letting the user browse the whole tail
+    # via pagination (no more "5270 hidden, refine to see").
+    cap_col, page_col = st.columns([1.4, 4])
+    with cap_col:
+        page_size = st.selectbox(
+            "Sociétés / page",
+            [25, 50, 100, 200, "Tout"],
+            index=1,
+            key="att_grouped_page_size",
+            format_func=lambda v: (
+                f"Tout ({total_companies})" if v == "Tout" else str(v)
+            ),
+            label_visibility="collapsed",
+        )
+
+    if page_size == "Tout":
+        size = total_companies or 1
+    else:
+        size = int(page_size)
+    total_pages = max(1, (total_companies + size - 1) // size)
+
+    page_key = "att_grouped_page"
+    # Reset the page when filters / page-size change leaves us past the end
+    raw_page = int(st.session_state.get(page_key, 0))
+    page = max(0, min(raw_page, total_pages - 1))
+
+    with page_col:
+        if total_pages > 1:
+            pc1, pc2, pc3 = st.columns([1, 1.6, 1])
+
+            def _prev_page() -> None:
+                cur = int(st.session_state.get(page_key, 0))
+                st.session_state[page_key] = max(0, cur - 1)
+
+            def _next_page() -> None:
+                cur = int(st.session_state.get(page_key, 0))
+                st.session_state[page_key] = min(total_pages - 1, cur + 1)
+
+            with pc1:
+                st.button(
+                    "◀", key="att_grouped_prev",
+                    disabled=page <= 0,
+                    use_container_width=True,
+                    on_click=_prev_page,
+                )
+            with pc2:
+                st.markdown(
+                    f"<div style='text-align:center;line-height:2.3rem;"
+                    f"font-size:0.85rem;'>Page <b>{page + 1}</b> / "
+                    f"{total_pages}</div>",
+                    unsafe_allow_html=True,
+                )
+            with pc3:
+                st.button(
+                    "▶", key="att_grouped_next",
+                    disabled=page >= total_pages - 1,
+                    use_container_width=True,
+                    on_click=_next_page,
+                )
+
     st.caption(
-        f"**{len(company_order)} sociétés** · "
-        f"**{len(df)} contacts** au total"
+        f"**{total_companies} sociétés** · **{len(df)} contacts** au total · "
+        f"affichage : sociétés {page * size + 1}–"
+        f"{min((page + 1) * size, total_companies)}"
     )
-    for company in company_order[:200]:  # cap to keep page snappy
+
+    page_slice = company_order[page * size : (page + 1) * size]
+
+    for company in page_slice:
         group = by_company.get_group(company)
         n = len(group)
         countries = sorted(set(
@@ -7298,11 +7367,6 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
         matched_ex = next(
             (m for m in group["matched_exhibitor"].dropna().tolist()),
             None,
-        )
-        badge = (
-            f" <span class='badge' style='background:#1F7A4D;color:white;"
-            f"font-size:0.7rem;'>🛡 catalogue</span>"
-            if matched_ex else ""
         )
         with st.expander(
             f"🏢 {company} — {n} contact(s)"
@@ -7347,11 +7411,6 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
                     ),
                 },
             )
-    if len(company_order) > 200:
-        st.caption(
-            f"💡 {len(company_order) - 200} autres sociétés masquées — "
-            "affine la recherche pour voir le reste."
-        )
 
 
 def _render_attendance_prospection_export(filtered: pd.DataFrame) -> None:
