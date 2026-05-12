@@ -154,7 +154,7 @@ CONFIDENCE_BADGE = {
 # ---------------------------------------------------------------------------
 
 st.set_page_config(
-    page_title="Eurosatory 2026 Targeting CRM",
+    page_title="LeadForges",
     page_icon="🛡️",
     layout="wide",
 )
@@ -418,11 +418,11 @@ def render_header(df: pd.DataFrame) -> None:
         '<div class="app-header">'
         + logo_svg
         + '<div>'
-        '<div class="app-header__title">Eurosatory 2026 Targeting CRM</div>'
+        '<div class="app-header__title">LeadForges</div>'
         '<div class="app-header__subtitle">Defense commercial '
         "intelligence · built · sold · buying · scored</div>"
         '</div>'
-        '<div class="app-header__brand-mark">EUROSATORY · 2026</div>'
+        '<div class="app-header__brand-mark">LEADFORGES</div>'
         "</div>",
         unsafe_allow_html=True,
     )
@@ -530,7 +530,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         # defense rep slice the 2580 exhibitors by what they actually
         # build / sell / buy. The categories are canonical (75 prod /
         # 23 svc / 31 tech) so a multi-select on them works.
-        st.markdown("**🎯 Ciblage Eurosatory 2026**")
+        st.markdown("**🎯 Ciblage commercial**")
         st.caption(
             "Filtres sur la donnée enrichie : 75 catégories produits, "
             "23 services, 31 technos, 5 cibles clients. Sélectionne pour "
@@ -1381,7 +1381,7 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
             "booth_number": st.column_config.TextColumn(
                 "Hall / Stand", width="small",
                 help="Localisation sur le salon (ex : 'Hall 4 / G325'). "
-                "Source : catalogue officiel Eurosatory.",
+                "Source : catalogue officiel du salon.",
             ),
             "company_type": st.column_config.TextColumn(
                 "Type", width="small",
@@ -2102,7 +2102,7 @@ def render_detail(exhibitor_id: int) -> None:
                     "<span style='font-size:0.75rem; color:#0B2E4A; "
                     "font-weight:700; text-transform:uppercase; "
                     "letter-spacing:0.08em;'>"
-                    "🎯 Profil de ciblage Eurosatory 2026</span>"
+                    "🎯 Profil de ciblage commercial</span>"
                     f"<span style='display:inline-block; padding:0.1rem 0.55rem; "
                     f"border-radius:10px; background:{badge_bg}; color:white; "
                     f"font-size:0.75rem; font-weight:600;'>"
@@ -2241,7 +2241,7 @@ def render_detail(exhibitor_id: int) -> None:
                         f"padding:0.25rem 0.6rem;border-radius:4px;"
                         f"background:#1F7A4D;color:white;font-weight:600;"
                         f"font-size:0.85rem;'>"
-                        f"✅ Présence confirmée Eurosatory {latest_year} "
+                        f"✅ Présence confirmée {latest_year} "
                         f"<span style='font-weight:400;opacity:0.85;'>"
                         f"({len(att_signals)} source(s) OSINT)</span>"
                         f"</div>",
@@ -2330,9 +2330,9 @@ def render_detail(exhibitor_id: int) -> None:
                 st.markdown("**LinkedIn** : —")
             es = row["eurosatory_profile_url"]
             if es:
-                st.markdown(f"**Eurosatory profile** : [voir la fiche]({es})")
+                st.markdown(f"**Profil officiel salon** : [voir la fiche]({es})")
             else:
-                st.markdown("**Eurosatory profile** : —")
+                st.markdown("**Profil officiel salon** : —")
         with c2:
             st.markdown(f"**Booth** : {row['booth_number'] or '—'}")
             st.markdown(f"**Company type** : {row['company_type']}")
@@ -2349,7 +2349,7 @@ def render_detail(exhibitor_id: int) -> None:
             select(ExhibitorContact).where(ExhibitorContact.exhibitor_id == exh.id)
         ).scalars())
         if contacts:
-            st.markdown("**📞 Contacts officiels (catalogue Eurosatory)**")
+            st.markdown("**📞 Contacts officiels (catalogue salon)**")
             for c in contacts[:6]:
                 # only display generic emails / corporate phones — keep
                 # personal-name + role only when both are explicit (the
@@ -2529,11 +2529,11 @@ def render_detail(exhibitor_id: int) -> None:
         seg = row.get("defense_segment_main") or "défense"
         pitch = (intel.recommended_pitch if intel else "") or ""
         seller = row.get("ideal_seller_profile") or ""
-        subject = f"Eurosatory 2026 — {company} & opportunités {seg}"
+        subject = f"{company} — opportunités {seg}"
         body_lines = [
             f"Bonjour,",
             "",
-            f"Je vous contacte dans le cadre d'Eurosatory 2026.",
+            f"Je vous contacte dans le cadre du salon défense 2026.",
             "",
             (pitch[:500] + ("…" if len(pitch) > 500 else "")) if pitch else "",
             "",
@@ -4649,7 +4649,7 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
     # The XLSX is generated by the rule-based + manual-overrides + taxonomy
     # pipeline. It has 2 sheets, autofilter, color-coded scores. We just
     # surface it as a download button.
-    st.markdown("### 🎯 Livrable commercial Eurosatory 2026")
+    st.markdown("### 🎯 Livrable commercial LeadForges")
     st.caption(
         "Le fichier vendu aux clients. 2580 sociétés, 15 colonnes, "
         "autofilter Excel activé sur chaque colonne, sociétés triées "
@@ -5168,7 +5168,7 @@ def _check_password() -> bool:
                     font-family: -apple-system, BlinkMacSystemFont, sans-serif;'>
             <div style='font-size: 0.7rem; letter-spacing: 0.12em;
                         color: #64748B; text-transform: uppercase; font-weight: 600;'>
-                Eurosatory 2026 · Defense Intelligence
+                LeadForges · Defense Commercial Intelligence
             </div>
             <div style='font-size: 1.4rem; font-weight: 600; color: #0F172A;
                         letter-spacing: -0.02em; margin: 0.6rem 0 1.2rem 0;'>
@@ -5515,7 +5515,7 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
             ),
             "matched_exhibitor": st.column_config.TextColumn(
                 "🛡 Exposant", width="medium",
-                help="Société catalogue Eurosatory matchée (vide si la "
+                help="Société catalogue salon matchée (vide si la "
                 "société du contact n'est pas exposante). Pour ouvrir la "
                 "fiche, clique sur la ligne puis sur « 📂 Fiche société ».",
             ),
