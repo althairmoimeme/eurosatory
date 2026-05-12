@@ -52,11 +52,17 @@ from __future__ import annotations
 
 import hmac
 import os
+import time
 from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Optional
 
 import streamlit as st
+
+
+# Lock window after too many failed attempts (seconds).
+_RATELIMIT_LOCK_SECONDS = 60
+_RATELIMIT_THRESHOLD = 5
 
 
 # ── Data model ────────────────────────────────────────────────────────────
@@ -151,8 +157,9 @@ def _legacy_password() -> str:
 # ── Authentication API ──────────────────────────────────────────────────
 
 
-_SESSION_KEY = "_lf_buyer"  # st.session_state key
-_FAILED_KEY = "_lf_failed"  # rate-limit counter
+_SESSION_KEY = "_lf_buyer"          # st.session_state key
+_FAILED_KEY = "_lf_failed"          # rate-limit counter
+_LOCKED_UNTIL_KEY = "_lf_locked_until"  # epoch seconds when lock expires
 
 
 def current_buyer() -> Optional[Buyer]:
@@ -241,20 +248,36 @@ def render_login_screen() -> None:
     )
     cols = st.columns([1, 2, 1])
     with cols[1]:
+        # Lock-out check : if too many recent fails, BLOCK login attempts
+        # for ``_RATELIMIT_LOCK_SECONDS`` (session-scoped, naive but
+        # sufficient to slow scripted brute force).
+        locked_until = float(st.session_state.get(_LOCKED_UNTIL_KEY, 0))
+        now = time.time()
+        is_locked = locked_until > now
+        remaining = int(locked_until - now) if is_locked else 0
+
         pw = st.text_input(
             "Mot de passe", type="password",
             label_visibility="collapsed",
             placeholder="Mot de passe d'accès",
             key="_lf_password_input",
+            disabled=is_locked,
         )
-        if pw:
+        if is_locked:
+            st.error(
+                f"🔒 Trop d'essais incorrects. Réessaie dans **{remaining} s** "
+                "(ou recharge la page si tu connais le bon mot de passe)."
+            )
+        elif pw:
             ok, buyer = _attempt_login(pw)
             if ok and buyer:
+                # Success → wipe rate-limit state
                 st.session_state[_SESSION_KEY] = buyer
                 st.session_state.pop(_FAILED_KEY, None)
+                st.session_state.pop(_LOCKED_UNTIL_KEY, None)
                 st.rerun()
             else:
-                # Bump fail counter (lightweight throttle, session-only)
+                # Bump fail counter ; trip the lock at the threshold
                 fails = int(st.session_state.get(_FAILED_KEY, 0)) + 1
                 st.session_state[_FAILED_KEY] = fails
                 if buyer and buyer.is_expired:
@@ -263,13 +286,21 @@ def render_login_screen() -> None:
                         f"{buyer.expires:%d/%m/%Y}. "
                         "Contacte support@leadforges.com pour renouveler."
                     )
-                elif fails >= 5:
-                    st.error(
-                        "Trop d'essais incorrects. Recharge la page "
-                        "dans quelques minutes."
+                elif fails >= _RATELIMIT_THRESHOLD:
+                    # Set the lock and force a rerun so the input box
+                    # disables itself immediately.
+                    st.session_state[_LOCKED_UNTIL_KEY] = (
+                        time.time() + _RATELIMIT_LOCK_SECONDS
                     )
+                    st.session_state[_FAILED_KEY] = 0  # reset counter
+                    st.rerun()
                 else:
-                    st.error("Mot de passe incorrect.")
+                    remaining_attempts = _RATELIMIT_THRESHOLD - fails
+                    st.error(
+                        f"Mot de passe incorrect. "
+                        f"({remaining_attempts} essai{'s' if remaining_attempts > 1 else ''} "
+                        f"restant{'s' if remaining_attempts > 1 else ''} avant verrouillage)"
+                    )
 
     # Footer with contact
     st.markdown(

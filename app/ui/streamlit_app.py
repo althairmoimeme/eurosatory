@@ -6792,7 +6792,7 @@ def _render_attendance_detail(signal_id: int) -> None:
                      use_container_width=True):
             attend_set_validation(signal_id, "Pending")
             st.cache_data.clear()
-            st.toast("↺ Statut remis en attente.", icon="↺")
+            st.toast("Statut remis en attente.", icon="⏳")
             st.rerun()
 
     if sig.notes:
