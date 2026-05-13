@@ -11,6 +11,7 @@ Plus a "Custom lists" tab for sales-team list management.
 """
 from __future__ import annotations
 
+import os
 import sys
 from datetime import datetime
 from io import BytesIO
@@ -23,6 +24,25 @@ if str(ROOT) not in sys.path:
 
 import pandas as pd
 import streamlit as st
+
+# ─── DEMO MODE HOOK ───────────────────────────────────────────────────
+# Must run BEFORE any `from app.*` import that transitively pulls
+# ``app.config`` — config reads ``LEADFORGES_DEMO`` to pick the demo DB.
+def _detect_demo_mode() -> bool:
+    try:
+        # Streamlit >= 1.30 : st.query_params is a dict-like
+        qp = dict(st.query_params)
+    except Exception:  # noqa: BLE001
+        try:
+            qp = {k: v[0] if isinstance(v, list) else v
+                  for k, v in st.experimental_get_query_params().items()}
+        except Exception:  # noqa: BLE001
+            qp = {}
+    val = str(qp.get("demo", "")).strip().lower()
+    return val in ("1", "true", "yes", "on")
+
+if _detect_demo_mode():
+    os.environ["LEADFORGES_DEMO"] = "1"
 from sqlalchemy import select
 
 from app.crm.normalizers import (
@@ -5187,14 +5207,59 @@ def render_data_quality_tab(df: pd.DataFrame) -> None:
         st.info("Catégories non encore agrégées.")
 
 
+def _is_demo_mode() -> bool:
+    """Return True when ``?demo=1`` is in the URL or env var set."""
+    return os.environ.get("LEADFORGES_DEMO") == "1"
+
+
+def _render_demo_banner() -> None:
+    """Persistent banner shown at the top of every page in demo mode."""
+    st.markdown(
+        """
+        <div style="
+            background: linear-gradient(90deg, #0A0A0A 0%, #1A1A1A 100%);
+            color: #FAFAFA;
+            padding: 10px 20px;
+            margin: -1rem -1rem 1rem -1rem;
+            border-bottom: 2px solid #0B2E4A;
+            font-family: 'Inter', system-ui, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        ">
+          <div style="font-size: 14px;">
+            <strong style="font-weight: 700;">VERSION DÉMO</strong>
+            <span style="opacity: 0.7; margin-left: 12px;">
+              50 exposants × 50 signaux · échantillon représentatif
+            </span>
+          </div>
+          <div>
+            <a href="https://leadforges.io" target="_blank"
+               style="background: #FAFAFA; color: #0A0A0A;
+                      padding: 6px 14px; border-radius: 6px;
+                      text-decoration: none; font-weight: 600;
+                      font-size: 13px;">
+              Accéder à la base complète (2 000 €) →
+            </a>
+          </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def _check_password() -> bool:
     """Multi-buyer authentication gate.
 
     Delegates to :mod:`app.ui.auth`. Returns ``True`` when access is
     granted (either a logged-in buyer with non-expired access, or no
-    gate configured for local dev). Otherwise renders the login screen
-    and returns ``False``.
+    gate configured for local dev, or demo mode). Otherwise renders the
+    login screen and returns ``False``.
     """
+    if _is_demo_mode():
+        return True  # demo bypasses auth — that's the whole point
     from app.ui.auth import is_authenticated, render_login_screen
     if is_authenticated():
         return True
@@ -5205,8 +5270,11 @@ def _check_password() -> bool:
 def main() -> None:
     if not _check_password():
         st.stop()
-    from app.ui.auth import render_access_banner
-    render_access_banner()
+    if _is_demo_mode():
+        _render_demo_banner()
+    else:
+        from app.ui.auth import render_access_banner
+        render_access_banner()
     df = load_crm()
     # Overlay session-scoped favorites on top of the cached dataframe so
     # each buyer sees their own ⭐ selection without polluting the cache.
@@ -5607,7 +5675,12 @@ def _render_attendance_bulk_paste() -> None:
     signals in one shot. The fastest enrichment path : the operator
     pastes 5-50 URLs, we fetch each one, extract title + snippet,
     detect "Eurosatory <year>" mentions, and upsert.
+
+    Admin-only : data-curation tool, hidden from buyers.
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     with st.expander("📋 Bulk paste — URLs → signaux (méthode rapide)",
                      expanded=True):
         st.caption(
@@ -5689,7 +5762,12 @@ def _render_attendance_auto_collect() -> None:
     Stays within the existing legal posture (corporate sites only, no
     LinkedIn/X login). LinkedIn / X OSINT remains operator-driven via the
     documented Google queries panel below.
+
+    Admin-only : data-curation tool, hidden from buyers.
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     with st.expander("🤖 Scraper auto — sites web exposants → signaux",
                      expanded=False):
         st.caption(
@@ -5774,7 +5852,13 @@ def _render_attendance_watchlist() -> None:
     Each watch shows the count of UNREAD signals (id greater than the
     last_seen_signal_id) plus a button to mark them seen. New watches
     can be added at the bottom of the panel.
+
+    Admin-only : data-curation tool, hidden from buyers (deploy DB is
+    read-only — watches couldn't persist anyway).
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     with st.expander("🔔 Watchlist (alertes signaux)", expanded=False):
         watches = attend_list_watches()
         if not watches:
@@ -6129,7 +6213,12 @@ def _render_attendance_duplicates_panel() -> None:
     pick a primary + flip the rest to ``is_duplicate=True``.
 
     Reads via ``attend_dup_clusters`` (top 30 clusters by size).
+
+    Admin-only : data-curation tool, hidden from buyers.
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     with st.expander("🧬 Clusters de doublons (signaux dédupliqués)",
                      expanded=False):
         clusters = attend_dup_clusters(limit=30)
@@ -6213,7 +6302,12 @@ def _render_attendance_review_queue(filtered: pd.DataFrame) -> None:
     Lets the operator clear the validation backlog without opening the
     detail card for every signal. Limited to 25 signals at once to keep
     the page snappy.
+
+    Admin-only : data-curation tool, hidden from buyers.
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     if filtered.empty:
         return
     queue = filtered[
@@ -7096,7 +7190,12 @@ _ATT_QUERY_CHEATSHEET: list[tuple[str, str]] = [
 def _render_attendance_quick_import() -> None:
     """Bulk-paste UI : URLs in → AttendanceSignal rows out, with a cheat
     sheet of pre-built Google queries to seed the URLs.
+
+    Admin-only : data-curation tool, hidden from buyers.
     """
+    from app.ui.auth import is_admin
+    if not is_admin():
+        return
     with st.expander(
         "➕ Enrichir la liste rapidement (bulk paste URLs / "
         "requêtes Google)",

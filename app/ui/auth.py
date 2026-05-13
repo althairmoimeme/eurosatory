@@ -186,6 +186,33 @@ def is_authenticated() -> bool:
     return (not buyers) and (not legacy)
 
 
+def is_admin() -> bool:
+    """True for the operator/admin session — the user with elevated
+    permissions to use the enrichment / OSINT collection tools.
+
+    Recognized as admin :
+      • The legacy single ``APP_PASSWORD`` session (synthetic buyer
+        named ``"Demo / Admin"``).
+      • Any ``[[buyers]]`` whose ``name`` contains ``"admin"`` (case-
+        insensitive) — useful if you want to grant admin rights to
+        a co-operator without exposing the legacy password.
+      • Local dev (no auth gate configured at all).
+
+    Used by ``_render_attendance_quick_import`` and other admin-only
+    features so paying buyers don't see the OSINT scraping plumbing.
+    """
+    b = current_buyer()
+    if b is not None:
+        name_low = (b.name or "").lower()
+        if "admin" in name_low or name_low.startswith("demo"):
+            return True
+        return False
+    # No buyer logged in → must be local dev fall-through (no gate)
+    buyers = _load_buyers()
+    legacy = _legacy_password()
+    return (not buyers) and (not legacy)
+
+
 def _attempt_login(password: str) -> tuple[bool, Optional[Buyer]]:
     """Constant-time compare against every configured password.
 

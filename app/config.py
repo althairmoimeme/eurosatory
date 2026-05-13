@@ -88,9 +88,36 @@ from pathlib import Path as _Path
 
 _DEFAULT_DB = "sqlite:///data/eurosatory.db"
 _DEPLOY_DB = _Path("data/eurosatory_deploy.db")
+_DEMO_DB = _Path("data/eurosatory_demo.db")
 _DEV_DB = _Path("data/eurosatory.db")
 
 _explicit_url = bool(_os.getenv("DATABASE_URL"))
+
+# Demo mode — when LEADFORGES_DEMO=1, use the slim 50×50 demo DB.
+# This is set by streamlit_app.py BEFORE this module is imported when the
+# URL contains ``?demo=1``.
+if (
+    _os.getenv("LEADFORGES_DEMO") == "1"
+    and _DEMO_DB.exists()
+    and not _explicit_url
+):
+    is_readonly = False
+    try:
+        probe = _DEMO_DB.parent / ".__rw_probe__"
+        probe.write_text("ok")
+        probe.unlink()
+    except (OSError, PermissionError):
+        is_readonly = True
+    if is_readonly:
+        writable_dir = _Path(_tempfile.gettempdir()) / "leadforges_demo"
+        writable_dir.mkdir(parents=True, exist_ok=True)
+        writable_db = writable_dir / "eurosatory_demo.db"
+        if not writable_db.exists():
+            _shutil.copy2(_DEMO_DB, writable_db)
+        settings.database_url = f"sqlite:///{writable_db}"
+    else:
+        settings.database_url = f"sqlite:///{_DEMO_DB}"
+    _explicit_url = True  # don't apply the deploy DB fallback below
 
 if (
     settings.database_url == _DEFAULT_DB

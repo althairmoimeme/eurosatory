@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeadForges — La base d'intelligence commerciale Eurosatory 2026</title>
+<meta name="description" content="2 580 exposants, 13 800+ signaux d'attendance, 696 sociétés avec intelligence commerciale approfondie. La seule base unifiée pour vendre à Eurosatory 2026.">
+<meta property="og:title" content="LeadForges — Eurosatory 2026">
+<meta property="og:description" content="Base d'intelligence commerciale pour vendre à Eurosatory 2026. 2 580 exposants × 13 800 signaux.">
+<meta property="og:type" content="website">
+
+<!-- Tailwind via CDN — minimal config for landing page -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'sans': ['Inter', 'system-ui', 'sans-serif'],
+          'mono': ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          // Charte LeadForges — noir / blanc / gris + accent navy
+          ink:    '#0A0A0A',  // texte principal
+          coal:   '#1A1A1A',  // surfaces sombres
+          smoke:  '#3F3F46',  // texte secondaire
+          ash:    '#71717A',  // texte tertiaire
+          fog:    '#E4E4E7',  // bordures
+          mist:   '#F4F4F5',  // surfaces claires
+          paper:  '#FAFAFA',  // fond
+          navy:   '#0B2E4A',  // accent (cohérent avec l'app)
+        },
+        animation: {
+          'fade-in': 'fadeIn 0.6s ease-out forwards',
+        },
+        keyframes: {
+          fadeIn: {
+            '0%': { opacity: '0', transform: 'translateY(10px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          },
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .gradient-text {
+    background: linear-gradient(135deg, #0A0A0A 0%, #3F3F46 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(10, 10, 10, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(10, 10, 10, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+</style>
+</head>
+
+<body class="bg-paper text-ink font-sans antialiased">
+
+<!-- ─── NAV ─────────────────────────────────────────────────────────── -->
+<nav class="sticky top-0 z-50 bg-paper/90 backdrop-blur border-b border-fog">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-2 font-bold text-xl tracking-tight">
+      <span class="w-7 h-7 bg-ink text-paper rounded grid place-items-center font-mono text-sm">LF</span>
+      LeadForges
+    </a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-smoke font-medium">
+      <a href="#produit" class="hover:text-ink transition">Le produit</a>
+      <a href="#chiffres" class="hover:text-ink transition">Les chiffres</a>
+      <a href="#prix" class="hover:text-ink transition">Tarif</a>
+      <a href="#faq" class="hover:text-ink transition">FAQ</a>
+    </div>
+    <a href="#prix" class="bg-ink text-paper px-4 py-2 rounded-lg text-sm font-semibold hover:bg-coal transition">
+      Acheter
+    </a>
+  </div>
+</nav>
+
+<!-- ─── HERO ────────────────────────────────────────────────────────── -->
+<section class="hero-grid">
+  <div class="max-w-6xl mx-auto px-6 pt-24 pb-20">
+
+    <!-- urgency badge -->
+    <div class="inline-flex items-center gap-2 bg-mist border border-fog rounded-full px-4 py-1.5 text-xs font-mono text-smoke mb-8">
+      <span class="w-2 h-2 bg-navy rounded-full animate-pulse"></span>
+      Eurosatory 2026 · 15-19 juin · J-33
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05] mb-6">
+      Sachez exactement<br>
+      <span class="gradient-text">qui contacter</span><br>
+      à Eurosatory 2026.
+    </h1>
+
+    <p class="text-xl md:text-2xl text-smoke leading-relaxed max-w-3xl mb-10 font-light">
+      <span class="font-semibold text-ink">2 580 exposants identifiés.</span>
+      <span class="font-semibold text-ink">13 815 signaux d'attendance.</span>
+      Et l'intelligence commerciale qui transforme une liste de noms en pipeline de RDV qualifiés —
+      le tout dans une plateforme prête à filtrer, exporter et exploiter dès aujourd'hui.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+      <a href="#prix" class="bg-ink text-paper px-7 py-4 rounded-lg font-semibold hover:bg-coal transition inline-flex items-center justify-center gap-2 group">
+        Accéder à la plateforme — 2 000 €
+        <svg class="w-4 h-4 group-hover:translate-x-0.5 transition" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 8h13M8 2l6 6-6 6"/></svg>
+      </a>
+      <a href="#demo" class="bg-paper border-2 border-ink text-ink px-7 py-4 rounded-lg font-semibold hover:bg-mist transition inline-flex items-center justify-center gap-2">
+        Tester gratuitement (50 lignes)
+      </a>
+    </div>
+
+    <p class="text-sm text-ash font-mono">
+      Livraison immédiate · Accès jusqu'au 30 juillet 2026 · Mise à jour quotidienne avant le salon
+    </p>
+  </div>
+</section>
+
+<!-- ─── VIDEO DEMO ──────────────────────────────────────────────────── -->
+<section id="video" class="bg-coal py-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">Démo · 2 min</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-paper tracking-tight">
+        Voyez la plateforme en action
+      </h2>
+    </div>
+
+    <!-- Video embed placeholder — replace iframe src with your URL -->
+    <div class="relative bg-ink rounded-xl overflow-hidden border border-smoke shadow-2xl">
+      <div class="aspect-video">
+        <!-- TODO : remplacer par ton URL (YouTube unlisted, Loom, Wistia, etc.) -->
+        <!-- Exemple YouTube : <iframe src="https://www.youtube.com/embed/VIDEO_ID" ... /> -->
+        <!-- Exemple Loom : <iframe src="https://www.loom.com/embed/VIDEO_ID" ... /> -->
+        <div class="w-full h-full grid place-items-center text-ash text-center p-12">
+          <div>
+            <div class="w-20 h-20 mx-auto mb-4 bg-smoke rounded-full grid place-items-center">
+              <svg class="w-8 h-8 text-paper" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="font-mono text-sm">[ Vidéo démo à intégrer ]</p>
+            <p class="text-xs mt-2 opacity-60">Remplace l'iframe dans <code>landing/index.html</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROBLEM / AGITATE ───────────────────────────────────────────── -->
+<section class="py-24 border-b border-fog">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">Le problème</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-8 leading-tight">
+      Eurosatory 2026 c'est 5 jours,<br>2 580 exposants, 67 000 visiteurs.
+    </h2>
+    <p class="text-xl text-smoke leading-relaxed mb-6">
+      Vous y allez avec un objectif simple : <strong class="text-ink">remplir votre carnet de RDV avant l'ouverture</strong>.
+      Et vous avez un mois.
+    </p>
+    <div class="space-y-4 text-lg text-smoke">
+      <div class="flex gap-4">
+        <span class="text-ash font-mono mt-1">01</span>
+        <p>La liste officielle des exposants ne donne <em>aucune</em> intelligence : pas de dirigeants, pas de signaux d'attendance, pas de priorisation.</p>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-ash font-mono mt-1">02</span>
+        <p>Les outils B2B classiques (Apollo, Lusha) connaissent l'entreprise mais ignorent qui vient au salon — vous perdez du temps sur des contacts qui ne seront pas à Paris.</p>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-ash font-mono mt-1">03</span>
+        <p>Un SDR à 35 €/h passe 40h à compiler ces données à la main. Soit 1 400 €. Et le résultat reste plein de trous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOLUTION ────────────────────────────────────────────────────── -->
+<section id="produit" class="py-24 bg-mist border-b border-fog">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">La solution</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-tight max-w-3xl">
+      Une base unique. Trois couches d'intelligence.
+    </h2>
+    <p class="text-xl text-smoke mb-16 max-w-3xl">
+      LeadForges n'est pas une nouvelle liste : c'est l'agrégation propre et structurée de tout ce qu'on peut savoir sur Eurosatory 2026 — exposants officiels, presse spécialisée, communications corporate, posts LinkedIn d'opérationnels.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-paper border border-fog rounded-xl p-8">
+        <div class="font-mono text-xs text-ash mb-4">COUCHE 1</div>
+        <div class="text-4xl font-bold mb-2">2 580</div>
+        <div class="font-semibold mb-3">exposants officiels</div>
+        <p class="text-smoke text-sm leading-relaxed">
+          Nom, site web, adresse, LinkedIn, secteur d'activité, taxonomie 8-buckets (OEM, intégrateur, équipementier, distributeur…) et zone géographique. <strong class="text-ink">94 %</strong> avec site web, <strong class="text-ink">64 %</strong> avec LinkedIn corporate.
+        </p>
+      </div>
+
+      <div class="bg-paper border border-fog rounded-xl p-8">
+        <div class="font-mono text-xs text-ash mb-4">COUCHE 2</div>
+        <div class="text-4xl font-bold mb-2">13 815</div>
+        <div class="font-semibold mb-3">signaux d'attendance</div>
+        <p class="text-smoke text-sm leading-relaxed">
+          Posts LinkedIn personnels, annonces presse, communiqués corporate — chaque signal rattaché à une personne (nom + rôle) ou une société, avec scoring de pertinence commerciale et angle d'approche suggéré.
+        </p>
+      </div>
+
+      <div class="bg-paper border border-fog rounded-xl p-8">
+        <div class="font-mono text-xs text-ash mb-4">COUCHE 3</div>
+        <div class="text-4xl font-bold mb-2">5 717</div>
+        <div class="font-semibold mb-3">sociétés × personnes</div>
+        <p class="text-smoke text-sm leading-relaxed">
+          Au-delà des exposants : acheteurs, délégations gouvernementales, décideurs venus visiter. <strong class="text-ink">76 % des signaux</strong> portent sur des non-exposants — la vraie valeur si vous vendez aux donneurs d'ordre.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CHIFFRES / SOCIAL PROOF ─────────────────────────────────────── -->
+<section id="chiffres" class="py-24 bg-ink text-paper">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">Ce que ça représente</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16 max-w-3xl">
+      La base la plus profonde sur Eurosatory 2026.
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="text-5xl font-bold mb-2">2 580</div>
+        <div class="text-ash text-sm">Exposants confirmés 2026</div>
+      </div>
+      <div>
+        <div class="text-5xl font-bold mb-2">13 815</div>
+        <div class="text-ash text-sm">Signaux d'attendance détectés</div>
+      </div>
+      <div>
+        <div class="text-5xl font-bold mb-2">5 717</div>
+        <div class="text-ash text-sm">Sociétés × personnes uniques</div>
+      </div>
+      <div>
+        <div class="text-5xl font-bold mb-2">94<span class="text-ash text-3xl">%</span></div>
+        <div class="text-ash text-sm">Exposants avec site + adresse</div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-4 mt-12 pt-12 border-t border-smoke">
+      <div class="flex gap-4 items-start">
+        <span class="font-mono text-ash text-sm mt-1">→</span>
+        <p class="text-smoke leading-relaxed">
+          <strong class="text-paper">Filtrage multi-axes</strong> · Zone géographique, taxonomie d'entreprise, type de signal, rôle de la personne, niveau d'attendance, dates.
+        </p>
+      </div>
+      <div class="flex gap-4 items-start">
+        <span class="font-mono text-ash text-sm mt-1">→</span>
+        <p class="text-smoke leading-relaxed">
+          <strong class="text-paper">Listes cibles sauvegardées</strong> · Compose tes segments une fois, retrouve-les en un clic, exporte en CSV/Excel.
+        </p>
+      </div>
+      <div class="flex gap-4 items-start">
+        <span class="font-mono text-ash text-sm mt-1">→</span>
+        <p class="text-smoke leading-relaxed">
+          <strong class="text-paper">Vue groupée par société</strong> · Tous les signaux d'une même entreprise rassemblés — comprends en 30 secondes pourquoi ils viennent.
+        </p>
+      </div>
+      <div class="flex gap-4 items-start">
+        <span class="font-mono text-ash text-sm mt-1">→</span>
+        <p class="text-smoke leading-relaxed">
+          <strong class="text-paper">Angle d'approche suggéré</strong> · Pour chaque signal qualifié : la raison de contact + l'accroche commerciale prête à coller dans un email.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRICING ─────────────────────────────────────────────────────── -->
+<section id="prix" class="py-24 border-b border-fog">
+  <div class="max-w-4xl mx-auto px-6">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">Tarif unique</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+      2 000 € HT pour la base entière.
+    </h2>
+    <p class="text-xl text-smoke mb-12 max-w-2xl">
+      Un seul tarif, pas de forfait, pas d'abonnement. Tu paies une fois, tu reçois tes identifiants en 60 secondes, tu accèdes à toute la plateforme jusqu'au 30 juillet 2026.
+    </p>
+
+    <div class="bg-paper border-2 border-ink rounded-xl p-8 md:p-12">
+      <div class="flex items-baseline gap-3 mb-6">
+        <span class="text-6xl md:text-7xl font-extrabold tracking-tighter">2 000</span>
+        <span class="text-2xl text-smoke">€ HT</span>
+      </div>
+
+      <ul class="space-y-3 mb-8 text-lg">
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> Accès complet à la plateforme SaaS (filtrage, recherche, export)</li>
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> 2 580 exposants + 13 815 signaux d'attendance</li>
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> Listes cibles illimitées, exports CSV/Excel illimités</li>
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> Mises à jour quotidiennes jusqu'au 14 juin 2026</li>
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> Accès actif jusqu'au 30 juillet 2026</li>
+        <li class="flex gap-3"><span class="text-ink mt-1">✓</span> Livraison automatique des identifiants après paiement</li>
+      </ul>
+
+      <!-- PRIMARY CTA — Stripe Payment Link -->
+      <!-- TODO : remplacer href par ton Stripe Payment Link réel -->
+      <a id="cta-buy" href="https://buy.stripe.com/REMPLACE_PAR_TON_PAYMENT_LINK"
+         class="block w-full bg-ink text-paper text-center px-7 py-5 rounded-lg font-semibold text-lg hover:bg-coal transition mb-3">
+        Acheter maintenant — paiement sécurisé Stripe
+      </a>
+      <p class="text-xs text-ash text-center font-mono">
+        Paiement par carte · Reçu Stripe · Identifiants envoyés par email sous 2 minutes
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── DEMO CTA ────────────────────────────────────────────────────── -->
+<section id="demo" class="py-24 bg-mist">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">Tu hésites ?</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-6">
+      Teste la plateforme avant d'acheter.
+    </h2>
+    <p class="text-xl text-smoke mb-10 max-w-2xl mx-auto">
+      Version démo gratuite : <strong class="text-ink">50 exposants × 50 signaux</strong> représentatifs. Toutes les fonctionnalités, juste un échantillon. Aucune carte demandée.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <!-- TODO : remplacer par l'URL exacte de ton app démo -->
+      <a href="https://leadforges.streamlit.app/?demo=1"
+         class="bg-ink text-paper px-7 py-4 rounded-lg font-semibold hover:bg-coal transition inline-flex items-center justify-center gap-2">
+        Lancer la démo gratuite
+        <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 8h13M8 2l6 6-6 6"/></svg>
+      </a>
+      <!-- TODO : remplacer par ton Calendly / Cal.com -->
+      <a href="https://cal.com/leadforges/15min"
+         class="bg-paper border-2 border-ink text-ink px-7 py-4 rounded-lg font-semibold hover:bg-mist transition">
+        Booker un appel de 15 min
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─────────────────────────────────────────────────────────── -->
+<section id="faq" class="py-24 border-b border-fog">
+  <div class="max-w-3xl mx-auto px-6">
+    <p class="text-ash font-mono text-xs uppercase tracking-widest mb-3">FAQ</p>
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12">
+      Les questions qu'on me pose.
+    </h2>
+
+    <div class="space-y-6">
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          C'est une liste Excel ou un vrai outil ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          Un vrai outil SaaS hébergé : tu te connectes avec ton mot de passe, tu filtres, tu groupes par société, tu exportes. La donnée est mise à jour quotidiennement jusqu'au salon. Si tu préfères Excel : l'export CSV est illimité.
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          Combien de personnes peuvent utiliser un même accès ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          L'accès est nominatif — 1 entreprise = 1 jeu d'identifiants. Tu peux partager au sein de ton équipe commerciale (SDR + AE + DM), mais pas avec une entreprise tierce. Les abus sont détectés (multi-IP simultanées) et l'accès peut être révoqué.
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          C'est conforme RGPD ?
+          <span class="text-ash group-open:rotate-43 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          Toutes les données sont issues de sources publiques (sites corporate, posts LinkedIn publics, communiqués de presse, registre exposants Eurosatory). Chaque signal est tracé avec son URL source et son timestamp. Le scoring RGPD est affiché ligne par ligne dans l'outil. Pas d'email scrappé par contournement, pas de bypass d'authentification.
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          Pourquoi 2 000 € et pas un abonnement ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          Parce que Eurosatory est un événement ponctuel et que la donnée a une fenêtre d'utilité courte (mai-juillet 2026). Un abonnement n'aurait aucun sens pour toi. Tu paies une fois, tu utilises pendant 2 mois, point.
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          Et après le salon ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          L'accès reste actif jusqu'au 30 juillet 2026 pour ton suivi post-salon (relances RDV, mapping des contacts rencontrés). Au-delà, la base est désactivée — la donnée n'est plus représentative.
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          Si la base ne me convient pas ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          C'est exactement pour ça que la version démo existe — 50 lignes représentatives, toutes les fonctionnalités, accès immédiat sans carte. Tu vois en 5 minutes si ça correspond à ton besoin. Au-delà de la démo, pas de remboursement (le coût de production de la donnée est engagé dès l'accès).
+        </p>
+      </details>
+
+      <details class="border-b border-fog pb-6 group">
+        <summary class="cursor-pointer font-semibold text-lg flex justify-between items-center">
+          Tu peux me faire une démo en direct ?
+          <span class="text-ash group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="text-smoke mt-4 leading-relaxed">
+          Oui — <a href="https://cal.com/leadforges/15min" class="underline hover:text-ink">15 min en visio</a>, je te montre comment l'utiliser sur ton segment cible. Aucune pression d'achat.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FINAL CTA ───────────────────────────────────────────────────── -->
+<section class="py-24 bg-ink text-paper text-center">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+      Eurosatory ouvre dans 33 jours.
+    </h2>
+    <p class="text-xl text-ash mb-10">
+      Tu peux y aller avec une liste de noms.<br>Ou avec un pipeline de RDV qualifiés.
+    </p>
+    <a href="#prix" class="bg-paper text-ink px-8 py-5 rounded-lg font-semibold text-lg hover:bg-mist transition inline-flex items-center justify-center gap-2">
+      Accéder à LeadForges — 2 000 €
+      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 8h13M8 2l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ──────────────────────────────────────────────────────── -->
+<footer class="py-12 border-t border-fog">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-6 items-center">
+    <div class="flex items-center gap-2 font-bold tracking-tight">
+      <span class="w-7 h-7 bg-ink text-paper rounded grid place-items-center font-mono text-sm">LF</span>
+      LeadForges
+    </div>
+    <div class="text-sm text-ash">
+      <p>LeadForges n'est pas affilié à COGES Eurosatory ni à son organisateur.</p>
+      <p>Données issues de sources publiques · Conforme RGPD · <a href="mailto:contact@leadforges.io" class="underline hover:text-ink">contact@leadforges.io</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
