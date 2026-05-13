@@ -25,8 +25,16 @@ venv/
 /data/raw/
 /_tests/
 
+# SQLite transient WAL/SHM files — never commit these (they change on
+# every read/write and would pollute every diff).
+/data/eurosatory_deploy.db-shm
+/data/eurosatory_deploy.db-wal
+/data/eurosatory_demo.db-shm
+/data/eurosatory_demo.db-wal
+
 # Keep — needed by the deployed app:
 #   data/eurosatory_deploy.db
+#   data/eurosatory_demo.db
 #   data/exports/targeting_profiles_final.json
 #   data/exports/targeting_profiles_final.csv
 #   data/exports/Eurosatory_2026_targeting.xlsx

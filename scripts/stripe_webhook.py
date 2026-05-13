@@ -171,7 +171,7 @@ Comment commencer
 Besoin d'aide ?
 ───────────────
   Réponds à cet email. Si tu veux une démo guidée de 15 min :
-  https://cal.com/leadforges/15min
+  https://calendly.com/a-bertantoine/demo-leadforges
 
 Bonne préparation pour Eurosatory 2026.
 
@@ -215,7 +215,7 @@ LeadForges
   <p style="font-size: 14px; color: #71717A; margin-top: 32px;
             border-top: 1px solid #E4E4E7; padding-top: 16px;">
     Besoin d'aide ? Réponds à cet email, ou
-    <a href="https://cal.com/leadforges/15min">book 15 min en visio</a>.
+    <a href="https://calendly.com/a-bertantoine/demo-leadforges">book 15 min en visio</a>.
   </p>
 </body></html>"""
     return text, html
