@@ -17,7 +17,7 @@ Env vars (set in Vercel project settings)
   RESEND_API_KEY          — re_… from Resend
   RESEND_FROM             — e.g. "LeadForges <onboarding@resend.dev>"
   ADMIN_EMAIL             — your address for sale notifications
-  APP_URL                 — https://leadforges.streamlit.app
+  APP_URL                 — https://leadforgesdemo.streamlit.app
   ACCESS_DURATION_DAYS    — default 78 (until late July)
 
 Deployment
@@ -51,7 +51,7 @@ RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 RESEND_FROM = os.environ.get("RESEND_FROM",
                              "LeadForges <onboarding@resend.dev>")
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "a.bertantoine@gmail.com")
-APP_URL = os.environ.get("APP_URL", "https://leadforges.streamlit.app")
+APP_URL = os.environ.get("APP_URL", "https://leadforgesdemo.streamlit.app")
 ACCESS_DAYS = int(os.environ.get("ACCESS_DURATION_DAYS", "78"))
 
 

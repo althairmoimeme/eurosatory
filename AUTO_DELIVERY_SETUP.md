@@ -13,7 +13,7 @@ Stripe POST → Vercel /api/stripe-webhook (Python)
          → Resend → email buyer (mot de passe + URL)
          → Resend → email admin (notif vente)
    ↓
-Buyer se connecte sur leadforges.streamlit.app
+Buyer se connecte sur leadforgesdemo.streamlit.app
    ↓
 app/ui/auth.py lit Turso (cache 30s) + st.secrets → valide → access OK
 ```
@@ -59,7 +59,7 @@ Vercel dashboard → ton projet `leadforges` → **Settings → Environment Vari
 | `RESEND_API_KEY` | `re_xxxxx…` (étape 2) |
 | `RESEND_FROM` | `LeadForges <onboarding@resend.dev>` |
 | `ADMIN_EMAIL` | `a.bertantoine@gmail.com` |
-| `APP_URL` | `https://leadforges.streamlit.app` |
+| `APP_URL` | `https://leadforgesdemo.streamlit.app` |
 | `ACCESS_DURATION_DAYS` | `78` |
 
 → Click **Save**.
@@ -119,7 +119,7 @@ Tu dois voir : `{"ok": true, "service": "leadforges-stripe-webhook"}`. Si pas ç
 - **Email reçu admin (~30s)** : "💰 LeadForges sale — Ton Nom"
 - **Vercel logs** : Dashboard → Deployments → click le dernier → **Functions** → tu vois la requête POST avec status 200
 - **Turso** : Dashboard → ta DB → **Edit data** → tu vois ta ligne dans `buyers`
-- **Streamlit** : ouvre `https://leadforges.streamlit.app` → colle le mot de passe reçu → accès OK ✅
+- **Streamlit** : ouvre `https://leadforgesdemo.streamlit.app` → colle le mot de passe reçu → accès OK ✅
 
 Si l'un de ces 5 checks rate, lis les logs Vercel — l'erreur est dedans.
 
@@ -137,7 +137,7 @@ T+30s    : Buyer renseigne carte sur Stripe → paie 2 400 € TTC (2 000 HT + T
 T+45s    : Stripe envoie checkout.session.completed à Vercel
 T+50s    : Vercel webhook → Turso INSERT + Resend send
 T+1min   : Buyer reçoit son email avec password + URL
-T+2min   : Buyer login sur leadforges.streamlit.app
+T+2min   : Buyer login sur leadforgesdemo.streamlit.app
 T+3min   : Tu reçois ton email de notif "💰 sale"
 ```
 

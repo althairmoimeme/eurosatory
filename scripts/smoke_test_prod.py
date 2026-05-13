@@ -33,7 +33,7 @@ from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
 
-DEFAULT_URL = "https://leadforges.streamlit.app"
+DEFAULT_URL = "https://leadforgesdemo.streamlit.app"
 
 
 def _probe(url: str, timeout_sec: float = 10) -> tuple[int, str]:

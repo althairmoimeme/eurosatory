@@ -129,7 +129,7 @@ def _rotate_password(
 
 def _delivery_email(
     name: str, password: str, expires: date,
-    app_url: str = "https://leadforges.streamlit.app",
+    app_url: str = "https://leadforgesdemo.streamlit.app",
 ) -> tuple[str, str]:
     """Generate the subject + body of the delivery email."""
     subject = "🎯 LeadForges — votre accès Eurosatory 2026"
@@ -180,7 +180,7 @@ def main() -> int:
                     help="Regenerate password for an existing buyer")
     ap.add_argument("--dry-run", action="store_true",
                     help="Don't touch the file, just print what would happen")
-    ap.add_argument("--app-url", default="https://leadforges.streamlit.app",
+    ap.add_argument("--app-url", default="https://leadforgesdemo.streamlit.app",
                     help="Public LeadForges URL (in the email template)")
     args = ap.parse_args()
 

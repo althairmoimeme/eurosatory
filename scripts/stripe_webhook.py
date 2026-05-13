@@ -78,7 +78,7 @@ DELIVERY_FROM_EMAIL = os.environ.get(
 BUYERS_REPO_DIR = os.environ.get("BUYERS_REPO_DIR", "/srv/leadforges-repo")
 DELIVERY_MODE = os.environ.get("DELIVERY_MODE", "auto")  # auto | notify_only
 ADMIN_EMAIL = os.environ.get("ADMIN_EMAIL", "a.bertantoine@gmail.com")
-APP_URL = os.environ.get("APP_URL", "https://leadforges.streamlit.app")
+APP_URL = os.environ.get("APP_URL", "https://leadforgesdemo.streamlit.app")
 
 stripe.api_key = os.environ.get("STRIPE_SECRET_KEY", "")
 
