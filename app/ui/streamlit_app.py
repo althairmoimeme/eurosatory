@@ -25,24 +25,12 @@ if str(ROOT) not in sys.path:
 import pandas as pd
 import streamlit as st
 
-# ─── DEMO MODE HOOK ───────────────────────────────────────────────────
-# Must run BEFORE any `from app.*` import that transitively pulls
-# ``app.config`` — config reads ``LEADFORGES_DEMO`` to pick the demo DB.
-def _detect_demo_mode() -> bool:
-    try:
-        # Streamlit >= 1.30 : st.query_params is a dict-like
-        qp = dict(st.query_params)
-    except Exception:  # noqa: BLE001
-        try:
-            qp = {k: v[0] if isinstance(v, list) else v
-                  for k, v in st.experimental_get_query_params().items()}
-        except Exception:  # noqa: BLE001
-            qp = {}
-    val = str(qp.get("demo", "")).strip().lower()
-    return val in ("1", "true", "yes", "on")
-
-if _detect_demo_mode():
-    os.environ["LEADFORGES_DEMO"] = "1"
+# Demo mode detection happens PER REQUEST via ``_is_demo_mode()`` (defined
+# further down). We deliberately do NOT set an env var here — Streamlit
+# Cloud runs the app in a single long-lived process serving many users,
+# and an env var would leak across sessions (a single user with ?demo=1
+# could limit ALL other users to 50 rows). Detection must be session-
+# scoped, hence read from ``st.query_params`` on every call.
 from sqlalchemy import select
 
 from app.crm.normalizers import (
@@ -5219,8 +5207,24 @@ def render_data_quality_tab(df: pd.DataFrame) -> None:
 
 
 def _is_demo_mode() -> bool:
-    """Return True when ``?demo=1`` is in the URL or env var set."""
-    return os.environ.get("LEADFORGES_DEMO") == "1"
+    """Return True for THIS request when ``?demo=1`` is in the URL.
+
+    CRITICAL : reads ``st.query_params`` PER CALL — never an env var.
+    The Streamlit Cloud process is shared by all users, so an env var
+    would leak demo restrictions to paying buyers. This implementation
+    is fully session-scoped : a demo visitor in tab A and a paying
+    buyer in tab B are independent.
+    """
+    try:
+        qp = dict(st.query_params)
+    except Exception:  # noqa: BLE001
+        try:
+            qp = {k: v[0] if isinstance(v, list) else v
+                  for k, v in st.experimental_get_query_params().items()}
+        except Exception:  # noqa: BLE001
+            qp = {}
+    val = str(qp.get("demo", "")).strip().lower()
+    return val in ("1", "true", "yes", "on")
 
 
 def _render_demo_banner() -> None:
@@ -5287,6 +5291,15 @@ def main() -> None:
         from app.ui.auth import render_access_banner
         render_access_banner()
     df = load_crm()
+    # ── DEMO HARD LIMIT ──────────────────────────────────────────────
+    # Cap the CRM dataframe at 50 rows when in demo mode. Done at the UI
+    # layer (not at the DB layer) because Streamlit Cloud caches the
+    # ``app.config`` module on first import — the env-var-based DB switch
+    # can't react to ``?demo=1`` once the module is loaded. Slicing here
+    # is bulletproof : the buyer cannot escape the limit via filters,
+    # exports, or URL hacks (they never see the rest in any view).
+    if _is_demo_mode():
+        df = df.head(50).copy()
     # Overlay session-scoped favorites on top of the cached dataframe so
     # each buyer sees their own ⭐ selection without polluting the cache.
     df = _inject_session_favorites(df)
@@ -7611,6 +7624,12 @@ def render_attendance_signals_tab() -> None:
     _render_attendance_quick_import()
 
     df = _load_signals()
+
+    # ── DEMO HARD LIMIT (same rationale as load_crm slicing in main) ──
+    # Cap at 50 signals when in demo mode. The buyer can play with all
+    # filters but never extract more than 50 rows.
+    if _is_demo_mode():
+        df = df.head(50).copy()
 
     # Slim filter row
     filters = _render_attendance_filters(df)
