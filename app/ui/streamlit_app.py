@@ -2432,7 +2432,18 @@ def render_detail(exhibitor_id: int) -> None:
                 )
                 bits: list[str] = []
                 if c.email:
-                    badge = "📧 (générique)" if c.is_generic else "📧"
+                    # 3-way badge :
+                    #   📧            — directly sourced from catalogue / scraping
+                    #   📧 (générique) — info@ / contact@ / sales@
+                    #   ⚠️ (inféré)    — pattern-inferred, MX-validated, NOT verified
+                    src = (c.source_url or "").lower()
+                    is_inferred = src.startswith("inferred:")
+                    if is_inferred:
+                        badge = "⚠️ (inféré · à vérifier)"
+                    elif c.is_generic:
+                        badge = "📧 (générique)"
+                    else:
+                        badge = "📧"
                     bits.append(f"{badge} `{c.email}`")
                 if c.phone:
                     bits.append(f"☎️ `{c.phone}`")
@@ -5363,7 +5374,7 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     see them too.
     """
     from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
-    c1, c2, c3, c4, c5 = st.columns([0.9, 1.3, 1.3, 2.1, 1.2])
+    c1, c2, c3, c4, c5, c6 = st.columns([0.8, 1.0, 1.2, 1.2, 1.8, 1.0])
     with c1:
         years = st.multiselect(
             "Année",
@@ -5379,6 +5390,24 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "Autre (Afrique, Océanie, autres).",
         )
     with c3:
+        # Pays-level filter — more granular than Zone. Builds the list of
+        # available countries from the dataframe so we never offer a
+        # country that has 0 signals.
+        if "country" in df.columns:
+            available_countries = sorted(
+                {c for c in df["country"].dropna().unique()
+                 if isinstance(c, str) and c.strip()}
+            )
+        else:
+            available_countries = []
+        countries = st.multiselect(
+            "Pays",
+            available_countries,
+            key="att_countries",
+            help="Filtre par pays exact (basé sur le pays détecté du "
+            "signal). Pour un filtre plus large, utilise Zone.",
+        )
+    with c4:
         company_types = st.multiselect(
             "Type d'entreprise",
             ALLOWED_COMPANY_TYPES,
@@ -5387,13 +5416,13 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "capabilities de la société. Filtre les signaux dont la "
             "société matche un de ces buckets.",
         )
-    with c4:
+    with c5:
         search_text = st.text_input(
             "🔎 Recherche libre (nom personne / société / texte)",
             key="att_search",
             placeholder="Ex: Thales, John Doe, cyber, France…",
         )
-    with c5:
+    with c6:
         include_exhibitors = st.checkbox(
             "Inclure exposants",
             value=False,
@@ -5406,6 +5435,7 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     return {
         "years": years,
         "zones": zones,
+        "countries": countries,
         "company_types": company_types,
         # Source / platform filter retired — sources are confidential
         # (proprietary intel scraping). Only LinkedIn signals show their
@@ -7586,10 +7616,13 @@ def render_attendance_signals_tab() -> None:
     filters = _render_attendance_filters(df)
     filtered = attend_apply_filters(df, **filters)
 
-    # View mode : list (default) vs grouped-by-company (ABM)
+    # View mode : grouped-by-company (default, ABM) vs flat list.
+    # We prefer the ABM view because buyers map signals → accounts when
+    # preparing their target list ; the flat list is the "drill into one
+    # signal" view, useful but secondary.
     view_mode = st.radio(
         "Vue",
-        ["📋 Liste", "🏢 Groupé par société"],
+        ["🏢 Groupé par société", "📋 Liste"],
         horizontal=True,
         key="att_view_mode",
         label_visibility="collapsed",
