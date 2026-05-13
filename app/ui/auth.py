@@ -51,11 +51,13 @@ here too to keep all authentication concerns in one place.
 from __future__ import annotations
 
 import hmac
+import json
 import os
 import time
 from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Optional
+from urllib.request import Request, urlopen
 
 import streamlit as st
 
@@ -115,15 +117,30 @@ def _coerce_date(value) -> Optional[date]:
 
 
 def _load_buyers() -> dict[str, Buyer]:
-    """Read ``st.secrets["buyers"]`` → mapping ``{password: Buyer}``.
+    """Build ``{password: Buyer}`` from two sources merged together :
 
-    Skips malformed entries instead of crashing — operator might mistype
-    one entry, we don't want to take down the whole gate.
+      1. ``st.secrets["buyers"]`` — TOML array set in the Streamlit Cloud
+         dashboard. Used for admin / demo / hand-managed accounts.
+      2. Turso ``buyers`` table — auto-populated by the Stripe webhook
+         on every paid sale. Used for all real customers.
+
+    The two sources are merged with st.secrets winning on password
+    conflicts (so a manually-set admin entry can never be overridden by
+    a Turso row).
+
+    Skips malformed entries instead of crashing — one bad row shouldn't
+    take down the whole login gate.
     """
+    out: dict[str, Buyer] = {}
+
+    # --- 2. Turso (live, paid customers) ---
+    for pw, buyer in _load_buyers_from_turso().items():
+        out[pw] = buyer
+
+    # --- 1. st.secrets (admin / demo / hand-managed) — wins on conflict ---
     secrets = _read_secrets()
     raw = secrets.get("buyers") or []
-    out: dict[str, Buyer] = {}
-    for i, entry in enumerate(raw):
+    for entry in raw:
         try:
             pw = str(entry.get("password") or "").strip()
             name = str(entry.get("name") or "").strip()
@@ -132,11 +149,95 @@ def _load_buyers() -> dict[str, Buyer]:
             if not pw or not name or expires is None:
                 continue
             if len(pw) < 8:
-                # Force a minimum password strength
                 continue
             out[pw] = Buyer(name=name, expires=expires, email=email)
         except Exception:  # noqa: BLE001
-            # Malformed entry — skip silently so the rest stays usable
+            continue
+    return out
+
+
+# ── Turso (libSQL) — live buyer storage populated by Stripe webhook ──────
+
+
+def _turso_url_and_token() -> tuple[Optional[str], Optional[str]]:
+    """Return ``(database_url, auth_token)`` or ``(None, None)`` if Turso
+    is not configured. Reads from env vars first, then from st.secrets.
+    """
+    url = (os.getenv("TURSO_DATABASE_URL") or "").strip()
+    tok = (os.getenv("TURSO_AUTH_TOKEN") or "").strip()
+    if not url or not tok:
+        secrets = _read_secrets()
+        url = url or str(secrets.get("TURSO_DATABASE_URL") or "").strip()
+        tok = tok or str(secrets.get("TURSO_AUTH_TOKEN") or "").strip()
+    return (url or None), (tok or None)
+
+
+@st.cache_data(ttl=30, show_spinner=False)
+def _load_buyers_from_turso() -> dict[str, Buyer]:
+    """Query the live ``buyers`` table over the libSQL HTTP /v2/pipeline
+    endpoint. Cached 30 s so we don't hammer Turso on every interaction.
+
+    Returns ``{}`` if Turso isn't configured, the table doesn't exist
+    yet, or any request fails — the gate stays usable via st.secrets.
+    """
+    url, token = _turso_url_and_token()
+    if not url or not token:
+        return {}
+
+    http_url = url.replace("libsql://", "https://").rstrip("/") + "/v2/pipeline"
+    body = json.dumps({
+        "requests": [
+            {
+                "type": "execute",
+                "stmt": {
+                    "sql": "SELECT password, name, email, expires_at FROM buyers",
+                    "args": [],
+                },
+            },
+            {"type": "close"},
+        ]
+    }).encode("utf-8")
+
+    try:
+        req = Request(
+            http_url, data=body,
+            headers={
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        with urlopen(req, timeout=5) as resp:  # noqa: S310
+            payload = json.loads(resp.read())
+    except Exception:  # noqa: BLE001
+        # Network blip, table missing, bad token — fall back silently
+        # rather than locking out everyone.
+        return {}
+
+    # libSQL response : results[0].response.result.{cols, rows}
+    out: dict[str, Buyer] = {}
+    try:
+        rows = (payload["results"][0]["response"]["result"].get("rows") or [])
+    except (KeyError, IndexError, TypeError):
+        return {}
+
+    for row in rows:
+        try:
+            # Each row is a list of {"type": "text"|"null", "value": ...}
+            vals = [(cell.get("value") if isinstance(cell, dict) else None)
+                    for cell in row]
+            pw, name, email, expires_str = vals[0], vals[1], vals[2], vals[3]
+            if not pw or len(pw) < 8:
+                continue
+            expires = _coerce_date(expires_str)
+            if expires is None:
+                continue
+            out[pw] = Buyer(
+                name=(name or "Buyer"),
+                expires=expires,
+                email=email or None,
+            )
+        except Exception:  # noqa: BLE001
             continue
     return out
 

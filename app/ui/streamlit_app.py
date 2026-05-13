@@ -5247,7 +5247,7 @@ def _render_demo_banner() -> None:
             </span>
           </div>
           <div>
-            <a href="https://leadforges.io" target="_blank"
+            <a href="https://leadforges-eight.vercel.app" target="_blank"
                style="background: #FAFAFA; color: #0A0A0A;
                       padding: 6px 14px; border-radius: 6px;
                       text-decoration: none; font-weight: 600;
