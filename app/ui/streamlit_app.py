@@ -1710,7 +1710,7 @@ def render_comparison(exhibitor_ids: list[int]) -> None:
         f'<div class="section-title">⚖️ Comparaison côte-à-côte — {len(exhibitor_ids)} sociétés</div>',
         unsafe_allow_html=True,
     )
-    df = load_crm()
+    df = _localize_df(load_crm())
     sub = df[df["account_id"].str.replace("ESY26-", "").astype(int).isin(exhibitor_ids)]
     if sub.empty:
         st.info("Sélection vide.")
@@ -2013,7 +2013,7 @@ def render_bulk_actions(exhibitor_ids: list[int],
 
     # 3 — Export the current selection only (CSV / XLSX)
     st.markdown("**⬇ Export de la sélection**")
-    df = load_crm()
+    df = _localize_df(load_crm())
     sub = df[df["account_id"].str.replace("ESY26-", "").astype(int).isin(exhibitor_ids)]
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
