@@ -48,6 +48,8 @@ import json
 import os
 import sys
 import time
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -69,6 +71,7 @@ LIST_FIELDS = ["products", "services", "target_buyers", "technologies"]
 ALL_FIELDS = STRING_FIELDS + LIST_FIELDS
 
 BATCH_SIZE = 10
+PARALLEL_BATCHES = 5  # concurrent Claude API calls (well under tier-1 50 RPM)
 
 
 SYSTEM_PROMPT = """\
@@ -238,51 +241,62 @@ def main() -> int:
     t0 = time.time()
     translated = 0
     failed = 0
+    completed_batches = 0
+    total_batches = (len(pending_idx) + BATCH_SIZE - 1) // BATCH_SIZE
+    save_lock = threading.Lock()
 
-    for batch_start in range(0, len(pending_idx), BATCH_SIZE):
-        chunk_idx = pending_idx[batch_start:batch_start + BATCH_SIZE]
+    def _process_one_batch(batch_start_idx: int):
+        nonlocal translated, failed, completed_batches
+        chunk_idx = pending_idx[batch_start_idx:batch_start_idx + BATCH_SIZE]
         batch_entries = [data[i] for i in chunk_idx]
         batch_input = _build_batch_input(batch_entries)
-
         result = _translate_batch(client, batch_input)
         if result is None:
-            failed += len(chunk_idx)
-            print(f"  ✗ batch {batch_start//BATCH_SIZE + 1} FAILED")
-            continue
+            with save_lock:
+                failed += len(chunk_idx)
+                completed_batches += 1
+            return False
+        # Merge translations back into the in-memory data structure
+        with save_lock:
+            for src_idx, tr in zip(chunk_idx, result):
+                entry = data[src_idx]
+                for f in STRING_FIELDS:
+                    key = f"{f}_en"
+                    v = tr.get(key)
+                    if v and isinstance(v, str) and v.strip():
+                        entry[key] = v.strip()
+                for f in LIST_FIELDS:
+                    key = f"{f}_en"
+                    v = tr.get(key)
+                    if v and isinstance(v, list):
+                        cleaned = [x.strip() for x in v
+                                   if isinstance(x, str) and x.strip()]
+                        if cleaned:
+                            entry[key] = cleaned
+                translated += 1
+            completed_batches += 1
+            # Persist incrementally every batch (crash-safe)
+            with JSON_PATH.open("w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+            elapsed = int(time.time() - t0)
+            rate = translated / max(elapsed, 1)
+            eta = int((len(pending_idx) - translated) / max(rate, 0.1))
+            print(
+                f"  [{elapsed:>4}s] batch {completed_batches}/{total_batches} ok · "
+                f"translated={translated}/{len(pending_idx)} · "
+                f"failed={failed} · rate={rate*60:.0f}/min · ETA={eta}s",
+                flush=True,
+            )
+        return True
 
-        # Merge translations back into the original entries
-        for src_idx, tr in zip(chunk_idx, result):
-            entry = data[src_idx]
-            # String fields
-            for f in STRING_FIELDS:
-                key = f"{f}_en"
-                v = tr.get(key)
-                if v and isinstance(v, str) and v.strip():
-                    entry[key] = v.strip()
-            # List fields
-            for f in LIST_FIELDS:
-                key = f"{f}_en"
-                v = tr.get(key)
-                if v and isinstance(v, list):
-                    cleaned = [x.strip() for x in v
-                               if isinstance(x, str) and x.strip()]
-                    if cleaned:
-                        entry[key] = cleaned
-            translated += 1
-
-        # Persist incrementally every batch (crash-safe)
-        with JSON_PATH.open("w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-
-        elapsed = int(time.time() - t0)
-        done = batch_start + len(chunk_idx)
-        rate = done / max(elapsed, 1)
-        eta = int((len(pending_idx) - done) / max(rate, 0.1))
-        print(
-            f"  [{elapsed:>4}s] batch {batch_start//BATCH_SIZE + 1} ok · "
-            f"done={done}/{len(pending_idx)} · translated={translated} · "
-            f"failed={failed} · ETA={eta}s"
-        )
+    # Schedule all batches with a ThreadPoolExecutor (Claude SDK is sync,
+    # threads are the right primitive here — each thread blocks on the
+    # HTTP call).
+    batch_starts = list(range(0, len(pending_idx), BATCH_SIZE))
+    with ThreadPoolExecutor(max_workers=PARALLEL_BATCHES) as pool:
+        futures = [pool.submit(_process_one_batch, s) for s in batch_starts]
+        for _ in as_completed(futures):
+            pass  # progress is printed inside the worker
 
     print()
     print(f"✅ Translated {translated} entries in {int(time.time() - t0)}s")
