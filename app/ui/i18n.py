@@ -1,0 +1,284 @@
+"""Lightweight i18n for the LeadForges Streamlit app.
+
+Detection
+─────────
+  Language is read PER REQUEST from ``st.query_params["lang"]`` — no env
+  vars, no module-level state. Streamlit Cloud runs all users in the
+  same process, so any session-scoped switching MUST go through query
+  params or st.session_state (we use query params so the language
+  survives full page reloads / shared URLs).
+
+Usage
+─────
+    from app.ui.i18n import t, get_lang
+    st.title(t("page.companies.title"))
+    if get_lang() == "en":
+        ...
+
+Adding a new translation
+────────────────────────
+  Add the French key as the canonical version, then provide the EN
+  translation. Untranslated keys fall back to the French version.
+
+Convention for data fields
+──────────────────────────
+  When reading from a row that has both ``foo`` and ``foo_en`` columns
+  (e.g. ``activity_1liner`` + ``activity_1liner_en``), call
+  ``localized(row, "activity_1liner")`` which picks ``foo_en`` if the
+  current language is en AND the EN value is non-empty, else falls back
+  to ``foo``.
+"""
+
+from __future__ import annotations
+
+from typing import Any
+
+import streamlit as st
+
+
+# ─── LANGUAGE DETECTION ───────────────────────────────────────────────
+
+DEFAULT_LANG = "fr"
+SUPPORTED_LANGS = ("fr", "en")
+
+
+def get_lang() -> str:
+    """Return the current request's language code (``"fr"`` or ``"en"``).
+
+    Reads ``st.query_params["lang"]`` on every call. Defaults to French
+    if no/invalid value.
+    """
+    try:
+        qp = dict(st.query_params)
+    except Exception:  # noqa: BLE001
+        try:
+            qp = {k: v[0] if isinstance(v, list) else v
+                  for k, v in st.experimental_get_query_params().items()}
+        except Exception:  # noqa: BLE001
+            qp = {}
+    val = str(qp.get("lang", "")).strip().lower()
+    if val in SUPPORTED_LANGS:
+        return val
+    return DEFAULT_LANG
+
+
+def is_en() -> bool:
+    return get_lang() == "en"
+
+
+def with_lang_param(href: str) -> str:
+    """Append ``?lang=<current>`` (or ``&lang=…``) to a URL when EN is
+    active. Used to preserve language when generating internal links.
+    """
+    if not is_en():
+        return href
+    sep = "&" if "?" in href else "?"
+    return f"{href}{sep}lang=en"
+
+
+# ─── TRANSLATION DICTIONARY ──────────────────────────────────────────
+# Convention : keys are dotted paths describing the UI element.
+# When in doubt, prefer slightly verbose keys to avoid collisions.
+#
+# Only the EN dict is required — French is the canonical key.
+
+_EN: dict[str, str] = {
+    # — Login screen —
+    "login.title": "Sign in to LeadForges",
+    "login.subtitle": "Enter the password you received by email after purchase.",
+    "login.password_label": "Password",
+    "login.submit": "Sign in",
+    "login.error_invalid": "Incorrect password.",
+    "login.error_expired": "Your access has expired. Contact us to renew.",
+    "login.error_locked": "Too many failed attempts. Try again in {seconds}s.",
+    "login.attempts_remaining": "{n} attempts remaining",
+
+    # — Access banner —
+    "banner.welcome": "Welcome, {name}",
+    "banner.expires_in": "Access expires in {days} days",
+    "banner.signout": "Sign out",
+
+    # — Demo banner —
+    "demo.label": "DEMO VERSION",
+    "demo.subtitle": "50 exhibitors × 50 signals · representative sample",
+    "demo.cta": "Access the full database (€2,000) →",
+
+    # — Tabs / main sections —
+    "tab.companies": "Companies",
+    "tab.attendance": "Attendance Signals",
+    "tab.lists": "Target lists",
+    "tab.exports": "Exports",
+
+    # — Companies tab —
+    "companies.subtitle": "The 2,580 official Eurosatory 2026 exhibitors with multi-axis filtering.",
+    "companies.column.company_name": "Company",
+    "companies.column.country": "Country",
+    "companies.column.company_type": "Type",
+    "companies.column.activity_1liner": "Activity (1 line)",
+    "companies.column.products_specific": "Products",
+    "companies.column.services_specific": "Services",
+    "companies.column.contact_email": "Email",
+    "companies.column.linkedin_url": "LinkedIn",
+    "companies.column.website_url": "Website",
+    "companies.column.zone": "Geographic zone",
+
+    # — Attendance tab —
+    "attendance.title": "ATTENDANCE SIGNALS — who will potentially attend",
+    "attendance.subtitle": "Enriched list of people and companies detected via public OSINT (corporate sites, press releases, indexed posts).",
+    "attendance.filter.year": "Year",
+    "attendance.filter.zone": "Zone",
+    "attendance.filter.country": "Country",
+    "attendance.filter.company_type": "Company type",
+    "attendance.filter.search": "Free search (person / company / text)",
+    "attendance.filter.include_exhibitors": "Include exhibitors",
+    "attendance.view.grouped": "Grouped by company",
+    "attendance.view.list": "List",
+    "attendance.kpi.signals": "signals",
+    "attendance.kpi.contacts": "contacts",
+
+    # — Sidebar filters —
+    "sidebar.identification": "Identification",
+    "sidebar.geographic_zone": "Geographic zone",
+    "sidebar.country": "Country",
+    "sidebar.defense_segment": "Defense segment",
+    "sidebar.find_targets": "Find targets",
+    "sidebar.products_made": "Products made",
+    "sidebar.services_sold": "Services sold",
+    "sidebar.certifications": "Certifications",
+    "sidebar.reset_filters": "Reset filters",
+
+    # — Detail card —
+    "detail.section.identity": "1 · Identity",
+    "detail.section.what_they_do": "2 · What they do",
+    "detail.section.intelligence": "3 · Commercial intelligence",
+    "detail.section.contacts": "4 · Contacts",
+    "detail.section.signals": "5 · Attendance signals",
+    "detail.section.notes": "6 · CRM notes",
+    "detail.field.core_business": "Core business",
+    "detail.field.main_products_services": "Main products & services",
+    "detail.field.activity_1liner": "Activity (1 line)",
+    "detail.field.why_target": "Why target this company",
+    "detail.field.founded": "Founded",
+    "detail.field.last_checked": "Last checked",
+    "detail.field.official_contacts": "Official contacts (catalogue)",
+    "detail.field.generic_email": "(generic)",
+    "detail.field.inferred_email": "(inferred · verify)",
+
+    # — Pagination —
+    "pagination.rows_per_page": "Rows per page",
+    "pagination.page": "Page",
+    "pagination.of": "of",
+    "pagination.total": "total",
+    "pagination.showing": "showing",
+
+    # — Lists tab —
+    "lists.title": "Target lists",
+    "lists.create_new": "Create a new list",
+    "lists.name": "List name",
+    "lists.load": "Load these filters",
+    "lists.delete": "Delete list",
+    "lists.empty": "No list saved yet. Compose your filters on the Companies tab, then save them here.",
+
+    # — Exports tab —
+    "exports.title": "Exports",
+    "exports.csv": "Download CSV",
+    "exports.excel": "Download Excel",
+
+    # — Common actions —
+    "action.save": "Save",
+    "action.cancel": "Cancel",
+    "action.delete": "Delete",
+    "action.confirm": "Confirm",
+    "action.export": "Export",
+    "action.copy": "Copy",
+    "action.search": "Search",
+    "action.apply": "Apply",
+    "action.clear": "Clear",
+    "action.close": "Close",
+    "action.back": "Back",
+
+    # — Status badges —
+    "badge.high": "High",
+    "badge.medium": "Medium",
+    "badge.low": "Low",
+    "badge.unknown": "Unknown",
+    "badge.priority_a_plus": "A+",
+    "badge.priority_a": "A",
+    "badge.priority_b": "B",
+    "badge.priority_c": "C",
+
+    # — Geographic zones —
+    "zone.europe": "Europe",
+    "zone.north_america": "North America",
+    "zone.asia": "Asia",
+    "zone.south_america": "South America",
+    "zone.other": "Other (Africa, Oceania, ...)",
+
+    # — Common strings —
+    "common.loading": "Loading...",
+    "common.no_data": "No data available.",
+    "common.error": "An error occurred.",
+    "common.yes": "Yes",
+    "common.no": "No",
+    "common.unknown": "—",
+}
+
+
+# Optional FR overrides (when the canonical FR text differs from the key
+# itself). Keep this sparse — most FR strings ARE the key already.
+_FR: dict[str, str] = {
+    # Keep empty unless you discover a key whose French value should be
+    # different from the key path itself. We use canonical short FR text
+    # below as fallback when no key match is found.
+}
+
+
+# ─── PUBLIC API ───────────────────────────────────────────────────────
+
+def t(key: str, /, **kwargs: Any) -> str:
+    """Translate ``key`` for the current request language.
+
+    Falls back to the key itself when no translation exists (useful
+    during development — you'll spot untranslated strings visually).
+
+    ``**kwargs`` are passed to ``str.format`` for placeholder
+    interpolation, e.g. ``t("login.attempts_remaining", n=4)``.
+    """
+    lang = get_lang()
+    if lang == "en":
+        val = _EN.get(key)
+    else:
+        val = _FR.get(key)
+    if val is None:
+        val = key
+    if kwargs:
+        try:
+            val = val.format(**kwargs)
+        except (KeyError, IndexError):
+            pass
+    return val
+
+
+def localized(row: Any, field: str, fallback: str = "") -> str:
+    """For DB rows with parallel FR/EN columns (e.g. ``activity_1liner``
+    + ``activity_1liner_en``), return the EN version when ``?lang=en``
+    is active and the EN value is non-empty ; else fall back to FR ;
+    else ``fallback``.
+
+    Works with dict-like (``row["foo"]``) and attribute-like
+    (``row.foo``) accessors transparently.
+    """
+    def _get(name: str) -> Any:
+        try:
+            return row[name]
+        except (KeyError, TypeError):
+            return getattr(row, name, None)
+
+    if is_en():
+        en_val = _get(f"{field}_en")
+        if en_val is not None and str(en_val).strip():
+            return str(en_val)
+    fr_val = _get(field)
+    if fr_val is not None and str(fr_val).strip():
+        return str(fr_val)
+    return fallback

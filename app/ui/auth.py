@@ -350,25 +350,58 @@ def _attempt_login(password: str) -> tuple[bool, Optional[Buyer]]:
 def render_login_screen() -> None:
     """Show the login screen. Returns nothing — caller should
     ``st.stop()`` after if not authenticated."""
+    from app.ui.i18n import is_en
+    en = is_en()
+    L = {
+        "tagline": "LeadForges · Defense Commercial Intelligence",
+        "title": "Restricted access" if en else "Accès restreint",
+        "body": (
+            "This application contains a pre-qualified commercial defense "
+            "database for the Eurosatory 2026 show. Enter the password "
+            "you received at purchase."
+        ) if en else (
+            "Cette application contient une base commerciale défense "
+            "pré-qualifiée pour le salon Eurosatory 2026. "
+            "Saisis ton mot de passe d'accès (fourni à l'achat)."
+        ),
+        "placeholder": "Access password" if en else "Mot de passe d'accès",
+        "locked": (
+            "🔒 Too many failed attempts. Try again in **{n} s** "
+            "(or reload the page if you have the right password)."
+        ) if en else (
+            "🔒 Trop d'essais incorrects. Réessaie dans **{n} s** "
+            "(ou recharge la page si tu connais le bon mot de passe)."
+        ),
+        "expired": (
+            "Access for **{name}** expired on {date}. "
+            "Contact support@leadforges.com to renew."
+        ) if en else (
+            "Accès de **{name}** expiré le {date}. "
+            "Contacte support@leadforges.com pour renouveler."
+        ),
+        "wrong": (
+            "Incorrect password. ({n} attempt{plural} remaining before lockout)"
+        ) if en else (
+            "Mot de passe incorrect. ({n} essai{plural} restant{plural} avant verrouillage)"
+        ),
+    }
 
     st.markdown(
-        """
+        f"""
         <div style='max-width: 420px; margin: 4rem auto; padding: 2.2rem 1.75rem;
                     border: 1px solid #E2E8F0; background: #fff;
                     font-family: -apple-system, BlinkMacSystemFont, sans-serif;'>
             <div style='font-size: 0.68rem; letter-spacing: 0.14em;
                         color: #C1121F; text-transform: uppercase; font-weight: 700;'>
-                LeadForges · Defense Commercial Intelligence
+                {L["tagline"]}
             </div>
             <div style='font-size: 1.55rem; font-weight: 700; color: #0F172A;
                         letter-spacing: -0.02em; margin: 0.7rem 0 1.4rem 0;'>
-                Accès restreint
+                {L["title"]}
             </div>
             <div style='font-size: 0.88rem; color: #475569; line-height: 1.55;
                         margin-bottom: 1.6rem;'>
-                Cette application contient une base commerciale défense
-                pré-qualifiée pour le salon Eurosatory 2026.
-                Saisis ton mot de passe d'accès (fourni à l'achat).
+                {L["body"]}
             </div>
         </div>
         """,
@@ -376,68 +409,84 @@ def render_login_screen() -> None:
     )
     cols = st.columns([1, 2, 1])
     with cols[1]:
-        # Lock-out check : if too many recent fails, BLOCK login attempts
-        # for ``_RATELIMIT_LOCK_SECONDS`` (session-scoped, naive but
-        # sufficient to slow scripted brute force).
         locked_until = float(st.session_state.get(_LOCKED_UNTIL_KEY, 0))
         now = time.time()
         is_locked = locked_until > now
         remaining = int(locked_until - now) if is_locked else 0
 
         pw = st.text_input(
-            "Mot de passe", type="password",
+            "Password" if en else "Mot de passe",
+            type="password",
             label_visibility="collapsed",
-            placeholder="Mot de passe d'accès",
+            placeholder=L["placeholder"],
             key="_lf_password_input",
             disabled=is_locked,
         )
         if is_locked:
-            st.error(
-                f"🔒 Trop d'essais incorrects. Réessaie dans **{remaining} s** "
-                "(ou recharge la page si tu connais le bon mot de passe)."
-            )
+            st.error(L["locked"].format(n=remaining))
         elif pw:
             ok, buyer = _attempt_login(pw)
             if ok and buyer:
-                # Success → wipe rate-limit state
                 st.session_state[_SESSION_KEY] = buyer
                 st.session_state.pop(_FAILED_KEY, None)
                 st.session_state.pop(_LOCKED_UNTIL_KEY, None)
                 st.rerun()
             else:
-                # Bump fail counter ; trip the lock at the threshold
                 fails = int(st.session_state.get(_FAILED_KEY, 0)) + 1
                 st.session_state[_FAILED_KEY] = fails
                 if buyer and buyer.is_expired:
-                    st.error(
-                        f"Accès de **{buyer.name}** expiré le "
-                        f"{buyer.expires:%d/%m/%Y}. "
-                        "Contacte support@leadforges.com pour renouveler."
-                    )
+                    st.error(L["expired"].format(
+                        name=buyer.name,
+                        date=buyer.expires.strftime("%d/%m/%Y"),
+                    ))
                 elif fails >= _RATELIMIT_THRESHOLD:
-                    # Set the lock and force a rerun so the input box
-                    # disables itself immediately.
                     st.session_state[_LOCKED_UNTIL_KEY] = (
                         time.time() + _RATELIMIT_LOCK_SECONDS
                     )
-                    st.session_state[_FAILED_KEY] = 0  # reset counter
+                    st.session_state[_FAILED_KEY] = 0
                     st.rerun()
                 else:
                     remaining_attempts = _RATELIMIT_THRESHOLD - fails
-                    st.error(
-                        f"Mot de passe incorrect. "
-                        f"({remaining_attempts} essai{'s' if remaining_attempts > 1 else ''} "
-                        f"restant{'s' if remaining_attempts > 1 else ''} avant verrouillage)"
-                    )
+                    plural = "s" if remaining_attempts > 1 else ""
+                    st.error(L["wrong"].format(
+                        n=remaining_attempts, plural=plural,
+                    ))
 
     # Footer with contact
+    footer_label = "Need help?" if en else "Besoin d'aide ?"
     st.markdown(
-        """
+        f"""
         <div style='max-width: 420px; margin: 0.6rem auto 0 auto;
                     text-align: center; font-size: 0.78rem; color: #94A3B8;'>
-            Besoin d'aide ? <a href='mailto:support@leadforges.com'
+            {footer_label} <a href='mailto:support@leadforges.com'
             style='color:#475569; text-decoration:underline;'>
             support@leadforges.com</a>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Language toggle on the login screen (sits below the form)
+    try:
+        qp = dict(st.query_params)
+    except Exception:  # noqa: BLE001
+        qp = {}
+    def _lang_link(code: str) -> str:
+        new = {**qp, "lang": code}
+        if code == "fr":
+            new.pop("lang", None)
+        qs = "&".join(f"{k}={v}" for k, v in new.items())
+        return f"?{qs}" if qs else "?"
+    fr_style = "font-weight: 700; color: #0A0A0A;" if not en else "color: #94A3B8;"
+    en_style = "font-weight: 700; color: #0A0A0A;" if en else "color: #94A3B8;"
+    st.markdown(
+        f"""
+        <div style='max-width: 420px; margin: 0.8rem auto 0 auto;
+                    text-align: center; font-size: 0.78rem;
+                    font-family: monospace;'>
+            <a href='{_lang_link("fr")}' style='{fr_style} text-decoration: none;'>FR</a>
+            <span style='color: #E4E4E7;'>&nbsp;|&nbsp;</span>
+            <a href='{_lang_link("en")}' style='{en_style} text-decoration: none;'>EN</a>
         </div>
         """,
         unsafe_allow_html=True,
@@ -462,12 +511,20 @@ def render_access_banner() -> None:
     else:
         bg = "#7B2D2D"  # red
 
+    from app.ui.i18n import is_en
     plural = "s" if abs(days) > 1 else ""
-    msg = (
-        f"👤 <strong>{buyer.name}</strong> "
-        f"· accès valable jusqu'au {buyer.expires:%d/%m/%Y} "
-        f"({days} jour{plural} restant{plural})"
-    )
+    if is_en():
+        msg = (
+            f"👤 <strong>{buyer.name}</strong> "
+            f"· access valid until {buyer.expires:%Y-%m-%d} "
+            f"({days} day{plural} remaining)"
+        )
+    else:
+        msg = (
+            f"👤 <strong>{buyer.name}</strong> "
+            f"· accès valable jusqu'au {buyer.expires:%d/%m/%Y} "
+            f"({days} jour{plural} restant{plural})"
+        )
 
     cols = st.columns([8, 1])
     with cols[0]:
@@ -477,7 +534,8 @@ def render_access_banner() -> None:
             unsafe_allow_html=True,
         )
     with cols[1]:
-        if st.button("Sign out", key="_lf_signout", use_container_width=True):
+        signout_label = "Sign out" if is_en() else "Déconnexion"
+        if st.button(signout_label, key="_lf_signout", use_container_width=True):
             sign_out()
 
 

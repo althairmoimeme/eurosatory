@@ -289,15 +289,21 @@ def _load_targeting_profiles() -> pd.DataFrame:
         rows.append({
             "_eid": eid,
             "activity_1liner": r.get("activity_1liner") or "",
+            "activity_1liner_en": r.get("activity_1liner_en") or "",
             "supply_chain_tier": r.get("supply_chain_tier") or "N/A",
             "products_specific": " · ".join(r.get("products") or []) or None,
+            "products_specific_en": " · ".join(r.get("products_en") or []) or None,
             "products_categories": " · ".join(r.get("products_categories") or []) or None,
             "services_specific": " · ".join(r.get("services") or []) or None,
+            "services_specific_en": " · ".join(r.get("services_en") or []) or None,
             "services_categories": " · ".join(r.get("services_categories") or []) or None,
             "target_buyers": ", ".join(r.get("target_buyers") or []) or None,
+            "target_buyers_en": ", ".join(r.get("target_buyers_en") or []) or None,
             "technologies_specific": " · ".join(r.get("technologies") or []) or None,
+            "technologies_specific_en": " · ".join(r.get("technologies_en") or []) or None,
             "technologies_categories": " · ".join(r.get("technologies_categories") or []) or None,
             "why_target": r.get("why_target") or "",
+            "why_target_en": r.get("why_target_en") or "",
             "targeting_score": int(r.get("completeness_score", 0)),
             "targeting_source": r.get("data_source_strength") or "",
         })
@@ -386,6 +392,43 @@ def _inject_session_favorites(df: pd.DataFrame) -> pd.DataFrame:
         )
         out["is_favorite"] = out["_eid_tmp"].isin(fav)
         out.drop(columns=["_eid_tmp"], inplace=True)
+    return out
+
+
+def _localize_df(df: pd.DataFrame) -> pd.DataFrame:
+    """When the current request is in EN (``?lang=en``), swap the
+    English variants of data columns INTO the FR-named columns. This
+    way the rest of the rendering code stays language-agnostic ; the
+    EN content is seamlessly displayed wherever a FR column would be.
+
+    Swapped fields :
+      - activity_1liner ← activity_1liner_en
+      - products_specific ← products_specific_en
+      - services_specific ← services_specific_en
+      - target_buyers ← target_buyers_en
+      - technologies_specific ← technologies_specific_en
+      - why_target ← why_target_en
+
+    No-op when lang=fr or no EN column exists.
+    """
+    from app.ui.i18n import is_en
+    if not is_en():
+        return df
+    out = df.copy()
+    pairs = [
+        ("activity_1liner", "activity_1liner_en"),
+        ("products_specific", "products_specific_en"),
+        ("services_specific", "services_specific_en"),
+        ("target_buyers", "target_buyers_en"),
+        ("technologies_specific", "technologies_specific_en"),
+        ("why_target", "why_target_en"),
+    ]
+    for fr_col, en_col in pairs:
+        if en_col in out.columns and fr_col in out.columns:
+            # Use EN value when non-empty, else fall back to FR
+            en_series = out[en_col].fillna("").astype(str)
+            mask = en_series.str.strip() != ""
+            out.loc[mask, fr_col] = out.loc[mask, en_col]
     return out
 
 
@@ -548,10 +591,48 @@ def _collect_split(df: pd.DataFrame, col: str) -> set[str]:
     return out
 
 
+def _render_language_toggle() -> None:
+    """Small flag-style FR/EN toggle at the top of the sidebar.
+
+    Clicking swaps ``?lang=en`` / ``?lang=fr`` in the URL — kept as
+    query param so the user can bookmark the URL or share it.
+    """
+    from app.ui.i18n import get_lang
+    current = get_lang()
+    # Build target hrefs preserving other query params
+    try:
+        qp = dict(st.query_params)
+    except Exception:  # noqa: BLE001
+        qp = {}
+    def _link(lang_code: str) -> str:
+        new = {**qp, "lang": lang_code}
+        # Drop lang if going to default FR for a cleaner URL
+        if lang_code == "fr":
+            new.pop("lang", None)
+        qs = "&".join(f"{k}={v}" for k, v in new.items()) if new else ""
+        return ("?" + qs) if qs else "?"
+
+    fr_style = "font-weight: 700; color: #0A0A0A;" if current == "fr" else "color: #71717A;"
+    en_style = "font-weight: 700; color: #0A0A0A;" if current == "en" else "color: #71717A;"
+    st.sidebar.markdown(
+        f"<div style='text-align: right; font-family: monospace; font-size: 12px; margin-bottom: 8px;'>"
+        f"<a href='{_link('fr')}' target='_self' style='{fr_style} text-decoration: none;'>FR</a>"
+        f" <span style='color: #E4E4E7;'>|</span> "
+        f"<a href='{_link('en')}' target='_self' style='{en_style} text-decoration: none;'>EN</a>"
+        f"</div>",
+        unsafe_allow_html=True,
+    )
+
+
 def render_sidebar(df: pd.DataFrame) -> dict:
-    st.sidebar.markdown("### 🔎 Filtres")
+    from app.ui.i18n import is_en
+    _render_language_toggle()
+    st.sidebar.markdown(f"### 🔎 {'Filters' if is_en() else 'Filtres'}")
     with st.sidebar:
-        search_text = st.text_input("Recherche libre", key="filter_search")
+        search_text = st.text_input(
+            "Free search" if is_en() else "Recherche libre",
+            key="filter_search",
+        )
         only_website = st.checkbox("Avec site web uniquement", key="filter_only_website")
         # Removed filters : "A+ / A uniquement" and "High confidence uniquement"
         only_priority = False
@@ -5229,8 +5310,19 @@ def _is_demo_mode() -> bool:
 
 def _render_demo_banner() -> None:
     """Persistent banner shown at the top of every page in demo mode."""
+    from app.ui.i18n import is_en
+    if is_en():
+        label = "DEMO VERSION"
+        subtitle = "50 exhibitors × 50 signals · representative sample"
+        cta = "Access the full database (€2,000) →"
+        href = "https://leadforges-eight.vercel.app/en"
+    else:
+        label = "VERSION DÉMO"
+        subtitle = "50 exposants × 50 signaux · échantillon représentatif"
+        cta = "Accéder à la base complète (2 000 €) →"
+        href = "https://leadforges-eight.vercel.app"
     st.markdown(
-        """
+        f"""
         <div style="
             background: linear-gradient(90deg, #0A0A0A 0%, #1A1A1A 100%);
             color: #FAFAFA;
@@ -5245,19 +5337,15 @@ def _render_demo_banner() -> None:
             gap: 12px;
         ">
           <div style="font-size: 14px;">
-            <strong style="font-weight: 700;">VERSION DÉMO</strong>
-            <span style="opacity: 0.7; margin-left: 12px;">
-              50 exposants × 50 signaux · échantillon représentatif
-            </span>
+            <strong style="font-weight: 700;">{label}</strong>
+            <span style="opacity: 0.7; margin-left: 12px;">{subtitle}</span>
           </div>
           <div>
-            <a href="https://leadforges-eight.vercel.app" target="_blank"
+            <a href="{href}" target="_blank"
                style="background: #FAFAFA; color: #0A0A0A;
                       padding: 6px 14px; border-radius: 6px;
                       text-decoration: none; font-weight: 600;
-                      font-size: 13px;">
-              Accéder à la base complète (2 000 €) →
-            </a>
+                      font-size: 13px;">{cta}</a>
           </div>
         </div>
         """,
@@ -5292,14 +5380,10 @@ def main() -> None:
         render_access_banner()
     df = load_crm()
     # ── DEMO HARD LIMIT ──────────────────────────────────────────────
-    # Cap the CRM dataframe at 50 rows when in demo mode. Done at the UI
-    # layer (not at the DB layer) because Streamlit Cloud caches the
-    # ``app.config`` module on first import — the env-var-based DB switch
-    # can't react to ``?demo=1`` once the module is loaded. Slicing here
-    # is bulletproof : the buyer cannot escape the limit via filters,
-    # exports, or URL hacks (they never see the rest in any view).
     if _is_demo_mode():
         df = df.head(50).copy()
+    # ── i18n : swap FR data fields with EN when ?lang=en ─────────────
+    df = _localize_df(df)
     # Overlay session-scoped favorites on top of the cached dataframe so
     # each buyer sees their own ⭐ selection without polluting the cache.
     df = _inject_session_favorites(df)
@@ -5316,9 +5400,15 @@ def main() -> None:
     filters = render_sidebar(df)
     filtered = apply_filters(df, **filters)
 
+    from app.ui.i18n import is_en
+    if is_en():
+        tab_labels = ["🏢 Companies", "⭐ Favorites",
+                      "📡 Attendance Signals", "Target lists", "⬇ Exports"]
+    else:
+        tab_labels = ["🏢 Companies", "⭐ Favoris",
+                      "📡 Attendance Signals", "Listes ciblées", "⬇ Exports"]
     tab_companies, tab_lists, tab_signals, tab_target_lists, tab_exports = st.tabs(
-        ["🏢 Companies", "⭐ Favoris",
-         "📡 Attendance Signals", "Listes ciblées", "⬇ Exports"]
+        tab_labels
     )
 
     with tab_companies:
