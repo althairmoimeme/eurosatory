@@ -735,20 +735,32 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         # it's the most-used dimension. Internal ``supply_chain_tier`` is
         # still computed for back-end uses (target_lists, exports).
         supply_chain_tier_filter: list[str] = []
+        from app.ui.i18n import display_company_type, display_zone
         company_types = st.multiselect(
             L["company_type"],
             ALLOWED_COMPANY_TYPES,
             key="filter_company_types",
-            help="Taxonomie fermée 8 valeurs :\n"
-            "• OEM = vend le système final\n"
-            "• Intégrateur = assemble / intègre\n"
-            "• Équipementier / Tier 1 = sous-système critique\n"
-            "• Sous-traitant industriel = pièces, fabrication\n"
-            "• Distributeur = revend marques tierces\n"
-            "• Éditeur logiciel = software / SaaS\n"
-            "• Société de services = MCO, formation, conseil, "
-            "institutionnel, finance\n"
-            "• Bureau d'ingénierie = R&D, conseil technique",
+            format_func=display_company_type,
+            help=("Closed 8-value taxonomy :\n"
+                  "• OEM = sells the final system\n"
+                  "• Integrator = assembles / integrates\n"
+                  "• Tier-1 supplier = critical sub-system\n"
+                  "• Industrial subcontractor = parts, manufacturing\n"
+                  "• Distributor = resells third-party brands\n"
+                  "• Software vendor = software / SaaS\n"
+                  "• Services company = MRO, training, consulting, "
+                  "institutional, finance\n"
+                  "• Engineering office = R&D, technical consulting" if en
+                  else "Taxonomie fermée 8 valeurs :\n"
+                  "• OEM = vend le système final\n"
+                  "• Intégrateur = assemble / intègre\n"
+                  "• Équipementier / Tier 1 = sous-système critique\n"
+                  "• Sous-traitant industriel = pièces, fabrication\n"
+                  "• Distributeur = revend marques tierces\n"
+                  "• Éditeur logiciel = software / SaaS\n"
+                  "• Société de services = MCO, formation, conseil, "
+                  "institutionnel, finance\n"
+                  "• Bureau d'ingénierie = R&D, conseil technique"),
         )
         targeting_product_categories = st.multiselect(
             L["product_categories"], sorted(prod_cat_options),
@@ -782,6 +794,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             L["geographic_zone"],
             list(_ZONES),
             key="filter_zones",
+            format_func=display_zone,
             help="Europe · North America · Asia · South America · Other (Africa, Oceania, other)." if en else "Europe · Amérique du Nord · Asie · Amérique du Sud · Autre (Afrique, Océanie, autres).",
         )
         # If a zone is selected, restrict the country picker to that
@@ -1215,20 +1228,34 @@ def render_company_type_chips(filtered_df: pd.DataFrame) -> None:
     """
     if "company_type" not in filtered_df.columns or filtered_df.empty:
         return
+    from app.ui.i18n import is_en
+    en = is_en()
     counts = filtered_df["company_type"].fillna("Société de services").value_counts()
-    # 2 rows of 4 chips → each chip gets ~25 % of the row width which
-    # is enough to display the full short label + count on a single
-    # line without wrapping on a 1280 px viewport.
-    chips: list[tuple[str, str]] = [
-        ("OEM", "OEM"),
-        ("Intégrateur", "Intégrateur"),
-        ("Équipementier / Tier 1", "Équipementier"),
-        ("Sous-traitant industriel", "Sous-traitant"),
-        ("Distributeur", "Distributeur"),
-        ("Éditeur logiciel", "Éditeur logiciel"),
-        ("Société de services", "Services"),
-        ("Bureau d'ingénierie", "Ingénierie"),
-    ]
+    # 2 rows of 4 chips. Each chip's first arg is the CANONICAL FR value
+    # (stored in DB, used for filter matching) and the 2nd is the SHORT
+    # display label localized to the current language.
+    if en:
+        chips: list[tuple[str, str]] = [
+            ("OEM", "OEM"),
+            ("Intégrateur", "Integrator"),
+            ("Équipementier / Tier 1", "Tier-1"),
+            ("Sous-traitant industriel", "Subcontractor"),
+            ("Distributeur", "Distributor"),
+            ("Éditeur logiciel", "Software"),
+            ("Société de services", "Services"),
+            ("Bureau d'ingénierie", "Engineering"),
+        ]
+    else:
+        chips = [
+            ("OEM", "OEM"),
+            ("Intégrateur", "Intégrateur"),
+            ("Équipementier / Tier 1", "Équipementier"),
+            ("Sous-traitant industriel", "Sous-traitant"),
+            ("Distributeur", "Distributeur"),
+            ("Éditeur logiciel", "Éditeur logiciel"),
+            ("Société de services", "Services"),
+            ("Bureau d'ingénierie", "Ingénierie"),
+        ]
     # Global button-row tweak : tight padding + nowrap so even narrow
     # column widths don't trigger word-wrap on long labels.
     st.markdown(
@@ -1264,12 +1291,18 @@ def render_company_type_chips(filtered_df: pd.DataFrame) -> None:
         active = canon in cur
         n_disp = f"{n:,}".replace(",", " ")
         with col:
+            from app.ui.i18n import display_company_type as _dct
+            help_text = (
+                f"Filter the table on **{_dct(canon)}** ({n_disp} compan{'y' if n == 1 else 'ies'})."
+                if en else
+                f"Filtrer la table sur **{canon}** ({n_disp} société·s)."
+            )
             st.button(
                 f"{short} · {n_disp}",
                 key=f"chip_ct_{canon}",
                 use_container_width=True,
                 type="primary" if active else "secondary",
-                help=f"Filtrer la table sur **{canon}** ({n_disp} société·s).",
+                help=help_text,
                 on_click=_toggle_chip,
                 args=(canon,),
             )
@@ -1367,7 +1400,9 @@ def render_active_filter_chips(filters: dict, filtered_df: pd.DataFrame) -> None
                 on_click=_reset_all_filters,
             )
     with chip_cols[1]:
-        st.markdown(f"**{len(filtered_df)} sociétés**")
+        from app.ui.i18n import is_en as _is_en_count
+        word = "companies" if _is_en_count() else "sociétés"
+        st.markdown(f"**{len(filtered_df)} {word}**")
         with st.popover("💾 Save as list", use_container_width=True):
             st.caption(f"Crée une liste figée des {len(filtered_df)} sociétés actuellement filtrées.")
             list_name = st.text_input(
@@ -1396,13 +1431,19 @@ def render_active_filter_chips(filters: dict, filtered_df: pd.DataFrame) -> None
 
 
 SORT_OPTIONS: dict[str, tuple[str, bool]] = {
-    # Removed obsolete options : "Score décroissant (Data strength)",
-    # "Score croissant", "Priorité (A+ → D)" — these belonged to the
-    # legacy CRM scoring axis that's no longer surfaced to users.
+    # Canonical keys are FR (used as st.selectbox VALUE) — display labels
+    # are localized via format_func.
     "Société (A → Z)": ("account_name", True),
     "Pays (A → Z)": ("country", True),
     "Plus récents (last_checked_at)": ("last_checked_at", False),
     "Manual review d'abord": ("manual_review_required", False),
+}
+
+SORT_OPTIONS_EN: dict[str, str] = {
+    "Société (A → Z)": "Company (A → Z)",
+    "Pays (A → Z)": "Country (A → Z)",
+    "Plus récents (last_checked_at)": "Most recent (last_checked_at)",
+    "Manual review d'abord": "Manual review first",
 }
 
 
@@ -1422,18 +1463,21 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
     st.markdown(f'<div class="section-title">Companies</div>', unsafe_allow_html=True)
 
     # Sort + page-size controls
+    from app.ui.i18n import is_en as _is_en
+    en = _is_en()
     sort_col, limit_col, _ = st.columns([2, 1, 3])
     with sort_col:
         sort_label = st.selectbox(
-            "Trier par",
+            "Sort by" if en else "Trier par",
             list(SORT_OPTIONS.keys()),
             index=0,
             key=f"{key_prefix}_sort",
             label_visibility="collapsed",
+            format_func=(lambda k: SORT_OPTIONS_EN.get(k, k)) if en else (lambda k: k),
         )
     with limit_col:
         page_size = st.selectbox(
-            "Lignes",
+            "Rows" if en else "Lignes",
             [50, 100, 200, 500, 1000, len(df) if len(df) <= 5000 else 5000],
             index=2,
             key=f"{key_prefix}_page_size",
@@ -1441,7 +1485,7 @@ def render_table(df: pd.DataFrame, total_rows: int | None = None,
         )
 
     if df.empty:
-        st.warning("Aucune société ne correspond à vos filtres.")
+        st.warning("No company matches your filters." if en else "Aucune société ne correspond à vos filtres.")
         # Suggestion: list the active filters and propose to relax the most
         # likely to be over-restrictive. Sliders at full range are hidden
         # because they don't actually filter anything but visually look

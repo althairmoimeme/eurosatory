@@ -259,6 +259,52 @@ def t(key: str, /, **kwargs: Any) -> str:
     return val
 
 
+# Display-time mapping for the closed company-type taxonomy.
+# Values in the DB are canonical FR — we keep them as-is for filtering
+# (so the stored values never break) and translate ONLY for display.
+COMPANY_TYPE_EN: dict[str, str] = {
+    "OEM": "OEM",
+    "Intégrateur": "Integrator",
+    "Équipementier / Tier 1": "Tier-1 supplier",
+    "Sous-traitant industriel": "Industrial subcontractor",
+    "Distributeur": "Distributor",
+    "Éditeur logiciel": "Software vendor",
+    "Société de services": "Services company",
+    "Bureau d'ingénierie": "Engineering office",
+}
+
+
+def display_company_type(fr_value: str) -> str:
+    """Return the EN label when ``?lang=en`` is active, else the FR
+    canonical value. Use as ``format_func=display_company_type`` on
+    Streamlit widgets — the selected value stays FR (so filtering keeps
+    working against the canonical FR values in the DB)."""
+    if not fr_value:
+        return ""
+    if is_en():
+        return COMPANY_TYPE_EN.get(fr_value, fr_value)
+    return fr_value
+
+
+# Display-time mapping for geographic zones.
+GEOGRAPHIC_ZONE_EN: dict[str, str] = {
+    "Europe": "Europe",
+    "Amérique du Nord": "North America",
+    "Asie": "Asia",
+    "Amérique du Sud": "South America",
+    "Autre (Afrique, Océanie, autres)": "Other (Africa, Oceania, other)",
+}
+
+
+def display_zone(fr_value: str) -> str:
+    """Same pattern as ``display_company_type`` for the 5 geographic zones."""
+    if not fr_value:
+        return ""
+    if is_en():
+        return GEOGRAPHIC_ZONE_EN.get(fr_value, fr_value)
+    return fr_value
+
+
 def localized(row: Any, field: str, fallback: str = "") -> str:
     """For DB rows with parallel FR/EN columns (e.g. ``activity_1liner``
     + ``activity_1liner_en``), return the EN version when ``?lang=en``
