@@ -60,6 +60,37 @@ from sqlalchemy import select, update
 from app.config import settings  # noqa: F401
 from app.database import AttendanceSignal, SessionLocal
 
+try:
+    import dns.resolver
+    _HAS_DNS = True
+except ImportError:
+    _HAS_DNS = False
+
+
+# ─── MX CHECK (cached per domain) ────────────────────────────────────
+
+_MX_CACHE: dict[str, bool] = {}
+
+
+def _domain_has_mx(domain: str, timeout: float = 3.0) -> bool:
+    """Cached MX-record check. ``True`` when the domain has at least one
+    MX record (= can receive mail). ``False`` when no MX (= 100 % bounce
+    if you send to it)."""
+    if not _HAS_DNS:
+        return True  # gracefully skip when dnspython not installed
+    if domain in _MX_CACHE:
+        return _MX_CACHE[domain]
+    try:
+        r = dns.resolver.Resolver()
+        r.lifetime = timeout
+        r.timeout = timeout
+        ans = r.resolve(domain, "MX")
+        ok = len(ans) > 0
+    except Exception:  # noqa: BLE001
+        ok = False
+    _MX_CACHE[domain] = ok
+    return ok
+
 
 # ─── FILTERS (same as previous email-import scripts) ─────────────────
 
@@ -118,21 +149,31 @@ def _is_valid_named_email(email: str) -> tuple[bool, str]:
     return True, ""
 
 
-def _pick_email(row: dict) -> tuple[str | None, str]:
+def _pick_email(row: dict, mx_check: bool = True) -> tuple[str | None, str]:
     """Return (email, source_tag).
 
     Priority:
-      1. ``Email`` column (assumed verified by source — accepted as-is)
+      1. ``Email`` column (assumed verified by source)
       2. ``Find Email`` IF confidence == "high" AND catch_all != "true"
+
+    Anti-bounce filters applied :
+      - format validation (no junk, no malformed)
+      - generic mailbox rejection (info@/contact@/sales@/...)
+      - MX-record check on the domain (skipped when dnspython missing or
+        ``mx_check=False``)
 
     Returns (None, reason) when nothing qualifies.
     """
     direct = (row.get("Email") or "").strip().lower()
     if direct and "@" in direct:
         ok, reason = _is_valid_named_email(direct)
-        if ok:
-            return direct, "direct"
-        return None, f"direct_rejected:{reason}"
+        if not ok:
+            return None, f"direct_rejected:{reason}"
+        if mx_check:
+            dom = direct.split("@", 1)[1]
+            if not _domain_has_mx(dom):
+                return None, "direct_rejected:no_mx"
+        return direct, "direct"
 
     find = (row.get("Find Email") or "").strip().lower()
     if not find or "@" not in find:
@@ -146,6 +187,10 @@ def _pick_email(row: dict) -> tuple[str | None, str]:
     ok, reason = _is_valid_named_email(find)
     if not ok:
         return None, f"find_rejected:{reason}"
+    if mx_check:
+        dom = find.split("@", 1)[1]
+        if not _domain_has_mx(dom):
+            return None, "find_rejected:no_mx"
     return find, "find_high_confidence"
 
 
@@ -234,7 +279,16 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--no-insert", action="store_true",
                     help="Only enrich existing signals, don't INSERT new rows")
+    ap.add_argument("--no-mx-check", action="store_true",
+                    help="Skip MX record validation (default: ON)")
     args = ap.parse_args()
+    mx_check = not args.no_mx_check
+    if mx_check and not _HAS_DNS:
+        print("⚠️  dnspython missing — install with: pip install dnspython", file=sys.stderr)
+        print("    Falling back to NO MX check.", file=sys.stderr)
+        mx_check = False
+    elif mx_check:
+        print("✅ MX record validation enabled (anti-bounce)")
 
     csv_path = Path(args.csv_path)
     if not csv_path.exists():
@@ -258,7 +312,7 @@ def main() -> int:
             stats["csv_rows"] += 1
 
             # Pick the best valid email (or None)
-            email, email_reason = _pick_email(csv_row)
+            email, email_reason = _pick_email(csv_row, mx_check=mx_check)
             stats[f"email_{email_reason}"] += 1
 
             phone_raw = (csv_row.get("Téléphone") or "").strip()
