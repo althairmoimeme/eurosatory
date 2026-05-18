@@ -627,13 +627,84 @@ def _render_language_toggle() -> None:
 def render_sidebar(df: pd.DataFrame) -> dict:
     from app.ui.i18n import is_en
     _render_language_toggle()
-    st.sidebar.markdown(f"### 🔎 {'Filters' if is_en() else 'Filtres'}")
+    en = is_en()
+    # Single translation table for the whole sidebar — easier to maintain
+    # than scattering is_en() checks across 50 widget calls.
+    L = {
+        "filters_title": "### 🔎 Filters" if en else "### 🔎 Filtres",
+        "free_search": "Free search" if en else "Recherche libre",
+        "only_website": "Website only" if en else "Avec site web uniquement",
+        "h_targeting": "**🎯 Commercial targeting**" if en else "**🎯 Ciblage commercial**",
+        "targeting_caption": (
+            "Filters on enriched data : 75 product categories, 23 services, "
+            "31 technologies, 5 buyer targets. Select to find « all drone "
+            "manufacturers », « all optronics suppliers », etc."
+        ) if en else (
+            "Filtres sur la donnée enrichie : 75 catégories produits, "
+            "23 services, 31 technos, 5 cibles clients. Sélectionne pour "
+            "trouver « tous les fabricants de drones », « tous les "
+            "fournisseurs d'optronique », etc."
+        ),
+        "company_type": "Company type" if en else "Type d'entreprise",
+        "product_categories": "Product categories" if en else "Catégories produits",
+        "service_categories": "Service categories" if en else "Catégories services",
+        "target_buyers": "Target buyers (who they sell to)" if en else "Cibles clients (à qui ils vendent)",
+        "h_identification": "**📋 Identification**" if en else "**📋 Identification**",
+        "geographic_zone": "Geographic zone" if en else "Zone géographique",
+        "country": "Country" if en else "Pays",
+        "defense_segment": "Defense segment" if en else "Segment défense",
+        "h_find_targets": "**🎯 Find targets**" if en else "**🎯 Trouver des cibles**",
+        "find_targets_caption": (
+            "Each option shows the **number of companies actually matched** "
+            "after restriction by company type. Empty categories are hidden."
+        ) if en else (
+            "Chaque option affiche le **nombre de sociétés réellement "
+            "matchées** après restriction par type d'entreprise. Les "
+            "catégories vides sont masquées."
+        ),
+        "products_made": "PRODUCTS MADE" if en else "PRODUITS FABRIQUÉS",
+        "products_sold": "PRODUCTS SOLD" if en else "PRODUITS VENDUS",
+        "services_sold": "SERVICES SOLD" if en else "SERVICES VENDUS",
+        "h_certs": "**🏅 Certifications**" if en else "**🏅 Certifications**",
+        "filter_certs": "Filter by certifications" if en else "Filtrer par certifications",
+        "h_quick_views": "**⭐ My quick views**" if en else "**⭐ Mes vues rapides**",
+        "only_favorites": "⭐ My favorites only" if en else "⭐ Mes favoris uniquement",
+        "h_ranges": "**📅 Numeric ranges**" if en else "**📅 Plages numériques**",
+        "founding_year": "Founding year" if en else "Année de fondation",
+        "founding_year_help": (
+            "Filter on companies with a known founding_year."
+        ) if en else (
+            "Filtre sur les sociétés dont la `founding_year` est connue."
+        ),
+        "emp_count": "Employees (detected)" if en else "Effectif (employés détectés)",
+        "emp_count_help": (
+            "Filter on companies whose headcount was extracted from their site."
+        ) if en else (
+            "Filtre sur les sociétés dont l'effectif est extrait du site."
+        ),
+        "hall_pavilion": "Hall / pavilion",
+        "h_affiliations": "**🤝 Affiliations & group**" if en else "**🤝 Affiliations & groupe**",
+        "industrial_assocs": "Industrial associations" if en else "Associations industrielles",
+        "industrial_assocs_help": (
+            "Members of GIFAS, ASD, NDIA, AIA, ADS Group, AIAD, etc."
+        ) if en else (
+            "Membres de GIFAS, ASD, NDIA, AIA, ADS Group, AIAD, etc."
+        ),
+        "subsidiary": "Subsidiary of a group?" if en else "Filiale d'un groupe ?",
+        "yes": "Yes" if en else "Oui",
+        "no": "No" if en else "Non",
+        "subsidiary_help": (
+            "Filter companies that are/are not subsidiaries of an identified group."
+        ) if en else (
+            "Filtrer les sociétés qui sont ou ne sont pas filiales d'un groupe identifié."
+        ),
+        "commercial_lists": "Commercial lists" if en else "Listes commerciales",
+        "tags": "Tags",
+    }
+    st.sidebar.markdown(L["filters_title"])
     with st.sidebar:
-        search_text = st.text_input(
-            "Free search" if is_en() else "Recherche libre",
-            key="filter_search",
-        )
-        only_website = st.checkbox("Avec site web uniquement", key="filter_only_website")
+        search_text = st.text_input(L["free_search"], key="filter_search")
+        only_website = st.checkbox(L["only_website"], key="filter_only_website")
         # Removed filters : "A+ / A uniquement" and "High confidence uniquement"
         only_priority = False
         only_high_conf = False
@@ -645,13 +716,8 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         # defense rep slice the 2580 exhibitors by what they actually
         # build / sell / buy. The categories are canonical (75 prod /
         # 23 svc / 31 tech) so a multi-select on them works.
-        st.markdown("**🎯 Ciblage commercial**")
-        st.caption(
-            "Filtres sur la donnée enrichie : 75 catégories produits, "
-            "23 services, 31 technos, 5 cibles clients. Sélectionne pour "
-            "trouver « tous les fabricants de drones », « tous les "
-            "fournisseurs d'optronique », etc."
-        )
+        st.markdown(L["h_targeting"])
+        st.caption(L["targeting_caption"])
         from app.processors.taxonomy_normalize import (
             PRODUCT_CATEGORIES, SERVICE_CATEGORIES, TECHNOLOGY_CATEGORIES,
         )
@@ -670,7 +736,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         # still computed for back-end uses (target_lists, exports).
         supply_chain_tier_filter: list[str] = []
         company_types = st.multiselect(
-            "Type d'entreprise",
+            L["company_type"],
             ALLOWED_COMPANY_TYPES,
             key="filter_company_types",
             help="Taxonomie fermée 8 valeurs :\n"
@@ -685,14 +751,14 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             "• Bureau d'ingénierie = R&D, conseil technique",
         )
         targeting_product_categories = st.multiselect(
-            "Catégories produits", sorted(prod_cat_options),
+            L["product_categories"], sorted(prod_cat_options),
             key="filter_targeting_prod_cats",
             help="Le commercial filtre par bucket métier (drones, optronique, "
             "munitions, …) et trouve toutes les sociétés qui ont au moins "
             "ce bucket dans leurs produits.",
         )
         targeting_service_categories = st.multiselect(
-            "Catégories services", sorted(svc_cat_options),
+            L["service_categories"], sorted(svc_cat_options),
             key="filter_targeting_svc_cats",
             help="MCO, intégration, formation, distribution, sous-traitance, "
             "certif, …",
@@ -703,23 +769,20 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         min_targeting_score = 0
         targeting_sources: list[str] = []
         target_buyers_filter = st.multiselect(
-            "Cibles clients (à qui ils vendent)", target_buyer_options,
+            L["target_buyers"], target_buyer_options,
             key="filter_target_buyers",
             help="Taxonomie fermée 5 valeurs : MoD/Armées · Primes défense · "
             "Sécurité civile · Industriels défense · Export / international.",
         )
 
         st.markdown("---")
-        st.markdown("**📋 Identification**")
-        # Geographic zone : coarse 5-bucket region filter. Combines well
-        # with the Pays multiselect (zone narrows the country list).
+        st.markdown(L["h_identification"])
         from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
         zones = st.multiselect(
-            "Zone géographique",
+            L["geographic_zone"],
             list(_ZONES),
             key="filter_zones",
-            help="Europe · Amérique du Nord · Asie · Amérique du Sud · "
-            "Autre (Afrique, Océanie, autres).",
+            help="Europe · North America · Asia · South America · Other (Africa, Oceania, other)." if en else "Europe · Amérique du Nord · Asie · Amérique du Sud · Autre (Afrique, Océanie, autres).",
         )
         # If a zone is selected, restrict the country picker to that
         # zone's countries so the user doesn't pick incompatible
@@ -732,12 +795,13 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         else:
             country_pool = sorted([c for c in df["country"].dropna().unique()])
         countries = st.multiselect(
-            "Pays", country_pool,
+            L["country"], country_pool,
             key="filter_countries",
         )
         defense_segments = st.multiselect(
-            "Segment défense", DEFENSE_SEGMENTS, key="filter_segments",
-            help="Segment haut-niveau extrait de la classification défense.",
+            L["defense_segment"], DEFENSE_SEGMENTS, key="filter_segments",
+            help=("High-level segment extracted from the defense classification." if en
+                  else "Segment haut-niveau extrait de la classification défense."),
         )
         # ``company_types`` is rendered up in the "🎯 Ciblage" section.
         # Legacy fields retired with the Pipeline / CRM tab — keep empty
@@ -751,12 +815,8 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         buying_needs: list[str] = []
         interest_levels: list[str] = []
 
-        st.markdown("**🎯 Trouver des cibles**")
-        st.caption(
-            "Chaque option affiche le **nombre de sociétés réellement "
-            "matchées** après restriction par type d'entreprise. Les "
-            "catégories vides sont masquées."
-        )
+        st.markdown(L["h_find_targets"])
+        st.caption(L["find_targets_caption"])
         buying_needs_full_filter: list[str] = []
 
         # ----- Compute population-aware counts ----------------------------
@@ -812,30 +872,35 @@ def render_sidebar(df: pd.DataFrame) -> dict:
             )
 
         products_built_filter = _picker(
-            "PRODUITS FABRIQUÉS",
+            L["products_made"],
             built_counts,
             "filter_products_built",
-            "Catégorie produit que la société FABRIQUE. Restreint aux "
-            "fabricants : OEM · Intégrateur · Équipementier/Tier 1 · "
-            "Sous-traitant industriel.",
+            ("Product category the company MAKES. Restricted to makers : OEM, "
+             "Integrator, Tier-1 supplier, Industrial subcontractor." if en
+             else "Catégorie produit que la société FABRIQUE. Restreint aux "
+             "fabricants : OEM · Intégrateur · Équipementier/Tier 1 · "
+             "Sous-traitant industriel."),
         )
         products_sold_filter = _picker(
-            "PRODUITS VENDUS",
+            L["products_sold"],
             sold_counts,
             "filter_products_sold",
-            "Catégorie produit COMMERCIALISÉE. Restreint aux fabricants "
-            "+ distributeurs.",
+            ("Product category SOLD. Restricted to makers + distributors." if en
+             else "Catégorie produit COMMERCIALISÉE. Restreint aux fabricants + distributeurs."),
         )
         services_filter = _picker(
-            "SERVICES VENDUS",
+            L["services_sold"],
             svc_counts,
             "filter_services_sold",
-            "Service commercialisé (MCO, intégration, formation, conseil, "
-            "ingénierie). Restreint aux types service : Société de "
-            "services · Bureau d'ingénierie · Éditeur logiciel · Intégrateur.",
+            ("Service sold (MRO, integration, training, consulting, engineering). "
+             "Restricted to service types : Services company, Engineering office, "
+             "Software vendor, Integrator." if en
+             else "Service commercialisé (MCO, intégration, formation, conseil, "
+             "ingénierie). Restreint aux types service : Société de "
+             "services · Bureau d'ingénierie · Éditeur logiciel · Intégrateur."),
         )
 
-        st.markdown("**🏅 Certifications**")
+        st.markdown(L["h_certs"])
         # Compute canonical cert counts (deduped + filtered to the closed
         # whitelist so stray scraping artefacts don't leak into the picker).
         _CERT_WHITELIST = {
@@ -858,23 +923,27 @@ def render_sidebar(df: pd.DataFrame) -> dict:
                         cert_counts[c] += 1
         cert_options = [c for c, n in cert_counts.most_common() if n > 0]
         certs_filter = st.multiselect(
-            "Filtrer par certifications",
+            L["filter_certs"],
             cert_options, key="filter_certifications",
             format_func=lambda c: f"{c}  ({cert_counts[c]})",
-            help="ISO 9001, EN 9100, AS9100, NATO AQAP, ITAR, CMMC… "
-            "Détectées sur les pages publiques de la société. Le compteur "
-            "indique le nombre de fiches qui mentionnent la certification "
-            "(à confirmer en discovery call avant un contrat).",
+            help=("ISO 9001, EN 9100, AS9100, NATO AQAP, ITAR, CMMC… "
+                  "Detected on the company's public pages. The counter shows "
+                  "the number of profiles mentioning the certification (to "
+                  "confirm in a discovery call before a contract)." if en
+                  else "ISO 9001, EN 9100, AS9100, NATO AQAP, ITAR, CMMC… "
+                  "Détectées sur les pages publiques de la société. Le compteur "
+                  "indique le nombre de fiches qui mentionnent la certification "
+                  "(à confirmer en discovery call avant un contrat)."),
         )
 
-        st.markdown("**⭐ Mes vues rapides**")
+        st.markdown(L["h_quick_views"])
         only_favorites = st.checkbox(
-            "⭐ Mes favoris uniquement", key="filter_only_favorites",
+            L["only_favorites"], key="filter_only_favorites",
         )
         # Removed filter : "📅 Prochaine action"
         next_action_filter = "(any)"
 
-        st.markdown("**📅 Plages numériques**")
+        st.markdown(L["h_ranges"])
         # Founding year range — only show if at least 1 row has a year
         years_present = (
             df["founding_year"].dropna().astype(int).tolist()
@@ -883,11 +952,11 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         if years_present:
             y_min, y_max = min(years_present), max(years_present)
             year_range = st.slider(
-                "Année de fondation",
+                L["founding_year"],
                 min_value=int(y_min), max_value=int(y_max),
                 value=(int(y_min), int(y_max)), step=1,
                 key="filter_year_range",
-                help="Filtre sur les sociétés dont la `founding_year` est connue.",
+                help=L["founding_year_help"],
             )
         else:
             year_range = None
@@ -905,11 +974,11 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         if emp_numbers:
             e_min, e_max = min(emp_numbers), max(emp_numbers)
             emp_range = st.slider(
-                "Effectif (employés détectés)",
+                L["emp_count"],
                 min_value=int(e_min), max_value=int(e_max),
                 value=(int(e_min), int(e_max)), step=10,
                 key="filter_emp_range",
-                help="Filtre sur les sociétés dont l'effectif est extrait du site.",
+                help=L["emp_count_help"],
             )
         else:
             emp_range = None
@@ -923,21 +992,21 @@ def render_sidebar(df: pd.DataFrame) -> dict:
                 elif v.strip():
                     all_halls.add(v.strip())
         halls_filter = (
-            st.multiselect("Hall / pavilion", sorted(all_halls), key="filter_halls")
+            st.multiselect(L["hall_pavilion"], sorted(all_halls), key="filter_halls")
             if all_halls else []
         )
 
-        st.markdown("**🤝 Affiliations & groupe**")
+        st.markdown(L["h_affiliations"])
         all_assocs = _collect_split(df, "industry_associations")
         assocs_filter = st.multiselect(
-            "Associations industrielles",
+            L["industrial_assocs"],
             sorted(all_assocs), key="filter_associations",
-            help="Membres de GIFAS, ASD, NDIA, AIA, ADS Group, AIAD, etc.",
+            help=L["industrial_assocs_help"],
         )
         parent_present = st.selectbox(
-            "Filiale d'un groupe ?",
-            ["(any)", "Oui", "Non"], key="filter_parent_present",
-            help="Filtrer les sociétés qui sont ou ne sont pas filiales d'un groupe identifié.",
+            L["subsidiary"],
+            ["(any)", L["yes"], L["no"]], key="filter_parent_present",
+            help=L["subsidiary_help"],
         )
 
         # Removed section : "Qualité" (Data confidence + Revue manuelle) and
@@ -949,7 +1018,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         all_lists = list_custom_lists()
         list_names = [l.name for l in all_lists]
         custom_lists_filter = (
-            st.multiselect("Listes commerciales", list_names, key="filter_custom_lists")
+            st.multiselect(L["commercial_lists"], list_names, key="filter_custom_lists")
             if list_names else []
         )
 
@@ -985,7 +1054,7 @@ def render_sidebar(df: pd.DataFrame) -> dict:
         "certifications_any": certs_filter,
         "associations_any": assocs_filter,
         "has_parent_group": (
-            None if parent_present == "(any)" else (parent_present == "Oui")
+            None if parent_present == "(any)" else (parent_present == L["yes"])
         ),
         "founding_year_range": year_range,
         "employee_count_range": emp_range,
@@ -5477,10 +5546,12 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     see them too.
     """
     from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
+    from app.ui.i18n import is_en
+    en = is_en()
     c1, c2, c3, c4, c5, c6 = st.columns([0.8, 1.0, 1.2, 1.2, 1.8, 1.0])
     with c1:
         years = st.multiselect(
-            "Année",
+            "Year" if en else "Année",
             sorted([int(y) for y in df["edition_year"].dropna().unique()]),
             key="att_years",
         )
@@ -5489,13 +5560,10 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "Zone",
             list(_ZONES),
             key="att_zones",
-            help="Europe · Amérique du Nord · Asie · Amérique du Sud · "
-            "Autre (Afrique, Océanie, autres).",
+            help=("Europe · North America · Asia · South America · Other (Africa, Oceania, other)." if en
+                  else "Europe · Amérique du Nord · Asie · Amérique du Sud · Autre (Afrique, Océanie, autres)."),
         )
     with c3:
-        # Pays-level filter — more granular than Zone. Builds the list of
-        # available countries from the dataframe so we never offer a
-        # country that has 0 signals.
         if "country" in df.columns:
             available_countries = sorted(
                 {c for c in df["country"].dropna().unique()
@@ -5504,35 +5572,43 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
         else:
             available_countries = []
         countries = st.multiselect(
-            "Pays",
+            "Country" if en else "Pays",
             available_countries,
             key="att_countries",
-            help="Filtre par pays exact (basé sur le pays détecté du "
-            "signal). Pour un filtre plus large, utilise Zone.",
+            help=("Filter by exact country (based on the signal's detected country). "
+                  "For broader filtering, use Zone." if en
+                  else "Filtre par pays exact (basé sur le pays détecté du "
+                  "signal). Pour un filtre plus large, utilise Zone."),
         )
     with c4:
         company_types = st.multiselect(
-            "Type d'entreprise",
+            "Company type" if en else "Type d'entreprise",
             ALLOWED_COMPANY_TYPES,
             key="att_company_types",
-            help="Taxonomie fermée 8 valeurs — calculée depuis les "
-            "capabilities de la société. Filtre les signaux dont la "
-            "société matche un de ces buckets.",
+            help=("Closed 8-value taxonomy — derived from the company's capabilities. "
+                  "Filters signals whose company matches one of these buckets." if en
+                  else "Taxonomie fermée 8 valeurs — calculée depuis les "
+                  "capabilities de la société. Filtre les signaux dont la "
+                  "société matche un de ces buckets."),
         )
     with c5:
         search_text = st.text_input(
-            "🔎 Recherche libre (nom personne / société / texte)",
+            "🔎 Free search (person name / company / text)" if en
+            else "🔎 Recherche libre (nom personne / société / texte)",
             key="att_search",
             placeholder="Ex: Thales, John Doe, cyber, France…",
         )
     with c6:
         include_exhibitors = st.checkbox(
-            "Inclure exposants",
+            "Include exhibitors" if en else "Inclure exposants",
             value=False,
             key="att_include_exhibitors",
-            help="Par défaut, les signaux dont la société matche un "
-            "exposant catalogue sont masqués (ils sont déjà dans la "
-            "page Companies). Coche pour les inclure aussi.",
+            help=("By default, signals whose company matches a catalog "
+                  "exhibitor are hidden (they're already on the Companies "
+                  "page). Check to include them too." if en
+                  else "Par défaut, les signaux dont la société matche un "
+                  "exposant catalogue sont masqués (ils sont déjà dans la "
+                  "page Companies). Coche pour les inclure aussi."),
         )
 
     return {
@@ -7726,12 +7802,12 @@ def render_attendance_signals_tab() -> None:
     filtered = attend_apply_filters(df, **filters)
 
     # View mode : grouped-by-company (default, ABM) vs flat list.
-    # We prefer the ABM view because buyers map signals → accounts when
-    # preparing their target list ; the flat list is the "drill into one
-    # signal" view, useful but secondary.
+    from app.ui.i18n import is_en as _is_en_view
+    en = _is_en_view()
     view_mode = st.radio(
-        "Vue",
-        ["🏢 Groupé par société", "📋 Liste"],
+        "View" if en else "Vue",
+        ["🏢 Grouped by company" if en else "🏢 Groupé par société",
+         "📋 List" if en else "📋 Liste"],
         horizontal=True,
         key="att_view_mode",
         label_visibility="collapsed",
