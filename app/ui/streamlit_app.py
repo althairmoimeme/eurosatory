@@ -130,8 +130,28 @@ from app.exports.crm_exports import (
     export_hubspot_csv,
     export_prospecting_csv,
     export_salesforce_csv,
-    visible_columns_only,
 )
+# ``visible_columns_only`` ships in the same module but Streamlit Cloud
+# can briefly serve a stale ``app.exports.crm_exports`` bytecode where
+# it isn't yet defined — a mid-deploy race. Fall back to an inline
+# implementation so the page renders no matter which build the worker
+# happens to have cached.
+try:
+    from app.exports.crm_exports import visible_columns_only
+except ImportError:  # pragma: no cover — defensive only
+    _FALLBACK_VISIBLE_COLS = [
+        "account_name", "website_url", "country", "booth_number",
+        "company_type",
+        "activity_1liner", "products_specific", "products_categories",
+        "services_specific", "services_categories", "target_buyers",
+        "technologies_specific", "technologies_categories", "why_target",
+        "targeting_score", "targeting_source",
+        "priority_level", "lead_score",
+    ]
+
+    def visible_columns_only(df):  # type: ignore[no-redef]
+        kept = [c for c in _FALLBACK_VISIBLE_COLS if c in df.columns]
+        return df[kept].copy()
 from app.processors.defense_taxonomy import DEFENSE_TAXONOMY
 
 

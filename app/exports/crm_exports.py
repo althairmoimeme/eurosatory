@@ -10,7 +10,27 @@ import pandas as pd
 
 from app.config import EXPORT_DIR
 from app.crm.repository import apply_filters, crm_dataframe
-from app.crm.schema import CRM_COLUMNS, EXPORT_VISIBLE_COLUMNS
+from app.crm.schema import CRM_COLUMNS
+
+# ``EXPORT_VISIBLE_COLUMNS`` was added to ``app.crm.schema`` in the same
+# release as this file. Streamlit Cloud occasionally serves a stale
+# bytecode cache mid-deploy where schema.py is the old version while
+# this module is the new one — that combination would raise an
+# ``ImportError`` on module load and break the whole app. Fall back to
+# an inline definition so the module always loads, regardless of which
+# build state the Cloud is in.
+try:
+    from app.crm.schema import EXPORT_VISIBLE_COLUMNS
+except ImportError:  # pragma: no cover — defensive only
+    EXPORT_VISIBLE_COLUMNS = [
+        "account_name", "website_url", "country", "booth_number",
+        "company_type",
+        "activity_1liner", "products_specific", "products_categories",
+        "services_specific", "services_categories", "target_buyers",
+        "technologies_specific", "technologies_categories", "why_target",
+        "targeting_score", "targeting_source",
+        "priority_level", "lead_score",
+    ]
 
 
 def visible_columns_only(df: pd.DataFrame) -> pd.DataFrame:
