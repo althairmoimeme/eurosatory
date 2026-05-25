@@ -228,6 +228,16 @@ _EN: dict[str, str] = {
     "exports.csv": "Download CSV",
     "exports.excel": "Download Excel",
 
+    # — Attendance signals export (sub-section of the Exports tab) —
+    "exports.attendance.title": "### 📡 Attendance signals (prospection)",
+    "exports.attendance.caption": "Enriched list of **people** and **companies** detected via public OSINT (corporate sites, press releases, indexed posts). Ready for Outlook / Lemlist / mail-merge — one row per contact with name, role, company, email, phone, LinkedIn and the source URL that justifies the signal.",
+    "exports.attendance.stats": "**{total} contacts** · {with_email} with a direct email · {with_phone} with phone · {with_linkedin} with LinkedIn.",
+    "exports.attendance.csv_label": "⬇ CSV (attendance signals)",
+    "exports.attendance.csv_help": "One contact per row — name, role, company, country, email, phone, LinkedIn, source URL. Ready for Outlook / Lemlist / mail-merge.",
+    "exports.attendance.xlsx_label": "⬇ XLSX (attendance signals)",
+    "exports.attendance.xlsx_help": "Same columns as the CSV but as an Excel file — autofilter enabled on every column.",
+    "exports.attendance.empty": "No attendance signals are loaded yet — open the **📡 Attendance Signals** tab to ingest some, then come back here to export.",
+
     # — Common actions —
     "action.save": "Save",
     "action.cancel": "Cancel",

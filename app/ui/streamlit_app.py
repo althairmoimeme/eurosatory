@@ -5165,6 +5165,68 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
             p = export_full_xlsx(lang=lang_arg)
             st.success(t("exports.legacy.written", path=str(p)))
 
+    # ============================================================
+    # 📡 Attendance signals (prospection-ready CSV / XLSX)
+    # ============================================================
+    st.markdown("---")
+    st.markdown(t("exports.attendance.title"))
+    st.caption(t("exports.attendance.caption"))
+    try:
+        att_df = _load_signals()
+    except Exception:  # noqa: BLE001 — degrade gracefully if signals fail to load
+        att_df = pd.DataFrame()
+    if _is_demo_mode() and not att_df.empty:
+        att_df = att_df.head(50).copy()
+
+    if att_df.empty:
+        st.info(t("exports.attendance.empty"))
+    else:
+        att_export = _build_attendance_prospection_df(att_df, lang_arg)
+        n_total = len(att_export)
+        email_col = "Email"
+        phone_col = "Phone" if en else "Téléphone"
+        n_with_email = int(att_export.get(email_col, pd.Series()).notna().sum()) if email_col in att_export.columns else 0
+        n_with_phone = int(att_export.get(phone_col, pd.Series()).notna().sum()) if phone_col in att_export.columns else 0
+        n_with_linkedin = int(att_export.get("LinkedIn", pd.Series()).notna().sum()) if "LinkedIn" in att_export.columns else 0
+        st.caption(
+            t(
+                "exports.attendance.stats",
+                total=n_total,
+                with_email=n_with_email,
+                with_phone=n_with_phone,
+                with_linkedin=n_with_linkedin,
+            )
+        )
+        att_cols = st.columns(2)
+        with att_cols[0]:
+            st.download_button(
+                t("exports.attendance.csv_label"),
+                data=att_export.to_csv(index=False).encode("utf-8"),
+                file_name=f"attendance_signals_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
+                mime="text/csv",
+                use_container_width=True,
+                help=t("exports.attendance.csv_help"),
+                key="exports_attendance_csv",
+            )
+        with att_cols[1]:
+            buf_att = BytesIO()
+            with pd.ExcelWriter(buf_att, engine="openpyxl") as w:
+                att_export.to_excel(w, index=False, sheet_name="Attendance")
+                ws = w.sheets["Attendance"]
+                # Enable autofilter on the data range
+                last_col_letter = chr(64 + len(att_export.columns)) if len(att_export.columns) <= 26 else "Z"
+                ws.auto_filter.ref = f"A1:{last_col_letter}{len(att_export) + 1}"
+            buf_att.seek(0)
+            st.download_button(
+                t("exports.attendance.xlsx_label"),
+                data=buf_att,
+                file_name=f"attendance_signals_{datetime.utcnow():%Y%m%d_%H%M%S}.xlsx",
+                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                use_container_width=True,
+                help=t("exports.attendance.xlsx_help"),
+                key="exports_attendance_xlsx",
+            )
+
     st.markdown("---")
     st.markdown(t("exports.filtered.title"))
     # Strip internal-only columns so the filtered download mirrors the
@@ -7858,54 +7920,48 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
             )
 
 
-def _render_attendance_prospection_export(filtered: pd.DataFrame) -> None:
-    """One-click CSV export of the filtered list with the columns a
-    sales rep needs : name / role / company / country / email / phone /
-    linkedin / source. Drop-in for Outlook / Lemlist / mail-merge."""
-    if filtered.empty:
-        return
-    st.divider()
-    st.markdown(
-        '<div class="section-title">⬇ Export prospection</div>',
-        unsafe_allow_html=True,
-    )
+def _build_attendance_prospection_df(filtered: pd.DataFrame, lang: str) -> pd.DataFrame:
+    """Build the prospection-ready dataframe (name / role / company /
+    country / email / phone / LinkedIn / source) from the filtered
+    attendance signals.
+
+    The column headers are localized — FR by default, EN when
+    ``lang == "en"``. Same row data either way (the underlying signals
+    aren't language-paired).
+    """
     cols_export = [
         "person_name", "person_role", "company_name", "country",
         "derived_email", "derived_phone", "derived_linkedin",
         "matched_exhibitor", "source_url", "edition_year",
     ]
-    out = filtered[
-        [c for c in cols_export if c in filtered.columns]
-    ].rename(columns={
-        "person_name": "Nom",
-        "person_role": "Rôle",
-        "company_name": "Société",
-        "country": "Pays",
-        "derived_email": "Email",
-        "derived_phone": "Téléphone",
-        "derived_linkedin": "LinkedIn",
-        "matched_exhibitor": "Exposant catalogue",
-        "source_url": "Source",
-        "edition_year": "Édition",
-    })
-    csv = out.to_csv(index=False).encode("utf-8")
-    n_with_email = int(out.get("Email", pd.Series()).notna().sum())
-    cc1, cc2 = st.columns([2, 1])
-    with cc1:
-        st.caption(
-            f"**{len(out)} contacts** · {n_with_email} avec email direct · "
-            "format prêt pour Outlook / Lemlist / mail-merge."
-        )
-    with cc2:
-        st.download_button(
-            "⬇ Télécharger CSV",
-            data=csv,
-            file_name=
-            f"prospection_eurosatory_{datetime.utcnow():%Y%m%d_%H%M}.csv",
-            mime="text/csv",
-            use_container_width=True,
-            key="att_prospection_export",
-        )
+    out = filtered[[c for c in cols_export if c in filtered.columns]].copy()
+    if lang == "en":
+        rename = {
+            "person_name": "Name",
+            "person_role": "Role",
+            "company_name": "Company",
+            "country": "Country",
+            "derived_email": "Email",
+            "derived_phone": "Phone",
+            "derived_linkedin": "LinkedIn",
+            "matched_exhibitor": "Catalogue exhibitor",
+            "source_url": "Source",
+            "edition_year": "Edition",
+        }
+    else:
+        rename = {
+            "person_name": "Nom",
+            "person_role": "Rôle",
+            "company_name": "Société",
+            "country": "Pays",
+            "derived_email": "Email",
+            "derived_phone": "Téléphone",
+            "derived_linkedin": "LinkedIn",
+            "matched_exhibitor": "Exposant catalogue",
+            "source_url": "Source",
+            "edition_year": "Édition",
+        }
+    return out.rename(columns=rename)
 
 
 def render_attendance_signals_tab() -> None:
@@ -7961,9 +8017,9 @@ def render_attendance_signals_tab() -> None:
             st.session_state.pop("att_detail_id", None)
             _render_attendance_bulk(bulk_ids)
 
-    # Prospection export — small CSV download with the contact-ready
-    # columns for outreach (Outlook / Lemlist / mail-merge).
-    _render_attendance_prospection_export(filtered)
+    # The CSV / XLSX prospection export is now centralised under the
+    # ⬇ Exports tab (same layout as the Companies exports) — keeps every
+    # downloadable file in one consistent place. No-op here.
 
 
 main()
