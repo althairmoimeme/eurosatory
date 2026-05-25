@@ -6,6 +6,10 @@ Two sheets:
      readability, completeness score colour-coded.
   2. ``Long tail`` — the worst 60 (non-manual) rows, for the next manual
      review batch.
+
+Generates BOTH the French canonical file (``Eurosatory_2026_targeting.xlsx``)
+and an English-localized variant (``Eurosatory_2026_targeting_en.xlsx``)
+using the ``*_en`` fields already present in the JSON.
 """
 from __future__ import annotations
 
@@ -25,7 +29,7 @@ EXPORT_DIR = ROOT / "data" / "exports"
 # Visible columns. The "(filtres)" columns are the canonical-taxonomy
 # columns the user filters on in Excel ; the un-suffixed columns hold
 # the specific labels (good for reading).
-COLUMNS = [
+COLUMNS_FR = [
     ("Société",                   30),
     ("Pays",                      12),
     ("Pavillon",                  10),
@@ -43,12 +47,32 @@ COLUMNS = [
     ("Source",                    10),
 ]
 
+COLUMNS_EN = [
+    ("Company",                   30),
+    ("Country",                   12),
+    ("Pavilion",                  10),
+    ("Website",                   28),
+    ("Activity (1 line)",         56),
+    ("Products",                  50),
+    ("Product categories (filters)", 38),
+    ("Services",                  36),
+    ("Service categories (filters)", 30),
+    ("Target customers",          26),
+    ("Technologies",              30),
+    ("Technology categories (filters)", 28),
+    ("Why target",                60),
+    ("Score",                      7),
+    ("Source",                    10),
+]
 
-def _write_sheet(ws, records):
+COLUMNS = COLUMNS_FR  # back-compat default for any caller that imports COLUMNS
+
+
+def _write_sheet(ws, records, columns=COLUMNS_FR, lang: str = "fr"):
     thin = Side(style="thin", color="DDDDDD")
     border = Border(left=thin, right=thin, top=thin, bottom=thin)
 
-    for i, (name, w) in enumerate(COLUMNS, start=1):
+    for i, (name, w) in enumerate(columns, start=1):
         c = ws.cell(row=1, column=i, value=name)
         c.font = Font(bold=True, color="FFFFFF", size=11)
         c.fill = PatternFill(start_color="0F1B2D", end_color="0F1B2D",
@@ -66,21 +90,37 @@ def _write_sheet(ws, records):
     SOURCE_COL = 15
     CATEGORY_COLS = {7, 9, 12}
 
+    # Pick the language-specific list keys when EN, fall back to FR.
+    def _g(r, fr_key, en_key):
+        if lang == "en":
+            v = r.get(en_key)
+            if v:
+                return v
+        return r.get(fr_key)
+
     for row_idx, r in enumerate(records, start=2):
+        # Text values (FR vs EN swap)
+        activity = _g(r, "activity_1liner", "activity_1liner_en") or ""
+        products = _g(r, "products", "products_en") or []
+        services = _g(r, "services", "services_en") or []
+        target_buyers = _g(r, "target_buyers", "target_buyers_en") or []
+        technologies = _g(r, "technologies", "technologies_en") or []
+        why_target = _g(r, "why_target", "why_target_en") or ""
+
         vals = [
             r["company_name"],
             r["country"] or "",
             r["pavilion"] or "",
             r["website"] or "",
-            r["activity_1liner"],
-            " · ".join(r["products"]) if r["products"] else "—",
+            activity,
+            " · ".join(products) if products else "—",
             " · ".join(r.get("products_categories") or []) or "—",
-            " · ".join(r["services"]) if r["services"] else "—",
+            " · ".join(services) if services else "—",
             " · ".join(r.get("services_categories") or []) or "—",
-            ", ".join(r["target_buyers"]) if r["target_buyers"] else "—",
-            " · ".join(r["technologies"]) if r["technologies"] else "—",
+            ", ".join(target_buyers) if target_buyers else "—",
+            " · ".join(technologies) if technologies else "—",
             " · ".join(r.get("technologies_categories") or []) or "—",
-            r["why_target"],
+            why_target,
             r["completeness_score"],
             r["data_source_strength"],
         ]
@@ -124,6 +164,64 @@ def _enable_autofilter(ws, n_rows: int, n_cols: int) -> None:
     ws.auto_filter.ref = f"A1:{last_col}{n_rows + 1}"
 
 
+def _build_workbook(final, long_tail, *, lang: str, main_title: str,
+                    lt_title: str):
+    cols = COLUMNS_EN if lang == "en" else COLUMNS_FR
+    wb = openpyxl.Workbook()
+    ws_main = wb.active
+    ws_main.title = main_title
+    _write_sheet(ws_main, final, columns=cols, lang=lang)
+    _enable_autofilter(ws_main, len(final), len(cols))
+
+    ws_lt = wb.create_sheet(lt_title)
+    _write_sheet(ws_lt, long_tail, columns=cols, lang=lang)
+    _enable_autofilter(ws_lt, len(long_tail), len(cols))
+    return wb
+
+
+def _write_csv(records, *, path: Path, lang: str) -> None:
+    """Flat CSV companion (used by the UI's "CSV livrable" button).
+    Mirrors the XLSX column order for consistency between the two
+    formats — FR or EN depending on ``lang``.
+    """
+    import csv as _csv
+    cols = COLUMNS_EN if lang == "en" else COLUMNS_FR
+    headers = [name for name, _ in cols]
+
+    def _g(r, fr_key, en_key):
+        if lang == "en":
+            v = r.get(en_key)
+            if v:
+                return v
+        return r.get(fr_key)
+
+    with path.open("w", encoding="utf-8", newline="") as f:
+        w = _csv.writer(f)
+        w.writerow(headers)
+        for r in records:
+            products = _g(r, "products", "products_en") or []
+            services = _g(r, "services", "services_en") or []
+            target_buyers = _g(r, "target_buyers", "target_buyers_en") or []
+            technologies = _g(r, "technologies", "technologies_en") or []
+            w.writerow([
+                r["company_name"],
+                r["country"] or "",
+                r["pavilion"] or "",
+                r["website"] or "",
+                _g(r, "activity_1liner", "activity_1liner_en") or "",
+                " · ".join(products),
+                " · ".join(r.get("products_categories") or []),
+                " · ".join(services),
+                " · ".join(r.get("services_categories") or []),
+                ", ".join(target_buyers),
+                " · ".join(technologies),
+                " · ".join(r.get("technologies_categories") or []),
+                _g(r, "why_target", "why_target_en") or "",
+                r.get("completeness_score") or 0,
+                r.get("data_source_strength") or "",
+            ])
+
+
 def main() -> int:
     final = json.loads(
         (EXPORT_DIR / "targeting_profiles_final.json").read_text(encoding="utf-8")
@@ -135,21 +233,39 @@ def main() -> int:
     # Sort the main sheet by score desc then country
     final.sort(key=lambda r: (-r["completeness_score"], r["country"] or "z"))
 
-    wb = openpyxl.Workbook()
-    ws_main = wb.active
-    ws_main.title = "Eurosatory 2026"
-    _write_sheet(ws_main, final)
-    _enable_autofilter(ws_main, len(final), len(COLUMNS))
-
-    ws_lt = wb.create_sheet("Long tail (à retraiter)")
-    _write_sheet(ws_lt, long_tail)
-    _enable_autofilter(ws_lt, len(long_tail), len(COLUMNS))
-
-    out = EXPORT_DIR / "Eurosatory_2026_targeting.xlsx"
-    wb.save(out)
-    print(f"Wrote {out}  ({out.stat().st_size:,} bytes)")
+    # ── French canonical deliverable ──────────────────────────────────
+    wb_fr = _build_workbook(
+        final, long_tail, lang="fr",
+        main_title="Eurosatory 2026",
+        lt_title="Long tail (à retraiter)",
+    )
+    out_fr = EXPORT_DIR / "Eurosatory_2026_targeting.xlsx"
+    wb_fr.save(out_fr)
+    print(f"Wrote {out_fr}  ({out_fr.stat().st_size:,} bytes)")
     print(f"  - Sheet 1: {len(final)} sociétés (triées par score, autofilter ON)")
     print(f"  - Sheet 2: {len(long_tail)} fiches à retraiter (long tail)")
+
+    # CSV companion (FR) — flat columns matching the XLSX layout.
+    csv_fr = EXPORT_DIR / "targeting_profiles_final.csv"
+    _write_csv(final, path=csv_fr, lang="fr")
+    print(f"Wrote {csv_fr}  ({csv_fr.stat().st_size:,} bytes)")
+
+    # ── English-localized deliverable ─────────────────────────────────
+    wb_en = _build_workbook(
+        final, long_tail, lang="en",
+        main_title="Eurosatory 2026",
+        lt_title="Long tail (to retreat)",
+    )
+    out_en = EXPORT_DIR / "Eurosatory_2026_targeting_en.xlsx"
+    wb_en.save(out_en)
+    print(f"Wrote {out_en}  ({out_en.stat().st_size:,} bytes)")
+    print(f"  - Sheet 1: {len(final)} companies (sorted by score, autofilter ON)")
+    print(f"  - Sheet 2: {len(long_tail)} long-tail rows to retreat")
+
+    # CSV companion (EN).
+    csv_en = EXPORT_DIR / "targeting_profiles_final_en.csv"
+    _write_csv(final, path=csv_en, lang="en")
+    print(f"Wrote {csv_en}  ({csv_en.stat().st_size:,} bytes)")
     return 0
 
 

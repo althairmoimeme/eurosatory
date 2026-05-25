@@ -511,11 +511,24 @@ def render_companies_topbar(df: pd.DataFrame, key_prefix: str = "topbar") -> Non
     (Companies / Pipeline / Custom lists / Exports). ``key_prefix`` lets
     the same component appear on multiple tabs without
     ``StreamlitDuplicateElementKey``.
+
+    The CSV/XLSX in-memory downloads operate on ``df`` (already localized
+    by the caller via ``_localize_df``). The Dynamics/Salesforce/HubSpot
+    buttons rebuild from the DB, so we explicitly forward the language so
+    they pick up the EN swap.
     """
+    from app.ui.i18n import is_en
+    from app.exports.crm_exports import visible_columns_only
+    lang_arg = "en" if is_en() else "fr"
+    reset_label = "Reset" if is_en() else "Réinitialiser"
+    # Strip internal-only columns from the raw CSV / XLSX dumps so the
+    # buyer sees the same column set as the on-screen Companies table.
+    df_export = visible_columns_only(df)
+
     cols = st.columns([1, 1, 1, 1, 1, 0.6])
     with cols[0]:
         st.download_button(
-            "⬇ CSV", data=df.to_csv(index=False).encode("utf-8"),
+            "⬇ CSV", data=df_export.to_csv(index=False).encode("utf-8"),
             file_name=f"crm_full_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
             mime="text/csv", use_container_width=True,
             key=f"{key_prefix}_csv",
@@ -523,7 +536,7 @@ def render_companies_topbar(df: pd.DataFrame, key_prefix: str = "topbar") -> Non
     with cols[1]:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            df.to_excel(w, index=False, sheet_name="Accounts")
+            df_export.to_excel(w, index=False, sheet_name="Accounts")
         buf.seek(0)
         st.download_button(
             "⬇ XLSX", data=buf,
@@ -535,20 +548,20 @@ def render_companies_topbar(df: pd.DataFrame, key_prefix: str = "topbar") -> Non
     with cols[2]:
         if st.button("⬇ Dynamics", use_container_width=True,
                      key=f"{key_prefix}_dynamics"):
-            p = export_dynamics_csv()
-            st.success(f"écrit : {p}")
+            p = export_dynamics_csv(lang=lang_arg)
+            st.success(f"{'written' if is_en() else 'écrit'} : {p}")
     with cols[3]:
         if st.button("⬇ Salesforce", use_container_width=True,
                      key=f"{key_prefix}_salesforce"):
-            p = export_salesforce_csv()
-            st.success(f"écrit : {p}")
+            p = export_salesforce_csv(lang=lang_arg)
+            st.success(f"{'written' if is_en() else 'écrit'} : {p}")
     with cols[4]:
         if st.button("⬇ HubSpot", use_container_width=True,
                      key=f"{key_prefix}_hubspot"):
-            p = export_hubspot_csv()
-            st.success(f"écrit : {p}")
+            p = export_hubspot_csv(lang=lang_arg)
+            st.success(f"{'written' if is_en() else 'écrit'} : {p}")
     with cols[5]:
-        if st.button("Reset", use_container_width=True,
+        if st.button(reset_label, use_container_width=True,
                      key=f"{key_prefix}_reset"):
             for k in list(st.session_state.keys()):
                 if k.startswith("filter_"):
@@ -2128,17 +2141,19 @@ def render_bulk_actions(exhibitor_ids: list[int],
     st.markdown("**⬇ Export de la sélection**")
     df = _localize_df(load_crm())
     sub = df[df["account_id"].str.replace("ESY26-", "").astype(int).isin(exhibitor_ids)]
+    from app.exports.crm_exports import visible_columns_only as _vco
+    sub_export = _vco(sub)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
-            f"⬇ CSV ({n})", data=sub.to_csv(index=False).encode("utf-8"),
+            f"⬇ CSV ({n})", data=sub_export.to_csv(index=False).encode("utf-8"),
             file_name=f"selection_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
             mime="text/csv", use_container_width=True,
         )
     with e2:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            sub.to_excel(w, index=False, sheet_name="Selection")
+            sub_export.to_excel(w, index=False, sheet_name="Selection")
         buf.seek(0)
         st.download_button(
             f"⬇ XLSX ({n})", data=buf,
@@ -4057,18 +4072,20 @@ def _render_opened_list(list_id: int, full_df: pd.DataFrame) -> None:
 
     # Lightweight downloads (CSV/XLSX of the displayed dataframe)
     st.markdown("**⬇ Téléchargement direct (la liste complète)**")
+    from app.exports.crm_exports import visible_columns_only as _vco
+    members_export = _vco(members_df)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
             f"⬇ CSV ({len(members_df)})",
-            data=members_df.to_csv(index=False).encode("utf-8"),
+            data=members_export.to_csv(index=False).encode("utf-8"),
             file_name=f"list_{cl.name.replace(' ', '_')[:60]}_{datetime.utcnow():%Y%m%d}.csv",
             mime="text/csv", use_container_width=True,
         )
     with e2:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            members_df.to_excel(w, index=False, sheet_name="List")
+            members_export.to_excel(w, index=False, sheet_name="List")
         buf.seek(0)
         st.download_button(
             f"⬇ XLSX ({len(members_df)})", data=buf,
@@ -4174,18 +4191,20 @@ def _render_favorites_view(full_df: pd.DataFrame) -> None:
                 st.success(f"écrit : {p}")
 
     st.markdown("**⬇ Téléchargement direct (favoris bruts)**")
+    from app.exports.crm_exports import visible_columns_only as _vco
+    members_export = _vco(members_df)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
             f"⬇ CSV ({len(members_df)})",
-            data=members_df.to_csv(index=False).encode("utf-8"),
+            data=members_export.to_csv(index=False).encode("utf-8"),
             file_name=f"favorites_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
             mime="text/csv", use_container_width=True,
         )
     with e2:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            members_df.to_excel(w, index=False, sheet_name="Favorites")
+            members_export.to_excel(w, index=False, sheet_name="Favorites")
         buf.seek(0)
         st.download_button(
             f"⬇ XLSX ({len(members_df)})", data=buf,
@@ -4869,11 +4888,13 @@ def render_custom_lists_tab(df: pd.DataFrame) -> None:
     # ----- Direct download -----------------------------------------------
     st.divider()
     st.markdown("**⬇ Téléchargement**")
+    from app.exports.crm_exports import visible_columns_only as _vco
+    fav_export = _vco(fav_df)
     c1, c2, _ = st.columns([1, 1, 4])
     with c1:
         st.download_button(
             f"⬇ CSV ({n})",
-            data=fav_df.to_csv(index=False).encode("utf-8"),
+            data=fav_export.to_csv(index=False).encode("utf-8"),
             file_name=f"favoris_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
             mime="text/csv",
             use_container_width=True,
@@ -4881,7 +4902,7 @@ def render_custom_lists_tab(df: pd.DataFrame) -> None:
     with c2:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            fav_df.to_excel(w, index=False, sheet_name="Favoris")
+            fav_export.to_excel(w, index=False, sheet_name="Favoris")
         buf.seek(0)
         st.download_button(
             f"⬇ XLSX ({n})",
@@ -4898,11 +4919,14 @@ def render_custom_lists_tab(df: pd.DataFrame) -> None:
 
 
 def render_exports_tab(filtered: pd.DataFrame) -> None:
-    st.markdown('<div class="section-title">Exports</div>', unsafe_allow_html=True)
-    st.caption(
-        "Les exports tiennent compte des filtres actuels (sidebar). Les exports "
-        "sur disque arrivent dans `data/exports/`."
+    from app.ui.i18n import t, is_en
+    en = is_en()
+
+    st.markdown(
+        f'<div class="section-title">{t("exports.title")}</div>',
+        unsafe_allow_html=True,
     )
+    st.caption(t("exports.caption"))
 
     # ============================================================
     # 🎯 LIVRABLE EUROSATORY 2026 — what we sell to customers
@@ -4910,113 +4934,121 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
     # The XLSX is generated by the rule-based + manual-overrides + taxonomy
     # pipeline. It has 2 sheets, autofilter, color-coded scores. We just
     # surface it as a download button.
-    st.markdown("### 🎯 Livrable commercial LeadForges")
-    st.caption(
-        "Le fichier vendu aux clients. 2580 sociétés, 15 colonnes, "
-        "autofilter Excel activé sur chaque colonne, sociétés triées "
-        "par score décroissant. Catégories canoniques pour le filtrage "
-        "(75 produits · 23 services · 31 technos · 5 cibles)."
-    )
+    st.markdown(f"### {t('exports.deliverable.title')}")
+    st.caption(t("exports.deliverable.caption"))
     from pathlib import Path
-    xlsx_path = Path("data/exports/Eurosatory_2026_targeting.xlsx")
+    # When in EN mode, prefer the EN-localized deliverables. Falls back to
+    # the FR file if the EN one hasn't been regenerated yet — keeps the UI
+    # working even on a half-migrated install.
+    xlsx_fr = Path("data/exports/Eurosatory_2026_targeting.xlsx")
+    xlsx_en = Path("data/exports/Eurosatory_2026_targeting_en.xlsx")
+    csv_fr = Path("data/exports/targeting_profiles_final.csv")
+    csv_en = Path("data/exports/targeting_profiles_final_en.csv")
+    xlsx_path = xlsx_en if (en and xlsx_en.exists()) else xlsx_fr
+    csv_path = csv_en if (en and csv_en.exists()) else csv_fr
     json_path = Path("data/exports/targeting_profiles_final.json")
-    csv_path = Path("data/exports/targeting_profiles_final.csv")
 
     cols_premium = st.columns(3)
     with cols_premium[0]:
         if xlsx_path.exists():
             st.download_button(
-                "⬇ XLSX livrable (recommandé)",
+                t("exports.deliverable.xlsx_label"),
                 data=xlsx_path.read_bytes(),
                 file_name=xlsx_path.name,
                 mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                 use_container_width=True,
                 type="primary",
-                help="Le fichier vendu. 2 onglets : main + long-tail à retraiter.",
+                help=t("exports.deliverable.xlsx_help"),
             )
             st.caption(
-                f"📦 {xlsx_path.stat().st_size//1024} ko · "
-                f"généré dernièrement par le pipeline."
+                t(
+                    "exports.deliverable.xlsx_caption",
+                    kb=xlsx_path.stat().st_size // 1024,
+                )
             )
         else:
             st.warning(
-                f"Manquant : {xlsx_path}.  \n"
-                "Lance `.venv/bin/python scripts/export_xlsx.py` pour le régénérer."
+                t("exports.deliverable.xlsx_missing", path=str(xlsx_path))
             )
     with cols_premium[1]:
         if csv_path.exists():
             st.download_button(
-                "⬇ CSV livrable (import CRM)",
+                t("exports.deliverable.csv_label"),
                 data=csv_path.read_bytes(),
                 file_name=csv_path.name,
                 mime="text/csv",
                 use_container_width=True,
-                help="Format plat — colonnes flat, prêtes pour import "
-                "Salesforce / HubSpot / Dynamics / Airtable.",
+                help=t("exports.deliverable.csv_help"),
             )
             st.caption(f"📦 {csv_path.stat().st_size//1024} ko")
         else:
-            st.warning(f"Manquant : {csv_path}")
+            st.warning(
+                t("exports.deliverable.csv_missing", path=str(csv_path))
+            )
     with cols_premium[2]:
         if json_path.exists():
             st.download_button(
-                "⬇ JSON (intégration / API)",
+                t("exports.deliverable.json_label"),
                 data=json_path.read_bytes(),
                 file_name=json_path.name,
                 mime="application/json",
                 use_container_width=True,
-                help="Format hiérarchique — listes Python natives "
-                "(produits, catégories, etc.).",
+                help=t("exports.deliverable.json_help"),
             )
             st.caption(f"📦 {json_path.stat().st_size//1024} ko")
         else:
-            st.warning(f"Manquant : {json_path}")
+            st.warning(
+                t("exports.deliverable.json_missing", path=str(json_path))
+            )
 
     # === Companion PDFs (the 2 sales documents accompanying the XLSX) ===
-    st.markdown("**📕 PDFs d'accompagnement commercial**")
+    st.markdown(t("exports.companion_pdfs"))
     pdf_dico = Path("data/exports/Eurosatory_2026_dictionnaire.pdf")
     pdf_uc = Path("data/exports/Eurosatory_2026_use_cases.pdf")
     pdf_cols = st.columns(2)
     with pdf_cols[0]:
         if pdf_dico.exists():
             st.download_button(
-                "⬇ Dictionnaire des données (PDF)",
+                t("exports.pdf.dico_label"),
                 data=pdf_dico.read_bytes(),
                 file_name=pdf_dico.name,
                 mime="application/pdf",
                 use_container_width=True,
-                help="Document de référence livré au client : "
-                "méthodologie, chaque colonne expliquée, formule "
-                "du score, mode d'emploi des filtres Excel.",
+                help=t("exports.pdf.dico_help"),
             )
             st.caption(f"📦 {pdf_dico.stat().st_size//1024} ko")
         else:
             st.warning(
-                f"Manquant : `{pdf_dico.name}`. Lance "
-                "`.venv/bin/python scripts/generate_data_dictionary_pdf.py`"
+                t(
+                    "exports.pdf.missing",
+                    name=pdf_dico.name,
+                    script="scripts/generate_data_dictionary_pdf.py",
+                )
             )
     with pdf_cols[1]:
         if pdf_uc.exists():
             st.download_button(
-                "⬇ 10 use-cases commerciaux (PDF)",
+                t("exports.pdf.uc_label"),
                 data=pdf_uc.read_bytes(),
                 file_name=pdf_uc.name,
                 mime="application/pdf",
                 use_container_width=True,
-                help="10 questions commerciales typiques avec les "
-                "filtres exacts à appliquer + 3 sociétés exemples + "
-                "angle commercial.",
+                help=t("exports.pdf.uc_help"),
             )
             st.caption(f"📦 {pdf_uc.stat().st_size//1024} ko")
         else:
             st.warning(
-                f"Manquant : `{pdf_uc.name}`. Lance "
-                "`.venv/bin/python scripts/generate_use_cases_pdf.py`"
+                t(
+                    "exports.pdf.missing",
+                    name=pdf_uc.name,
+                    script="scripts/generate_use_cases_pdf.py",
+                )
             )
 
-    if st.button("🔄 Régénérer le livrable maintenant",
-                 help="Relance pipeline complet : rule-based + merge manual + "
-                 "categories + XLSX + 2 PDFs companion. ~10 sec."):
+    if st.button(
+        t("exports.regenerate.button"),
+        help=t("exports.regenerate.help"),
+    ):
         import subprocess
         steps = [
             ("Run rule-based sur 2580", "scripts/run_targeting_profiles.py"),
@@ -5026,63 +5058,108 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
             ("PDF dictionnaire",      "scripts/generate_data_dictionary_pdf.py"),
             ("PDF use-cases",         "scripts/generate_use_cases_pdf.py"),
         ]
-        progress = st.progress(0, text="Démarrage…")
+        progress = st.progress(0, text=t("exports.regenerate.starting"))
         for i, (label, script) in enumerate(steps, start=1):
-            progress.progress((i-1)/len(steps), text=f"⏳ {label}…")
+            progress.progress(
+                (i - 1) / len(steps),
+                text=t("exports.regenerate.step", label=label),
+            )
             res = subprocess.run(
                 [".venv/bin/python", script],
                 capture_output=True, text=True, cwd=".",
             )
             if res.returncode != 0:
                 progress.empty()
-                st.error(f"Échec sur **{label}** :\n```\n{res.stderr[-500:]}\n```")
+                st.error(
+                    t(
+                        "exports.regenerate.failed",
+                        label=label,
+                        err=res.stderr[-500:],
+                    )
+                )
                 return
-        progress.progress(1.0, text="✅ Régénération terminée")
+        progress.progress(1.0, text=t("exports.regenerate.done"))
         st.cache_data.clear()
-        st.success("Livrable régénéré. Recharge la page pour voir les nouveaux scores.")
+        st.success(t("exports.regenerate.success"))
         st.rerun()
 
     st.markdown("---")
-    st.markdown("**Exports vers CRM (legacy)**")
+    st.markdown(t("exports.legacy.title"))
+    # The legacy CRM exports re-build the CRM dataframe from the DB — they
+    # don't see the page-level `_localize_df` swap. Pass the current lang
+    # so the export functions can localize EN content themselves.
+    lang_arg = "en" if en else "fr"
     cols = st.columns(3)
     with cols[0]:
-        st.markdown("**Pour Microsoft Dynamics**")
-        if st.button("Exporter CSV Dynamics", use_container_width=True):
-            p = export_dynamics_csv()
-            st.success(f"écrit : {p}")
-        st.markdown("**Pour Salesforce**")
-        if st.button("Exporter CSV Salesforce", use_container_width=True):
-            p = export_salesforce_csv()
-            st.success(f"écrit : {p}")
+        st.markdown(t("exports.legacy.dynamics_header"))
+        if st.button(
+            t("exports.legacy.dynamics_button"),
+            use_container_width=True,
+            key="legacy_dynamics_btn",
+        ):
+            p = export_dynamics_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
+        st.markdown(t("exports.legacy.salesforce_header"))
+        if st.button(
+            t("exports.legacy.salesforce_button"),
+            use_container_width=True,
+            key="legacy_salesforce_btn",
+        ):
+            p = export_salesforce_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
     with cols[1]:
-        st.markdown("**Pour HubSpot**")
-        if st.button("Exporter CSV HubSpot", use_container_width=True):
-            p = export_hubspot_csv()
-            st.success(f"écrit : {p}")
-        st.markdown("**Pour Airtable**")
-        if st.button("Exporter CSV Airtable", use_container_width=True):
-            p = export_airtable_csv()
-            st.success(f"écrit : {p}")
+        st.markdown(t("exports.legacy.hubspot_header"))
+        if st.button(
+            t("exports.legacy.hubspot_button"),
+            use_container_width=True,
+            key="legacy_hubspot_btn",
+        ):
+            p = export_hubspot_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
+        st.markdown(t("exports.legacy.airtable_header"))
+        if st.button(
+            t("exports.legacy.airtable_button"),
+            use_container_width=True,
+            key="legacy_airtable_btn",
+        ):
+            p = export_airtable_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
     with cols[2]:
-        st.markdown("**Sales prospecting (lean)**")
-        if st.button("Exporter CSV prospection", use_container_width=True):
-            p = export_prospecting_csv()
-            st.success(f"écrit : {p}")
-        st.markdown("**Full database**")
-        if st.button("Exporter CSV complet", use_container_width=True):
-            p = export_full_csv()
-            st.success(f"écrit : {p}")
-        if st.button("Exporter XLSX complet", use_container_width=True):
-            p = export_full_xlsx()
-            st.success(f"écrit : {p}")
+        st.markdown(t("exports.legacy.prospecting_header"))
+        if st.button(
+            t("exports.legacy.prospecting_button"),
+            use_container_width=True,
+            key="legacy_prospecting_btn",
+        ):
+            p = export_prospecting_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
+        st.markdown(t("exports.legacy.full_header"))
+        if st.button(
+            t("exports.legacy.full_csv_button"),
+            use_container_width=True,
+            key="legacy_full_csv_btn",
+        ):
+            p = export_full_csv(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
+        if st.button(
+            t("exports.legacy.full_xlsx_button"),
+            use_container_width=True,
+            key="legacy_full_xlsx_btn",
+        ):
+            p = export_full_xlsx(lang=lang_arg)
+            st.success(t("exports.legacy.written", path=str(p)))
 
     st.markdown("---")
-    st.markdown("**Téléchargement direct (résultat filtré)**")
+    st.markdown(t("exports.filtered.title"))
+    # Strip internal-only columns so the filtered download mirrors the
+    # on-screen Companies table — same columns the buyer sees in the UI.
+    from app.exports.crm_exports import visible_columns_only
+    filtered_export = visible_columns_only(filtered)
     cols = st.columns(2)
     with cols[0]:
         st.download_button(
-            "⬇ CSV (filtres appliqués)",
-            data=filtered.to_csv(index=False).encode("utf-8"),
+            t("exports.filtered.csv"),
+            data=filtered_export.to_csv(index=False).encode("utf-8"),
             file_name=f"crm_filtered_{datetime.utcnow():%Y%m%d_%H%M%S}.csv",
             mime="text/csv",
             use_container_width=True,
@@ -5090,10 +5167,11 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
     with cols[1]:
         buf = BytesIO()
         with pd.ExcelWriter(buf, engine="openpyxl") as w:
-            filtered.to_excel(w, index=False, sheet_name="Filtered")
+            filtered_export.to_excel(w, index=False, sheet_name="Filtered")
         buf.seek(0)
         st.download_button(
-            "⬇ XLSX (filtres appliqués)", data=buf,
+            t("exports.filtered.xlsx"),
+            data=buf,
             file_name=f"crm_filtered_{datetime.utcnow():%Y%m%d_%H%M%S}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             use_container_width=True,

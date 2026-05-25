@@ -136,3 +136,36 @@ DEFAULT_TABLE_COLUMNS = [
     "target_buyers",            # 5-label closed taxonomy
     "why_target",               # actionable angle for the rep
 ]
+
+
+# Columns kept in any "raw dump" export (full CSV/XLSX, filtered download,
+# topbar quick-export). Mirrors what the buyer actually sees in the
+# Companies table + the Eurosatory 2026 targeting profile fields, plus
+# the priority/lead score that drive sorting. Internal/diagnostic fields
+# (``company_size``, ``founding_year``, ``eurosatory_profile_url``,
+# ``core_business``, ``description_short``, ``source_urls``, …) are
+# intentionally excluded — they were never surfaced in the consultable
+# table, so they should not appear in the buyer-facing exports either.
+EXPORT_VISIBLE_COLUMNS = [
+    # Identification — same five fields as the visible table
+    "account_name",
+    "website_url",
+    "country",
+    "booth_number",
+    "company_type",
+    # Eurosatory 2026 targeting profile (the value-add we sell)
+    "activity_1liner",
+    "products_specific",
+    "products_categories",
+    "services_specific",
+    "services_categories",
+    "target_buyers",
+    "technologies_specific",
+    "technologies_categories",
+    "why_target",
+    "targeting_score",
+    "targeting_source",
+    # Scoring / priority shown in the table header
+    "priority_level",
+    "lead_score",
+]

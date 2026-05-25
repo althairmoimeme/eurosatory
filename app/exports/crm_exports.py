@@ -10,7 +10,23 @@ import pandas as pd
 
 from app.config import EXPORT_DIR
 from app.crm.repository import apply_filters, crm_dataframe
-from app.crm.schema import CRM_COLUMNS
+from app.crm.schema import CRM_COLUMNS, EXPORT_VISIBLE_COLUMNS
+
+
+def visible_columns_only(df: pd.DataFrame) -> pd.DataFrame:
+    """Keep only the columns that appear in the on-screen Companies table.
+
+    Drops internal/diagnostic columns the buyer never sees (``company_size``,
+    ``founding_year``, ``eurosatory_profile_url``, ``core_business``,
+    ``description_short``, ``source_urls``, etc.) so raw exports stay
+    aligned with what the user reads in the UI.
+
+    Columns are returned in ``EXPORT_VISIBLE_COLUMNS`` order ; any column
+    listed there but missing from the input dataframe is silently
+    skipped (keeps the helper robust to schema drift).
+    """
+    kept = [c for c in EXPORT_VISIBLE_COLUMNS if c in df.columns]
+    return df[kept].copy()
 
 
 def _build(df: pd.DataFrame, filters: Optional[dict]) -> pd.DataFrame:
@@ -19,19 +35,119 @@ def _build(df: pd.DataFrame, filters: Optional[dict]) -> pd.DataFrame:
     return df
 
 
+def _load_targeting_profiles_for_export() -> dict[int, dict]:
+    """Load the Eurosatory 2026 targeting profile JSON and index it by
+    exhibitor id. Includes BOTH the FR and EN variants of each text field
+    so the caller can pick the right language at merge time.
+
+    Returns an empty dict if the JSON is missing — exports degrade
+    gracefully without the targeting profile columns.
+    """
+    import json as _json
+    profiles_path = EXPORT_DIR / "targeting_profiles_final.json"
+    if not profiles_path.exists():
+        return {}
+    try:
+        raw = _json.loads(profiles_path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return {}
+    by_eid: dict[int, dict] = {}
+    for r in raw:
+        try:
+            eid = int(r.get("exhibitor_id"))
+        except (TypeError, ValueError):
+            continue
+        by_eid[eid] = r
+    return by_eid
+
+
+def _merge_targeting_profile(df: pd.DataFrame, lang: str) -> pd.DataFrame:
+    """Merge the Eurosatory 2026 targeting profile columns
+    (``activity_1liner``, ``products_specific``, …, ``targeting_score``,
+    ``targeting_source``) into the CRM dataframe. Picks the FR or EN
+    variant of each text field according to ``lang``.
+
+    Mirrors the same merge that ``app.ui.streamlit_app.load_crm`` does
+    for the on-screen table — keeps the exports column-aligned with the
+    UI.
+    """
+    by_eid = _load_targeting_profiles_for_export()
+    if not by_eid or "account_id" not in df.columns:
+        return df
+
+    def _eid(account_id: str) -> Optional[int]:
+        if not isinstance(account_id, str):
+            return None
+        try:
+            return int(account_id.replace("ESY26-", ""))
+        except ValueError:
+            return None
+
+    def _pick(r: dict, fr_key: str, en_key: str):
+        if lang == "en":
+            v = r.get(en_key)
+            if v:
+                return v
+        return r.get(fr_key)
+
+    rows_a1, rows_pspec, rows_pcat = [], [], []
+    rows_sspec, rows_scat = [], []
+    rows_tb, rows_tspec, rows_tcat = [], [], []
+    rows_wt, rows_tscore, rows_tsrc = [], [], []
+    for account_id in df["account_id"].tolist():
+        eid = _eid(account_id)
+        r = by_eid.get(eid, {}) if eid is not None else {}
+        rows_a1.append(_pick(r, "activity_1liner", "activity_1liner_en") or "")
+        rows_pspec.append(" · ".join(_pick(r, "products", "products_en") or []))
+        rows_pcat.append(" · ".join(r.get("products_categories") or []))
+        rows_sspec.append(" · ".join(_pick(r, "services", "services_en") or []))
+        rows_scat.append(" · ".join(r.get("services_categories") or []))
+        rows_tb.append(", ".join(_pick(r, "target_buyers", "target_buyers_en") or []))
+        rows_tspec.append(" · ".join(_pick(r, "technologies", "technologies_en") or []))
+        rows_tcat.append(" · ".join(r.get("technologies_categories") or []))
+        rows_wt.append(_pick(r, "why_target", "why_target_en") or "")
+        rows_tscore.append(int(r.get("completeness_score") or 0))
+        rows_tsrc.append(r.get("data_source_strength") or "")
+
+    out = df.copy()
+    out["activity_1liner"] = rows_a1
+    out["products_specific"] = rows_pspec
+    out["products_categories"] = rows_pcat
+    out["services_specific"] = rows_sspec
+    out["services_categories"] = rows_scat
+    out["target_buyers"] = rows_tb
+    out["technologies_specific"] = rows_tspec
+    out["technologies_categories"] = rows_tcat
+    out["why_target"] = rows_wt
+    out["targeting_score"] = rows_tscore
+    out["targeting_source"] = rows_tsrc
+    return out
+
+
 def _scoped_df(filters: Optional[dict], list_id: Optional[int],
-               base_df: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+               base_df: Optional[pd.DataFrame] = None,
+               lang: str = "fr") -> pd.DataFrame:
     """Return the dataframe an export should operate on.
 
-    Priority: ``base_df`` (caller provided) > ``list_id`` (load list members
-    only) > full ``crm_dataframe()`` with ``filters`` applied.
+    Priority: ``base_df`` (caller provided — assumed already localized and
+    profile-merged) > ``list_id`` (load list members only) > full
+    ``crm_dataframe()`` with ``filters`` applied.
+
+    ``lang`` ("fr"/"en") controls language-specific localization of the
+    text columns. When "en", we swap in the EN values from the static
+    targeting profile JSON so the exported file matches what the user
+    sees in EN mode. For the non-``base_df`` paths, we ALSO merge in the
+    Eurosatory 2026 targeting profile columns so the exports carry the
+    same value-add the user reads in the on-screen table.
     """
     if base_df is not None:
         df = base_df
-    elif list_id is not None:
-        df = crm_dataframe(list_id=list_id)
     else:
-        df = crm_dataframe()
+        if list_id is not None:
+            df = crm_dataframe(list_id=list_id)
+        else:
+            df = crm_dataframe()
+        df = _merge_targeting_profile(df, lang)
     return _build(df, filters)
 
 
@@ -41,23 +157,28 @@ def _scoped_df(filters: Optional[dict], list_id: Optional[int],
 
 
 def export_full_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                    list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
-    p = path or EXPORT_DIR / f"crm_full_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+                    list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    df = visible_columns_only(df)
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_full{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     df.to_csv(p, index=False)
     return p
 
 
 def export_full_xlsx(filters: Optional[dict] = None, path: Optional[Path] = None,
-                     list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
-    p = path or EXPORT_DIR / f"crm_full_{datetime.utcnow():%Y%m%d_%H%M%S}.xlsx"
+                     list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    df = visible_columns_only(df)
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_full{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.xlsx"
     with pd.ExcelWriter(p, engine="openpyxl") as w:
         df.to_excel(w, index=False, sheet_name="Accounts")
-        for prio in ("A+", "A", "B"):
-            sub = df[df["priority_level"] == prio]
-            if not sub.empty:
-                sub.to_excel(w, index=False, sheet_name=f"Priority {prio}")
+        if "priority_level" in df.columns:
+            for prio in ("A+", "A", "B"):
+                sub = df[df["priority_level"] == prio]
+                if not sub.empty:
+                    sub.to_excel(w, index=False, sheet_name=f"Priority {prio}")
     return p
 
 
@@ -66,39 +187,38 @@ def export_full_xlsx(filters: Optional[dict] = None, path: Optional[Path] = None
 # ---------------------------------------------------------------------------
 
 DYNAMICS_RENAME: dict[str, str] = {
+    # Trimmed to fields actually surfaced in the on-screen Companies
+    # table + Eurosatory 2026 targeting profile. Internal-only fields
+    # (city, linkedin_company_url, description_short, defense_segment_main,
+    # …) were dropped — buyers should not see them as columns in their
+    # Dynamics import.
     "account_name": "Account Name",
     "website_url": "Website",
     "country": "Country/Region",
-    "city": "City",
-    "linkedin_company_url": "LinkedIn URL",
+    "booth_number": "Eurosatory Booth",
+    "company_type": "Type",
+    "activity_1liner": "Description",
+    "products_specific": "Products",
+    "services_specific": "Services",
+    "target_buyers": "Target Customer",
+    "technologies_specific": "Technologies",
+    "why_target": "Sales Angle",
     "priority_level": "Lead Rating",
-    "lead_status": "Status",
-    "defense_segment_main": "Industry",
-    "defense_subsegment": "Segment",
-    "description_short": "Description",
-    "next_best_action": "Next Step",
-    "notes": "Notes",
-    "owner": "Owner",
-    "ideal_seller_profile": "Topic",
+    "lead_score": "Lead Score",
 }
 DYNAMICS_LEAD_SOURCE = "Eurosatory 2026 Catalog"
 
 
 def export_dynamics_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                        list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
-    out = df.rename(columns=DYNAMICS_RENAME).copy()
+                        list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    cols_in = [c for c in DYNAMICS_RENAME if c in df.columns]
+    out = df[cols_in].rename(columns=DYNAMICS_RENAME).copy()
     out["Lead Source"] = DYNAMICS_LEAD_SOURCE
-    cols = [
-        "Account Name", "Website", "Country/Region", "City", "LinkedIn URL",
-        "Lead Source", "Lead Rating", "Status", "Topic", "Description",
-        "Industry", "Segment", "Owner", "Next Step", "Notes",
-    ]
-    for c in cols:
-        if c not in out.columns:
-            out[c] = None
-    out = out[cols]
-    p = path or EXPORT_DIR / f"crm_dynamics_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+    final_cols = [DYNAMICS_RENAME[c] for c in cols_in] + ["Lead Source"]
+    out = out[final_cols]
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_dynamics{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     out.to_csv(p, index=False)
     return p
 
@@ -109,31 +229,34 @@ def export_dynamics_csv(filters: Optional[dict] = None, path: Optional[Path] = N
 
 
 def export_salesforce_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                          list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
+                          list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    # Salesforce column map — trimmed to fields visible in the on-screen
+    # Companies table + targeting profile. Drops the internal-only
+    # description_short / next_best_action / lead_status / buying_need_main
+    # / linkedin / city — they were never shown to the buyer.
     rename = {
         "account_name": "Name",
         "website_url": "Website",
         "country": "BillingCountry",
-        "city": "BillingCity",
-        "linkedin_company_url": "LinkedIn__c",
-        "defense_segment_main": "Industry",
+        "booth_number": "Eurosatory_Booth__c",
         "company_type": "Type",
+        "activity_1liner": "Description",
+        "products_specific": "Products__c",
+        "services_specific": "Services__c",
+        "target_buyers": "Target_Customer__c",
+        "technologies_specific": "Technologies__c",
+        "why_target": "Sales_Angle__c",
         "lead_score": "Lead_Score__c",
         "priority_level": "Lead_Rating__c",
-        "lead_status": "Status",
-        "ideal_seller_profile": "Description",
-        "next_best_action": "Next_Step__c",
-        "buying_need_main": "Buying_Need_Main__c",
     }
-    cols = list(rename.values()) + ["Lead_Source__c"]
-    out = df.rename(columns=rename).copy()
+    cols_in = [c for c in rename if c in df.columns]
+    out = df[cols_in].rename(columns=rename).copy()
     out["Lead_Source__c"] = DYNAMICS_LEAD_SOURCE
-    for c in cols:
-        if c not in out.columns:
-            out[c] = None
-    out = out[cols]
-    p = path or EXPORT_DIR / f"crm_salesforce_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+    final_cols = [rename[c] for c in cols_in] + ["Lead_Source__c"]
+    out = out[final_cols]
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_salesforce{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     out.to_csv(p, index=False)
     return p
 
@@ -144,32 +267,31 @@ def export_salesforce_csv(filters: Optional[dict] = None, path: Optional[Path] =
 
 
 def export_hubspot_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                       list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
+                       list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    # HubSpot column map — trimmed to the columns visible in the
+    # on-screen Companies table + targeting profile. Internal-only
+    # fields (city, linkedin, lifecycle stage, owner, buying need …)
+    # removed.
     rename = {
         "account_name": "Company name",
         "website_url": "Website URL",
         "country": "Country",
-        "city": "City",
-        "linkedin_company_url": "LinkedIn",
-        "defense_segment_main": "Industry",
+        "booth_number": "Eurosatory booth",
         "company_type": "Type",
+        "activity_1liner": "Description",
+        "products_specific": "Products",
+        "services_specific": "Services",
+        "target_buyers": "Target customer",
+        "technologies_specific": "Technologies",
+        "why_target": "Sales angle",
         "lead_score": "Lead score",
         "priority_level": "Lead rating",
-        "lead_status": "Lifecycle stage",
-        "buying_need_main": "Buying need",
-        "ideal_seller_profile": "Notes",
-        "short_pitch": "Pitch",
-        "next_best_action": "Next step",
-        "owner": "Owner",
     }
-    cols = list(rename.values())
-    out = df.rename(columns=rename).copy()
-    for c in cols:
-        if c not in out.columns:
-            out[c] = None
-    out = out[cols]
-    p = path or EXPORT_DIR / f"crm_hubspot_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+    cols_in = [c for c in rename if c in df.columns]
+    out = df[cols_in].rename(columns=rename).copy()
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_hubspot{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     out.to_csv(p, index=False)
     return p
 
@@ -180,16 +302,23 @@ def export_hubspot_csv(filters: Optional[dict] = None, path: Optional[Path] = No
 
 
 def export_prospecting_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                           list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
+                           list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    # Lean prospecting CSV — same columns the user sees in the on-screen
+    # Companies table. Dropped the internal-only fields (target_type,
+    # buying_need_main, ideal_seller_profile, recommended_sales_angle,
+    # short_pitch, linkedin_company_url, lead_status, next_best_action,
+    # notes) — they were never surfaced to the buyer.
     cols = [
-        "account_name", "country", "priority_level", "lead_score",
-        "target_type", "buying_need_main", "ideal_seller_profile",
-        "recommended_sales_angle", "short_pitch", "website_url",
-        "linkedin_company_url", "lead_status", "next_best_action", "notes",
+        "account_name", "country", "website_url", "booth_number",
+        "company_type", "activity_1liner", "products_specific",
+        "services_specific", "target_buyers", "technologies_specific",
+        "why_target", "priority_level", "lead_score",
     ]
-    sub = df[cols].copy()
-    p = path or EXPORT_DIR / f"crm_prospecting_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+    keep = [c for c in cols if c in df.columns]
+    sub = df[keep].copy()
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_prospecting{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     sub.to_csv(p, index=False)
     return p
 
@@ -200,41 +329,37 @@ def export_prospecting_csv(filters: Optional[dict] = None, path: Optional[Path] 
 
 
 def export_airtable_csv(filters: Optional[dict] = None, path: Optional[Path] = None,
-                        list_id: Optional[int] = None) -> Path:
-    df = _scoped_df(filters, list_id)
+                        list_id: Optional[int] = None, lang: str = "fr") -> Path:
+    df = _scoped_df(filters, list_id, lang=lang)
+    # Airtable column map. Only fields that ARE surfaced in the on-screen
+    # Companies table or its detail card are kept — internal-only fields
+    # (eurosatory_profile_url, defense_segment_main, products_built,
+    # markets_served, …) are dropped so the Airtable base mirrors what
+    # the buyer sees in the UI.
     rename = {
         "account_name": "Company",
         "country": "Country",
-        "city": "City",
         "website_url": "Website",
-        "linkedin_company_url": "LinkedIn",
-        "eurosatory_profile_url": "Eurosatory profile",
         "booth_number": "Booth",
         "company_type": "Type",
-        "defense_segment_main": "Defense segment",
-        "defense_segments_secondary": "Secondary segments",
-        "products_built": "Builds",
-        "products_sold": "Sells",
-        "services_sold": "Services",
-        "technologies": "Technologies",
-        "target_clients": "Target clients",
-        "markets_served": "Markets",
-        "target_type": "Target type",
-        "buying_need_main": "Buying need",
-        "buying_needs_secondary": "Other buying needs",
-        "lead_score": "Score",
+        "activity_1liner": "Activity",
+        "products_specific": "Products",
+        "products_categories": "Product categories",
+        "services_specific": "Services",
+        "services_categories": "Service categories",
+        "target_buyers": "Target customers",
+        "technologies_specific": "Technologies",
+        "technologies_categories": "Technology categories",
+        "why_target": "Why target",
+        "targeting_score": "Targeting score",
+        "targeting_source": "Source",
         "priority_level": "Priority",
-        "ideal_seller_profile": "Ideal seller",
-        "short_pitch": "Pitch",
-        "recommended_sales_angle": "Sales angle",
-        "next_best_action": "Next action",
-        "lead_status": "Status",
-        "tags": "Tags",
-        "custom_list": "Lists",
-        "data_confidence": "Confidence",
+        "lead_score": "Score",
     }
-    out = df.rename(columns=rename)[list(rename.values())]
-    p = path or EXPORT_DIR / f"crm_airtable_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
+    cols = [c for c in rename if c in df.columns]
+    out = df[cols].rename(columns=rename)
+    suffix = "_en" if lang == "en" else ""
+    p = path or EXPORT_DIR / f"crm_airtable{suffix}_{datetime.utcnow():%Y%m%d_%H%M%S}.csv"
     out.to_csv(p, index=False)
     return p
 
