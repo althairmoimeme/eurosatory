@@ -181,7 +181,14 @@ _EN: dict[str, str] = {
 
     # — Exports tab —
     "exports.title": "Exports",
-    "exports.caption": "Exports take the current sidebar filters into account. On-disk exports land in `data/exports/`.",
+    "exports.caption": "Download the data shown in the app. The **Companies** export reflects the current sidebar filters ; the **Attendance signals** export covers every signal ingested so far. Both formats (CSV and XLSX) carry the same column set.",
+    "exports.companies.title": "🏢 Companies",
+    "exports.companies.stats": "**{total} companies** match the current filters.",
+    "exports.companies.csv_label": "⬇ CSV (companies)",
+    "exports.companies.csv_help": "Companies matching the current filters — same columns as the on-screen table.",
+    "exports.companies.xlsx_label": "⬇ XLSX (companies)",
+    "exports.companies.xlsx_help": "Same data as the CSV, Excel format with autofilter enabled on every column.",
+    "exports.attendance.section_title": "📡 Attendance signals",
     "exports.deliverable.title": "🎯 LeadForges commercial deliverable",
     "exports.deliverable.caption": "The file sold to customers. 2,580 companies, 15 columns, Excel autofilter enabled on every column, companies sorted by decreasing score. Canonical categories for filtering (75 products · 23 services · 31 technologies · 5 targets).",
     "exports.deliverable.xlsx_label": "⬇ XLSX deliverable (recommended)",
