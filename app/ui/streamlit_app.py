@@ -130,6 +130,7 @@ from app.exports.crm_exports import (
     export_hubspot_csv,
     export_prospecting_csv,
     export_salesforce_csv,
+    visible_columns_only,
 )
 from app.processors.defense_taxonomy import DEFENSE_TAXONOMY
 
@@ -518,7 +519,6 @@ def render_companies_topbar(df: pd.DataFrame, key_prefix: str = "topbar") -> Non
     they pick up the EN swap.
     """
     from app.ui.i18n import is_en
-    from app.exports.crm_exports import visible_columns_only
     lang_arg = "en" if is_en() else "fr"
     reset_label = "Reset" if is_en() else "Réinitialiser"
     # Strip internal-only columns from the raw CSV / XLSX dumps so the
@@ -2141,8 +2141,7 @@ def render_bulk_actions(exhibitor_ids: list[int],
     st.markdown("**⬇ Export de la sélection**")
     df = _localize_df(load_crm())
     sub = df[df["account_id"].str.replace("ESY26-", "").astype(int).isin(exhibitor_ids)]
-    from app.exports.crm_exports import visible_columns_only as _vco
-    sub_export = _vco(sub)
+    sub_export = visible_columns_only(sub)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
@@ -4072,8 +4071,7 @@ def _render_opened_list(list_id: int, full_df: pd.DataFrame) -> None:
 
     # Lightweight downloads (CSV/XLSX of the displayed dataframe)
     st.markdown("**⬇ Téléchargement direct (la liste complète)**")
-    from app.exports.crm_exports import visible_columns_only as _vco
-    members_export = _vco(members_df)
+    members_export = visible_columns_only(members_df)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
@@ -4191,8 +4189,7 @@ def _render_favorites_view(full_df: pd.DataFrame) -> None:
                 st.success(f"écrit : {p}")
 
     st.markdown("**⬇ Téléchargement direct (favoris bruts)**")
-    from app.exports.crm_exports import visible_columns_only as _vco
-    members_export = _vco(members_df)
+    members_export = visible_columns_only(members_df)
     e1, e2, e3 = st.columns([1, 1, 4])
     with e1:
         st.download_button(
@@ -4888,8 +4885,7 @@ def render_custom_lists_tab(df: pd.DataFrame) -> None:
     # ----- Direct download -----------------------------------------------
     st.divider()
     st.markdown("**⬇ Téléchargement**")
-    from app.exports.crm_exports import visible_columns_only as _vco
-    fav_export = _vco(fav_df)
+    fav_export = visible_columns_only(fav_df)
     c1, c2, _ = st.columns([1, 1, 4])
     with c1:
         st.download_button(
@@ -5153,7 +5149,6 @@ def render_exports_tab(filtered: pd.DataFrame) -> None:
     st.markdown(t("exports.filtered.title"))
     # Strip internal-only columns so the filtered download mirrors the
     # on-screen Companies table — same columns the buyer sees in the UI.
-    from app.exports.crm_exports import visible_columns_only
     filtered_export = visible_columns_only(filtered)
     cols = st.columns(2)
     with cols[0]:
