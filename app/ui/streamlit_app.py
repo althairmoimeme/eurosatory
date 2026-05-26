@@ -5561,7 +5561,7 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
     see them too.
     """
     from app.crm.normalizers import GEOGRAPHIC_ZONES as _ZONES
-    from app.ui.i18n import is_en
+    from app.ui.i18n import is_en, display_company_type, display_zone
     en = is_en()
     c1, c2, c3, c4, c5, c6 = st.columns([0.8, 1.0, 1.2, 1.2, 1.8, 1.0])
     with c1:
@@ -5575,6 +5575,9 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "Zone",
             list(_ZONES),
             key="att_zones",
+            # Display EN labels when ?lang=en is active (canonical FR
+            # values stay as the stored value so filtering still works).
+            format_func=display_zone,
             help=("Europe · North America · Asia · South America · Other (Africa, Oceania, other)." if en
                   else "Europe · Amérique du Nord · Asie · Amérique du Sud · Autre (Afrique, Océanie, autres)."),
         )
@@ -5600,6 +5603,9 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "Company type" if en else "Type d'entreprise",
             ALLOWED_COMPANY_TYPES,
             key="att_company_types",
+            # Display EN labels for the 8-value taxonomy (Integrator,
+            # Tier-1 supplier, …) when in EN mode.
+            format_func=display_company_type,
             help=("Closed 8-value taxonomy — derived from the company's capabilities. "
                   "Filters signals whose company matches one of these buckets." if en
                   else "Taxonomie fermée 8 valeurs — calculée depuis les "
@@ -5611,7 +5617,8 @@ def _render_attendance_filters(df: pd.DataFrame) -> dict:
             "🔎 Free search (person name / company / text)" if en
             else "🔎 Recherche libre (nom personne / société / texte)",
             key="att_search",
-            placeholder="Ex: Thales, John Doe, cyber, France…",
+            placeholder=("Ex: Thales, John Doe, cyber, France…" if en
+                         else "Ex : Thales, Jean Dupont, cyber, France…"),
         )
     with c6:
         include_exhibitors = st.checkbox(
@@ -5660,8 +5667,12 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
     corporate page) clickable to justify the entry. Click 1 row → fiche
     détaillée. Click 2+ rows → bulk actions.
     """
+    from app.ui.i18n import is_en as _is_en
+    en = _is_en()
     if df.empty:
         st.info(
+            "No signal yet. Use the **📋 Bulk paste** at the top to import quickly, or the **🤖 Auto scraper** to scan exhibitor sites." if en
+            else
             "Aucun signal pour le moment. Utilise le **📋 Bulk paste** "
             "tout en haut pour importer rapidement, ou le **🤖 Scraper "
             "auto** pour scanner les sites des exposants."
@@ -5670,32 +5681,45 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
 
     # Sort + page-size + page-navigation controls
     sort_col, limit_col, page_col = st.columns([2, 1, 1.5])
+    # Sort options — canonical FR labels are kept internally so the
+    # sort dispatch keeps working ; the UI displays the EN labels via
+    # format_func when ?lang=en is active.
+    _SORT_OPTIONS_FR = [
+        "Date capture (récent → ancien)",
+        "Date capture (ancien → récent)",
+        "Nom personne", "Nom société",
+        "Année (récente → ancienne)",
+    ]
+    _SORT_OPTIONS_EN = {
+        "Date capture (récent → ancien)": "Capture date (newest first)",
+        "Date capture (ancien → récent)": "Capture date (oldest first)",
+        "Nom personne": "Person name",
+        "Nom société": "Company name",
+        "Année (récente → ancienne)": "Edition (newest first)",
+    }
     with sort_col:
         sort_label = st.selectbox(
-            "Trier par",
-            [
-                "Date capture (récent → ancien)",
-                "Date capture (ancien → récent)",
-                "Nom personne", "Nom société",
-                "Année (récente → ancienne)",
-            ],
+            "Sort by" if en else "Trier par",
+            _SORT_OPTIONS_FR,
             index=0,
             key="att_list_sort",
             label_visibility="collapsed",
+            format_func=(lambda k: _SORT_OPTIONS_EN.get(k, k)) if en else (lambda k: k),
         )
     # The selectbox offers fixed bucket sizes + a "Tout" option that
     # disables pagination and renders the whole filtered set. We add a
     # ``Tout (N)`` label so the user always knows the full count.
     _total_n = len(df)
-    _SIZE_OPTIONS: list[int | str] = [50, 100, 200, 500, 1000, 5000, "Tout"]
+    _all_token = "All" if en else "Tout"
+    _SIZE_OPTIONS: list = [50, 100, 200, 500, 1000, 5000, _all_token]
     with limit_col:
         size_choice = st.selectbox(
-            "Lignes",
+            "Rows" if en else "Lignes",
             _SIZE_OPTIONS,
             index=2,
             key="att_list_page_size",
             format_func=lambda v: (
-                f"Tout ({_total_n})" if v == "Tout" else str(v)
+                f"{_all_token} ({_total_n})" if v == _all_token else str(v)
             ),
             label_visibility="collapsed",
         )
@@ -5715,7 +5739,7 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
 
     # Pagination : when the user picks a finite page size and there are
     # more rows than fit on one page, render ◀ Prev / Next ▶ buttons.
-    if size_choice == "Tout":
+    if size_choice == _all_token:
         page_size = _total_n
         page = 0
         total_pages = 1
@@ -5784,12 +5808,21 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
     _pagination_caption = (
         f"Page {page + 1}/{total_pages} · " if total_pages > 1 else ""
     )
-    st.caption(
-        f"{_pagination_caption}**{len(show)} affichés** / {len(df)} filtrés "
-        f"· trié par **{sort_label}** · 💡 cliquer sur une ligne ouvre la "
-        f"fiche détaillée. La colonne **Source** n'est affichée que pour "
-        f"les signaux LinkedIn (les autres sources sont confidentielles)."
-    )
+    sort_label_display = _SORT_OPTIONS_EN.get(sort_label, sort_label) if en else sort_label
+    if en:
+        st.caption(
+            f"{_pagination_caption}**{len(show)} shown** / {len(df)} filtered "
+            f"· sorted by **{sort_label_display}** · 💡 click a row to open the "
+            f"detail card. The **Source** column is only shown for "
+            f"LinkedIn signals (other sources are confidential)."
+        )
+    else:
+        st.caption(
+            f"{_pagination_caption}**{len(show)} affichés** / {len(df)} filtrés "
+            f"· trié par **{sort_label}** · 💡 cliquer sur une ligne ouvre la "
+            f"fiche détaillée. La colonne **Source** n'est affichée que pour "
+            f"les signaux LinkedIn (les autres sources sont confidentielles)."
+        )
 
     event = st.dataframe(
         show,
@@ -5801,74 +5834,86 @@ def _render_attendance_table(df: pd.DataFrame) -> tuple[int | None, list[int]]:
         column_config={
             "_id": None,
             "person_name": st.column_config.TextColumn(
-                "Personne", width="medium",
-                help="Nom de la personne potentiellement présente "
-                "(quand identifiée).",
+                "Person" if en else "Personne", width="medium",
+                help=("Name of the person potentially attending (when identified)." if en
+                      else "Nom de la personne potentiellement présente (quand identifiée)."),
             ),
             "person_role": st.column_config.TextColumn(
-                "Rôle", width="medium",
-                help="Intitulé de poste tel que repéré dans la source.",
+                "Role" if en else "Rôle", width="medium",
+                help=("Job title as found in the source." if en
+                      else "Intitulé de poste tel que repéré dans la source."),
             ),
             "company_name": st.column_config.TextColumn(
-                "Société", width="medium",
+                "Company" if en else "Société", width="medium",
             ),
             "matched_exhibitor": st.column_config.TextColumn(
-                "🛡 Exposant", width="medium",
-                help="Société catalogue salon matchée (vide si la "
-                "société du contact n'est pas exposante). Pour ouvrir la "
-                "fiche, clique sur la ligne puis sur « 📂 Fiche société ».",
+                "🛡 Exhibitor" if en else "🛡 Exposant", width="medium",
+                help=("Matching catalog exhibitor (empty if the contact's company is not exhibiting). To open the company card, click the row then « 📂 Company card »." if en
+                      else "Société catalogue salon matchée (vide si la "
+                      "société du contact n'est pas exposante). Pour ouvrir la "
+                      "fiche, clique sur la ligne puis sur « 📂 Fiche société »."),
             ),
-            "country": st.column_config.TextColumn("Pays", width="small"),
+            "country": st.column_config.TextColumn(
+                "Country" if en else "Pays", width="small",
+            ),
             "derived_email": st.column_config.TextColumn(
                 "✉ Email", width="medium",
-                help="Email direct extrait de la source (GICAT directory, "
-                "LinkedIn, etc.). Cliquer = sélectionner pour copier.",
+                help=("Direct email extracted from the source (GICAT directory, LinkedIn, …). Click = select to copy." if en
+                      else "Email direct extrait de la source (GICAT directory, "
+                      "LinkedIn, etc.). Cliquer = sélectionner pour copier."),
             ),
             "derived_phone": st.column_config.TextColumn(
-                "📞 Tel", width="small",
-                help="Téléphone direct extrait de la source.",
+                "📞 Phone" if en else "📞 Tel", width="small",
+                help=("Direct phone extracted from the source." if en
+                      else "Téléphone direct extrait de la source."),
             ),
             "derived_linkedin": st.column_config.LinkColumn(
                 "🔗 LinkedIn", width="small",
                 display_text=r".*linkedin\.com/(?:in|company)/([^/?]+).*",
-                help="Profil LinkedIn (personne ou société).",
+                help=("LinkedIn profile (person or company)." if en
+                      else "Profil LinkedIn (personne ou société)."),
             ),
             "edition_year": st.column_config.NumberColumn(
-                "Édition", width="small",
+                "Edition" if en else "Édition", width="small",
             ),
             "signal_type": st.column_config.TextColumn(
-                "Type de signal", width="medium",
+                "Signal type" if en else "Type de signal", width="medium",
                 help="company_announcement / personal_linkedin_post / "
                 "press_release / event_page / etc.",
             ),
             "source_platform": st.column_config.TextColumn(
-                "Plateforme", width="small",
+                "Platform" if en else "Plateforme", width="small",
             ),
             "ads_supply_chain_tier": st.column_config.TextColumn(
-                "Niveau", width="small",
-                help="Position dans la pyramide industrielle "
-                "(OEM / Tier 1-4 / N/A) — calculée depuis les capabilities "
-                "ADS Group UK quand disponibles.",
+                "Tier" if en else "Niveau", width="small",
+                help=("Position in the industrial pyramid (OEM / Tier 1-4 / N/A) — derived from ADS Group UK capabilities when available." if en
+                      else "Position dans la pyramide industrielle "
+                      "(OEM / Tier 1-4 / N/A) — calculée depuis les capabilities "
+                      "ADS Group UK quand disponibles."),
             ),
             "ads_product_categories": st.column_config.TextColumn(
-                "Catégories produits", width="medium",
-                help="Catégories produits canoniques dérivées des "
-                "capabilities ADS Group (mappées sur nos 75 buckets).",
+                "Product categories" if en else "Catégories produits", width="medium",
+                help=("Canonical product categories derived from ADS Group capabilities (mapped onto our 75 buckets)." if en
+                      else "Catégories produits canoniques dérivées des "
+                      "capabilities ADS Group (mappées sur nos 75 buckets)."),
             ),
             "ads_capabilities_count": st.column_config.NumberColumn(
                 "# Tags", width="small",
-                help="Nombre de capabilities déclarées par la société "
-                "dans le directory ADS Group UK.",
+                help=("Number of capabilities declared by the company in the ADS Group UK directory." if en
+                      else "Nombre de capabilities déclarées par la société "
+                      "dans le directory ADS Group UK."),
             ),
             "presence_score": st.column_config.ProgressColumn(
                 "Score", min_value=0, max_value=100, format="%.0f",
-                help="Score 0-100 de probabilité de présence.",
+                help=("0-100 presence probability score." if en
+                      else "Score 0-100 de probabilité de présence."),
             ),
             "source_url": st.column_config.LinkColumn(
                 "🔗 Source", width="medium",
                 display_text=r"https?://(?:www\.)?([^/]+).*",
-                help="Lien direct vers la source publique (post LinkedIn, "
-                "communiqué, page événement, etc.) qui justifie ce signal.",
+                help=("Direct link to the public source (LinkedIn post, press release, event page, …) that justifies this signal." if en
+                      else "Lien direct vers la source publique (post LinkedIn, "
+                      "communiqué, page événement, etc.) qui justifie ce signal."),
             ),
         },
         hide_index=True,
@@ -7549,16 +7594,34 @@ _ATT_ROLE_CHIPS: dict[str, str] = {
 }
 
 
+_ATT_ROLE_CHIP_LABELS_EN: dict[str, str] = {
+    "👔 C-level": "👔 C-level",
+    "💼 Direction": "💼 Leadership",
+    "🛒 Achats": "🛒 Procurement",
+    "💰 Sales": "💰 Sales",
+    "🧪 R&D / Tech": "🧪 R&D / Tech",
+    "🇺🇳 Defense / Mil.": "🇺🇳 Defense / Mil.",
+}
+
+
 def _render_attendance_role_chips() -> Optional[str]:
     """Render quick-filter buttons on top of the filters. Returns the
-    label of the currently-active chip (or None)."""
+    label of the currently-active chip (or None).
+
+    Canonical FR labels are kept as the chip's stored value (so the
+    regex dispatch in ``_apply_role_chip_filter`` keeps working) ; the
+    button text switches to EN when ?lang=en is active.
+    """
+    from app.ui.i18n import is_en as _is_en
+    en = _is_en()
     cols = st.columns(len(_ATT_ROLE_CHIPS) + 1)
     active = st.session_state.get("att_role_chip")
     for i, label in enumerate(_ATT_ROLE_CHIPS):
         with cols[i]:
             is_on = active == label
+            display = _ATT_ROLE_CHIP_LABELS_EN.get(label, label) if en else label
             if st.button(
-                ("✓ " + label) if is_on else label,
+                ("✓ " + display) if is_on else display,
                 key=f"att_chip_{label}",
                 use_container_width=True,
                 type="primary" if is_on else "secondary",
@@ -7568,7 +7631,8 @@ def _render_attendance_role_chips() -> Optional[str]:
                 )
                 st.rerun()
     with cols[-1]:
-        if st.button("✕ Reset", key="att_chip_reset",
+        if st.button("✕ Reset" if en else "✕ Réinit.",
+                     key="att_chip_reset",
                      use_container_width=True,
                      disabled=active is None):
             st.session_state["att_role_chip"] = None
@@ -7594,12 +7658,16 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
     persons attached to it. ABM-friendly — quickly see "10 contacts at
     Thales" type summaries.
     """
+    from app.ui.i18n import is_en as _is_en
+    en = _is_en()
     if filtered.empty:
-        st.info("Aucun signal après filtres.")
+        st.info("No signal matches the current filters." if en
+                else "Aucun signal après filtres.")
         return
     df = filtered.copy()
+    unknown_label = "(unknown company)" if en else "(société inconnue)"
     df["__company_key"] = (
-        df["company_name"].fillna("(société inconnue)").astype(str)
+        df["company_name"].fillna(unknown_label).astype(str)
     )
     by_company = df.groupby("__company_key", sort=False)
     # Sort companies by contact count desc.
@@ -7615,19 +7683,20 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
     # filtered set, while still letting the user browse the whole tail
     # via pagination (no more "5270 hidden, refine to see").
     cap_col, page_col = st.columns([1.4, 4])
+    all_label = "All" if en else "Tout"
     with cap_col:
         page_size = st.selectbox(
-            "Sociétés / page",
-            [25, 50, 100, 200, "Tout"],
+            "Companies / page" if en else "Sociétés / page",
+            [25, 50, 100, 200, all_label],
             index=1,
             key="att_grouped_page_size",
             format_func=lambda v: (
-                f"Tout ({total_companies})" if v == "Tout" else str(v)
+                f"{all_label} ({total_companies})" if v == all_label else str(v)
             ),
             label_visibility="collapsed",
         )
 
-    if page_size == "Tout":
+    if page_size == all_label:
         size = total_companies or 1
     else:
         size = int(page_size)
@@ -7672,11 +7741,18 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
                     on_click=_next_page,
                 )
 
-    st.caption(
-        f"**{total_companies} sociétés** · **{len(df)} contacts** au total · "
-        f"affichage : sociétés {page * size + 1}–"
-        f"{min((page + 1) * size, total_companies)}"
-    )
+    if en:
+        st.caption(
+            f"**{total_companies} companies** · **{len(df)} contacts** in total · "
+            f"showing companies {page * size + 1}–"
+            f"{min((page + 1) * size, total_companies)}"
+        )
+    else:
+        st.caption(
+            f"**{total_companies} sociétés** · **{len(df)} contacts** au total · "
+            f"affichage : sociétés {page * size + 1}–"
+            f"{min((page + 1) * size, total_companies)}"
+        )
 
     page_slice = company_order[page * size : (page + 1) * size]
 
@@ -7691,16 +7767,21 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
             (m for m in group["matched_exhibitor"].dropna().tolist()),
             None,
         )
+        contact_word = "contact(s)" if en else "contact(s)"
         with st.expander(
-            f"🏢 {company} — {n} contact(s)"
+            f"🏢 {company} — {n} {contact_word}"
             + (f" · {country_str}" if country_str else "")
         ):
             if matched_ex and matched_ex != company:
+                match_label = (
+                    "Catalogue exhibitor match" if en
+                    else "Match exposant catalogue"
+                )
                 st.markdown(
                     f"<div style='background:#F0F7F2;padding:0.3rem 0.6rem;"
                     f"border-left:3px solid #1F7A4D;border-radius:4px;"
                     f"font-size:0.85rem;margin-bottom:0.4rem;'>"
-                    f"🛡 Match exposant catalogue : <strong>{matched_ex}"
+                    f"🛡 {match_label} : <strong>{matched_ex}"
                     f"</strong></div>",
                     unsafe_allow_html=True,
                 )
@@ -7712,16 +7793,16 @@ def _render_attendance_grouped(filtered: pd.DataFrame) -> None:
                 display, hide_index=True, use_container_width=True,
                 column_config={
                     "person_name": st.column_config.TextColumn(
-                        "Personne", width="medium",
+                        "Person" if en else "Personne", width="medium",
                     ),
                     "person_role": st.column_config.TextColumn(
-                        "Rôle", width="medium",
+                        "Role" if en else "Rôle", width="medium",
                     ),
                     "derived_email": st.column_config.TextColumn(
                         "✉ Email", width="medium",
                     ),
                     "derived_phone": st.column_config.TextColumn(
-                        "📞 Tel", width="small",
+                        "📞 Phone" if en else "📞 Tel", width="small",
                     ),
                     "derived_linkedin": st.column_config.LinkColumn(
                         "🔗 LinkedIn", width="small",
@@ -7781,17 +7862,32 @@ def _build_attendance_prospection_df(filtered: pd.DataFrame, lang: str) -> pd.Da
 
 
 def render_attendance_signals_tab() -> None:
-    st.markdown(
-        '<div class="section-title">📡 Attendance Signals — '
-        'qui sera potentiellement présent</div>',
-        unsafe_allow_html=True,
-    )
-    st.caption(
-        "Liste enrichie des **personnes** et **sociétés** détectées via "
-        "OSINT public (sites corporate, communiqués, posts indexés). "
-        "Chaque ligne porte le **lien vers la source** qui justifie sa "
-        "présence dans la liste."
-    )
+    from app.ui.i18n import is_en as _is_en_head
+    en_head = _is_en_head()
+    if en_head:
+        st.markdown(
+            '<div class="section-title">📡 Attendance Signals — '
+            'who will potentially attend</div>',
+            unsafe_allow_html=True,
+        )
+        st.caption(
+            "Enriched list of **people** and **companies** detected via "
+            "public OSINT (corporate sites, press releases, indexed posts). "
+            "Each row carries the **source link** that justifies its "
+            "presence in the list."
+        )
+    else:
+        st.markdown(
+            '<div class="section-title">📡 Attendance Signals — '
+            'qui sera potentiellement présent</div>',
+            unsafe_allow_html=True,
+        )
+        st.caption(
+            "Liste enrichie des **personnes** et **sociétés** détectées via "
+            "OSINT public (sites corporate, communiqués, posts indexés). "
+            "Chaque ligne porte le **lien vers la source** qui justifie sa "
+            "présence dans la liste."
+        )
 
     # Quick-import expander — bulk-paste LinkedIn / press URLs to enrich
     # the list on the fly. Collapsed by default so the table stays
